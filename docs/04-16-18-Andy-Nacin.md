@@ -57,7 +57,7 @@
 
 **A.**
 - Code implementation was not ideal (should have consulted more engineers in usability testing)
-- Simple HTML best practices not used, e.g. bullet lists do not use <ul><li> tags
+- Simple HTML best practices not used, e.g. bullet lists do not use `<ul><li>` tags
 - We should talk to Victor Garcia about this
 <br>
 
