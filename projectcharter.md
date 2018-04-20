@@ -1,20 +1,20 @@
 # forms.gov Project Charter
 The federal government maintains around 23,000 forms, which are used to carry out its essential functions and provide critical services and benefits. In the case of paper-only forms, workers spend innumerable hours recreating and quality checking handwritten entries. Where digital forms exist, they are often simply fillable PDFs that still require manual processing because the data isn't collected in a format that can be automatically processed. The need to manually process both of these types of forms leads to more than 11.4 billion hours of paperwork annually.
 
-As we have seen in multiple USDS engagements, web-based forms created through user-centered design methods reduce the respondent burden while producing well-structured data to the agencies for ingestion. Assitionally, by using a common framework for building these forms, teams have seen a significant reduction in the amount of time required to build a form -- going from 5 months down to 5 days, in one example from the bets.gov team. This project creates a tool for building complex web-based forms significantly faster than existing methods, using best practices in user experience and data collection, validation, and transmission.
+As we have seen in multiple USDS engagements, web-based forms created through user-centered design methods reduce the respondent burden while producing well-structured data to the agencies for ingestion. Assitionally, by using a common framework for building these forms, teams have seen a significant reduction in the amount of time required to build a form -- going from 5 months down to 5 days, in one example from the vets.gov team. This project creates a tool for building complex web-based forms significantly faster than existing methods, using best practices in user experience and data collection, validation, and transmission.
   
   
 ## Stakeholders
-#### Who needs to be informed about progress in major decisions?
-* Sponsor - Suzette King (OFCIO)
-* USDS Leadership
-* VA Digital Service team (vets.gov)
-* DHS Digital Service team
+#### Who needs to be informed about progress and/or major technical decisions?
+* Sponsor: Suzette Kent (OFCIO)
+* USDS HQ: Matt Cutts, Eddie Hartwig
+* VA Digital Service team: Vets.gov product lead (currently empty), Vets.gov technical lead (currently empty)
+* DHS Digital Service team: Ben Warfield, Neil Sharma
 
 ## Project communication expectations
 **What is the best method for staying in touch?**
-* Hipchat - Paperless.gov channel for daily communication amongst team members
-* GitHub - us-forms-system repo for tracking work
+* Hipchat: Paperless.gov channel used for daily communication amongst team members
+* GitHub: us-forms-system repository is the  for tracking work
 * Email for communication with people outside of the immediate project team
 
 ## What should status reports include?
