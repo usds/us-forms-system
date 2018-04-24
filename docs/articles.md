@@ -14,4 +14,6 @@ This article provides a compelling argument for why software should limit the am
 
 >...ideally preferences are optional and the default behavior is reasonable without intervention. Hard coding what can be hard coded has a lot of value.
 
+>I find that users ask for a preference by default. If a user is using my app FooBar and they come to something they think is stupid - say the app deletes all their email - it’s extremely common that they’ll file a bug saying “there should be an option to disable eating all my email” instead of one saying “your craptastic junk-heap of an app ate my email.” 
+
 *Source: Andy Nacin*
