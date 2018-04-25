@@ -31,65 +31,64 @@ This project uses internal and external status reports, as described below.
   * **TO-DO**: *determine preferred format, such as via email, in regular meetings, etc.*
 
 ## Project Team
-* [Julie Meloni](https://tools.usds.gov/team/julie-meloni) | Project Lead/Administrative POC
-* [Anne Kainic](https://tools.usds.gov/team/anne-kainic) | Engineering Lead
-* [Ellen Butters](https://tools.usds.gov/team/ellen-butters) | UX Research & Design
-* [Ju-Lie McReynolds](https://tools.usds.gov/team/ju-lie-mcreynolds) | Product Manager
+* [Julie Meloni](https://tools.usds.gov/team/julie-meloni),  Project Lead/Administrative POC
+* [Anne Kainic](https://tools.usds.gov/team/anne-kainic),  Engineering Lead
+* [Ellen Butters](https://tools.usds.gov/team/ellen-butters), UX Research & Design
+* [Ju-Lie McReynolds](https://tools.usds.gov/team/ju-lie-mcreynolds), Product Manager
 
 ## Project Goal
 The end result of this project will be a practical technical foundation for optimizing the process of building  useful, modern, and frictionless web-based forms.  This goal will be achieved through the creation of an open-source library for building web-based forms using [React](https://reactjs.org/), also incorporating the [U.S. Web Design System](https://designsystem.digital.gov/) and including guidance and best practices for implementation. 
-  * **TO-DO**: *finalize standalone site or in-repo wiki as the place to go for things*
+  * **TO-DO**: *finalize standalone site or in-repo wiki as the place to go for things...leaning heavily toward in-repo wiki*
 
 ## Scope
-#### What is in scope?
-1. The aggregation and public sharing of lessons-learned from multiple years of USDS projects involving the transformation of forms from paper to web-based.
-2. The creation and public open-source release of a forms library based on the DSVA extensions to RSJF. This library could be used government-wide, and will incorporate the U.S. Web Design Standards along with guidance for data storage and integration best practices.
-3. The use of this library in production by at least one agency (besides VA).
-4. The creation of exemplars for conversion of high-value paper-based forms to web-based forms using this library.
+The following are **in scope** for this project:
+* The aggregation and public sharing of lessons-learned from multiple years of USDS projects involving the transformation of forms from paper to web-based.
+* The creation and public open-source release of an open-source library for building web-based forms using [React](https://reactjs.org/), based on the Digital Service @ VA team's extensions to [React JSON Schema Form](https://github.com/mozilla-services/react-jsonschema-form). This library will also incorporate the U.S. Web Design System.
+* The creation of exemplars for conversion of high-value paper-based forms to web-based forms using this library, including:
+  * one simple form (less than 3 sections of information, no conditionals)
+  * one more compliated form (more than 3 sections of information and/or including conditionals)
+  * one complex form (more than 3 sections of information, contains conditionals, triggers the use of another form)
+* "Submission" of form data produces JSON output
+  * **TO-DO**: *determine if additional outputs such as XML and CSV are simple enough to throw in or not*
+* Documentation for use by a technical audience, as well as guidance for data storage and integration best practices.
+* The use of this library in production by at least one agency besides the Department of Veterans Affairs.
 
-#### What is not in scope?
-* Support for additional form builders or rendering non-React components
-* Integration with other government digital services (e.g. login.gov)
-* Ability to save a form in progress
-* Prefilling a form with existing information
-* Non-linear form progress
+The following are **out of scope** for this project:
+* Support for GUI form builders, or any method of defining form elements beyond the JSON files currently used by the library.
+* Rendering web-based forms using non-React components (e.g. Angular components, Drupal templates)
+* Integration with any other digital services, government-based or otherwise (e.g. login.gov for authentication)
+* The ability for a user to save a form in progress and return to it at a later time.
+* The ability for a user to prefill a form with existing information in their browser profile
+* Support for non-linear form progress.
 
 ## Milestones
-#### …including deadlines
-* Worthy thing 1 - with date
-* Worthy thing 2 - with date
+* **TO-DO**: *some milestones*
 
 ## Dependencies
-#### Are there other projects/people upon whom the success of this project relies?
-* An agency team other than VA to implement a form with the library
-* Others?
+Successful completion of this project depends on:
+* Timely awarding of contract and onboarding of supporting resources.
+* Agreement by an agency other than VA to implement a form using this library.
 
-## Risks to completion
-#### What are the potential risk factors that could keep us from meeting the project goal(s)?
-* Not getting additional engineering resources
-* Inability to find an agency team with a compatible project timeline/need for implementing a form with the library  
+Additionally, we will continue to rely on:
+* OMB and USDS Executive support
+* USDS resource committments
+  * Both Anne Kainic and Ju-Lie McReynolds will remain 1x allocated for phase 1 of this project
+  * Ellen Butters will remain available at least 0.5x for phase 1 of this project
+  * Julie Meloni will remain available at least 0.2x for phase 1 of this project
 
-#### What do we assume we can rely on to achieve the project goal(s)?
-* Executive support (?)
-* Team time commitments (?)
-  * Both Anne and Ju-Lie will remain 1x allocated for the full period of this project
-  * Ellen will remain available at .5x for this project
-  * Julie will continue to have continue to have .2x availability to contribute
-* Contracted resources will be available to support the engineering efforts
-
-## Exit criteria
+## Exit Criteria
 We have successfully met our project goal (see project goals and exit plan).  
 **or**  
 We have partially met our project goal, but some milestones are not met.  
 **or**  
-We cannot meet our project goal due to external issues
+We cannot meet our project goal due to external issues.
 
 ## Exit plan
 *If the project goal is met*  
-The team will roll off the project once a working forms library with guidance, best practices, and exemplars is publicly released and in production use by at least one agency other than VA. Additionally, a plan for an additional scope of work for a follow-on project will have been created, which could include a plan for the long-term maintenance of the library
+The team will roll off the project once a working forms library with guidance, best practices, and exemplars is publicly released and in production use by at least one agency other than VA. Additionally, a plan for an additional scope of work for a follow-on project will have been created, which will. a plan for the long-term maintenance of the library.
 
 *If the project goal is partially met*  
 If a working forms library is in place with supporting documentation, but examplars are not complete or an agency team has not been able to complete work to implement a form with the library, parts of the team may negotiate staying on to support that work.
 
 *If the project goal cannot be met*  
-If, due to internal or external factors, the project goal cannot be met, the team will roll off the project and the team will provide a retrospective to the Sponsor, Suzette King, and any other stakeholders identified by USDS leadership. The retrospective will include an explanation of barriers to success, summaries of any work completed and give access to any work in-progress. It will also include recommendations for moving forward, if possible.
+If, due to internal or external factors, the project goal cannot be met, the team will roll off the project and the team will provide a post-morten report to the Sponsor, Suzette Kent, and any other stakeholders identified by USDS leadership. The post-mortem report will include an explanation of barriers to success and summaries of any work completed, and will provide access to any work in-progress. The post-mortem report will also include recommendations for moving forward, if possible.
