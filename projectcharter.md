@@ -9,17 +9,16 @@ The following should be informed about progress and/or major technical decisions
 
 * Sponsor: Suzette Kent (OFCIO)
 * OMB Contacts: TBD
-  * **TO-DO**: *determine full range of contacts in handover from Bryan Swann*
+  * **TO-DO**: *determine full range of contacts in handover from Bryan Swann [issue #17](https://github.com/usds/us-forms-system/issues/17)*
 * USDS HQ: Matt Cutts, Eddie Hartwig
 * VA Digital Service team: Vets.gov product lead (TBD), Vets.gov technical lead (TBD)
 * DHS Digital Service team: Ben Warfield, Neil Sharma
 
 ## Project Communication Expectations
 The team uses the following methods for communication:
-* HipChat: Paperless.gov channel used for daily communication amongst team members
-  * **TO-DO**: *rename channel to us-forms-system*
+* HipChat: "Forms System" channel used for daily communication amongst team members
 * GitHub: Code, documentation, issues, and Kanban project board is in the usds/us-forms-system repository.
-  * **TO-DO**: *define community, contribution, licensing within GitHub*
+  * **TO-DO**: *define community, contribution, licensing within GitHub [issue #18](https://github.com/usds/us-forms-system/issues/18)*
 * Email for communication with people outside of the project team
 * Bi-Weekly internal meetings (in-person/phone) for project team, currently Mon and Thurs at 9:30am EST
 * As-needed/requested in-person/phone meetings with other stakeholders
@@ -28,17 +27,17 @@ The team uses the following methods for communication:
 This project uses internal and external status reports, as described below.
 * **Internal** status reports are used within USDS, and are typically in "what have you done/what are you doing/what are your blockers" format during bi-weekly meetings.  At this time, no other regularly scheduled internal status reports have been requested by USDS Administration.
 * **External** status reports are used to report to stakeholders within OMB such as OFCIO.
-  * **TO-DO**: *determine preferred format, such as via email, in regular meetings, etc.*
+  * **TO-DO**: *determine preferred format, such as via email, in regular meetings, etc. [issue #19](https://github.com/usds/us-forms-system/issues/19)*
 
 ## Project Team
 * [Julie Meloni](https://tools.usds.gov/team/julie-meloni),  Project Lead/Administrative POC
 * [Anne Kainic](https://tools.usds.gov/team/anne-kainic),  Engineering Lead
 * [Ellen Butters](https://tools.usds.gov/team/ellen-butters), UX Research & Design
 * [Ju-Lie McReynolds](https://tools.usds.gov/team/ju-lie-mcreynolds), Product Manager
+* [Traci Walker](https://tools.usds.gov/team/traci-walker), Procurement/CO
 
 ## Project Goal
 The end result of this project will be a practical technical foundation for optimizing the process of building  useful, modern, and frictionless web-based forms.  This goal will be achieved through the creation of an open-source library for building web-based forms using [React](https://reactjs.org/), also incorporating the [U.S. Web Design System](https://designsystem.digital.gov/) and including guidance and best practices for implementation. 
-  * **TO-DO**: *finalize standalone site or in-repo wiki as the place to go for things...leaning heavily toward in-repo wiki*
 
 ## Scope
 The following are **in scope** for this project:
@@ -49,7 +48,6 @@ The following are **in scope** for this project:
   * one more compliated form (more than 3 sections of information and/or including conditionals)
   * one complex form (more than 3 sections of information, contains conditionals, triggers the use of another form)
 * "Submission" of form data produces JSON output
-  * **TO-DO**: *determine if additional outputs such as XML and CSV are simple enough to throw in or not*
 * Documentation for use by a technical audience, as well as guidance for data storage and integration best practices.
 * The use of this library in production by at least one agency besides the Department of Veterans Affairs.
 
@@ -62,7 +60,7 @@ The following are **out of scope** for this project:
 * Support for non-linear form progress.
 
 ## Milestones
-* **TO-DO**: *some milestones*
+* **TO-DO**: *determine high-level milestones [issue #22](https://github.com/usds/us-forms-system/issues/22)*
 
 ## Dependencies
 Successful completion of this project depends on:
