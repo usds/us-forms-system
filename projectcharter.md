@@ -1,7 +1,7 @@
 # U.S. Forms System (Phase I) Project Charter
 The federal government maintains around 23,000 forms, which are used to carry out its essential functions and provide critical services and benefits. In the case of paper-only forms, workers spend innumerable hours recreating and quality checking handwritten entries. Where digital forms exist, they are often simply fillable PDFs that still require manual processing because the data isn't collected in a format that can be automatically processed. The need to manually process both of these types of forms leads to more than 11.4 billion hours of paperwork annually.
 
-As we have seen in multiple USDS engagements, web-based forms created through user-centered design methods reduce the respondent burden while producing well-structured data to the agencies for ingestion. Assitionally, by using a common framework for building these forms, teams have seen a significant reduction in the amount of time required to build a form -- going from 5 months down to 5 days, in one example from the Vets.gov team. This project creates a tool for building complex web-based forms significantly faster than existing methods, using best practices in user experience and data collection, validation, and transmission.
+As we have seen in multiple USDS engagements, web-based forms created through user-centered design methods reduce the respondent burden while producing well-structured data to the agencies for ingestion. Additionally, by using a common framework for building these forms, teams have seen a significant reduction in the amount of time required to build a form -- going from 5 months down to 5 days, in one example from the Vets.gov team. This project creates a tool for building complex web-based forms significantly faster than existing methods, using best practices in user experience and data collection, validation, and transmission.
   
   
 ## Stakeholders
@@ -45,7 +45,7 @@ The following are **in scope** for this project:
 * The creation and public open-source release of an open-source library for building web-based forms using [React](https://reactjs.org/), based on the Digital Service @ VA team's extensions to [React JSON Schema Form](https://github.com/mozilla-services/react-jsonschema-form). This library will also incorporate the U.S. Web Design System.
 * The creation of exemplars for conversion of high-value paper-based forms to web-based forms using this library, including:
   * one simple form (less than 3 sections of information, no conditionals)
-  * one more compliated form (more than 3 sections of information and/or including conditionals)
+  * one more complicated form (more than 3 sections of information and/or including conditionals)
   * one complex form (more than 3 sections of information, contains conditionals, triggers the use of another form)
 * "Submission" of form data produces JSON output
 * Documentation for use by a technical audience, as well as guidance for data storage and integration best practices.
@@ -69,7 +69,7 @@ Successful completion of this project depends on:
 
 Additionally, we will continue to rely on:
 * OMB and USDS Executive support
-* USDS resource committments
+* USDS resource commitments
   * Both Anne Kainic and Ju-Lie McReynolds will remain 1x allocated for phase 1 of this project
   * Ellen Butters will remain available at least 0.5x for phase 1 of this project
   * Julie Meloni will remain available at least 0.2x for phase 1 of this project
@@ -83,10 +83,10 @@ We cannot meet our project goal due to external issues.
 
 ## Exit plan
 *If the project goal is met*  
-The team will roll off the project once a working forms library with guidance, best practices, and exemplars is publicly released and in production use by at least one agency other than VA. Additionally, a plan for an additional scope of work for a follow-on project will have been created, which will. a plan for the long-term maintenance of the library.
+The team will roll off the project once a working forms library with guidance, best practices, and exemplars is publicly released and in production use by at least one agency other than VA. Additionally, a plan for an additional scope of work for a follow-on project will have been created, which will include a plan for the long-term maintenance of the library.
 
 *If the project goal is partially met*  
 If a working forms library is in place with supporting documentation, but examplars are not complete or an agency team has not been able to complete work to implement a form with the library, parts of the team may negotiate staying on to support that work.
 
 *If the project goal cannot be met*  
-If, due to internal or external factors, the project goal cannot be met, the team will roll off the project and the team will provide a post-morten report to the Sponsor, Suzette Kent, and any other stakeholders identified by USDS leadership. The post-mortem report will include an explanation of barriers to success and summaries of any work completed, and will provide access to any work in-progress. The post-mortem report will also include recommendations for moving forward, if possible.
+If, due to internal or external factors, the project goal cannot be met, the team will roll off the project and will provide a post-mortem report to the Sponsor, Suzette Kent, and any other stakeholders identified by USDS leadership. The post-mortem report will include an explanation of barriers to success and summaries of any work completed, and will provide access to any work in-progress. The post-mortem report will also include recommendations for moving forward, if possible.
