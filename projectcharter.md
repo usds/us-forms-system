@@ -9,7 +9,7 @@ The following should be informed about progress and/or major technical decisions
 
 * Sponsor: Suzette Kent (OFCIO)
 * OMB Contacts: TBD
-  * **TO-DO**: *determine full range of contacts in handover from Bryan Swann [issue #17](https://github.com/usds/us-forms-system/issues/17)*
+  * **TO-DO**: *determine full range of contacts in handover from Bryan Swann ([issue #17](https://github.com/usds/us-forms-system/issues/17))*
 * USDS HQ: Matt Cutts, Eddie Hartwig
 * VA Digital Service team: Vets.gov product lead (TBD), Vets.gov technical lead (TBD)
 * DHS Digital Service team: Ben Warfield, Neil Sharma
@@ -18,7 +18,7 @@ The following should be informed about progress and/or major technical decisions
 The team uses the following methods for communication:
 * HipChat: "Forms System" channel used for daily communication amongst team members
 * GitHub: Code, documentation, issues, and Kanban project board is in the usds/us-forms-system repository.
-  * **TO-DO**: *define community, contribution, licensing within GitHub [issue #18](https://github.com/usds/us-forms-system/issues/18)*
+  * **TO-DO**: *define community, contribution, licensing within GitHub ([issue #18](https://github.com/usds/us-forms-system/issues/18))*
 * Email for communication with people outside of the project team
 * Bi-Weekly internal meetings (in-person/phone) for project team, currently Mon and Thurs at 9:30am EST
 * As-needed/requested in-person/phone meetings with other stakeholders
@@ -27,7 +27,7 @@ The team uses the following methods for communication:
 This project uses internal and external status reports, as described below.
 * **Internal** status reports are used within USDS, and are typically in "what have you done/what are you doing/what are your blockers" format during bi-weekly meetings.  At this time, no other regularly scheduled internal status reports have been requested by USDS Administration.
 * **External** status reports are used to report to stakeholders within OMB such as OFCIO.
-  * **TO-DO**: *determine preferred format, such as via email, in regular meetings, etc. [issue #19](https://github.com/usds/us-forms-system/issues/19)*
+  * **TO-DO**: *determine preferred format, such as via email, in regular meetings, etc. ([issue #19](https://github.com/usds/us-forms-system/issues/19))*
 
 ## Project Team
 * [Julie Meloni](https://tools.usds.gov/team/julie-meloni),  Project Lead/Administrative POC
@@ -60,7 +60,7 @@ The following are **out of scope** for this project:
 * Support for non-linear form progress.
 
 ## Milestones
-* **TO-DO**: *determine high-level milestones [issue #22](https://github.com/usds/us-forms-system/issues/22)*
+* **TO-DO**: *determine high-level milestones ([issue #22](https://github.com/usds/us-forms-system/issues/22))*
 
 ## Dependencies
 Successful completion of this project depends on:
