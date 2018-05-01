@@ -1,4 +1,4 @@
-# Developer Interview Template
+# Developer Interview
 
 ### [Name of Interviewee], [Date]
 
