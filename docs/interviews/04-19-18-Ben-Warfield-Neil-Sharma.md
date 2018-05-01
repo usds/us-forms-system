@@ -106,7 +106,7 @@
 
 - **Ben** 
   - &quot;Spring Boot&quot; small java applications tool;
-  - A lot depends on context. I am currently operating in a Java world. The classic easy to use things are the Apache commons tools. These are things that probably should be part of the language. &quot;Yoda Time&quot; is an example. It integrates with your existing framework. They are careful to rename if it changes significantly so people can use both versions. But this is good if you already have an application.
+  - A lot depends on context. I am currently operating in a Java world. The classic easy to use things are the Apache commons tools. These are things that probably should be part of the language. &quot;Joda-Time&quot; is an example. It integrates with your existing framework. They are careful to rename if it changes significantly so people can use both versions. But this is good if you already have an application.
 - **Neil:**
   - Lightweight Python web based framework: &quot;Flask.&quot; Easier than Django.
   - Python requests library called &quot;Requests: HTTP for Humans.&quot;
