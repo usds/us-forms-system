@@ -37,6 +37,8 @@
 - It was very successful. Half of my time was figuring out what React JSON Schema Form was. The rest of it was ridiculously easy.
 - This was without any documentation except the Readme.md on the Vets.gov Github repo.
 
+<br>
+
 **Q. What was the learning curve for this tool like for you? What did or didn&#39;t seem obvious to you? What was hard to understand or use?**
 
 **A. (All Neil)**
@@ -76,7 +78,7 @@
   - I&#39;ll look at the example code and see if it&#39;s well written and makes sense, then run the tests.
   - I don&#39;t want to have to test 6 frameworks. I want to filter out the bad ones before testing
 
-
+<br>
 
 **Q.  What are things you look for in determining whether or not to use a particular open source library?** (Number of contributors or installs? Most recent activity? Responsiveness to issues? Good documentation? Easy to get installed and running? Compatibility with existing stack? Others?)
 
@@ -96,7 +98,7 @@
     - NPM graph trend upwards
   - After getting past vanity metrics, documentation example code and community is bigger in terms of making the decision
 
-
+<br>
 
 **Q. As a user of Open Source tools, what are examples of those you found easy or pleasurable to use?**
 
