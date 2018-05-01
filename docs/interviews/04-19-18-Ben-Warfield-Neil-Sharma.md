@@ -24,7 +24,7 @@
 
 ---------------------
 
-## Using the Existing Forms Tool**
+## Using the Existing Forms Tool
 
 <br>
 
