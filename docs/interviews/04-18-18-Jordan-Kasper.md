@@ -26,7 +26,7 @@
 - Recently we kicked off AT-AT (an account tracking tool, which is paired with the JEDI Cloud project)
   - This forces contractors to put the open source license on their code before handing off to DoD, though DoD retains rights
 - I also help other groups in the DoD create OpenSource projects. We're getting memos written, section 875 in the NDAA 2018 document (this covers all government agencies). I helped write this. It's a policy goal of making 20% of all NEW custom developed source code open source in ALL agencies.
-- Sharon Woods, DDS's counsel, gave a talk about this: "The Battle to Free the Code at the Department of Defence." https://media.libreplanet.org/u/libreplanet/m/the-battle-to-free-the-code-at-the-department-of-defense/
+- Sharon Woods, DDS's counsel, gave a talk about this: "The Battle to Free the Code at the Department of Defense." https://media.libreplanet.org/u/libreplanet/m/the-battle-to-free-the-code-at-the-department-of-defense/
 
 <br>
 
@@ -34,13 +34,11 @@
 
 **A.**
 
-- Mindset is the biggest thing. We need to change government&#39;s mindset that Open Source is insecure and make them understand that it is MORE secure. There are specific examples: the OPM breach. Open Source prevents vulnerabilities from going undiscovered and then patches them extremely quickly.
+- Mindset is the biggest thing. We need to change government's mindset that Open Source is insecure and make them understand that it is MORE secure. There are specific examples: the OPM breach. Open Source prevents vulnerabilities from going undiscovered and then patches them extremely quickly.
 - ANET is a positive example of how Open Source catches all the vulnerabilities.
 - Another mindset shift need is to convince Government that since it's not allowed to profit off the code, we should just make it available to everyone to use.
 - Another challenge is the lack of tech knowledge in agencies – they aren't able to tell contractors what to make open source.
 - We should build relationships with the agencies that HAVE done USDS open source projects and then get the skeptical ones to talk to them.
-
-<br>
 
 **Q. How did you promote/market or optimize work to maximize adoption of the thing?**
 
@@ -65,9 +63,7 @@
 - We should have VERY clear contribution instructions/guidelines to set expectations.
 - When someone submits a PR, they need immediate feedback (triage)
 
-<br>
-
-**Q. What&#39;s the best way to evaluate whether a contribution will be useful?**
+**Q. What's the best way to evaluate whether a contribution will be useful?**
 
 **A.**
 
