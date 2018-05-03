@@ -1,5 +1,5 @@
 ---
-name: Question issue template
+name: Questions
 about: Ask questions about the library
 
 ---
