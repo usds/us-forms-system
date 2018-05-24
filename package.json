@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "node script/build.js",
-    "test": "npm run test:unit && npm run test:e2e",
+    "test": "BABEL_ENV=test mocha --compilers js:babel-core/register ./test/**/*.spec.jsx",
     "webpack": "webpack"
   },
   "repository": {
@@ -35,11 +35,17 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-2": "^6.13.0",
     "babel-register": "^6.18.0",
+    "chai": "^4.1.1",
+    "chai-as-promised": "^7.1.1",
     "classnames": "^2.2.5",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.2",
     "isomorphic-fetch": "http://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz",
+    "jsdom": "^11.1.0",
     "jsonschema": "^1.1.1",
     "lodash": "^4.5.1",
     "lodash-deep": "^2.0.0",
+    "mocha": "^3.5.0",
     "moment": "^2.15.1",
     "null-loader": "^0.1.1",
     "raven-js": "^3.12.1",
@@ -48,13 +54,18 @@
     "react-redux": "4.4.8",
     "react-router": "3",
     "react-scroll": "1.5",
+    "react-test-renderer": "^15.5.4",
     "react-transition-group": "^1.1.2",
     "recompose": "^0.21.2",
     "redux": "^3.5.2",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "sinon": "^3.2.1",
+    "skin-deep": "^1.0.0"
   },
   "dependencies": {
     "babel-plugin-dynamic-import-node": "^1.2.0",
+    "blob-polyfill": "^2.0.20171115",
+    "choma": "^1.1.0",
     "downshift": "^1.22.5",
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
     "reselect": "^2.5.4"
