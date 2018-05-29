@@ -1,7 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
 import SkinDeep from 'skin-deep';
-import sinon from 'sinon';
 
 import SchemaForm from '../../../src/js/forms-system/components/SchemaForm';
 
