@@ -1,16 +1,17 @@
+/* eslint prefer-template: "off" */
 const fs = require('fs');
-const babel = require("babel-core");
+const babel = require('babel-core');
 
-const entrySourcePath = 'src/js/forms-system';
-const entryDestinationPath = 'lib';
+const entrySourcePath = 'src/js';
+const entryDestinationPath = 'lib/js';
 
 function createTranspiledFiles(path) {
-  fs.readdir(path, (err, files) => {
+  fs.readdir(path, (error, files) => {
     files.forEach((file) => {
       const originalPath = path + '/' + file;
       const croppedPath = path.substring(19) + '/' + file;
-      const destinationPath = 'lib' + croppedPath;
-      
+      const destinationPath = entryDestinationPath + croppedPath;
+
       // If the file is actually a folder
       if (file.indexOf('.') === -1) {
         // Create folder in lib if it does not already exist
@@ -20,7 +21,7 @@ function createTranspiledFiles(path) {
 
         // Reset path to be the contents of the folder
         const newPath = path + '/' + file;
-        
+
         // Recursively call function to go through files within subdirectory
         createTranspiledFiles(newPath);
       } else {

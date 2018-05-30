@@ -73,12 +73,15 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "sinon": "^3.2.1",
+    "sass-lint": "^1.10.2",
     "skin-deep": "^1.0.0"
   },
   "dependencies": {
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "downshift": "^1.22.5",
+    "@department-of-veterans-affairs/formation": "^0.8.0",
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
+    "fast-levenshtein": "^2.0.6",
     "reselect": "^2.5.4"
   }
 }
