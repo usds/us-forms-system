@@ -2,14 +2,14 @@
 const fs = require('fs');
 const babel = require('babel-core');
 
-const entrySourcePath = 'src/js';
-const entryDestinationPath = 'lib/js';
+const entrySourcePath = 'src/js/';
+const entryDestinationPath = 'lib/js/';
 
 function createTranspiledFiles(path) {
   fs.readdir(path, (error, files) => {
     files.forEach((file) => {
-      const originalPath = path + '/' + file;
-      const croppedPath = path.substring(19) + '/' + file;
+      const originalPath = path + file;
+      const croppedPath = path.substring(7) + file;
       const destinationPath = entryDestinationPath + croppedPath;
 
       // If the file is actually a folder
@@ -20,11 +20,11 @@ function createTranspiledFiles(path) {
         }
 
         // Reset path to be the contents of the folder
-        const newPath = path + '/' + file;
+        const newPath = originalPath + '/';
 
         // Recursively call function to go through files within subdirectory
         createTranspiledFiles(newPath);
-      } else {
+      } else if (file.indexOf('.') !== 0) {
         // Run file through babel and create new file in lib under parallel path
         babel.transformFile(originalPath, (err, result) => {
           const newFileName = `${destinationPath.substring(0, destinationPath.indexOf('.'))}.js`;
