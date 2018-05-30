@@ -12,7 +12,7 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "lint:sass": "sass-lint -c test/config/sass-lint.yaml --verbose",
-    "test": "BABEL_ENV=test mocha --compilers js:babel-core/register ./test/**/*.spec.jsx",
+    "test": "BABEL_ENV=test mocha --require test/config/unit-test-setup.js --require test/config/enzyme-setup.jsx --compilers js:babel-core/register ./test/**/*.spec.jsx",
     "webpack": "webpack"
   },
   "repository": {
@@ -82,6 +82,7 @@
     "@department-of-veterans-affairs/formation": "^0.8.0",
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
     "fast-levenshtein": "^2.0.6",
-    "reselect": "^2.5.4"
+    "reselect": "^2.5.4",
+    "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.git#86263a396bfe2b13153797bac78c424a913b450d"
   }
 }
