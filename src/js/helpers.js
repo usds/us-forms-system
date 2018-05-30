@@ -17,11 +17,11 @@ function isActivePage(page, data) {
   return page.depends === undefined || _.matches(page.depends)(data);
 }
 
-function getActivePages(pages, data) {
+export function getActivePages(pages, data) {
   return pages.filter(page => isActivePage(page, data));
 }
 
-function getInactivePages(pages, data) {
+export function getInactivePages(pages, data) {
   return pages.filter(page => !isActivePage(page, data));
 }
 
