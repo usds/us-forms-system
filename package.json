@@ -47,7 +47,6 @@
     "enzyme-adapter-react-15": "^1.0.2",
     "eslint": "^4.4.1",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "5.1",
     "eslint-plugin-no-unsafe-innerhtml": "^1.0.14",
     "eslint-plugin-react": "^7.2.1",
@@ -81,6 +80,7 @@
     "downshift": "^1.22.5",
     "@department-of-veterans-affairs/formation": "^0.8.0",
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
+    "eslint-plugin-import": "^2.7.0",
     "fast-levenshtein": "^2.0.6",
     "reselect": "^2.5.4",
     "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.git#86263a396bfe2b13153797bac78c424a913b450d"

@@ -5,6 +5,7 @@ import Scroll from 'react-scroll';
 import FormNav from '../components/FormNav';
 import FormTitle from '../components/FormTitle';
 import { isInProgress } from '../helpers';
+import { setGlobalScroll } from '../utilities/ui';
 
 const Element = Scroll.Element;
 
@@ -13,6 +14,8 @@ const Element = Scroll.Element;
  */
 class FormApp extends React.Component {
   componentWillMount() {
+    setGlobalScroll();
+
     if (window.History) {
       window.History.scrollRestoration = 'manual';
     }

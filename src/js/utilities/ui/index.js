@@ -14,9 +14,19 @@ export function focusElement(selectorOrElement, options) {
   }
 }
 
+export function setGlobalScroll() {
+  window.Forms = window.Forms || {
+    scroll: {
+      duration: 500,
+      delay: 0,
+      smooth: true
+    }
+  };
+}
+
 // Allows smooth scrolling to be overridden by our E2E tests
 export function getScrollOptions(additionalOptions) {
-  const globals = window.VetsGov || {};
+  const globals = window.Forms || {};
   const defaults = {
     duration: 500,
     delay: 0,
