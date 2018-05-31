@@ -70,8 +70,8 @@ describe('Schemaform review: <SubmitButtons>', () => {
     const submission = {
       status: 'error'
     };
-    const buildtype = __BUILDTYPE__;
-    __BUILDTYPE__ = 'production';
+    const buildtype = process.env.NODE_ENV;
+    process.env.NODE_ENV = 'production';
 
     const tree = SkinDeep.shallowRender(
       <SubmitButtons
@@ -82,7 +82,7 @@ describe('Schemaform review: <SubmitButtons>', () => {
     expect(tree.everySubTree('a').length).to.equal(1);
 
     // Reset buildtype
-    __BUILDTYPE__ = buildtype;
+    process.env.NODE_ENV = buildtype;
   });
   it('should render error prop', () => {
     const submission = {
