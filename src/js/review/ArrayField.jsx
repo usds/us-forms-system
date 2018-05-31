@@ -65,7 +65,7 @@ class ArrayField extends React.Component {
     setTimeout(() => {
       // Hacky; won’t work if the array field is used in two pages and one isn’t
       //  a BasicArrayField nor if the array field is used in three pages.
-      scroller.scrollTo(`topOfTable_${this.props.path[this.props.path.length - 1]}${this.isLocked() ? '_locked' : ''}`, window.VetsGov.scroll || {
+      scroller.scrollTo(`topOfTable_${this.props.path[this.props.path.length - 1]}${this.isLocked() ? '_locked' : ''}`, window.Forms.scroll || {
         duration: 500,
         delay: 0,
         smooth: true,
@@ -76,7 +76,7 @@ class ArrayField extends React.Component {
 
   scrollToRow(id) {
     setTimeout(() => {
-      scroller.scrollTo(`table_${id}`, window.VetsGov.scroll || {
+      scroller.scrollTo(`table_${id}`, window.Forms.scroll || {
         duration: 500,
         delay: 0,
         smooth: true,

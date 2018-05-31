@@ -48,7 +48,7 @@ class ReviewChapters extends React.Component {
   }
 
   scrollToChapter = (chapterKey) => {
-    scroller.scrollTo(`chapter${chapterKey}ScrollElement`, window.VetsGov.scroll || {
+    scroller.scrollTo(`chapter${chapterKey}ScrollElement`, window.Forms.scroll || {
       duration: 500,
       delay: 2,
       smooth: true,
