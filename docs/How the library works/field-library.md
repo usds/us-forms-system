@@ -114,14 +114,6 @@ Our common date field without the day field and with basic validation
 
 Two of our common date fields without the day field and with validation to make sure they're a valid range
 
-### Non-military jobs
-- File: src/js/common/schemaform/definitions/nonMilitaryJobs.js
-- uiSchema: Yes
-- schema: No
-- Function or object: Object
-
-The schema for an array of non-military jobs. May be pretty education specific and not broadly useful.
-
 ### Non-required full name
 - File: src/js/common/schemaform/definitions/nonRequiredFullName.js
 - uiSchema: No
