@@ -59,6 +59,7 @@
     "lodash-deep": "^2.0.0",
     "mocha": "^3.5.0",
     "moment": "^2.15.1",
+    "node-sass": "^4.5.3",
     "null-loader": "^0.1.1",
     "raven-js": "^3.12.1",
     "react": "^15.5.4",
@@ -76,13 +77,14 @@
     "skin-deep": "^1.0.0"
   },
   "dependencies": {
-    "babel-plugin-dynamic-import-node": "^1.2.0",
-    "downshift": "^1.22.5",
     "@department-of-veterans-affairs/formation": "^0.8.0",
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "downshift": "^1.22.5",
     "eslint-plugin-import": "^2.7.0",
     "fast-levenshtein": "^2.0.6",
     "reselect": "^2.5.4",
+    "uswds": "^1.6.3",
     "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.git#86263a396bfe2b13153797bac78c424a913b450d"
   }
 }
