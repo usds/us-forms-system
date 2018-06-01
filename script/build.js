@@ -1,12 +1,9 @@
 /* eslint prefer-template: "off" */
 const fs = require('fs');
 const babel = require('babel-core');
-const sass = require('node-sass');
 
 const jsEntrySourcePath = 'src/js/';
 const jsEntryDestinationPath = 'lib/js/';
-const cssEntrySourcePath = 'src/scss/';
-const cssEntryDestinationPath = 'lib/css/';
 
 function createCompiledFiles(entrySourcePath, entryDestinationPath, startIndexOfString, compilationFunction) {
   fs.readdir(entrySourcePath, (error, files) => {
@@ -43,20 +40,5 @@ function babelTranspilation(originalPath, destinationPath) {
   });
 }
 
-function sassCompilation(originalPath, destinationPath) {
-  sass.render({
-    file: originalPath,
-  }, (err, result) => {
-    if (!err) {
-      const newFileName = `${destinationPath.substring(0, destinationPath.indexOf('.'))}.css`;
-
-      fs.writeFile(newFileName, result.css);
-    }
-  });
-}
-
 // Run build for JavaScript
 createCompiledFiles(jsEntrySourcePath, jsEntryDestinationPath, 7, babelTranspilation);
-
-// Run build for SCSS
-createCompiledFiles(cssEntrySourcePath, cssEntryDestinationPath, 9, sassCompilation);

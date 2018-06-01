@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "build": "node script/build.js",
+    "build": "node script/build.js && npm run compile-sass",
+    "compile-sass": "node-sass --include-path src/scss/styles.scss src/scss/styles.scss -o lib/css/",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "lint:sass": "sass-lint -c test/config/sass-lint.yaml --verbose",
