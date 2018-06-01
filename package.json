@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "build": "node script/build.js",
+    "build": "node script/build.js && npm run compile-sass",
+    "compile-sass": "node-sass --include-path src/scss/styles.scss src/scss/styles.scss -o lib/css/",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "lint:sass": "sass-lint -c test/config/sass-lint.yaml --verbose",
@@ -52,6 +53,7 @@
     "eslint-plugin-react": "^7.2.1",
     "eslint-plugin-scanjs-rules": "^0.1.4",
     "eslint-stats": "^1.0.0",
+    "foundation-sites": "^5.5.3",
     "isomorphic-fetch": "http://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz",
     "jsdom": "^11.1.0",
     "jsonschema": "^1.1.1",
@@ -59,6 +61,7 @@
     "lodash-deep": "^2.0.0",
     "mocha": "^3.5.0",
     "moment": "^2.15.1",
+    "node-sass": "^4.5.3",
     "null-loader": "^0.1.1",
     "raven-js": "^3.12.1",
     "react": "^15.5.4",
@@ -76,13 +79,14 @@
     "skin-deep": "^1.0.0"
   },
   "dependencies": {
-    "babel-plugin-dynamic-import-node": "^1.2.0",
-    "downshift": "^1.22.5",
     "@department-of-veterans-affairs/formation": "^0.8.0",
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "downshift": "^1.22.5",
     "eslint-plugin-import": "^2.7.0",
     "fast-levenshtein": "^2.0.6",
     "reselect": "^2.5.4",
+    "uswds": "^1.6.3",
     "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.git#86263a396bfe2b13153797bac78c424a913b450d"
   }
 }
