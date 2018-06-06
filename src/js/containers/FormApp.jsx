@@ -50,6 +50,15 @@ class FormApp extends React.Component {
       );
     }
 
+    let footer;
+    if (Footer) {
+      footer = (
+        <Footer
+          formConfig={formConfig}
+          currentLocation={currentLocation}/>
+      );
+    }
+
     return (
       <div>
         <div className="row">
@@ -60,9 +69,7 @@ class FormApp extends React.Component {
             {renderedChildren}
           </div>
         </div>
-        <Footer
-          formConfig={formConfig}
-          currentLocation={currentLocation}/>
+        {footer}
         <span className="js-test-location hidden" data-location={trimmedPathname} hidden></span>
       </div>
     );
