@@ -4748,6 +4748,40 @@ fieldset {
     .usa-layout-docs-sidenav {
       padding-top: 0; } }
 
+.va-dropdown {
+  position: relative; }
+  .va-dropdown-trigger {
+    background: transparent url(/img/arrow-down-white.svg) no-repeat;
+    background-position: right .8rem center;
+    background-size: 1rem 1rem;
+    border-radius: 0;
+    border-top: 3px solid transparent;
+    margin: 0;
+    padding: .9rem 2.5rem .8rem .8rem; }
+    .va-dropdown-trigger:hover {
+      background-color: #0071BB; }
+    .va-dropdown-trigger[aria-expanded=true] {
+      border-top-color: #988530;
+      background-color: #fff;
+      background-image: url(/img/arrow-up.svg) !important;
+      color: #212121; }
+      .va-dropdown-trigger[aria-expanded=true] path {
+        fill: currentColor; }
+  .va-dropdown-panel {
+    background: #fff;
+    box-shadow: 0px 4px 10px -4px #212121;
+    color: #212121;
+    padding: .8rem;
+    position: absolute;
+    min-width: 100%;
+    z-index: 2; }
+    .va-dropdown-panel a {
+      color: #004795;
+      display: inline-block; }
+
+[id=helpmenu] {
+  width: 21rem; }
+
 .form-radio-buttons label {
   margin-top: 1em; }
   .form-radio-buttons label a {
@@ -5059,6 +5093,38 @@ button.form-button-disabled {
 
 .form-review-array {
   margin-top: 5rem; }
+
+.progress-bar {
+  display: block;
+  width: 100%;
+  height: 1em;
+  border-radius: 1em;
+  border: 2px solid #0071BB;
+  margin: 1em 0; }
+
+.progress-bar-inner {
+  background-color: #0071BB;
+  display: block;
+  content: "&nbsp;";
+  height: 100%; }
+
+.progress-bar-segmented {
+  display: flex;
+  width: 100%;
+  height: 6px; }
+
+.progress-segment {
+  content: "&nbsp;";
+  flex: 1;
+  margin-left: 2px;
+  margin-right: 2px;
+  background-color: #d6d7d9; }
+  .progress-segment-complete {
+    background-color: #0071BB; }
+  .progress-segment:first-child {
+    margin-left: 0; }
+  .progress-segment:last-child {
+    margin-right: 0; }
 
 .confirmation-page-title:focus {
   outline: none; }
