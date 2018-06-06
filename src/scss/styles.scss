@@ -1,8 +1,12 @@
-@import "node_modules/uswds/src/stylesheets/uswds";
+@import "node_modules/uswds/src/stylesheets/lib/bourbon";
+@import "node_modules/uswds/src/stylesheets/lib/neat";
+@import "node_modules/uswds/src/stylesheets/lib/normalize"; // Currently 3.0.3
 
 @import "node_modules/foundation-sites/scss/foundation/components/grid";
 @import "node_modules/foundation-sites/scss/foundation/components/block-grid";
 @import "node_modules/foundation-sites/scss/foundation/components/visibility";
+
+@import "node_modules/uswds/src/stylesheets/uswds";
 
 @import "node_modules/@department-of-veterans-affairs/formation/sass/base/b-variables";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/base/b-breakpoints";
