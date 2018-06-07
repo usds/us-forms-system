@@ -24,6 +24,7 @@
 @import "node_modules/uswds/src/stylesheets/elements/inputs";
 @import "node_modules/uswds/src/stylesheets/elements/labels";
 @import "node_modules/uswds/src/stylesheets/elements/table";
+@import "node_modules/uswds/src/stylesheets/elements/typography";
 @import "node_modules/uswds/src/stylesheets/components/accordions";
 @import "node_modules/uswds/src/stylesheets/components/alerts";
 @import "node_modules/uswds/src/stylesheets/components/banner";
@@ -34,10 +35,13 @@
 @import "node_modules/uswds/src/stylesheets/components/sidenav";
 
 @import "node_modules/@department-of-veterans-affairs/formation/sass/base/b-mixins";
+@import "node_modules/@department-of-veterans-affairs/formation/sass/base/b-font-faces";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/modules/m-dropdown";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/modules/m-form-elements";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/modules/m-form-process";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/modules/m-progress-bar";
+@import "node_modules/@department-of-veterans-affairs/formation/sass/base/va";
+@import "node_modules/@department-of-veterans-affairs/formation/sass/shame";
 
 @import "modules/m-form-confirmation";
 @import "modules/m-schemaform";
