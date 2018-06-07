@@ -13,6 +13,13 @@ If you are installing the library into an existing application, you can follow t
 1. Install the library: 
 `npm install --save https://github.com/usds/us-forms-system.git`
 
-2. Install peer dependencies
+2. There will be a few files you will need to configure in order for the form to work. The best reference for understanding what files you will need to create is our [us-forms-system-starter-app](https://github.com/usds/us-forms-system-starter-app).
 
-There will be a few files you will need to configure in order for the form to work. The best reference for understanding what files you will need to create is our [us-forms-system-starter-app](https://github.com/usds/us-forms-system-starter-app).
+The essential files needed are:
+- An [entry js](https://github.com/usds/us-forms-system-starter-app/blob/master/app.js) file
+- A [top-level React component](https://github.com/usds/us-forms-system-starter-app/blob/master/js/components/Form.jsx) that will render the top-level us-forms-system component
+- A [routes](https://github.com/usds/us-forms-system-starter-app/blob/master/js/routes.jsx) file that loads `createRoutes` from the us-forms-system, which creates the routes from the config automatically
+- A [reducers](https://github.com/usds/us-forms-system-starter-app/blob/master/js/reducers.js) file that loads `createSchemaFormReducer` from us-forms-system to create the app's reducer functions
+- The [form config](https://github.com/usds/us-forms-system-starter-app/blob/master/js/config/form.js) itself
+
+These instructions assume your existing app has a web server in order to run the app locally.
