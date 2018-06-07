@@ -69,7 +69,6 @@
     "sass-lint": "^1.10.2",
     "skin-deep": "^1.0.0"
   },
-  "peerDependencies": {},
   "dependencies": {
     "@department-of-veterans-affairs/formation": "^0.8.0",
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
