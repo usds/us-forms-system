@@ -73,7 +73,7 @@
   },
   "peerDependencies": {
     "@department-of-veterans-affairs/formation": "^0.8.0",
-    "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.*"
+    "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema*"
   },
   "dependencies": {
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
