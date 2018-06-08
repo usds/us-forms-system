@@ -17,6 +17,8 @@ If you are installing the library into an existing application, you can follow t
 - `npm install --save-dev @department-of-veterans-affairs/formation`
 - `npm install --save-dev https://github.com/department-of-veterans-affairs/vets-json-schema.git`
 - `npm install --save-dev uswds@^1.6.3`
+- `npm install --save-dev react@^15.5.4`
+- `npm install --save-dev react-dom@^15.6.2`
 
 3. There will be a few files you will need to configure in order for the form to work. The best reference for understanding what files you will need to create is our [us-forms-system-starter-app](https://github.com/usds/us-forms-system-starter-app).
 
