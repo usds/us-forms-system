@@ -29,6 +29,7 @@
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-plugin-lodash": "^3.2.8",
     "babel-plugin-react-transform": "^2.0.2",
@@ -47,6 +48,7 @@
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.2",
     "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "5.1",
     "eslint-plugin-no-unsafe-innerhtml": "^1.0.14",
     "eslint-plugin-react": "^7.2.1",
@@ -69,12 +71,13 @@
     "sass-lint": "^1.10.2",
     "skin-deep": "^1.0.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@department-of-veterans-affairs/formation": "^0.8.0",
+    "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.git#86263a396bfe2b13153797bac78c424a913b450d"
+  },
+  "dependencies": {
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
-    "babel-plugin-dynamic-import-node": "^1.2.0",
     "downshift": "^1.22.5",
-    "eslint-plugin-import": "^2.7.0",
     "eslint": "^4.4.1",
     "fast-levenshtein": "^2.0.6",
     "history": "3",
@@ -87,7 +90,6 @@
     "recompose": "^0.21.2",
     "redux": "^3.5.2",
     "reselect": "^2.5.4",
-    "uswds": "^1.6.3",
-    "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.git#86263a396bfe2b13153797bac78c424a913b450d"
+    "uswds": "^1.6.3"
   }
 }
