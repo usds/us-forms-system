@@ -73,7 +73,8 @@
   },
   "peerDependencies": {
     "@department-of-veterans-affairs/formation": "^0.8.0",
-    "vets-json-schema": "*"
+    "vets-json-schema": "*",
+    "uswds": "^1.6.3"
   },
   "dependencies": {
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
@@ -89,7 +90,6 @@
     "react-scroll": "1.5",
     "recompose": "^0.21.2",
     "redux": "^3.5.2",
-    "reselect": "^2.5.4",
-    "uswds": "^1.6.3"
+    "reselect": "^2.5.4"
   }
 }

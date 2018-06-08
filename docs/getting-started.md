@@ -16,6 +16,7 @@ If you are installing the library into an existing application, you can follow t
 2. Install peer dependencies:
 - `npm install --save-dev @department-of-veterans-affairs/formation`
 - `npm install --save-dev https://github.com/department-of-veterans-affairs/vets-json-schema.git`
+- `npm install --save-dev uswds^1.6.3`
 
 3. There will be a few files you will need to configure in order for the form to work. The best reference for understanding what files you will need to create is our [us-forms-system-starter-app](https://github.com/usds/us-forms-system-starter-app).
 
