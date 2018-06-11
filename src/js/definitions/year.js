@@ -1,5 +1,5 @@
 import { validateCurrentOrPastYear } from '../validation';
-import * as ReviewWidget from '../review/widgets.jsx';
+import * as ReviewWidget from '../review/widgets';
 
 const uiSchema = {
   'ui:title': 'Year',

@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/usds/us-forms-system#readme",
   "devDependencies": {
+    "@department-of-veterans-affairs/formation": "^0.8.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-dynamic-import-node": "^1.2.0",
@@ -65,12 +66,16 @@
     "moment": "^2.15.1",
     "node-sass": "^4.5.3",
     "null-loader": "^0.1.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-test-renderer": "^15.5.4",
     "react-transition-group": "^1.1.2",
     "redux-thunk": "^2.1.0",
-    "sinon": "^3.2.1",
     "sass-lint": "^1.10.2",
-    "skin-deep": "^1.0.0"
+    "sinon": "^3.2.1",
+    "skin-deep": "^1.0.0",
+    "uswds": "^1.6.4",
+    "vets-json-schema": "git+https://github.com/department-of-veterans-affairs/vets-json-schema.git"
   },
   "peerDependencies": {
     "@department-of-veterans-affairs/formation": "^0.8.0",
