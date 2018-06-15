@@ -179,7 +179,7 @@ describe('Schemaform <ArrayField>', () => {
       expect(tree.getMountedInstance().state.editing[2]).to.be.false;
     });
     it('add when invalid', () => {
-      formContext.setTouched.reset();
+      formContext.setTouched.resetHistory();
       errorSchema[1] = { __errors: ['Test error'] };
       tree.getMountedInstance().handleAdd();
 
