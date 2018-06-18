@@ -10,12 +10,11 @@ If you are starting a completely new application from scratch, the easiest way t
 
 If you are installing the library into an existing application, you can follow these steps:
 
-1. Install the library: 
+1. Install the library:
 `npm install --save https://github.com/usds/us-forms-system.git`
 
 2. Install peer dependencies:
 - `npm install --save-dev @department-of-veterans-affairs/formation`
-- `npm install --save-dev https://github.com/department-of-veterans-affairs/vets-json-schema.git`
 - `npm install --save-dev uswds@^1.6.3`
 - `npm install --save-dev react@^15.5.4`
 - `npm install --save-dev react-dom@^15.6.2`
