@@ -84,7 +84,6 @@
     "@department-of-veterans-affairs/formation": "^0.8.0",
     "react": "^15.5.4",
     "react-dom": "^15.6.2",
-    "vets-json-schema": "*",
     "uswds": "^1.6.3"
   },
   "dependencies": {
