@@ -422,6 +422,4 @@ describe('<AutosuggestField>', () => {
     });
   });
 
-
-  it.skip('should fill in other formData when a suggestion is selected', () => {});
 });
