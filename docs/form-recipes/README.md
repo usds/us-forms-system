@@ -1,5 +1,7 @@
 # Form recipes
 
+Some forms require custom validation, styles, or conditional information based on user input. Use these recipes to address those needs.
+
 ### Writing custom field validation
 
 ### Validating a field based on other fields in the same object
