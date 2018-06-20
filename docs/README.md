@@ -6,7 +6,7 @@
 - [Building a form](building-a-form/README.md)
   - About the JSON schema standard and react-jsonschema-form
   - Adding widgets
-  - Adding widget definitions
+  - Adding definitions
   - Creating custom widgets
   - Creating multi-page forms
 - [Form recipes](form-recipes/README.md)
