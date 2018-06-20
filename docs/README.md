@@ -5,6 +5,7 @@
   - [Installing the library in an existing application](getting-started/installing-the-library-in-an-existing-application.md)
 - [Building a form](building-a-form/README.md)
   - About the JSON schema standard and react-jsonschema-form
+  - Creating a form config file
   - Adding widgets
   - Adding definitions
   - Creating custom widgets
