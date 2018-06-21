@@ -1,14 +1,16 @@
 # Building a form
 
-### About the JSON schema standard and react-jsonschema-form
+### [About the JSON schema standard and react-jsonschema-form](building-a-form/about-the-json-schema-standard-and-react-jsonschema-form.md)
 
-### Adding widgets
+### [Creating a form config file](building-a-form/creating-a-form-config-file.md)
 
-### Adding widget definitions
+### [Adding widgets](building-a-form/adding-widgets.md)
 
-### Creating custom widgets
+### [Adding definitions](building-a-form/adding-definitions.md)
 
-### Creating multi-page forms
+### [Creating custom widgets](building-a-form/creating-custom-widgets.md)
+
+### [Creating multi-page forms](building-a-form/creating-multi-page-forms.md)
 
 ### [Common patterns for building forms](common-patterns-for-building-forms.md)
 
