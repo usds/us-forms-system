@@ -1,77 +1,5 @@
 # Schemaform walkthrough
 
-This walkthrough is going to detail how our form building code (called schemaform from here on) and the library it's built on work. This guide assumes you're comfortable with React and building forms.
-
-## JSON Schema
-
-One pre-requisite for understanding how schemaform works is the JSON Schema standard. JSON Schema is a way of describing the allowed shape of JSON objects. There are some good examples to look through on the [JSON Schema site](http://json-schema.org/examples.html). Here are some basics:
-
-Schemas have a type, that tells you what kind of data is allowed:
-
-```
-{ 
-  type: 'string'
-}
-```
-
-They can also have validation information, like regexes or length requirements:
-
-```
-{
-  type: 'string',
-  pattern: '^[ef]*$',
-  minLength: 2
-}
-```
-
-The above allows any string that's at least two characters and only contains `e` and `f`. So `eff` is valid, but `fcc` is not. You can also specify some built in `format` values for strings, like `email`, as a shortcut for including your own patterns.
-
-Objects fields can be described:
-
-```
-{
-  type: 'object',
-  properties: {
-    myField: {
-      type: 'number'
-    }
-  }
-}
-```
-
-This describes a json document that's an object with one property called `myField`, which is a number. So, `{ myField: 2 }` would be valid. 
-
-However, `{}` is also valid. If you want to required a property in an object, you use the `required` property:
-
-```
-{
-  type: 'object',
-  required: ['myField'],
-  properties: {
-    myField: {
-      type: 'number'
-    }
-  }
-}
-```
-
-Note that `required` is on the object that contains the field, not the field itself.
-
-Arrays work similarly to objects:
-
-```
-{
-  type: 'array',
-  items: {
-    type: 'boolean'
-  }
-}
-```
-
-This describes an array of boolean values: `[true, false, true]`. Items can be an object schema or any other type of schema as well.
-
-You can nest schemas as far down as you'd like. There are some other features, like metadata, sharing schema definitions between fields, and more complicated validation. But the above should get you most of the way there. There are many libraries that implement the JSON Schema spec and allow you to validate that an object matches a given schema. For reference, we use [ajv](https://www.npmjs.com/package/ajv) and [jsonschema](https://www.npmjs.com/package/jsonschema), the former in unit tests, and the latter in the schemaform code. ajv may go away eventually, since one of our dependencies is already using jsonschema.
-
 ## How react-jsonschema-form works
 
 [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form) (rjsf) generates a form from a JSON Schema, plus some other UI information. It does this by stepping through the schema depth first and rendering different React components based on what type of data each property in the schema represents. You can try out the playground in the above link to get a feel for the resulting forms based on the schema inputs. We're going to look at how that library generates those forms in the rest of this section.
@@ -96,9 +24,9 @@ would render as
 </SchemaField>
 ```
 
-rjsf has two important concepts: fields and widgets. 
+rjsf has two important concepts: fields and widgets.
 
-Fields generally match the `type` attribute in a schema. There are object fields, array fields, number fields, boolean fields, and string fields. The fields (with the exception of arrays and objects), render two things: a label (via `FieldTemplate`) and a widget. 
+Fields generally match the `type` attribute in a schema. There are object fields, array fields, number fields, boolean fields, and string fields. The fields (with the exception of arrays and objects), render two things: a label (via `FieldTemplate`) and a widget.
 
 A widget is the actual html input element(s) used to accept data from the user. There are a bunch provided by the library: checkbox, date, text, email, select, etc. They are mostly self explanatory. We use a subset of them (text, email, checkbox, radio, select, and textarea) and have overriden the defaults with our own versions.
 
@@ -192,7 +120,7 @@ The field components pass a collection of props down through each component. The
 - `required`
   - If the field is required or not (i.e. the property name is in the schema's `required` array).
 - `schema`
-  - The schema for the specific field. 
+  - The schema for the specific field.
 - `uiSchema`
   - The ui schema for this field.
 - `errorSchema`
@@ -262,7 +190,7 @@ Custom fields are more complicated. They receive all the props listed previously
 In addition to customizing fields and widgets, our schemaform code hooks into a number of events provided by `Form` to support our form patterns. These can be found in our `FormPage` component. Those events are:
 
 - `validate`
-  - Whenever validation occurs, this event is called. We call our custom validation, which reads uiSchema for custom validation hooks that have been included for form fields, which is necessary because we can't do all our validations with what JSON Schema provides. 
+  - Whenever validation occurs, this event is called. We call our custom validation, which reads uiSchema for custom validation hooks that have been included for form fields, which is necessary because we can't do all our validations with what JSON Schema provides.
 - `transformErrors`
   - The error messages provided by JSON Schema are not user friendly, so rjsf provides this event where we receive the list of JSON Schema validation errors and can return a transformed list. We replace the messages with a set of default messages and also with any messages provided for specific fields in uiSchema. We also move the errors for required fields from the object level to the field level. If you remember, JSON Schema specifies required fields with a `required` array on an object field schema. So any errors about missing data are associated with that object. We move those errors so they're associated with the field that's missing, so they show up on that field on the actual form.
 - `onError`
@@ -280,7 +208,7 @@ In addition to customizing fields and widgets, our schemaform code hooks into a 
 
 ## Multi-page forms
 
-The way we organize large forms is into chapters and pages. Each chapter is a collection of pages. Each page is rendered as a single rjsf form and has a schema and uiSchema. All of the chapter and page organization is described in a form config file. We generate a list of routes from the config file and a user can move through the list of pages until they reach the review page. 
+The way we organize large forms is into chapters and pages. Each chapter is a collection of pages. Each page is rendered as a single rjsf form and has a schema and uiSchema. All of the chapter and page organization is described in a form config file. We generate a list of routes from the config file and a user can move through the list of pages until they reach the review page.
 
 The review page also takes the config file and renders each chapter in an accordion panel. Inside each panel we render each page using rjsf with two sets of widgets, so that we can show a "read-only" view. The read-only view uses simplified widgets and different `FieldTemplate` to render each form field in a definition list. The rjsf `Form` component is still being used, but there are no input elements being used; widgets render text instead. When a user clicks Edit for a form page on the review page, the normal widgets are used and a normal form is rendered.
 
