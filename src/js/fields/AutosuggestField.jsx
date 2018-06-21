@@ -21,7 +21,7 @@ function getInput(input, uiSchema, schema) {
     if (!uiOptions.labels) {
       return input;
     }
-    
+
     if (uiOptions.labels[input]) {
       return uiOptions.labels[input];
     }
