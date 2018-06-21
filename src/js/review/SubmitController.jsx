@@ -90,7 +90,7 @@ class SubmitController extends React.Component {
         <p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>
         <PrivacyAgreement
           required
-          onChange={setPrivacyAgreement}
+          onChange={this.props.setPrivacyAgreement}
           checked={privacyAgreementAccepted}
           showError={showPrivacyAgreementError}/>
         <SubmitButtons
