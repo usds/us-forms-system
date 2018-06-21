@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11.3-browsers
+    working_directory: ~/us-forms-system
+    steps:
+      - checkout # to working_directory
+      - run: 'sudo npm install -g npm@6'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run lint
+      - run: npm test
+      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
