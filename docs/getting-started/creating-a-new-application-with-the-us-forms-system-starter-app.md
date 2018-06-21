@@ -4,4 +4,4 @@ The US Forms System Starter App creates the initial files, configuration, build 
 
 For more information, including app installation instructions, see the [US Forms System Starter App README](https://github.com/usds/us-forms-system-starter-app#us-forms-system-starter-app).
 
-[Back to *Getting Started with the Forms System Library*](README.md)
+[Back to *Getting Started with the US Forms System*](README.md)
