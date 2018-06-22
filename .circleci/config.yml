@@ -1,9 +1,13 @@
 version: 2
-jobs:
-  build:
+
+common: &common
     docker:
       - image: circleci/node:8.11.3-browsers
-    working_directory: ~/us-forms-system
+    working_directory: ~/repo
+
+jobs:
+  build:
+    <<: *common
     steps:
       - checkout # to working_directory
       - run: 'sudo npm install -g npm@6'
@@ -16,4 +20,31 @@ jobs:
             - ./node_modules
       - run: npm run lint
       - run: npm test
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  deploy:
+    <<: *common
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run: npm publish
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:   # run for all branches and PRs
+          filters:
+            tags:
+              only: /v.*/
+      - deploy: # run for only tagged (master)
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
