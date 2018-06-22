@@ -1,10 +1,15 @@
-# About the JSON schema standard and react-jsonschema-form
+# About the JSON Schema standard and react-jsonschema-form
 
 Learn about the form building code, or *schemaform*, and the library it's built on. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
 
-### Understanding JSON schema
+### In this guide
 
-The JSON schema standard describes the allowed shape of JSON objects. You can nest schemas as far down as you'd like. Schemas have a type, which tells you what kind of data is allowed:
+- Understanding JSON Schema
+- Understanding react-jsonschema-form
+
+### Understanding JSON Schema
+
+The JSON Schema standard describes the allowed shape of JSON objects. You can nest schemas as far down as you'd like. Schemas have a type, which tells you what kind of data is allowed:
 
 ```
 {
@@ -63,5 +68,34 @@ Arrays work similarly to objects. This example describes an array of boolean val
 ```
 
 Many libraries implement the JSON Schema specification and let you validate that an object matches a given schema. The US Forms System uses [ajv](https://www.npmjs.com/package/ajv) for unit tests and [jsonschema](https://www.npmjs.com/package/jsonschema) in the schemaform code. For more examples of JSON Schema projects, see the [JSON Schema site example list](http://json-schema.org/examples.html).
+
+### Understanding react-jsonschema-form
+
+[react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form), or *rjsf*, generates a form from a JSON Schema, in addition to other UI information. To generate a form, react-jsonschema-form steps through the schema depth and renders different React components based on the type of data each property in the schema represents.
+
+At the top level, rjsf uses a `Form` component to take the schema inputs and render a hierarchy of components for each field rendered on the form. For example, this schema:
+
+```
+{
+  type: 'string'
+}
+```
+
+... renders as
+
+```
+<SchemaField>
+  <StringField>
+    <FieldTemplate>
+      <TextWidget/>
+    </FieldTemplate>
+  </StringField>
+</SchemaField>
+```
+
+rjsf uses two important concepts: *fields* and *widgets*:
+
+- Fields generally match the `type` attribute in a schema. There are object fields, array fields, number fields, boolean fields, and string fields. Except for arrays and objects, the fields render a label (via `FieldTemplate`) and a widget.
+- A widget is the html input element that accepts data from the user. The schemaform uses text, email, checkbox, radio, select, and textarea. While there are many widgets provided by rjsf, the defaults are overwritten with these versions.
 
 [Back to *Building a Form*](building-a-form/README.md)

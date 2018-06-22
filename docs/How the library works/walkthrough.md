@@ -1,34 +1,5 @@
 # Schemaform walkthrough
 
-## How react-jsonschema-form works
-
-[react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form) (rjsf) generates a form from a JSON Schema, plus some other UI information. It does this by stepping through the schema depth first and rendering different React components based on what type of data each property in the schema represents. You can try out the playground in the above link to get a feel for the resulting forms based on the schema inputs. We're going to look at how that library generates those forms in the rest of this section.
-
-At the top level, rjsf has a `Form` component that takes the schema inputs and renders a hierarchy of components for each "field" you see on the form. For example, a schema like
-
-```
-{
-  type: 'string'
-}
-```
-
-would render as
-
-```
-<SchemaField>
-  <StringField>
-    <FieldTemplate>
-      <TextWidget/>
-    </FieldTemplate>
-  </StringField>
-</SchemaField>
-```
-
-rjsf has two important concepts: fields and widgets.
-
-Fields generally match the `type` attribute in a schema. There are object fields, array fields, number fields, boolean fields, and string fields. The fields (with the exception of arrays and objects), render two things: a label (via `FieldTemplate`) and a widget.
-
-A widget is the actual html input element(s) used to accept data from the user. There are a bunch provided by the library: checkbox, date, text, email, select, etc. They are mostly self explanatory. We use a subset of them (text, email, checkbox, radio, select, and textarea) and have overriden the defaults with our own versions.
 
 The two `Field` components in the hierarchy above are responsible for determining what fields and widgets to render. `SchemaField` uses the two schemas the library accepts, `schema` and `uiSchema`, to determine what other `Field` component to render. In the example above, it picked `StringField` because the schema type was `string`. The `StringField` component then figured out what widget to render, based on `schema` and `uiSchema`. It picked the `TextWidget` because there was no other information besides the field being a string, and that's the default widget type. Here's another example:
 
