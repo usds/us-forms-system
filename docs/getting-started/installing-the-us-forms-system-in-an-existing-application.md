@@ -27,7 +27,7 @@ npm install --save-dev react-dom@^15.6.2
 To enable your form, create the following files. For an example of these files, see the [us-forms-system-starter-app repository](https://github.com/usds/us-forms-system-starter-app).
 
 - A [form config file](https://github.com/usds/us-forms-system-starter-app/blob/master/js/config/form.js). For more information, see "Creating a form config file."
-- An [entry js](https://github.com/usds/us-forms-system-starter-app/blob/master/app.js) file.
+- An entry [app.js](https://github.com/usds/us-forms-system-starter-app/blob/master/app.js) file.
 - A [React component](https://github.com/usds/us-forms-system-starter-app/blob/master/js/components/Form.jsx) to render the top-level us-forms-system component.
 - A [routes file](https://github.com/usds/us-forms-system-starter-app/blob/master/js/routes.jsx) that loads `createRoutes` from us-forms-system. This automatically creates the routes from the form config file.
 - A [reducers file](https://github.com/usds/us-forms-system-starter-app/blob/master/js/reducers.js) that loads `createSchemaFormReducer` from us-forms-system. This creates the app's reducer functions.

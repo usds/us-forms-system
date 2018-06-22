@@ -1,6 +1,6 @@
 # Getting started with the US Forms System
 
-Depending on your needs, you can either create a brand new application from scratch or install the US Forms System in an existing application.
+Depending on your needs, you can either create a brand new application from scratch or install the US Forms System in an existing application. For more information about React apps, see the [React project's Hello World tutorial](https://reactjs.org/docs/hello-world.html).
 
 ### [Creating a new application with the US Forms System Starter App](getting-started/creating-a-new-application-with-the-us-forms-system-starter-app.md)
 
