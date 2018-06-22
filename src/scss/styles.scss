@@ -37,11 +37,12 @@
 @import "node_modules/@department-of-veterans-affairs/formation/sass/base/b-mixins";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/modules/m-dropdown";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/modules/m-form-elements";
-@import "node_modules/@department-of-veterans-affairs/formation/sass/modules/m-form-process";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/modules/m-progress-bar";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/base/va";
 @import "node_modules/@department-of-veterans-affairs/formation/sass/shame";
 
 @import "base/b-font-faces";
 @import "modules/m-form-confirmation";
+@import "modules/m-form-elements";
+@import "modules/m-form-process";
 @import "modules/m-schemaform";
