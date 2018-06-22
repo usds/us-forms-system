@@ -96,6 +96,29 @@ At the top level, rjsf uses a `Form` component to take the schema inputs and ren
 rjsf uses two important concepts: *fields* and *widgets*:
 
 - Fields generally match the `type` attribute in a schema. There are object fields, array fields, number fields, boolean fields, and string fields. Except for arrays and objects, the fields render a label (via `FieldTemplate`) and a widget.
-- A widget is the html input element that accepts data from the user. The schemaform uses text, email, checkbox, radio, select, and textarea. While there are many widgets provided by rjsf, the defaults are overwritten with these versions.
+- A widget is the html input element that accepts data from the user. The schemaform uses `text`, `email`, `checkbox`, `radio`, `select`, and `textarea`. While there are many widgets provided by rjsf, the defaults are overwritten with these versions.
+
+In the hierarchy above, the two `Field` components determine which fields and widgets to render. `SchemaField` uses the two schemas the library accepts, `schema` and `uiSchema`, to determine what other `Field` component to render. The example chose `StringField` because the schema type was `string`. The `StringField` component then rendered `TextWidget`, based on `schema` and `uiSchema`, because the only information provided was that the field is a string (the default widget type).
+
+Here's another example:
+
+```
+{
+  type: 'string',
+  enum: ['first', 'second', 'third']
+}
+```
+
+The hierarchy for this field looks the same as above, except it uses `SelectWidget` instead of `TextWidget`, because `StringField` saw that the schema had an `enum` property:
+
+```
+<SchemaField>
+  <StringField>
+    <FieldTemplate>
+      <SelectWidget/>
+    </FieldTemplate>
+  </StringField>
+</SchemaField>
+```
 
 [Back to *Building a Form*](building-a-form/README.md)

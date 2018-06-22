@@ -1,27 +1,6 @@
 # Schemaform walkthrough
 
 
-The two `Field` components in the hierarchy above are responsible for determining what fields and widgets to render. `SchemaField` uses the two schemas the library accepts, `schema` and `uiSchema`, to determine what other `Field` component to render. In the example above, it picked `StringField` because the schema type was `string`. The `StringField` component then figured out what widget to render, based on `schema` and `uiSchema`. It picked the `TextWidget` because there was no other information besides the field being a string, and that's the default widget type. Here's another example:
-
-```
-{
-  type: 'string',
-  enum: ['first', 'second', 'third']
-}
-```
-
-The hierarchy for this field looks the same as above, except it uses `SelectWidget` instead of `TextWidget`, because `StringField` saw that the schema had an `enum` property:
-
-```
-<SchemaField>
-  <StringField>
-    <FieldTemplate>
-      <SelectWidget/>
-    </FieldTemplate>
-  </StringField>
-</SchemaField>
-```
-
 Most of the rules are unsurprising. They can be overriden in `uiSchema` by specifying a `ui:widget` property. You can set this to text, email, checkbox, or your own custom widget. There is also a `ui:field` property that you can use to specify a specific field (or a custom one).
 
 There are two cases where a field component does something other than figure out what widgets to render. Those are for `object` and `array` schema types. For example,
