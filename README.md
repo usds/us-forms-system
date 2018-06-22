@@ -10,4 +10,4 @@ Originally inspired by Mozilla's [react-jsonschema-form](https://github.com/mozi
 
 ---
 
-We'll be documenting our roadmap, research, and process in [the wiki](https://github.com/usds/us-forms-system/wiki) as work on getting the code library ready. Feel free to look around [our wiki](https://github.com/usds/us-forms-system/wiki) if you want to follow along with our progress. That's also where developer documentation and best practices guidance for forms design and development will be found as it comes together.
+We'll be documenting our roadmap, research, and process in [the wiki](https://github.com/usds/us-forms-system/wiki) as work on getting the code library ready. Feel free to look around [our wiki](https://github.com/usds/us-forms-system/wiki) and [our project board](https://github.com/orgs/usds/projects/3) if you want to follow along with our progress. That's also where developer documentation and best practices guidance for forms design and development will be found as it comes together.

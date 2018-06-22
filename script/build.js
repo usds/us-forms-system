@@ -36,7 +36,7 @@ function babelTranspilation(originalPath, destinationPath) {
   babel.transformFile(originalPath, (err, result) => {
     const newFileName = `${destinationPath.substring(0, destinationPath.indexOf('.'))}.js`;
 
-    fs.writeFile(newFileName, result.code);
+    fs.writeFileSync(newFileName, result.code);
   });
 }
 
