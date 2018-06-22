@@ -2,6 +2,8 @@
 
 ### [About the JSON schema standard and react-jsonschema-form](building-a-form/about-the-json-schema-standard-and-react-jsonschema-form.md)
 
+Learn about the form building code, or *schemaform*, and the library it's built on.
+
 ### [Creating a form config file](building-a-form/creating-a-form-config-file.md)
 
 ### [Adding widgets](building-a-form/adding-widgets.md)

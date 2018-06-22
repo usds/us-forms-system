@@ -1,6 +1,6 @@
 # About the JSON schema standard and react-jsonschema-form
 
-This walkthrough is going to detail how our form building code (called schemaform from here on) and the library it's built on work. This guide assumes you're comfortable with React and building forms.
+Learn about the form building code, or *schemaform*, and the library it's built on. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
 
 ## JSON Schema
 
