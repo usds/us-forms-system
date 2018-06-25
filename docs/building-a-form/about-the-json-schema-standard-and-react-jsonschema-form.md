@@ -4,14 +4,16 @@ Learn about the form building code, or *schemaform*, and the library it's built 
 
 ### In this guide
 
-- Understanding JSON Schema
-  - Describing object fields and arrays
-- Understanding react-jsonschema-form
-  - About the `Form` component
-  - Field components
-- How schemaform uses rjsf
-  - Customizing fields and widgets from rjsf
-  - Creating multi-page forms
+- [Understanding JSON Schema](#understanding-json-schema)
+  - [Describing object fields and arrays](#describing-object-fields-and-arrays)
+- [Understanding react-jsonschema-form](#understanding-react-jsonschema-form)
+  - [About the `Form` component](#about-the-form-component)
+  - [Field components](#field-components)
+  - [About the `onChange` field component](#about-the-onchange-field-component)
+  - [About the `uiSchema` field component](#about-the-uischema-field-component)
+- [How schemaform uses rjsf](#how-schemaform-uses-rjsf)
+  - [Customizing fields and widgets from rjsf](customizing-fields-and-widgets-from-rjsf)
+  - [Creating multi-page forms](#creating-multi-page-forms)
 
 ### Understanding JSON Schema
 
