@@ -6,7 +6,7 @@ Learn about the form building code, or *schemaform*, and the library it's built 
 
 - [Understanding JSON Schema](#understanding-json-schema)
   - [Describing object fields and arrays](#describing-object-fields-and-arrays)
-- [Understanding react-jsonschema-form](#understanding-react-jsonschema-form)
+- [Understanding react-jsonschema-form (rjsf)](#understanding-react-jsonschema-form-rjsf)
   - [About the `Form` component](#about-the-form-component)
   - [Field components](#field-components)
   - [About the `onChange` field component](#about-the-onchange-field-component)
@@ -79,7 +79,7 @@ Arrays work similarly to objects. This example describes an array of boolean val
 
 Many libraries implement the JSON Schema specification and let you validate that an object matches a given schema. The US Forms System uses [ajv](https://www.npmjs.com/package/ajv) for unit tests and [jsonschema](https://www.npmjs.com/package/jsonschema) in the schemaform code. For more examples of JSON Schema projects, see the [JSON Schema site example list](http://json-schema.org/examples.html).
 
-### Understanding react-jsonschema-form
+### Understanding react-jsonschema-form (rjsf)
 
 [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form), or *rjsf*, generates a form from a JSON Schema, in addition to other UI information. To generate a form, react-jsonschema-form steps through the schema depth and renders different React components based on the type of data each property in the schema represents.
 
