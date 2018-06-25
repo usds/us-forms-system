@@ -5,7 +5,13 @@ Learn about the form building code, or *schemaform*, and the library it's built 
 ### In this guide
 
 - Understanding JSON Schema
+  - Describing object fields and arrays
 - Understanding react-jsonschema-form
+  - About the `Form` component
+  - Field components
+- How schemaform uses rjsf
+  - Customizing fields and widgets from rjsf
+  - Creating multi-page forms
 
 ### Understanding JSON Schema
 
@@ -29,7 +35,9 @@ The JSON schema can also have validation information, such as regexes or length 
 
 You can also specify some built-in `format` values for strings, such as `email`, as a shortcut for including your own patterns.
 
-Object fields can be described. This example describes a JSON document that is an object with one property called `myField`, which is a number, meaning `{ myField: 2 }` would be valid:
+##### Describing object fields and arrays
+
+This example describes a JSON document that is an object with one property called `myField`, which is a number, meaning `{ myField: 2 }` would be valid:
 
 ```
 {
@@ -73,7 +81,14 @@ Many libraries implement the JSON Schema specification and let you validate that
 
 [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form), or *rjsf*, generates a form from a JSON Schema, in addition to other UI information. To generate a form, react-jsonschema-form steps through the schema depth and renders different React components based on the type of data each property in the schema represents.
 
-At the top level, rjsf uses a `Form` component to take the schema inputs and render a hierarchy of components for each field rendered on the form. For example, this schema:
+##### About the `Form` component
+
+At the top level, rjsf uses a `Form` component to take the schema inputs and render a hierarchy of components for each field rendered on the form:
+
+- *Fields* generally match the `type` attribute in a schema. There are object fields, array fields, number fields, boolean fields, and string fields. Except for arrays and objects, the fields render a label (via `FieldTemplate`) and a widget.
+- A *widget* is the html input element that accepts data from the user. The schemaform uses `text`, `email`, `checkbox`, `radio`, `select`, and `textarea`. While there are many widgets provided by rjsf, the defaults are overwritten with these versions.
+
+##### Example schema
 
 ```
 {
@@ -81,7 +96,9 @@ At the top level, rjsf uses a `Form` component to take the schema inputs and ren
 }
 ```
 
-... renders as
+##### Resulting hierarchy
+
+The two `Field` components determine which fields and widgets to render. `SchemaField` uses the two schemas the library accepts, `schema` and `uiSchema`, to determine what other `Field` component to render. The example chose `StringField` because the schema type was `string`. The `StringField` component then rendered `TextWidget`, based on `schema` and `uiSchema`, because the only information provided was that the field is a string (the default widget type).
 
 ```
 <SchemaField>
@@ -93,14 +110,7 @@ At the top level, rjsf uses a `Form` component to take the schema inputs and ren
 </SchemaField>
 ```
 
-rjsf uses two important concepts: *fields* and *widgets*:
-
-- Fields generally match the `type` attribute in a schema. There are object fields, array fields, number fields, boolean fields, and string fields. Except for arrays and objects, the fields render a label (via `FieldTemplate`) and a widget.
-- A widget is the html input element that accepts data from the user. The schemaform uses `text`, `email`, `checkbox`, `radio`, `select`, and `textarea`. While there are many widgets provided by rjsf, the defaults are overwritten with these versions.
-
-In the hierarchy above, the two `Field` components determine which fields and widgets to render. `SchemaField` uses the two schemas the library accepts, `schema` and `uiSchema`, to determine what other `Field` component to render. The example chose `StringField` because the schema type was `string`. The `StringField` component then rendered `TextWidget`, based on `schema` and `uiSchema`, because the only information provided was that the field is a string (the default widget type).
-
-Here's another example:
+##### Example schema
 
 ```
 {
@@ -109,7 +119,9 @@ Here's another example:
 }
 ```
 
-The hierarchy for this field looks the same as above, except it uses `SelectWidget` instead of `TextWidget`, because `StringField` saw that the schema had an `enum` property:
+##### Resulting hierarchy
+
+The hierarchy for this field uses `SelectWidget` instead of `TextWidget`, because `StringField` detected the `enum` property in the schema.
 
 ```
 <SchemaField>
