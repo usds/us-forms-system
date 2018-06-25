@@ -283,4 +283,12 @@ In addition to customizing fields and widgets, the schemaform code hooks into a 
     - **Recalculate which schema fields are hidden and remove that data:** In uiSchema, you can specify fields that are conditionally hidden based on user data. To avoid validation errors from data a user can't see, the schemaform updates the schema to add a `ui:hidden` property and remove any user data for those fields.
     - **Recalcuate general schema updates:** Because you can make arbitrary changes to the schema based on form data, the schemaform must also make those changes, for example, removing options in an `enum` array when a user has entered certain data.
 
+##### Creating multi-page forms
+
+Large forms are organized into *chapters* and *pages*. A chapter is a collection of pages, each rendered as a single rjsf form with a schema and `uiSchema` field component. The chapter and page organization is described in a form config file that the schemaform uses to generate a list of routes. A user can move through the list of pages until they reach the review page.
+
+The review page also takes the config file and renders each chapter in an accordion panel. Inside a panel, the schemaform uses rjsf to render each page with two sets of widgets, enabling a read-only view. This view uses simplified widgets and a different `FieldTemplate` component to render each form field in a definition list. The read-only view uses the rjsf `Form` component with no input elements, rendering instead with text. When a user on the review page clicks Edit for a form page, the normal widgets are used and a normal form is rendered.
+
+Each array item on a review page is rendered as read-only, and individual items can be edited independently. To accomplish this, the review `ArrayField` component renders each item in the array as it's own rjsf `Form`. In addition, array fields are taken from the page's read-only view and rendered separately.
+
 [Back to *Building a Form*](building-a-form/README.md)
