@@ -183,7 +183,7 @@ The `ObjectField` component renders a `SchemaField` component for each of its pr
 
 ##### Example schema: `ArrayField`
 
-`ArrayField` renders a `SchemaField` component for each item in the array. The library only uses the array field where each time is an object type schema.
+`ArrayField` renders a `SchemaField` component for each item in the array. The library only uses the array field where each item is an object type schema.
 
 ```
 {
