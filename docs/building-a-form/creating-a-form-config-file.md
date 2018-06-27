@@ -167,4 +167,49 @@ If you're not already familiar with the rjsf uiSchema options, see the [library 
 - [ui:field](https://github.com/mozilla-services/react-jsonschema-form#custom-field-components): The name of a custom field.
 - [classNames](https://github.com/mozilla-services/react-jsonschema-form#custom-css-class-names): The class names to put on the component.
 
+### Configuring `uiSchema` using US Form System options
+
+The schemaform code includes additional `uiSchema` functionality not found in the rjsf library.
+
+```js
+{
+  // Used instead of the `title` property in the JSON Schema.
+  'ui:title': '',
+  // It can also be a component, which passes the current form data as a property.
+  'ui:title': ({ formData }) => <legend>{`A ${formData.thing} title`}</legend>,
+
+  // Used instead of the `description` property in the JSON Schema. This can be a string or a React component, and is normally used on object fields in the schema to provide description text or HTML before a block of fields.
+  'ui:description': '' || DescriptionComponent,
+
+  // Customizes the field or widget you're using.
+  'ui:field': '' || FieldComponent,
+  'ui:widget': '' || WidgetComponent,
+
+  // Renders string fields on the review page. Always used when you specify a custom widget component. Can also be used with regular widgets.
+  'ui:reviewWidget': WidgetComponent,
+
+  // Provides a function to make a field conditionally required. The data in the whole form, with no page breaks, is the only parameter. Don't make a field required in the JSON schema and in addition to using `ui:required` on that field. The index argument is provided if you use `ui:required` on data inside an array.
+  'ui:required': function (formData, index) {
+    return true || false;
+  },
+
+  // An array of validation functions or objects that you can use to add validation that's not possible through JSON Schema. See below for the properties passed to the validation functions and how to use them.
+  'ui:validations': [
+    /**
+     * Note the difference between the three data parameters:
+     *
+     * @param {any} fieldData The data for the current field being validated
+     * @param {object} formData The data for all the fields in every page
+     */
+    function (errors, fieldData, formData, fieldSchema, errorMessages) {
+      errors.addError('My error');
+    },
+    {
+      validator: (errors, fieldData, formData, fieldSchema, errorMessages, options) => {
+        errors.addError('My other error');
+      },
+      options: {}
+    }
+  ],
+
 [Back to *Building a Form*](building-a-form/README.md)
