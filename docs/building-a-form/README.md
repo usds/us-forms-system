@@ -6,6 +6,8 @@ Learn about the form building code, or *schemaform*, and the library it's built 
 
 ### [Creating a form config file](building-a-form/creating-a-form-config-file.md)
 
+Your form is generated from a `form.js` file, along with a few other key configuration files.
+
 ### [Adding widgets](building-a-form/adding-widgets.md)
 
 ### [Adding definitions](building-a-form/adding-definitions.md)
