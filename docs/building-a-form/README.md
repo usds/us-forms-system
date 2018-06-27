@@ -8,7 +8,9 @@ Learn about the form building code, or *schemaform*, and the library it's built 
 
 Your form is generated from a `form.js` file, along with a few other key configuration files.
 
-### [Adding definitions](building-a-form/adding-definitions.md)
+### [Adding widgets and definitions](building-a-form/adding-widgets-and-definitions.md)
+
+There are many common fields and widgets you can use to build forms. There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects.
 
 ### [Creating custom widgets](building-a-form/creating-custom-widgets.md)
 
