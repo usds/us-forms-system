@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "rm -rf lib/{js,css} && npx babel src/js --out-dir lib/js && npm run compile-sass && npm run autoprefix",
-    "compile-sass": "node-sass --include-path src/scss/styles.scss src/scss/styles.scss -o lib/css/",
-    "autoprefix": "npx postcss lib/css/styles.css --use autoprefixer -d lib/css/",
+    "compile-sass": "node-sass --source-map lib/css/ --source-map-embed false --include-path src/scss/styles.scss src/scss/styles.scss -o lib/css/",
+    "autoprefix": "npx postcss lib/css/styles.css --use autoprefixer -map -d lib/css/",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "lint:sass": "sass-lint -c test/config/sass-lint.yaml --verbose",
