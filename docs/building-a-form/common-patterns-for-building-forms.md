@@ -150,3 +150,64 @@ To create a block of text with no fields that follow, create an empty view objec
   }
 }
 ```
+
+### Conditionally hiding a group of fields
+
+Sometimes fields in a form are siblings to others, but must be hidden conditionally. For example, see this schema snippet from [VA Form 22-5490](https://www.va.gov/vaforms/form_detail.asp?FormNo=22-5490):
+
+```json
+"previousBenefits": {
+  "type": "object",
+  "properties": {
+    "disability": { "type": "boolean" },
+    "dic": { "type": "boolean" },
+    "chapter31": { "type": "boolean" },
+    "ownServiceBenefits": { "type": "string" },
+    "chapter35": { "type": "boolean" },
+    "chapter33": { "type": "boolean" },
+    "transferOfEntitlement": { "type": "boolean" },
+    "other": { "type": "string" },
+    "veteranFullName": { "$ref": "#/definitions/fullName" },
+    "veteranSocialSecurityNumber": { "$ref": "#/definitions/ssn" }
+  }
+}
+```
+
+Only `chapter35`, `chapter33`, `transferOfEntitlement`, `veteranFullName`, and `veteranSocialSecurityNumber` are conditionally hidden, so the `schema` and `uiSchema` are written as:
+
+```js
+// schema
+{
+  disability: { ... },
+  dic: { ... },
+  chapter31: { ... },
+  ownServiceBenefits: { ... },
+  'view:sponsorServiceOptions': {
+    chapter35: { ... },
+    chapter33: { ... },
+    transferOfEntitlement: { ... },
+    veteranFullName: { ... },
+    veteranSocialSecurityNumber: { ... }
+  },
+  other: { ... }
+}
+
+// uiSchema
+{
+  disability: { ... },
+  dic: { ... },
+  chapter31: { ... },
+  ownServiceBenefits: { ... },
+  'view:sponsorServiceOptions': {
+    hideIf: (formData) => /* Some condition here */,
+    chapter35: { ... },
+    chapter33: { ... },
+    transferOfEntitlement: { ... },
+    veteranFullName: { ... },
+    veteranSocialSecurityNumber: { ... }
+  },
+  other: { ... }
+}
+```
+
+From this, the fields in the `view:sponsorServiceOptions` object are moved up one level and sent alongside `dic` and `chapter31`. The back end doesn't see objects with names that start with `view:`, but it gets all fields inside those objects.
