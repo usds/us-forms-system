@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/usds/us-forms-system#readme",
   "devDependencies": {
-    "@department-of-veterans-affairs/formation": "^0.8.0",
     "autoprefixer": "^8.6.2",
     "axe-core": "^2.4.2",
     "babel-cli": "^6.26.0",
@@ -83,7 +82,6 @@
     "vets-json-schema": "git+https://github.com/department-of-veterans-affairs/vets-json-schema.git"
   },
   "peerDependencies": {
-    "@department-of-veterans-affairs/formation": "^0.8.0",
     "react": "^15.5.4",
     "react-dom": "^15.6.2",
     "uswds": "^1.6.3"
