@@ -241,3 +241,58 @@ To indent or otherwise style fields that are expanded or collapsed with the `exp
 ```
 
 In this example, `schemaform-expandUnder-indent` is applied to the `div` that surrounds `field2` and `field3`, which indents the fields. For additional styling, create a new class and add your own styles.
+
+### Conditionally including a page
+
+The `depends` property determines whether a page is active or not. `depends` can work in a few ways:
+
+```js
+// With an object
+depends: {
+  passPhrase: 'open sesame'
+}
+
+// With an array
+// This will activate the page if any of the items in the array are true. Think || not &&.
+depends: [
+  { passPhrase: 'open sesame' },
+  { passPhrase: 'open up!' }
+]
+
+// With a function
+depends: (formData) => {
+  // return bool, true if page is active, false if page should be skipped
+  return formData.passPhrase === 'open sesame' && formData.codeWord === 'chicken';
+}
+```
+
+For example, given this chapter configuration:
+
+```js
+chapterName: {
+  title: 'Chapter Title',
+  pages: {
+    pageName: {
+      ...
+      schema: {
+        type: 'object',
+        properties: {
+          passPhrase: { type: 'string' }
+        }
+      }
+    }
+    otherPageName: {
+      title: 'Page title',
+      path: 'path/to/page',
+      initialData: {},
+      depends: {
+        passPhrase: 'open sesame'
+      },
+      uiSchema: {},
+      schema: {}
+    }
+  }
+}
+```
+
+If a user types 'open sesame' for the `passPhrase` on the first page, `otherPageName` is active. For any other value, including no value, `otherPageName` is inactive and the page is skipped.
