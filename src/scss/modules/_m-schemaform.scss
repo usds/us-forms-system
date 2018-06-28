@@ -583,7 +583,7 @@ legend.schemaform-label.schemaform-file-label {
   left: 0;
   z-index: 1;
 
-  @include media-maxwidth($small-screen) {
+  @media screen and (max-width: $small-screen) {
     font-size: 1.3rem;
   }
 }

@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "node script/build.js && npm run compile-sass && npm run autoprefix",
+    "build": "rm -rf lib/{js,css} && npx babel src/js --out-dir lib/js && npm run compile-sass && npm run autoprefix",
     "compile-sass": "node-sass --include-path src/scss/styles.scss src/scss/styles.scss -o lib/css/",
     "autoprefix": "npx postcss lib/css/styles.css --use autoprefixer -d lib/css/",
     "lint": "npm run lint:js && npm run lint:sass",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@department-of-veterans-affairs/formation": "^0.8.0",
     "autoprefixer": "^8.6.2",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-dynamic-import-node": "^1.2.0",
