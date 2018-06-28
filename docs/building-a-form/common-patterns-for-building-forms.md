@@ -53,3 +53,46 @@ When items in the `ui:validations` array are objects, they have two properties:
   }
 }
 ```
+
+### Validating a field based on other fields in the same object
+
+You can use `ui:validations` to validate objects in order to compare subfields. For example, given this schema:
+
+```js
+{
+  type: 'object',
+  properties: {
+    email: {
+      type: 'string'
+    },
+    confirmEmail: {
+      type: 'string'
+    }
+  }
+}
+```
+
+If you use `ui:validations` on this object field instead of on the email or confirmEmail fields, you can compare the two fields:
+
+```js
+export function validateEmailsMatch(errors, pageData) {
+  const { email, confirmEmail } = pageData;
+  if (email !== confirmEmail) {
+    errors.confirmEmail.addError('Please ensure your entries match');
+  }
+}
+```
+
+The function must be referenced in the `uiSchema`:
+
+```js
+{
+  'ui:validations': [ validateEmailsMatch ],
+  email: {
+    'ui:title': 'Email address'
+  },
+  confirmEmail: {
+    'ui:title': 'Re-enter email address'
+  }
+}
+```

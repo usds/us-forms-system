@@ -1,48 +1,5 @@
 ## Form config
 
-### I need to validate a field based on other fields in the same object
-
-You don't have to limit your use of `ui:validations` to non-object fields (i.e. the ones that become visible inputs on the form). You can also validate objects, which allows you to compare subfields. For example, given this schema:
-
-```js
-{
-  type: 'object',
-  properties: {
-    email: {
-      type: 'string'
-    },
-    confirmEmail: {
-      type: 'string'
-    }
-  }
-}
-```
-
-If you use `ui:validations` on this object field (instead of on the email or confirmEmail fields) you can compare the two fields:
-
-```js
-export function validateEmailsMatch(errors, pageData) {
-  const { email, confirmEmail } = pageData;
-  if (email !== confirmEmail) {
-    errors.confirmEmail.addError('Please ensure your entries match');
-  }
-}
-```
-
-This function then should be referenced in the uiSchema:
-
-```js
-{
-  'ui:validations': [ validateEmailsMatch ],
-  email: {
-    'ui:title': 'Email address'
-  },
-  confirmEmail: {
-    'ui:title': 'Re-enter email address'
-  }
-}
-```
-
 ### I want to change the options of a dropdown based on some other field data
 
 You can use the `updateSchema` option in uiSchema to change the list of enums:
