@@ -1,28 +1,5 @@
 ## Form config
 
-### I want to show a block of text without any fields.
-
-You can use 'ui:description' to show text or a custom component before the fields in a particular object in the schema. If you want to just have a block of text with no fields after it, you can create an empty view object:
-
-```js
-// schema
-{
-  type: 'object',
-  properties: {
-    'view:textObject': {
-      type: 'object',
-      properties: {}
-    }
-  }
-}
-
-// uiSchema
-{
-  'view:textObject': {
-    'ui:description': 'My text'
-  }
-}
-```
 ### I want to conditionally hide a group of fields
 
 We may have some fields that are siblings to others, but need to be hidden conditionally. Take the following schema snippet (from the education benefits form 22-5490):

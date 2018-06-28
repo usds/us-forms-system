@@ -124,3 +124,29 @@ Use the `updateSchema` option in `uiSchema` to change a list of enums:
 Only the properties in the returned object are changed in the current schema. The object returned isn't used as an exact replacement for the schema, and if the current schema contains other properties, they aren't removed.
 
 For a long list of options, create all variations of the schema outside of the update function and use the update function to switch between them. You won't need to create a new schema object each time data changes in the form, requiring your field to re-render.
+
+### Creating a block of text with no associated fields
+
+Use 'ui:description' to show text or a custom component before the fields in a particular object in the schema.
+
+To create a block of text with no fields that follow, create an empty view object:
+
+```js
+// schema
+{
+  type: 'object',
+  properties: {
+    'view:textObject': {
+      type: 'object',
+      properties: {}
+    }
+  }
+}
+
+// uiSchema
+{
+  'view:textObject': {
+    'ui:description': 'My text'
+  }
+}
+```
