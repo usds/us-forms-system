@@ -96,3 +96,31 @@ The function must be referenced in the `uiSchema`:
   }
 }
 ```
+
+### Changing drop-down options based on data in another field
+
+Use the `updateSchema` option in `uiSchema` to change a list of enums:
+
+```js
+{
+  'ui:options': {
+    updateSchema: (form, pageSchema) {
+      if (form.myField === 'otherOption') {
+        return {
+          enum: ['option1', 'option2'],
+          enumNames: ['Option 1', 'Option 2']
+        }
+      } else {
+        return {
+          enum: ['option1', 'option2'],
+          enumNames: ['Option 1', 'Option 2']
+        }
+      }
+    }
+  }
+}
+```
+
+Only the properties in the returned object are changed in the current schema. The object returned isn't used as an exact replacement for the schema, and if the current schema contains other properties, they aren't removed.
+
+For a long list of options, create all variations of the schema outside of the update function and use the update function to switch between them. You won't need to create a new schema object each time data changes in the form, requiring your field to re-render.

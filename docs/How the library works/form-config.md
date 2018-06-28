@@ -1,33 +1,5 @@
 ## Form config
 
-### I want to change the options of a dropdown based on some other field data
-
-You can use the `updateSchema` option in uiSchema to change the list of enums:
-
-```js
-{
-  'ui:options': {
-    updateSchema: (form, pageSchema) {
-      if (form.myField === 'otherOption') {
-        return {
-          enum: ['option1', 'option2'],
-          enumNames: ['Option 1', 'Option 2']
-        }
-      } else {
-        return {
-          enum: ['option1', 'option2'],
-          enumNames: ['Option 1', 'Option 2']
-        }
-      }
-    }
-  }
-}
-```
-
-The object returned is not used as an exact replacement for the schema. If there are other properties in the current schema, those won't be removed. Only the properties in the returned object will be changed in the current schema.
-
-Note that if you have a long list of options, you may want to create all the variations of the schema outside of the update function and use the update function to switch between them. This way you're not creating a new schema object each time data changes in the form and forcing your field to re-render.
-
 ### I want to show a block of text without any fields.
 
 You can use 'ui:description' to show text or a custom component before the fields in a particular object in the schema. If you want to just have a block of text with no fields after it, you can create an empty view object:
