@@ -14,8 +14,6 @@ There are many common fields and widgets you can use to build forms. There are c
 
 ### [Creating custom widgets](building-a-form/creating-custom-widgets.md)
 
-### [Creating multi-page forms](building-a-form/creating-multi-page-forms.md)
-
 ### [Common patterns for building forms](common-patterns-for-building-forms.md)
 
 Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
