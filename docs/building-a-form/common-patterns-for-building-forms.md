@@ -211,3 +211,33 @@ Only `chapter35`, `chapter33`, `transferOfEntitlement`, `veteranFullName`, and `
 ```
 
 From this, the fields in the `view:sponsorServiceOptions` object are moved up one level and sent alongside `dic` and `chapter31`. The back end doesn't see objects with names that start with `view:`, but it gets all fields inside those objects.
+
+## Styling expanded or collapsed fields
+
+To indent or otherwise style fields that are expanded or collapsed with the `expandUnder` option, set a class on the controlling field. For example:
+
+```js
+// uiSchema
+{
+  field1: {
+    'ui:title': 'This field expands/collapses other items',
+    'ui:options': {
+      expandUnderClassNames: 'schemaform-expandUnder-indent'
+    }
+  },
+  field2: {
+    'ui:title': 'This field is controlled by field1'
+    'ui:options': {
+      expandUnder: 'field1'
+    }
+  },
+  field3: {
+    'ui:title': 'This field is controlled by field1'
+    'ui:options': {
+      expandUnder: 'field1'
+    }
+  }
+}
+```
+
+In this example, `schemaform-expandUnder-indent` is applied to the `div` that surrounds `field2` and `field3`, which indents the fields. For additional styling, create a new class and add your own styles.

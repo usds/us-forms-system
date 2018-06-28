@@ -1,35 +1,5 @@
 ## Form config
 
-## I want to indent or style the fields that are using expandUnder
-
-If you need to indent all the fields that are being expanded/collapsed with the expandUnder option, or do some other styling, you can set a class on the controlling field.
-
-```js
-// uiSchema
-{
-  field1: {
-    'ui:title': 'This field expands/collapses other items',
-    'ui:options': {
-      expandUnderClassNames: 'schemaform-expandUnder-indent'
-    }
-  },
-  field2: {
-    'ui:title': 'This field is controlled by field1'
-    'ui:options': {
-      expandUnder: 'field1'
-    }
-  },
-  field3: {
-    'ui:title': 'This field is controlled by field1'
-    'ui:options': {
-      expandUnder: 'field1'
-    }
-  }
-}
-```
-
-Now, `schemaform-expandUnder-indent` will be applied to the div that surrounds `field2` and `field3`. This class currently indents the fields, so if that's what you need, you're all set. If you need to do other styling, you can create a new class to use here and add your own styles.
-
 ## I want to skip / conditionally include a page based on some information
 
 We use the `depends` property on the page to determine whether the page is active or not. For example, your chapter config might look like this:
