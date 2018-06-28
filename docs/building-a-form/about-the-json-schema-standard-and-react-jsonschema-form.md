@@ -1,4 +1,4 @@
-# About the JSON Schema standard and react-jsonschema-form
+# About the schemaform
 
 Learn about the form building code, or *schemaform*, and the library it's built on. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
 

@@ -1,6 +1,6 @@
 # Building a form
 
-### [About the JSON schema standard and react-jsonschema-form](building-a-form/about-the-json-schema-standard-and-react-jsonschema-form.md)
+### [About the schemaform](building-a-form/about-the-json-schema-standard-and-react-jsonschema-form.md)
 
 Learn about the form building code, or *schemaform*, and the library it's built on.
 
