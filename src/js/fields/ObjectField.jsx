@@ -9,8 +9,8 @@ import {
   orderProperties,
   getDefaultRegistry
 } from '@department-of-veterans-affairs/react-jsonschema-form/lib/utils';
-import ExpandingGroup from '@department-of-veterans-affairs/formation/ExpandingGroup';
 
+import ExpandingGroup from '../components/ExpandingGroup';
 import { pureWithDeepEquals } from '../helpers';
 
 /*
