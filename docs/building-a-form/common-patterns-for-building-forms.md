@@ -4,13 +4,13 @@ Some forms require custom validation, styles, or conditional information based o
 
 ### In this guide
 
-- Writing custom field validation
-- Validating a field based on other fields in the same object
-- Changing drop-down options based on data in another field
-- Creating a block of text with no associated fields
-- Conditionally hiding a group of fields
-- Styling expanded or collapsed fields
-- Conditionally including a page
+- [Writing custom field validation](#writing-custom-field-validation)
+- [Validating a field based on other fields in the same object](#validating-a-field-based-on-other-fields-in-the-same-object)
+- [Changing drop-down options based on data in another field](#changing-drop-down-options-based-on-data-in-another-field)
+- [Creating a block of text with no associated fields](#creating-a-block-of-text-with-no-associated-fields)
+- [Conditionally hiding a group of fields](#conditionally-hiding-a-group-of-fields)
+- [Styling expanded or collapsed fields](#styling-expanded-or-collapsed-fields)
+- [Conditionally including a page](#conditionally-including-a-page)
 
 [Back to *Building a Form*](building-a-form/README.md)
 
