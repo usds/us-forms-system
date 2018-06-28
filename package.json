@@ -30,6 +30,7 @@
   "devDependencies": {
     "@department-of-veterans-affairs/formation": "^0.8.0",
     "autoprefixer": "^8.6.2",
+    "axe-core": "^2.4.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
