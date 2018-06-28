@@ -9,17 +9,24 @@ There are many common fields and widgets you can use to build forms. There are c
 
 ### Common widgets
 
-These common widgets are included in the schemaform by default that you'll likely set in a config file while building your form. Some widgets are associated with particular schema types or formats. There are additional widgets available, but the schemaform uses definitions they're included in, rather than just the field.
+These common widgets are included in the schemaform by default. Set these widgets in a config file while building your form. Some are associated with particular schema types or formats. There are additional widgets available, but the schemaform uses definitions they're included in, rather than just the field.
 
-To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in `src/js/common/schemaform/widgets`.
+To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](src/js/widgets).
 
 Widget       | Default schema type or format
 ------------ | -------------
-`TextWidget` | type: `string`
-`SelectWidget` | type: `string` with an enum property
-`RadioWidget` |
+`ArrayCountWidget` |
 `CheckboxWidget` | type: `boolean`
-`yesNo` |
+`CurrencyWidget` |
+`DateWidget` |
+`EmailWidget` |
+`PhoneNumberWidget`
+`RadioWidget` |
+`SelectWidget` | type: `string` with an enum property
+`SSNWidget` |
+`TextWidget` | type: `string`
+`YesNoWidget` |
+
 ### Common definitions
 
 These definitions address form field patterns that are more complex than widgets and include common label text, validation, or field components. Definitions are located in [/src/js/definitions](src/js/definitions).
