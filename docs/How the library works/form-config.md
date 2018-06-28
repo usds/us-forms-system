@@ -1,47 +1,5 @@
 ## Form config
 
-## Schemaform cookbook
-
-Here are some common situations you might run into when building a form and how to address them.
-
-### I need to write custom validation
-
-JSON Schema does not provide all the validation options we need in our forms, so we've created an additional way to add field validations, using `ui:validations` in the uiSchema object. `ui:validations` is an array and each item can be a function or an object. If you pass a function, it will be called with the following arguments:
-
-- errors: The errors object for the field.
-- fieldData: The data for the field.
-- formData: The current form data.
-- schema: The current JSON Schema for the field.
-- errorMessages: The error messsage object (if available) for the field.
-
-Every validation function should update the errors object with any errors found. This is done by calling its `addErrors()` method. Here's an example:
-
-```js
-function validateSSN(errors, ssn) {
-  if (!isValidSSN(ssn)) {
-    errors.addError('Please enter a valid 0 digit SSN (dashes allowed)');
-  }
-}
-```
-
-Items in the `ui:validations` array can also be objects. Objects should have two properties:
-
-- options: Object (or anything, really) that will be passed to your validation function. You can use this to allow your validation function to be configurable for different fields on the form.
-- validator: A function with the same signature as above, plus the options object.
-
-```js
-{
-  validator: (errors, ssn, formData, schema, errorMessages, options) => {
-    if (!isValidWidget(ssn, options.someOption)) {
-      errors.addError('Please enter a valid 9 digit SSN (dashes allowed)');
-    }
-  },
-  options: {
-    someOption: true
-  }
-}
-```
-
 ### I need to validate a field based on other fields in the same object
 
 You don't have to limit your use of `ui:validations` to non-object fields (i.e. the ones that become visible inputs on the form). You can also validate objects, which allows you to compare subfields. For example, given this schema:
