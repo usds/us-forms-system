@@ -7,5 +7,4 @@
   - [About the schemaform](building-a-form/about-the-json-schema-standard-and-react-jsonschema-form.md)
   - [Creating a form config file](building-a-form/creating-a-form-config-file.md)
   - [Adding widgets and definitions](building-a-form/adding-widgets-and-definitions.md)
-  - [Creating custom widgets](building-a-form/creating-custom-widgets.md)
   - [Common patterns for building forms](building-a-form/common-patterns-for-building-forms.md)

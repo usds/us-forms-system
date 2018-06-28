@@ -12,8 +12,6 @@ Your form is generated from a `form.js` file, along with a few other key configu
 
 There are many common fields and widgets you can use to build forms. There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects.
 
-### [Creating custom widgets](building-a-form/creating-custom-widgets.md)
-
 ### [Common patterns for building forms](common-patterns-for-building-forms.md)
 
 Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
