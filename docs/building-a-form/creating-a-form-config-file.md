@@ -7,7 +7,7 @@ Your form is generated from a JSON Schema configuration file called `form.js`, a
 - [Example `form.js` file](#example-form.js-file)
 - [About the `schema` and `uiSchema` objects](#about-the-schema-and-uischema-objects)
 - [Configuring `uiSchema` using rjsf options](#configuring-uischema-using-rjsf-options)
-- []
+- [Configuring `uiSchema` using US Form System options](#configuring-uischema-using-us-form-system-options)
 
 ### Example `form.js` file
 
