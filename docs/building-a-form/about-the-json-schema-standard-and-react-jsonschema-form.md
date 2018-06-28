@@ -1,6 +1,6 @@
 # About the schemaform
 
-Learn about the form building code, or *schemaform*, and the library it's built on. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
+Learn about the form building code, or *schemaform*, and the library it's built on.
 
 ### In this guide
 
@@ -13,11 +13,13 @@ Learn about the form building code, or *schemaform*, and the library it's built 
   - [About the `uiSchema` field component](#about-the-uischema-field-component)
 - [How schemaform uses rjsf](#how-schemaform-uses-rjsf)
   - [Customizing fields and widgets from rjsf](customizing-fields-and-widgets-from-rjsf)
-  - [Creating multi-page forms](#creating-multi-page-forms)
+  - [Supporting multi-page forms](#supporting-multi-page-forms)
 
 ### Understanding JSON Schema
 
-The JSON Schema standard describes the allowed shape of JSON objects. You can nest schemas as far down as you'd like. Schemas have a type, which tells you what kind of data is allowed:
+The JSON Schema standard describes the allowed shape of JSON objects. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
+
+You can nest schemas as far down as you'd like. Schemas have a type, which tells you what kind of data is allowed:
 
 ```
 {
@@ -285,7 +287,7 @@ In addition to customizing fields and widgets, the schemaform code hooks into a 
     - **Recalculate which schema fields are hidden and remove that data:** In uiSchema, you can specify fields that are conditionally hidden based on user data. To avoid validation errors from data a user can't see, the schemaform updates the schema to add a `ui:hidden` property and remove any user data for those fields.
     - **Recalcuate general schema updates:** Because you can make arbitrary changes to the schema based on form data, the schemaform must also make those changes, for example, removing options in an `enum` array when a user has entered certain data.
 
-##### Creating multi-page forms
+##### Supporting multi-page forms
 
 Large forms are organized into *chapters* and *pages*. A chapter is a collection of pages, each rendered as a single rjsf form with a schema and `uiSchema` field component. The chapter and page organization is described in a form config file that the schemaform uses to generate a list of routes. A user can move through the list of pages until they reach the review page.
 
