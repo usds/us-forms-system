@@ -2,6 +2,7 @@
 
 The US Forms System Starter App creates the initial files, configuration, build process, and web server you need to start building your form.
 
+Before you begin, review "[Tools for getting started with the US Forms System](getting-started/tools-for-getting-started-with-the-us-forms-system)."
 
 1. Fork repo to create your own form app
 2. Install dependencies: `npm install`

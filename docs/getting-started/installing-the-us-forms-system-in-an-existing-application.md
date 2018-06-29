@@ -2,6 +2,8 @@
 
 If you're using an existing React application, you can install the US Forms System in that app.
 
+Before you begin, review "[Tools for getting started with the US Forms System](getting-started/tools-for-getting-started-with-the-us-forms-system)."
+
 ### In this guide
 
 - [Install the library and dependencies](#install-the-library-and-dependencies)
