@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ExpandingGroup from '@department-of-veterans-affairs/formation/ExpandingGroup';
+import ExpandingGroup from '../components/ExpandingGroup';
 
 export default function RadioWidget({
   options,
