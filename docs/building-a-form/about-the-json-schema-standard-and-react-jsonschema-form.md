@@ -54,7 +54,7 @@ This example describes a JSON document that is an object with one property calle
 }
 ```
 
-However, `{}` is also valid. To require a property in an object, use the `required` property. In this example, `required` is on the object that contains the field, not the field itself:
+However, `{}` is also valid. To require a property in an object, use the `required` property. As in this example, `required` is always on the object that contains the field, not the field itself:
 
 ```
 {
