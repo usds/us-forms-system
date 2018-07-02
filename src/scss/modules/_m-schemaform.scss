@@ -623,7 +623,7 @@ legend.schemaform-label.schemaform-file-label {
 
 .usa-accordion, .usa-accordion-bordered {
   > ul {
-    button {
+    button:not(.usa-button-unstyled) {
       border-radius: $button-border-radius;
     }
   }

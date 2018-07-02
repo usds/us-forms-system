@@ -5756,8 +5756,7 @@ legend.schemaform-label.schemaform-file-label {
   font-size: 1.7rem;
   margin-top: 1em; }
 
-.usa-accordion > ul button,
-.usa-accordion-bordered > ul button {
+.usa-accordion > ul button:not(.usa-button-unstyled), .usa-accordion-bordered > ul button:not(.usa-button-unstyled) {
   border-radius: 5px; }
 
 .schemaform-title-underline {
