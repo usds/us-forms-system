@@ -124,3 +124,26 @@ input[type="radio"] {
   position: absolute;
   left: auto;
 }
+
+// Override USWDS standard date input styling
+// TODO: revisit this decision and determine if we ever want to return to
+// using USWDS standard date input styling
+.form-datefield-month,
+.form-datefield-day {
+  clear: none;
+  float: left;
+  margin-right: 1.5rem;
+
+  & select {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+}
+
+.form-datefield-month {
+  width: 10rem;
+}
+
+.form-datefield-day {
+  width: 8rem;
+}
