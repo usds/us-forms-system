@@ -5143,6 +5143,22 @@ input[type="radio"] {
   position: absolute;
   left: auto; }
 
+.form-datefield-month,
+.form-datefield-day {
+  clear: none;
+  float: left;
+  margin-right: 1.5rem; }
+  .form-datefield-month select,
+  .form-datefield-day select {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem; }
+
+.form-datefield-month {
+  width: 10rem; }
+
+.form-datefield-day {
+  width: 8rem; }
+
 .form-process li h5 {
   color: #5b616b; }
 
