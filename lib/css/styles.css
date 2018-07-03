@@ -5765,4 +5765,9 @@ legend.schemaform-label.schemaform-file-label {
 .schemaform-downtime-after-steps {
   margin-top: 0;
   margin-bottom: 1em; }
+
+.sr-only {
+  position: absolute;
+  left: -9999em;
+  float: left; }
 /*# sourceMappingURL=styles.css.map */
