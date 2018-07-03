@@ -14,6 +14,10 @@ button.form-button-disabled {
   margin-top: 0.5em;
 }
 
+.form-error-date {
+  margin-top: 0;
+}
+
 @include media($medium-large-screen) {
   .form-select-medium {
     max-width: 12rem;
