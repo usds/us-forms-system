@@ -6,7 +6,7 @@ Building a form using the US Forms System requires some minimum front-end develo
 
 - [Command line interface (CLI)](#command-line-interface-cli)
 - [JavaScript](#javascript)
-- [Node.js and npm](#node-js-and-npm)
+- [Node.js and npm](#nodejs-and-npm)
 - [React](#react)
 - [JSON Schema](#json-schema)
 - [react-jsonschema-form (rjsf)](#react-jsonschema-form-rjsf)
@@ -27,11 +27,11 @@ Node.js is a JavaScript runtime environment that allows you to execute complete 
 
 React is a JavaScript library for building user interfaces (UI). For more information, including tutorials for getting started, see the [React.js website](https://reactjs.org/).
 
-##### JSON Schema
+### JSON Schema
 
 JSON Schema is a concise method of describing JSON data. We recommend basic familiarity with JSON Schema to build forms with the US Forms System. For more information about JSON Schema, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/) by the Space Telescope Science Institute.
 
-##### react-jsonschema-form (rjsf)
+### react-jsonschema-form (rjsf)
 
 rjsf is a React component maintained by Mozilla that's used to build web forms based on JSON Schema. For more information, see the [react-jsonschema-form documentation](https://github.com/mozilla-services/react-jsonschema-form#react-jsonschema-form).
 
