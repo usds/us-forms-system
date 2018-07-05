@@ -5060,6 +5060,9 @@ button.form-button-disabled {
 .form-field-alert label {
   margin-top: 0.5em; }
 
+.form-error-date {
+  margin-top: 0; }
+
 @media screen and (min-width: 768px) {
   .form-select-medium {
     max-width: 12rem; } }
@@ -5765,4 +5768,9 @@ legend.schemaform-label.schemaform-file-label {
 .schemaform-downtime-after-steps {
   margin-top: 0;
   margin-bottom: 1em; }
+
+.sr-only {
+  position: absolute;
+  left: -9999em;
+  float: left; }
 /*# sourceMappingURL=styles.css.map */
