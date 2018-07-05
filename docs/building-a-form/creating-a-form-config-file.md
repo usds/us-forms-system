@@ -169,7 +169,7 @@ If you're not already familiar with the rjsf uiSchema options, see the [library 
 
 ### Configuring `uiSchema` using US Form System options
 
-The schemaform code includes additional `uiSchema` functionality not found in the rjsf library.
+The us-forms-system code includes additional `uiSchema` functionality not found in the rjsf library.
 
 ```js
 {
