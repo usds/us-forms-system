@@ -41,13 +41,13 @@ Available definitions are:
 - [Bank account](#bank-account)
 - [Currency](#currency)
 - [Current or past dates](#current-or-past-dates)
-- [Current or past month/year](#current-or-past-month-year)
+- [Current or past month/year](#current-or-past-monthyear)
 - [Date](#date)
 - [Date range](#date-range)
 - [File upload](#file-upload)
 - [Full name](#full-name)
-- [Month/year](#month-year)
-- [Month/year range](#month-year-range)
+- [Month/year](#monthyear)
+- [Month/year range](#monthyear-range)
 - [Non-required full name](#non-required-full-name)
 - [Person ID](#person-id)
 - [Phone](#phone)
@@ -97,7 +97,7 @@ The common date field with current or past validation set.
 - `schema`: No
 - Function or object: Function
 
-### Current or past month/year
+##### Current or past month/year
 
 The common date field without the day field and with current or past validation set.
 
@@ -106,7 +106,7 @@ The common date field without the day field and with current or past validation 
 - `schema`: No
 - Function or object: Function
 
-### Date
+##### Date
 
 The common date field with basic date validation.
 
@@ -115,7 +115,7 @@ The common date field with basic date validation.
 - `schema`: No
 - Function or object: Function
 
-### Date range
+##### Date range
 
 Two common date fields with validation to ensure they form a valid range.
 
@@ -124,7 +124,7 @@ Two common date fields with validation to ensure they form a valid range.
 - `schema`: No
 - Function or object: Function
 
-### File upload
+##### File upload
 
 The file upload field. Requires a specified endpoint for the upload.
 
@@ -133,7 +133,7 @@ The file upload field. Requires a specified endpoint for the upload.
 - `schema`: Yes (the same as in vets-json-schema)
 - Function or object: Function for `uiSchema`, object for `schema`
 
-### Full name
+##### Full name
 
 The normal name field, including first, middle, last, and suffix.
 
@@ -142,7 +142,7 @@ The normal name field, including first, middle, last, and suffix.
 - `schema`: No
 - Function or object: Object
 
-### Month/year
+##### Month/year
 
 The common date field, excluding day field, with basic validation.
 
@@ -151,7 +151,7 @@ The common date field, excluding day field, with basic validation.
 - `schema`: No
 - Function or object: Function
 
-### Month/year range
+##### Month/year range
 
 Two common date fields, excluding day field, with validation to ensure the dates form a valid range.
 
@@ -160,7 +160,7 @@ Two common date fields, excluding day field, with validation to ensure the dates
 - `schema`: No
 - Function or object: Function
 
-### Non-required full name
+##### Non-required full name
 
 A function that takes a full name `schema` and sets its required field list to `empty`.
 
@@ -169,7 +169,7 @@ A function that takes a full name `schema` and sets its required field list to `
 - `schema`: Yes
 - Function or object: Function
 
-### Person ID
+##### Person ID
 
 A function that allows the user to input a form of personal identification. For example, the form can ask for a social security number and include a checkbox to specify that the user doesn't have one, allowing them to instead input a Veterans Affairs file number.
 
@@ -178,7 +178,7 @@ A function that allows the user to input a form of personal identification. For 
 - `schema`: Yes
 - Function or object: Function
 
-### Phone
+##### Phone
 
 A phone number with basic validation.
 
@@ -187,7 +187,7 @@ A phone number with basic validation.
 - `schema`: No
 - Function or object: Function
 
-### Social Security Number
+##### Social Security Number
 
 A social security number with default label text and validation.
 
@@ -196,7 +196,7 @@ A social security number with default label text and validation.
 - `schema`: No
 - Function or object: Object
 
-### Year
+##### Year
 
 A text field that validates the current or a past year.
 
