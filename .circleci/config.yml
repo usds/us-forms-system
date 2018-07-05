@@ -34,17 +34,12 @@ jobs:
 
 workflows:
   version: 2
-  build-deploy:
+  build_and_deploy:
     jobs:
-      - build:   # run for all branches and PRs
-          filters:
-            tags:
-              only: /v.*/
-      - deploy: # run for only tagged (master)
+      - build
+      - deploy:
           requires:
             - build
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+              only: master
