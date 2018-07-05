@@ -21,7 +21,7 @@ Most technologies the US Forms System uses, such as React, are centered around J
 
 ### Node.js and npm
 
-Node.js is a JavaScript runtime environment that allows you to execute complete JavaScript programs. When you install Node.js, it automatically installs a package manager called npm. You need both Node.js and npm to develop using the US Forms System. For more information, including installation instructions, see the [Node.js website](https://nodejs.org).
+Node.js is a JavaScript runtime environment that allows you to execute complete JavaScript programs. When you install Node.js, it automatically installs a package manager called npm. You need both Node.js (minimum version 8.0.0) and npm to develop using the US Forms System. For more information, including installation instructions, see the [Node.js website](https://nodejs.org).
 
 ### React
 
