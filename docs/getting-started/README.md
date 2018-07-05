@@ -2,7 +2,7 @@
 
 Depending on your needs, you can either create a brand new application from scratch or install the US Forms System in an existing application.
 
-### [Tools for getting started with the US Forms System](#tools-for-getting-started-with-the-us-forms-system)
+### [Tools for getting started with the US Forms System](tools-for-getting-started-with-the-us-forms-system.md)
 
 Building a form using the US Forms System requires some minimum front-end development tools, as well as general knowledge of those tools. Where possible, we'll provide links to information about getting started with these tools.
 
