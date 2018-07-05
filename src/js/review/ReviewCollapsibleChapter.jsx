@@ -4,8 +4,7 @@ import Scroll from 'react-scroll';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
 
-import ProgressButton from '@department-of-veterans-affairs/formation/ProgressButton';
-
+import ProgressButton from '../components/ProgressButton';
 import { focusElement } from '../utilities/ui';
 import SchemaForm from '../components/SchemaForm';
 import {

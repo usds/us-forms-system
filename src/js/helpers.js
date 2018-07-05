@@ -565,5 +565,5 @@ export function omitRequired(schema) {
  * @param {object} data - The event data that will be sent to GA.
  */
 export function recordEvent(data) {
-  return window.dataLayer.push(data);
+  return window.dataLayer && window.dataLayer.push(data);
 }
