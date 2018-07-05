@@ -56,6 +56,6 @@ $ npm install
 
 Once your repository is set up and dependencies are installed, you can begin building your app by editing `/js/config/form.js`. For more information, see "[Creating a form config file](building-a-form/creating-a-form-config-file.md)."
 
-To run your app locally, in Terminal (Mac and Linux) or the Command Prompt (Windows), type `npm start`.
+To run your app locally, in Terminal (Mac and Linux) or the Command Prompt (Windows), type `npm start`. Once the server has started, you can view your form in a browser window at `localhost:8080`.
 
 [Back to *Getting Started with the US Forms System*](README.md)
