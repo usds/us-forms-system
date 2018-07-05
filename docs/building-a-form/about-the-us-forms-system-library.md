@@ -1,6 +1,6 @@
-# About the schemaform
+# About the US Forms System library
 
-Learn about the form building code, or *schemaform*, and the library it's built on.
+The US Forms System lets you build web-based forms using React and the JSON Schema standard.
 
 ### In this guide
 

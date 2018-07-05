@@ -1,8 +1,8 @@
 # Building a form
 
-### [About the schemaform](about-the-json-schema-standard-and-react-jsonschema-form.md)
+### [About the US Forms System library](about-the-us-forms-system-library.md)
 
-Learn about the form building code, or *schemaform*, and the library it's built on.
+The US Forms System lets you build web-based forms using React and the JSON Schema standard.
 
 ### [Creating a form config file](creating-a-form-config-file.md)
 
