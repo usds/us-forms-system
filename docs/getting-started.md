@@ -14,7 +14,6 @@ If you are installing the library into an existing application, you can follow t
 `npm install --save https://github.com/usds/us-forms-system.git`
 
 2. Install peer dependencies:
-- `npm install --save-dev @department-of-veterans-affairs/formation`
 - `npm install --save-dev uswds@^1.6.3`
 - `npm install --save-dev react@^15.5.4`
 - `npm install --save-dev react-dom@^15.6.2`
