@@ -7,7 +7,7 @@ The US Forms System lets you build web-based forms using React and the JSON Sche
 - [Understanding JSON Schema](#understanding-json-schema)
   - [Describing object fields and arrays](#describing-object-fields-and-arrays)
 - [Understanding react-jsonschema-form (rjsf)](#understanding-react-jsonschema-form-rjsf)
-  - [About the `Form` component](#about-the-form-component)
+  - [About the `Form` component, fields, and widgets](#about-the-form-component-fields-and-widgets)
   - [Field components](#field-components)
   - [About the `onChange` field component](#about-the-onchange-field-component)
   - [About the `uiSchema` field component](#about-the-uischema-field-component)
@@ -85,7 +85,7 @@ Many libraries implement the JSON Schema specification and let you validate that
 
 [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form), or *rjsf*, generates a form from a JSON Schema, in addition to other UI information. To generate a form, react-jsonschema-form steps through the schema depth and renders different React components based on the type of data each property in the schema represents.
 
-##### About the `Form` component
+##### About the `Form` component, fields, and widgets
 
 At the top level, rjsf uses a `Form` component to take the schema inputs and render a hierarchy of components for each field rendered on the form:
 
@@ -141,7 +141,7 @@ To override the default fields and widgets, you can pass specific properties to 
   - To specify a particular widget, set the  `ui:widget` property to `text`, `email`, `checkbox`, or your own custom widget.
   - To specify a particular field, set the `ui:field` property to a specific or custom field.
 
-For `object` and `array` schema types, a field component does something other than figure out what widgets to render.
+While in most cases a field component is responsible for rendering a label and a widget, for `object` and `array` schema types, the field component renders additional field components for each of the elements they contain.
 
 ##### Example schema: `object`
 
