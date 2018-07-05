@@ -16,9 +16,8 @@ Before you begin, review "[Tools for getting started with the US Forms System](g
 npm install --save https://github.com/usds/us-forms-system.git
 ```
 
-2. Install peer dependencies:
+2. Install the US Web Design System and React dependencies:
 ```bash
-npm install --save-dev @department-of-veterans-affairs/formation
 npm install --save-dev uswds@^1.6.3
 npm install --save-dev react@^15.5.4
 npm install --save-dev react-dom@^15.6.2
