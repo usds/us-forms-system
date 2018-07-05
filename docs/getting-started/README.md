@@ -10,7 +10,7 @@ Building a form using the US Forms System requires some minimum front-end develo
 
 The US Forms System Starter App creates the initial files, configuration, build process, and web server you need to start building your form immediately.
 
-### [Installing the US Forms System in an existing application](installing-the-library-in-an-existing-application.md)
+### [Installing the US Forms System in an existing application](installing-the-us-forms-system-in-an-existing-application.md)
 
 If you're using an existing React application, you can install the US Forms System in that app.
 

@@ -270,4 +270,4 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
 }
 ```
 
-[Back to *Building a Form*](building-a-form/README.md)
+[Back to *Building a Form*](README.md)

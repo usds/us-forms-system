@@ -205,4 +205,4 @@ A text field that validates the current or a past year.
 - `schema`: No
 - Function or object: Object
 
-[Back to *Building a Form*](building-a-form/README.md)
+[Back to *Building a Form*](README.md)

@@ -2,7 +2,7 @@
 
 The US Forms System Starter App creates the initial files, configuration, build process, and web server you need to start building your form.
 
-Before you begin, review "[Tools for getting started with the US Forms System](getting-started/tools-for-getting-started-with-the-us-forms-system)."
+Before you begin, review "[Tools for getting started with the US Forms System](tools-for-getting-started-with-the-us-forms-system.md)."
 
 ### In this guide
 
@@ -46,7 +46,7 @@ origin https://github.com/YOUR-USERNAME/YOUR-NEW-REPOSITORY-NAME.git (push)
 
 Use npm to install dependencies specified in `us-forms-system-starter-app/package-lock.json`.
 
-1. [Make sure Node and npm are installed](tools-for-getting-started-with-the-us-forms-system#node-js-and-npm).
+1. [Make sure Node and npm are installed](tools-for-getting-started-with-the-us-forms-system.md#node-js-and-npm).
 2. In Terminal (Mac and Linux) or the Command Prompt (Windows), use npm to install dependencies for the Starter App:
 ```bash
 $ npm install

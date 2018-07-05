@@ -12,8 +12,6 @@ Some forms require custom validation, styles, or conditional information based o
 - [Styling expanded or collapsed fields](#styling-expanded-or-collapsed-fields)
 - [Conditionally including a page](#conditionally-including-a-page)
 
-[Back to *Building a Form*](building-a-form/README.md)
-
 ### Writing custom field validation
 
 To add field validations to your forms that JSON Schema doesn't provide, use the array `ui:validations` in the `uiSchema` object. `ui:validations` can be a function or an object.
@@ -296,3 +294,5 @@ chapterName: {
 ```
 
 If a user types 'open sesame' for the `passPhrase` on the first page, `otherPageName` is active. For any other value, including no value, `otherPageName` is inactive and the page is skipped.
+
+[Back to *Building a Form*](README.md)
