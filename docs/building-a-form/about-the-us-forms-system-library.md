@@ -137,7 +137,9 @@ The hierarchy for this field uses `SelectWidget` instead of `TextWidget`, becaus
 </SchemaField>
 ```
 
-To override rules in `uiSchema`, specify a `ui:widget` property set to `text`, `email`, `checkbox`, or your own custom widget. The `ui:field` property can specify a specific or custom field.
+To override the default fields and widgets, you can pass specific properties to `uiSchema`:
+  - To specify a particular widget, set the  `ui:widget` property to `text`, `email`, `checkbox`, or your own custom widget.
+  - To specify a particular field, set the `ui:field` property to a specific or custom field.
 
 For `object` and `array` schema types, a field component does something other than figure out what widgets to render.
 
