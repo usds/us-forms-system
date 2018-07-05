@@ -16,7 +16,7 @@ Before you begin, review "[Tools for getting started with the US Forms System](g
 npm install --save https://github.com/usds/us-forms-system.git
 ```
 
-2. Install the US Web Design System and React dependencies:
+2. Install the [US Web Design System](https://github.com/uswds/uswds) and React dependencies:
 ```bash
 npm install --save-dev uswds@^1.6.3
 npm install --save-dev react@^15.5.4
