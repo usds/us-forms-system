@@ -637,3 +637,10 @@ legend.schemaform-label.schemaform-file-label {
   margin-top: 0;
   margin-bottom: 1em;
 }
+
+// Screen Readers
+.sr-only {
+  position: absolute;
+  left: -9999em;
+  float: left;
+}
