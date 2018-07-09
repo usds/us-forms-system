@@ -295,4 +295,6 @@ chapterName: {
 
 If a user types 'open sesame' for the `passPhrase` on the first page, `otherPageName` is active. For any other value, including no value, `otherPageName` is inactive and the page is skipped.
 
+**Don't use the pass phrase as a secure login or other authentication mechanism.** Within the source, the text of a pass phrase is clear text, even when it's in a function.
+
 [Back to *Building a Form*](README.md)
