@@ -11,7 +11,7 @@ There are many common fields and widgets you can use to build forms. There are c
 
 These common widgets are included in the us-forms-system by default. Set these widgets in a config file while building your form. Some are associated with particular schema types or formats. There are additional widgets available, but the us-forms-system uses definitions they're included in, rather than just the field.
 
-To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](src/js/widgets).
+To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](../src/js/widgets).
 
 Widget       | Default schema type or format
 ------------ | -------------
@@ -29,7 +29,7 @@ Widget       | Default schema type or format
 
 ### Common definitions
 
-These definitions address form field patterns that are more complex than widgets and include common label text, validation, or field components. Definitions are located in [/src/js/definitions](src/js/definitions).
+These definitions address form field patterns that are more complex than widgets and include common label text, validation, or field components. Definitions are located in [/src/js/definitions](../src/js/definitions).
 
 - Simple definitions are provided as `schema` and `uiSchema` objects that you can import and overwrite to customize.
 - More complex definitions are functions that require certain parameters.
