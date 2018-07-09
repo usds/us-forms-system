@@ -11,7 +11,7 @@ There are many common fields and widgets you can use to build forms. There are c
 
 These common widgets are included in the us-forms-system by default. Set these widgets in a config file while building your form. Some are associated with particular schema types or formats. There are additional widgets available, but the us-forms-system uses definitions they're included in, rather than just the field.
 
-To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](src/js/widgets).
+To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](../src/js/widgets).
 
 Widget       | Default schema type or format
 ------------ | -------------
@@ -29,7 +29,7 @@ Widget       | Default schema type or format
 
 ### Common definitions
 
-These definitions address form field patterns that are more complex than widgets and include common label text, validation, or field components. Definitions are located in [/src/js/definitions](src/js/definitions).
+These definitions address form field patterns that are more complex than widgets and include common label text, validation, or field components. Definitions are located in [/src/js/definitions](../src/js/definitions).
 
 - Simple definitions are provided as `schema` and `uiSchema` objects that you can import and overwrite to customize.
 - More complex definitions are functions that require certain parameters.
@@ -58,7 +58,7 @@ Available definitions are:
 
 Validates a complete street address that a user types.
 
-- File: [/src/js/definitions/address.js](src/js/definitions/address.js)
+- File: [/src/js/definitions/address.js](../src/js/definitions/address.js)
 - `uiSchema`: Yes
 - `schema`: Yes
 - Function or object: Functions
@@ -67,7 +67,7 @@ Validates a complete street address that a user types.
 
 A common type-ahead widget that lets a user type in values and narrow down a longer list of options.
 
-- File: [/src/js/definitions/autosuggest.js](src/js/definitions/autosuggest.js)
+- File: [/src/js/definitions/autosuggest.js](../src/js/definitions/autosuggest.js)
 - `uiSchema`: Yes
 - `schema`: Yes (for use when you are not using an `enum` in the schema)
 - Function or object: Function for `uiSchema`, object for `schema`
@@ -76,14 +76,14 @@ A common type-ahead widget that lets a user type in values and narrow down a lon
 
 The common electronic funds transfer (EFT) account information field that collects account type (checking or savings), bank account number, and bank routing number.
 
-- File: [/src/js/definitions/bankAccount.js](src/js/definitions/bankAccount.js)
+- File: [/src/js/definitions/bankAccount.js](../src/js/definitions/bankAccount.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Object
 
 ##### Currency
 
-- File: [/src/js/definitions/currency.js](src/js/definitions/currency.js)
+- File: [/src/js/definitions/currency.js](../src/js/definitions/currency.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
@@ -92,7 +92,7 @@ The common electronic funds transfer (EFT) account information field that collec
 
 The common date field with current or past validation set.
 
-- File: [/src/js/definitions/currentOrPastDate.js](src/js/definitions/currentOrPastDate.js)
+- File: [/src/js/definitions/currentOrPastDate.js](../src/js/definitions/currentOrPastDate.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
@@ -101,7 +101,7 @@ The common date field with current or past validation set.
 
 The common date field without the day field and with current or past validation set.
 
-- File: [/src/js/definitions/currentOrPastMonthYear.js](src/js/definitions/currentOrPastMonthYear.js)
+- File: [/src/js/definitions/currentOrPastMonthYear.js](../src/js/definitions/currentOrPastMonthYear.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
@@ -110,7 +110,7 @@ The common date field without the day field and with current or past validation 
 
 The common date field with basic date validation.
 
-- File: [/src/js/definitions/date.js](src/js/definitions/date.js)
+- File: [/src/js/definitions/date.js](../src/js/definitions/date.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
@@ -119,7 +119,7 @@ The common date field with basic date validation.
 
 Two common date fields with validation to ensure they form a valid range.
 
-- File: [/src/js/definitions/dateRange.js](src/js/definitions/dateRange.js)
+- File: [/src/js/definitions/dateRange.js](../src/js/definitions/dateRange.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
@@ -128,7 +128,7 @@ Two common date fields with validation to ensure they form a valid range.
 
 The file upload field. Requires a specified endpoint for the upload.
 
-- File: [/src/js/definitions/file.js](src/js/definitions/file.js)
+- File: [/src/js/definitions/file.js](../src/js/definitions/file.js)
 - `uiSchema`: Yes
 - `schema`: Yes (the same as in vets-json-schema)
 - Function or object: Function for `uiSchema`, object for `schema`
@@ -137,7 +137,7 @@ The file upload field. Requires a specified endpoint for the upload.
 
 The normal name field, including first, middle, last, and suffix.
 
-- File: [/src/js/definitions/fullName.js](src/js/definitions/fullName.js)
+- File: [/src/js/definitions/fullName.js](../src/js/definitions/fullName.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Object
@@ -146,7 +146,7 @@ The normal name field, including first, middle, last, and suffix.
 
 The common date field, excluding day field, with basic validation.
 
-- File: [/src/js/definitions/monthYear.js](src/js/definitions/monthYear.js)
+- File: [/src/js/definitions/monthYear.js](../src/js/definitions/monthYear.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
@@ -155,7 +155,7 @@ The common date field, excluding day field, with basic validation.
 
 Two common date fields, excluding day field, with validation to ensure the dates form a valid range.
 
-- File: [/src/js/definitions/monthYearRange.js](src/js/definitions/monthYearRange.js)
+- File: [/src/js/definitions/monthYearRange.js](../src/js/definitions/monthYearRange.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
@@ -164,7 +164,7 @@ Two common date fields, excluding day field, with validation to ensure the dates
 
 A function that takes a full name `schema` and sets its required field list to `empty`.
 
-- File: [/src/js/definitions/nonRequiredFullName.js](src/js/definitions/nonRequiredFullName.js)
+- File: [/src/js/definitions/nonRequiredFullName.js](../src/js/definitions/nonRequiredFullName.js)
 - `uiSchema`: No
 - `schema`: Yes
 - Function or object: Function
@@ -173,7 +173,7 @@ A function that takes a full name `schema` and sets its required field list to `
 
 A function that allows the user to input a form of personal identification. For example, the form can ask for a social security number and include a checkbox to specify that the user doesn't have one, allowing them to instead input a Veterans Affairs file number.
 
-- File: [/src/js/definitions/personId.js](src/js/definitions/personId.js)
+- File: [/src/js/definitions/personId.js](../src/js/definitions/personId.js)
 - `uiSchema`: Yes
 - `schema`: Yes
 - Function or object: Function
@@ -182,7 +182,7 @@ A function that allows the user to input a form of personal identification. For 
 
 A phone number with basic validation.
 
-- File: [/src/js/definitions/phone.js](src/js/definitions/phone.js)
+- File: [/src/js/definitions/phone.js](../src/js/definitions/phone.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
@@ -191,7 +191,7 @@ A phone number with basic validation.
 
 A social security number with default label text and validation.
 
-- File: [/src/js/definitions/ssn.js](src/js/definitions/ssn.js)
+- File: [/src/js/definitions/ssn.js](../src/js/definitions/ssn.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Object
@@ -200,7 +200,7 @@ A social security number with default label text and validation.
 
 A text field that validates the current or a past year.
 
-- File: [/src/js/definitions/year.js](src/js/definitions/year.js)
+- File: [/src/js/definitions/year.js](../src/js/definitions/year.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Object
