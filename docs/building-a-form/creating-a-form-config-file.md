@@ -114,7 +114,7 @@ This example `form.js` file will get you started with building your form.
 
 ### About the `schema` and `uiSchema` objects
 
-`uiSchema` is the object that provides information about how the page should be rendered. This object follows the format described in the [react-jsonschema-form documentation](https://github.com/mozilla-services/react-jsonschema-form#the-uischema-object), with some vets.gov-specific additions. The `schema` and `uiSchema` objects should have a similar structure, with the same fields organized in the same way with these exceptions:
+`uiSchema` is the object that provides information about how the page should be rendered. This object follows the format described in the [react-jsonschema-form documentation](https://github.com/mozilla-services/react-jsonschema-form#the-uischema-object), with some custom us-forms-system additions. The `schema` and `uiSchema` objects should have a similar structure, with the same fields organized in the same way with these exceptions:
 
 - `uiSchema` doesn't need to contain all the fields found in the `schema` object.
 - `uiSchema` doesn't need a `properties` object for sub-fields.
