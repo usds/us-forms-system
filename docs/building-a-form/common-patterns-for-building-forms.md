@@ -29,7 +29,7 @@ Every validation function should update the `errors` object with any errors foun
 ```js
 function validateSSN(errors, ssn) {
   if (!isValidSSN(ssn)) {
-    errors.addError('Please enter a valid 0 digit SSN (dashes allowed)');
+    errors.addError('Please enter a valid 9 digit SSN (dashes allowed)');
   }
 }
 ```
