@@ -6,7 +6,7 @@ The US Forms System is an open source library and set of guiding principles for 
 
 ### About this project
 
-Inspired by Mozilla's [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form) library, the US Forms System is specifically intended for consistently styled governmental web-based forms. This library enables you to describe form fields in a JSON Schema configuration file, which then renders the backing React components necessary to build your form. You'll benefit from the US Web Design System's best practices in user experience and data collection, validation, and transmission.
+Inspired by Mozilla's [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form) library, the US Forms System is specifically intended for consistently styled governmental web-based forms. This library enables you to describe form fields in a JSON Schema configuration file, which then renders the backing React components necessary to build your form. You'll build forms significantly faster than existing methods, and benefit from the US Web Design System's best practices in user experience and data collection, validation, and transmission.
 
 ### Using the library
 
