@@ -5,6 +5,8 @@ Building a form using the US Forms System requires some minimum front-end develo
 ### In this guide
 
 - [Command line interface (CLI)](#command-line-interface-cli)
+- [Integrated development environment (IDE)](#integrated-development-environment-ide)
+- [Package manager](#package-manager)
 - [JavaScript](#javascript)
 - [Node.js and npm](#nodejs-and-npm)
 - [React](#react)
@@ -14,6 +16,14 @@ Building a form using the US Forms System requires some minimum front-end develo
 ### Command line interface (CLI)
 
 You should be comfortable using command line tools such as Terminal (Mac and Linux) or Command Prompt (Windows). These tools come pre-installed on nearly all computers. There are several tutorials of various types available online to learn about the CLI.
+
+### Integrated development environment (IDE)
+
+Your computer should be set up with an IDE such as [Xcode](https://developer.apple.com/xcode/) or [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/community/). These IDEs also install [Git](https://git-scm.com/).
+
+### Package manager
+
+To easily install some tools listed below, install a package manager like [Homebrew](https://brew.sh/) (Mac) or [NuGet](https://www.nuget.org/) (Windows).
 
 ### JavaScript
 
