@@ -4,10 +4,62 @@ Your form is generated from a JSON Schema configuration file called `form.js`, a
 
 ### In this guide
 
+- [Building a simple form](#building a simple form)
 - [Example `form.js` file](#example-form.js-file)
 - [About the `schema` and `uiSchema` objects](#about-the-schema-and-uischema-objects)
 - [Configuring `uiSchema` using rjsf options](#configuring-uischema-using-rjsf-options)
 - [Configuring `uiSchema` using US Form System options](#configuring-uischema-using-us-form-system-options)
+
+### Building a simple form
+
+The US Forms System contains a `FormApp` component that you configure and control via a `formConfig` object. In the starter app, the file that exports this object is located in `/src/js/config/form.js` and included in `/src/components/Form.jsx`. where `FormApp`is used. When building an app from scratch you can define and include these components where it's convenient.
+
+The `formConfig` has several sections, that include, for example:
+* A `title` of the form;
+* A set of `chapters` and `pages` that group form fields for display on the screen;
+* A `uiSchema` with instructions about the way form elements should be displayed and labelled;
+* A `schema` with information about the data resulting from the elements once they have been filled;
+* Optional `introduction` and `confirmation` pages that can appear before and after the form.
+
+The remainder of this page has much more detail about these and other options.
+
+Here is a simple form that requests a name, phone number, and email address:
+
+```js
+import Introduction from '../components/Introduction.jsx';
+
+const formConfig = {
+  title: "Simple form",
+  introduction: Introduction,
+  chapters: {
+    onlyChapter: {
+      title: "Contact Information",
+      pages: {
+        onlyPage: {
+          path: "contact-info",
+          title: "",
+          schema: {
+            type: "object",
+            required: [ "name", "phone", "email" ],
+            properties: {
+              name: { type: "string" },
+              phone: { type: "string" },
+              email: { type: "string" }
+            }
+          },
+          uiSchema: {
+            name: { "ui:title": "Name" },
+            phone: { "ui:title": "Phone" },
+            email: { "ui:title": "Email" }
+          }
+        }
+      }
+    }
+  }
+};
+```
+
+There are several enhancements that can (and should!) be made to this form. For example, there is no validation or formatting of the data, although the `required` property of the `schema` at least ensures that fields are not totally empty. However, it does demonstrate the basics.
 
 ### Example `form.js` file
 
