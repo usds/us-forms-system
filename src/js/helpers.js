@@ -27,7 +27,9 @@ export function getActivePages(pages, data) {
 export function getActiveProperties(activePages) {
   let allProperties = [];
   activePages.map(page => {
-    allProperties = _.uniq(_.concat(Object.keys(page.schema.properties), allProperties));
+    if (page.schema) {
+      allProperties = _.uniq(_.concat(Object.keys(page.schema.properties), allProperties));
+    }
     return allProperties;
   });
 
@@ -227,14 +229,15 @@ export function filterViewFields(data) {
 
 export function filterInactivePages(inactivePages, activePages, form) {
   const activeProperties = getActiveProperties(activePages);
+  let newData;
 
   return inactivePages.reduce((formData, page) => {
     return Object.keys(page.schema.properties)
       .reduce((currentData, prop) => {
         if (!activeProperties.includes(prop)) {
-          _.unset(prop, currentData);
+          newData = _.unset(prop, currentData);
         }
-        return currentData;
+        return newData;
       }, formData);
   }, form.data);
 }
