@@ -14,17 +14,15 @@ TBD
 - [Hidden contextual information](#hidden-contextual-information)
 - [Radio button group](#radio-button-group)
 - [Checkbox group](#checkbox-group)
-- [Contextual error message](#contextual-error-message)
 - [Required field](#required-field)
+- [Contextual error message](#contextual-error-message)
 - [Action buttons](#action-buttons)
 - [Password](#password)
 - [Duplicate field validation](#duplicate-field-validation)
 - [Conditional form fields](#conditional-form-fields)
 - [Sequential duplicate form groups](#sequential-duplicate-form-groups)
-- [Linear form sections](#linear-form-sections)
 - [Review page](#review-page)
 - [Required checkbox before form submission](#required-checkbox-before-form-submission)
-- [Document upload](#document-upload)
 
 ### Form instructions
 
@@ -34,7 +32,9 @@ This widget allows you to provide important information, warnings, or step-by-st
 
 #### What's available and where?
 
-- ?
+Note: This component is in the Starter App, not the library itself.
+
+- https://github.com/usds/us-forms-system-starter-app/blob/master/js/components/Introduction.jsx
 
 ### Form footer
 
@@ -43,6 +43,8 @@ This widget appears at the bottom of every page of the form (if it has multiple 
 ![A form footer that lists phone numbers to call for help](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Footer.png)
 
 #### What's available and where?
+
+This component is not required. To define footer content, create a React component that renders HTML to act as a footer. The starter app does not include a footer.
 
 - https://github.com/usds/us-forms-system/blob/master/src/js/containers/FormApp.jsx
 
@@ -54,28 +56,23 @@ This widget indicates to the user where they are in the process of the form. It 
 
 #### What's available and where?
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/ProgressBar.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/SegmentedProgressBar.jsx
+This progress bar is for a multi-chapter or multi-page form. It calculates the number of chapters or pages completed and displays them in a horizontal stack of blocks. The progress bar is not recommended for single-page forms.
 
-### Title
+To add a progress bar to a multi-page form, create chapters with a single page each.
 
-The name of the form. The form number should be specified in the Subtitle widget.
+-  https://github.com/usds/us-forms-system/blob/master/src/js/components/SegmentedProgressBar.jsx
+
+### Title and Subtitle
+
+The name of the form. The form number should be specified in the Subtitle widget. In US Forms System, the subtitle ideally represents the form number. It appears near the form title.
 
 ![A title and subtitle of a form with the title highlighted](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Title.jpg)
-
-#### What's available and where?
-
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx
-
-### Subtitle
-
-In US Forms System, the subtitle represents the form number. It appears near the form title.
 
 ![A title and subtitle of a form with the subtitle highlighted](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Subtitle.jpg)
 
 #### What's available and where?
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx
+- Edit formconfig.Title and formconfig.subtitle. These will go to https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx.
 
 ### Date
 
@@ -85,6 +82,8 @@ A date picker (with validations).
 
 #### What's available and where?
 
+You must first define these fields in the `schema` and then reference them in the `uiSchema`.
+
 - https://github.com/usds/us-forms-system/blob/master/src/js/definitions/date.js
 - https://github.com/usds/us-forms-system/blob/master/src/js/definitions/dateRange.js
 - https://github.com/usds/us-forms-system/blob/master/src/js/definitions/currentOrPastDate.js
@@ -93,21 +92,22 @@ A date picker (with validations).
 
 ### Alerts
 
-This feature can be used in several color variations, with or without icons, to indicate a warning, an error, or contextual information.
+Alerts are included automatically in fields with validation built in. Taken from USWDS, alerts appear in several color variations, with or without icons, to indicate a warning, an error, or contextual information.
 
 #### What's available and where?
 
-- ?
+- For examples of how alerts are used, see https://github.com/usds/us-forms-system/tree/master/src/js/widgets.
 
 ### Hidden contextual information
 
-This feature hides contextual info so that the user can opt to see the information only if needed.
+This feature hides contextual information so that the user can opt to see the information only if needed.
 
 ![Two questions, one with contextual information hidden and one with information shown](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Contextual-info-hidden.jpg)
 
 #### What's available and where?
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/ExpandingGroup.jsx
+How to specify?
+-  https://github.com/usds/us-forms-system/blob/master/src/js/components/ExpandingGroup.jsx
 
 ### Radio button group
 
@@ -116,6 +116,8 @@ A group of options where the user can only select a single item.
 ![A question with four radio button options and one selected](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Boolean-radio.jpg)
 
 #### What's available and where?
+
+Define this in the data definition in the form config file.
 
 - https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx
 
@@ -127,8 +129,19 @@ A group of options where the user can select multiple items.
 
 #### What's available and where?
 
+Define this in the data definition in the form config file.
+
 - https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx
+
+### Required field
+
+Require any field. Validation is included.
+
+![A field with an error indicating a response is required](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-field.jpg)
+
+#### What's available and where?
+
+See the example in https://github.com/usds/us-forms-system/blob/master/docs/building-a-form/creating-a-form-config-file.md#building-a-simple-form.
 
 ### Contextual error message
 
@@ -140,51 +153,23 @@ This indicates to the user that they have either not filled out a required field
 
 - ?
 
-### Required field
-
-Require any field. Validation is included.
-
-![A field with an error indicating a response is required](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-field.jpg)
-
-#### What's available and where?
-
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/PrivacyAgreement.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/fields/BasicArrayField.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/fields/ObjectField.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/definitions/address.js
-- https://github.com/usds/us-forms-system/blob/master/src/js/widgets/DateWidget.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/ExpandingGroup.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/fields/ArrayField.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/fields/FileField.jsx
-
-### Action buttons
-
-You can use buttons to proceed to another form section, return to a previous form section, or submit the form.
-
-#### What's available and where?
-
-- https://github.com/usds/us-forms-system/blob/master/src/js/review/SubmitButtons.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/review/SubmitController.jsx
-
 ### Password
 
 Description TBD
 
 #### What's available and where?
 
-- ?
+This is documented in the README of react-jsonschema-form.
 
 ### Duplicate field validation
 
-User enters duplicate data in two field. Validation included.
+User enters duplicate data in two fields. Validation included.
 
 ![Two fields with an error indicating the value of the entries must match](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Duplicate-Field-Validation.jpg)
 
 #### What's available and where?
 
-- ?
+For more information, see "[Validating a field based on other fields in the same object](common-patterns-for-building-forms.md#validating-a-field-based-on-other-fields-in-the-same-object)."
 
 ### Conditional form fields
 
@@ -194,7 +179,7 @@ You can set follow up questions to appear only if the user answers a form questi
 
 #### What's available and where?
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/state/helpers.js ?
+Declare this through form config. See https://github.com/usds/us-forms-system/blob/master/src/js/state/helpers.js.
 
 ### Sequential duplicate form groups
 
@@ -204,45 +189,28 @@ Use this feature to collect multiple items with the same form questions, such as
 
 #### What's available and where?
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/fields/ArrayField.jsx
-
-### Linear form sections
-
-When you have a long form, or a form that has a lot of conditional questions, you can break up your form into sections that make it less overwhelming for users. The sections you designate will automatically correspond to the [Progress Bar feature](#progress-bar).
-
-![]() - :caution: Needs image
-
-#### What's available and where?
-
-- ?
+This must be defined in the form config file.
 
 ### Review page
 
-When you build a form with more than one section (shown by the segments in a progress bar), the review page lets users edit all of their entered form data without having to go back one page at a time.
+When you build a form with more than one chapter (shown by the segments in a progress bar), the review page lets users edit all of their entered form data without having to go back one page at a time.
 
 ![Multiple collapsed summaries of sections within a form](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Review-Page.jpg)
 
 #### What's available and where?
 
-- https://github.com/usds/us-forms-system/tree/master/src/js/review (Whole folder?)
+Break into separate topic?
+
+- https://github.com/usds/us-forms-system/tree/master/src/js/review
 
 ### Required checkbox before form submission
 
 Use this feature to require a user to indicate they have read terms & conditions, a privacy policy, or any other text before submitting your form. This includes a checkbox and short-form text that can include relevant links to more verbose text on separate pages on your site.
+
+! Update image
 
 ![](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-Checkbox.jpg)
 
 #### What's available and where?
 
 - https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx
-
-### Document upload
-
-User uploads a file from local server to cloud location.
-
-![A file upload button with text explaining the desired format of the uploaded file](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Doc-Upload.jpg)
-
-#### What's available and where?
-
-- https://github.com/usds/us-forms-system/blob/master/src/js/fields/FileField.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/definitions/file.js
