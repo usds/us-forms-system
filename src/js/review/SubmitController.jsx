@@ -57,6 +57,15 @@ class SubmitController extends React.Component {
       errors
     } = isValidForm(form, pagesByChapter);
 
+    if (formConfig.consoleSubmit) {
+      /* eslint-disable no-console */
+      console.log(`SubmitController, isValid = ${isValid}`);
+      if (errors && errors.length) {
+        console.log(errors);
+      }
+      console.log(form);
+      /* eslint-enable no-console */
+    }
     if (isValid) {
       this.props.submitForm(formConfig, form);
     } else {
