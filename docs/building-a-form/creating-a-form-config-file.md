@@ -18,7 +18,7 @@ This example `form.js` file will get you started with building your form.
   // Prefix string to add to the path for each page.
   urlPrefix: '',
 
-  // Print the form data to the JavaScript console before it's submitted, for debugging.
+  // For debugging, print the form data to the JavaScript console so you can check for errors it before it's submitted.
   consoleSubmit: true;
 
   // The introduction page component. To exclude an introduction page, remove this component.
