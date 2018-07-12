@@ -5,6 +5,9 @@ import { deepEquals } from '@department-of-veterans-affairs/react-jsonschema-for
 import FormPage from './containers/FormPage';
 import ReviewPage from './review/ReviewPage';
 
+// An active page is one that will be shown to the user.
+// Pages become inactive if they are conditionally shown based
+// on answers to previous questions.
 export function isActivePage(page, data) {
   if (typeof page.depends === 'function') {
     return page.depends(data, page.index);
@@ -19,6 +22,16 @@ export function isActivePage(page, data) {
 
 export function getActivePages(pages, data) {
   return pages.filter(page => isActivePage(page, data));
+}
+
+export function getActiveProperties(activePages) {
+  let allProperties = [];
+  activePages.map(page => {
+    allProperties = _.uniq(_.concat(Object.keys(page.schema.properties), allProperties));
+    return allProperties;
+  });
+
+  return allProperties;
 }
 
 export function getInactivePages(pages, data) {
@@ -212,11 +225,16 @@ export function filterViewFields(data) {
   }, {});
 }
 
-export function filterInactivePages(pages, form) {
-  return pages.reduce((formData, page) => {
+export function filterInactivePages(inactivePages, activePages, form) {
+  const activeProperties = getActiveProperties(activePages);
+
+  return inactivePages.reduce((formData, page) => {
     return Object.keys(page.schema.properties)
       .reduce((currentData, prop) => {
-        return _.unset(prop, currentData);
+        if (!activeProperties.includes(prop)) {
+          _.unset(prop, currentData);
+        }
+        return currentData;
       }, formData);
   }, form.data);
 }
@@ -270,8 +288,9 @@ export function isInProgress(pathName) {
  * Normal transform for schemaform data
  */
 export function transformForSubmit(formConfig, form, replacer = stringifyFormReplacer) {
+  const activePages = getActivePages(createFormPageList(formConfig), form.data);
   const inactivePages = getInactivePages(createFormPageList(formConfig), form.data);
-  const withoutInactivePages = filterInactivePages(inactivePages, form);
+  const withoutInactivePages = filterInactivePages(inactivePages, activePages, form);
   const withoutViewFields = filterViewFields(withoutInactivePages);
 
   return JSON.stringify(withoutViewFields, replacer) || '{}';
