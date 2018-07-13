@@ -8,4 +8,5 @@
   - [About the US Forms System library](building-a-form/about-the-us-forms-system-library.md)
   - [Creating a form config file](building-a-form/creating-a-form-config-file.md)
   - [Adding widgets and definitions](building-a-form/adding-widgets-and-definitions.md)
+  - [Available components](building-a-form/available-components.md)
   - [Common patterns for building forms](building-a-form/common-patterns-for-building-forms.md)
