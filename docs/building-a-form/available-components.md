@@ -32,8 +32,16 @@ This widget allows you to provide important information, warnings, or step-by-st
 
 #### What's available and where?
 
-Note: This component is in the Starter App, not the library itself.
+Note: This component is in the Starter App, not the library itself. It is a React component that you include by setting the `formConfig.introduction` property to a reference to that component. Edit the HTML inside the component to change the content.
+```js
+import Introduction from '../components/Introduction.jsx';
 
+const formConfig = {
+  …
+  introduction: Introduction,
+  …
+};
+```
 - https://github.com/usds/us-forms-system-starter-app/blob/master/js/components/Introduction.jsx
 
 ### Form footer
@@ -44,23 +52,30 @@ This widget appears at the bottom of every page of the form (if it has multiple 
 
 #### What's available and where?
 
-This component is not required. To define footer content, create a React component that renders HTML to act as a footer. The starter app does not include a footer.
+This component is not required. To define footer content, create a React component that renders HTML to act as a footer. The starter app does not include a footer, but the design of this component would be very similar to the Introduction component that the starter app contains.
+```js
+import Footer from '../components/Footer.jsx';
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/containers/FormApp.jsx
+const formConfig = {
+  …
+  footer: Footer,
+  …
+};
+```
+Implementation: [FormApp.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/containers/FormApp.jsx) and
 
 ### Progress bar
 
-This widget indicates to the user where they are in the process of the form. It includes a non-interactive, sectioned progress bar, a number to indicate how many pages there are within each section, and a title of that section.
+This widget indicates to the user where they are in the process of the form. It includes a non-interactive, sectioned progress bar, a number to indicate how many pages there are within each section, and a title of that section. This progress bar is for a multi-chapter or multi-page form. It calculates the number of chapters completed and displays them in a horizontal stack of blocks. A progress bar is not recommended for single-page forms.
 
 ![A progress bar indicating that three of six parts of a form are completed](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Progress-Bar.png)
 
 #### What's available and where?
 
-This progress bar is for a multi-chapter or multi-page form. It calculates the number of chapters or pages completed and displays them in a horizontal stack of blocks. The progress bar is not recommended for single-page forms.
+In the `formConfig`, define your form's chapters and the pages contained inside each chapter. To add a progress bar to a multi-page form, create chapters with a single page each. *US Forms System contains the Progress Bar by default so it will display automatically when the chapters and pages are defined. If you do not want it, edit the FormNav.jsx component to remove the `SegmentedProgressBar` defined in the HTML.*
 
-To add a progress bar to a multi-page form, create chapters with a single page each.
-
--  https://github.com/usds/us-forms-system/blob/master/src/js/components/SegmentedProgressBar.jsx
+-  Implementation: [FormNav.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/FormNav.jsx) and
+[SegmentedProgressBar.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/SegmentedProgressBar.jsx)
 
 ### Title and Subtitle
 
@@ -72,7 +87,16 @@ The name of the form. The form number should be specified in the Subtitle widget
 
 #### What's available and where?
 
-- Edit formconfig.Title and formconfig.subtitle. These will go to https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx.
+Define the form's title and subtitle in `formConfig`:
+```js
+const formConfig = {
+  …
+  title: 'Apply for Health Care',
+  subtitle: 'Form 10-10EZ',
+  …
+};
+```
+- Implementation: [FormTitle.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx)
 
 ### Date
 
@@ -82,21 +106,36 @@ A date picker (with validations).
 
 #### What's available and where?
 
-You must first define these fields in the `schema` and then reference them in the `uiSchema`.
+Define these fields in the `schema` and then reference them in the `uiSchema`. Date field definitions are in [date.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/date.js), [dateRange.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/dateRange.js),
+[currentOrPastDate.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/currentOrPastDate.js),
+[monthYear.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYear.js),
+and [monthYearRange.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYearRange.js).
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/definitions/date.js
-- https://github.com/usds/us-forms-system/blob/master/src/js/definitions/dateRange.js
-- https://github.com/usds/us-forms-system/blob/master/src/js/definitions/currentOrPastDate.js
-- https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYear.js
-- https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYearRange.js
+```js
+import currentOrPastDate from '../definitions/currentOrPastDate.js';
+const formConfig = {
+  …
+  schema: {
+    type: 'object',
+    required: [ 'serviceDate' ],
+    properties: {
+      serviceDate: 'string'
+    }
+  },
+  uiSchema: {
+    serviceDate: currentOrPastDate('Service Date'),
+  }
+  …
+};
+```
 
 ### Alerts
 
-Alerts are included automatically in fields with validation built in. Taken from USWDS, alerts appear in several color variations, with or without icons, to indicate a warning, an error, or contextual information.
+Alerts are included automatically in fields that include validation. Taken from USWDS, alerts appear in several color variations, with or without icons, to indicate a warning, an error, or contextual information.
 
 #### What's available and where?
 
-- For examples of how alerts are used, see https://github.com/usds/us-forms-system/tree/master/src/js/widgets.
+For examples of how alerts are used, see https://github.com/usds/us-forms-system/tree/master/src/js/widgets.
 
 ### Hidden contextual information
 
