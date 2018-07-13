@@ -109,16 +109,21 @@ For the code implementation, see [FormTitle.jsx](https://github.com/usds/us-form
 
 ### Date
 
-A date picker (with validations).
+Defines a date picker with validations.
 
 ![A form date selector widget with June 8, 1995 selected](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Date.jpg)
 
 #### Usage guidelines
 
-Define these fields in the `schema` and then reference them in the `uiSchema`. Date field definitions are in [date.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/date.js), [dateRange.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/dateRange.js),
-[currentOrPastDate.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/currentOrPastDate.js),
-[monthYear.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYear.js),
-and [monthYearRange.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYearRange.js).
+Define these fields in the `schema` and then reference them in the `uiSchema`. These date field definitions are available:
+
+- [date.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/date.js)
+- [dateRange.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/dateRange.js)
+- [currentOrPastDate.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/currentOrPastDate.js)
+- [monthYear.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYear.js)
+- [monthYearRange.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYearRange.js)
+
+For example:
 
 ```js
 import currentOrPastDate from '../definitions/currentOrPastDate.js';
