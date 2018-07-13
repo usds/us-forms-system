@@ -30,7 +30,7 @@ This widget allows you to provide important information, warnings, or step-by-st
 
 ![Instructions for an example healthcare benefits form](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Instructions.png)
 
-#### Using this feature
+#### What's available and where?
 
 Note: This component is in the Starter App, not the library itself.
 
@@ -42,7 +42,7 @@ This widget appears at the bottom of every page of the form (if it has multiple 
 
 ![A form footer that lists phone numbers to call for help](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Footer.png)
 
-#### Using this feature
+#### What's available and where?
 
 This component is not required. To define footer content, create a React component that renders HTML to act as a footer. The starter app does not include a footer.
 
@@ -54,7 +54,7 @@ This widget indicates to the user where they are in the process of the form. It 
 
 ![A progress bar indicating that three of six parts of a form are completed](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Progress-Bar.png)
 
-#### Using this feature
+#### What's available and where?
 
 This progress bar is for a multi-chapter or multi-page form. It calculates the number of chapters or pages completed and displays them in a horizontal stack of blocks. The progress bar is not recommended for single-page forms.
 
@@ -70,7 +70,7 @@ The name of the form. The form number should be specified in the Subtitle widget
 
 ![A title and subtitle of a form with the subtitle highlighted](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Subtitle.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 - Edit formconfig.Title and formconfig.subtitle. These will go to https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx.
 
@@ -80,7 +80,7 @@ A date picker (with validations).
 
 ![A form date selector widget with June 8, 1995 selected](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Date.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 You must first define these fields in the `schema` and then reference them in the `uiSchema`.
 
@@ -94,7 +94,7 @@ You must first define these fields in the `schema` and then reference them in th
 
 Alerts are included automatically in fields with validation built in. Taken from USWDS, alerts appear in several color variations, with or without icons, to indicate a warning, an error, or contextual information.
 
-#### Using this feature
+#### What's available and where?
 
 - For examples of how alerts are used, see https://github.com/usds/us-forms-system/tree/master/src/js/widgets.
 
@@ -104,7 +104,7 @@ This feature hides contextual information so that the user can opt to see the in
 
 ![Two questions, one with contextual information hidden and one with information shown](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Contextual-info-hidden.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 How to specify?
 -  https://github.com/usds/us-forms-system/blob/master/src/js/components/ExpandingGroup.jsx
@@ -115,7 +115,7 @@ A group of options where the user can only select a single item.
 
 ![A question with four radio button options and one selected](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Boolean-radio.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 Define this in the data definition in the form config file.
 
@@ -127,7 +127,7 @@ A group of options where the user can select multiple items.
 
 ![A multiple choice question with two options selected](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Boolean-checkbox.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 Define this in the data definition in the form config file.
 
@@ -139,7 +139,7 @@ Require any field. Validation is included.
 
 ![A field with an error indicating a response is required](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-field.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 See the example in https://github.com/usds/us-forms-system/blob/master/docs/building-a-form/creating-a-form-config-file.md#building-a-simple-form.
 
@@ -149,7 +149,7 @@ This indicates to the user that they have either not filled out a required field
 
 ![A question with no response and an error indicating a response is required](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Error.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 - ?
 
@@ -157,7 +157,7 @@ This indicates to the user that they have either not filled out a required field
 
 Description TBD
 
-#### Using this feature
+#### What's available and where?
 
 This is documented in the README of react-jsonschema-form.
 
@@ -167,7 +167,7 @@ User enters duplicate data in two fields. Validation included.
 
 ![Two fields with an error indicating the value of the entries must match](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Duplicate-Field-Validation.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 For more information, see "[Validating a field based on other fields in the same object](common-patterns-for-building-forms.md#validating-a-field-based-on-other-fields-in-the-same-object)."
 
@@ -177,7 +177,7 @@ You can set follow up questions to appear only if the user answers a form questi
 
 ![A question with a yes/no answer, and additional fields that displayed when the answer was Yes](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Conditional-Fields.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 Declare this through form config. See https://github.com/usds/us-forms-system/blob/master/src/js/state/helpers.js.
 
@@ -187,7 +187,7 @@ Use this feature to collect multiple items with the same form questions, such as
 
 ![A form section showing basic information about multiple insurance policies](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Sequential-Duplicate-Form-Groups.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 This must be defined in the form config file.
 
@@ -197,7 +197,7 @@ When you build a form with more than one chapter (shown by the segments in a pro
 
 ![Multiple collapsed summaries of sections within a form](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Review-Page.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 Break into separate topic?
 
@@ -211,6 +211,6 @@ Use this feature to require a user to indicate they have read terms & conditions
 
 ![](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-Checkbox.jpg)
 
-#### Using this feature
+#### What's available and where?
 
 - https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx
