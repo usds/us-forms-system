@@ -33,7 +33,10 @@ This widget allows you to provide important information, warnings, or step-by-st
 
 #### Usage guidelines
 
-Note: This component is in the Starter App, not the library itself. It is a React component that you include by setting the `formConfig.introduction` property to a reference to that component. Edit the HTML inside the component to change the content.
+Unlike most components, the `Introduction` React component is in the US Forms System Starter App at https://github.com/usds/us-forms-system-starter-app/blob/master/js/components/Introduction.jsx, not the library itself.
+
+To include the component, set the `formConfig.introduction` property to a reference to that component. Edit the HTML inside the component to change the content. For example:
+
 ```js
 import Introduction from '../components/Introduction.jsx';
 
@@ -43,8 +46,6 @@ const formConfig = {
   …
 };
 ```
-
-- https://github.com/usds/us-forms-system-starter-app/blob/master/js/components/Introduction.jsx
 
 ### Form footer
 
