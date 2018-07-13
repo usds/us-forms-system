@@ -25,19 +25,13 @@ export function getActivePages(pages, data) {
 }
 
 export function getActiveProperties(activePages) {
-  let allProperties = [];
-  activePages.map(page => {
+  const allProperties = [];
+  activePages.forEach(page => {
     if (page.schema) {
-      allProperties = _.uniq(_.concat(Object.keys(page.schema.properties), allProperties));
+      allProperties.push(...Object.keys(page.schema.properties));
     }
-    return allProperties;
   });
-
-  return allProperties;
-
-  // return new Set([].concat(
-  //   ...activePages.map(page => Object.keys(page.schema.properties))
-  // ));
+  return _.uniq(allProperties);
 }
 
 export function getInactivePages(pages, data) {
