@@ -245,7 +245,7 @@ Use this feature to collect multiple items with the same form questions, such as
 
 #### Usage guidelines
 
-This must be defined in the form config file.
+In `formConfig`, define this in the data definition.
 
 ### Review page
 
