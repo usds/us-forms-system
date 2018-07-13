@@ -34,6 +34,10 @@ export function getActiveProperties(activePages) {
   });
 
   return allProperties;
+
+  // return new Set([].concat(
+  //   ...activePages.map(page => Object.keys(page.schema.properties))
+  // ));
 }
 
 export function getInactivePages(pages, data) {
@@ -227,15 +231,16 @@ export function filterViewFields(data) {
   }, {});
 }
 
-export function filterInactivePages(inactivePages, activePages, form) {
+export function filterInactivePageData(inactivePages, activePages, form) {
   const activeProperties = getActiveProperties(activePages);
   let newData;
 
   return inactivePages.reduce((formData, page) => {
     return Object.keys(page.schema.properties)
       .reduce((currentData, prop) => {
+        newData = currentData;
         if (!activeProperties.includes(prop)) {
-          newData = _.unset(prop, currentData);
+          delete newData[prop];
         }
         return newData;
       }, formData);
@@ -293,7 +298,7 @@ export function isInProgress(pathName) {
 export function transformForSubmit(formConfig, form, replacer = stringifyFormReplacer) {
   const activePages = getActivePages(createFormPageList(formConfig), form.data);
   const inactivePages = getInactivePages(createFormPageList(formConfig), form.data);
-  const withoutInactivePages = filterInactivePages(inactivePages, activePages, form);
+  const withoutInactivePages = filterInactivePageData(inactivePages, activePages, form);
   const withoutViewFields = filterViewFields(withoutInactivePages);
 
   return JSON.stringify(withoutViewFields, replacer) || '{}';
