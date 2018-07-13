@@ -213,7 +213,7 @@ Description TBD
 
 #### Usage guidelines
 
-This is documented in the README of react-jsonschema-form.
+For more information, see "[`String` fields](https://github.com/mozilla-services/react-jsonschema-form#for-string-fields)" in the *react-jsonschema-form README*.
 
 ### Duplicate field validation
 
