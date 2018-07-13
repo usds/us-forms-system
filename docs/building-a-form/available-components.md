@@ -90,15 +90,13 @@ For the code implementation, see:
 
 ### Title and Subtitle
 
-The name of the form. The form number should be specified in the Subtitle widget. In US Forms System, the subtitle ideally represents the form number. It appears near the form title.
+The Title and Subtitle represent the name and form number, respectively. The subtitle displays near the form title.
 
 ![A title and subtitle of a form with the title highlighted](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Title.jpg)
 
-![A title and subtitle of a form with the subtitle highlighted](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Subtitle.jpg)
-
 #### Usage guidelines
 
-Define the form's title and subtitle in `formConfig`:
+Define the title and subtitle in `formConfig`:
 ```js
 const formConfig = {
   …
@@ -107,7 +105,8 @@ const formConfig = {
   …
 };
 ```
-- Implementation: [FormTitle.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx)
+
+For the code implementation, see [FormTitle.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx).
 
 ### Date
 
