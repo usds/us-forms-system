@@ -70,18 +70,23 @@ For the code implementation, see [FormApp.jsx](https://github.com/usds/us-forms-
 
 ### Progress bar
 
-This widget indicates to the user where they are in the process of the form. It includes a non-interactive, sectioned progress bar, a number to indicate how many pages there are within each section, and a title of that section. This progress bar is for a multi-chapter or multi-page form. It calculates the number of chapters completed and displays them in a horizontal stack of blocks. A progress bar is not recommended for single-page forms.
+The `SegmentedProgressBar` component calculates the number of chapters completed and displays them in a horizontal stack of blocks. It indicates to the user how much of a multi-chapter or multi-page form they've completed. It includes:
+
+- A non-interactive, sectioned progress bar
+- A number to indicate how many pages there are within each section
+- The title of that section
 
 ![A progress bar indicating that three of six parts of a form are completed](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Progress-Bar.png)
 
 #### Usage guidelines
 
-In the `formConfig`, define your form's chapters and the pages contained inside each chapter. To add a progress bar to a multi-page form, create chapters with a single page each. *US Forms System contains the Progress Bar by default so it will display automatically when the chapters and pages are defined. If you do not want it, edit the FormNav.jsx component to remove the `SegmentedProgressBar` defined in the HTML.*
+In `formConfig`, define your form's chapters and the pages contained inside each chapter. To add a progress bar to a multi-page form, create chapters with a single page each. We don't recommend including a progress bar on single-page forms.
 
-To add a progress bar to a multi-page form, create chapters with a single page each.
+US Forms System includes the progress bar by default, and will display automatically when the chapters and pages are defined. To remove the progress bar, edit the `FormNav.jsx` component to remove the defined `SegmentedProgressBar` in the HTML.
 
-Implementation: [FormNav.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/FormNav.jsx) and
-[SegmentedProgressBar.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/SegmentedProgressBar.jsx)
+For the code implementation, see:
+- [FormNav.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/FormNav.jsx)
+- [SegmentedProgressBar.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/SegmentedProgressBar.jsx)
 
 ### Title and Subtitle
 
