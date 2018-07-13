@@ -232,7 +232,9 @@ You can set follow up questions to appear only if the user answers a form questi
 
 #### Usage guidelines
 
-Declare this through form config. See https://github.com/usds/us-forms-system/blob/master/src/js/state/helpers.js.
+In `formConfig`, define this in the data definition.
+
+For the code implementation, see [`helpers.js`](https://github.com/usds/us-forms-system/blob/master/src/js/state/helpers.js).
 
 ### Sequential duplicate form groups
 
