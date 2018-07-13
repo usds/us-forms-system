@@ -195,7 +195,7 @@ Require any field. Validation is included.
 
 #### Usage guidelines
 
-See the example in https://github.com/usds/us-forms-system/blob/master/docs/building-a-form/creating-a-form-config-file.md#building-a-simple-form.
+For guidance on requiring fields or components, see the example in "[Building a simple form](https://github.com/usds/us-forms-system/blob/master/docs/building-a-form/creating-a-form-config-file.md#building-a-simple-form)."
 
 ### Contextual error message
 
