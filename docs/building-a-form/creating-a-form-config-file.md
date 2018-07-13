@@ -4,66 +4,10 @@ Your form is generated from a JSON Schema configuration file called `form.js`, a
 
 ### In this guide
 
-- [Building a simple form](#building-a-simple-form)
 - [Example `form.js` file](#example-form.js-file)
 - [About the `schema` and `uiSchema` objects](#about-the-schema-and-uischema-objects)
 - [Configuring `uiSchema` using rjsf options](#configuring-uischema-using-rjsf-options)
 - [Configuring `uiSchema` using US Form System options](#configuring-uischema-using-us-form-system-options)
-
-### Building a simple form
-
-To build a form, you'll use the configuration file to specify everything your form needs: questions, how questions are grouped together, content on the page, data validation, etc. In [the starter app](https://github.com/usds/us-forms-system-starter-app), the file that exports this configuration object is located at `/src/js/config/form.js` and defines a `formConfig`.
-
-Most of the time you'll just be working within the config file to describe the form you need and you won't be writing React components. However, there are two cases that require working with React components directly:
-1. **Rendering the top-level React component**: US Forms System uses a top-level React component, `FormApp`, to pass the `formConfig` object to the other components that are rendered. For the React component hierarchy to properly render, you must include `FormApp` in _your_ app's top-level component and pass it the `formConfig` object as a prop. If you're using the [starter app](https://github.com/usds/us-forms-system-starter-app), it already [takes care of this](https://github.com/usds/us-forms-system-starter-app/blob/master/js/components/Form.jsx).
-2. **Creating custom components**: There may be times where you'll want to create your own custom React components to include in the form config. Examples may include creating a custom page you want to render (e.g., an introduction page), creating a component for content (e.g., a warning message) you want to render within a page, or creating a new component to override one of our default ones. In these cases you'll be building React components from scratch.
-
-The `formConfig` has several sections, that include, for example:
-* A `title` of the form;
-* A set of `chapters` and `pages` that group form fields for display on the screen;
-* A `uiSchema` with instructions about the way form elements should be displayed and labelled;
-* A `schema` with information about the data resulting from the elements once they have been filled;
-* Optional `introduction` and `confirmation` pages that can appear before and after the form.
-
-The remainder of this page has much more detail about these and other options.
-
-Here is a simple form that requests a name, phone number, and email address:
-
-```js
-import Introduction from '../components/Introduction.jsx';
-
-const formConfig = {
-  title: "Simple form",
-  introduction: Introduction,
-  chapters: {
-    onlyChapter: {
-      title: "Contact Information",
-      pages: {
-        onlyPage: {
-          path: "contact-info",
-          title: "",
-          schema: {
-            type: "object",
-            required: [ "name", "phone", "email" ],
-            properties: {
-              name: { type: "string" },
-              phone: { type: "string" },
-              email: { type: "string" }
-            }
-          },
-          uiSchema: {
-            name: { "ui:title": "Name" },
-            phone: { "ui:title": "Phone" },
-            email: { "ui:title": "Email" }
-          }
-        }
-      }
-    }
-  }
-};
-```
-
-There are several enhancements that can (and should!) be made to this form. For example, there is no validation or formatting of the data, although the `required` property of the `schema` at least ensures that fields are not totally empty. However, it does demonstrate the basics.
 
 ### Example `form.js` file
 
@@ -73,9 +17,6 @@ This example `form.js` file will get you started with building your form.
 {
   // Prefix string to add to the path for each page.
   urlPrefix: '',
-
-  // For debugging, print the form data to the JavaScript console so you can check for errors it before it's submitted.
-  consoleSubmit: true;
 
   // The introduction page component. To exclude an introduction page, remove this component.
   introduction: IntroductionComponent,
