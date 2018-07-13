@@ -171,9 +171,9 @@ A group of options where the user can only select a single item.
 
 #### Usage guidelines
 
-Define this in the data definition in the form config file.
+In `formConfig`, define this in the data definition.
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx
+For the code implementation, see [`RadioWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx).
 
 ### Checkbox group
 
@@ -183,9 +183,9 @@ A group of options where the user can select multiple items.
 
 #### Usage guidelines
 
-Define this in the data definition in the form config file.
+In `formConfig`, define this in the data definition.
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx
+For the code implementation, see [`CheckboxWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx).
 
 ### Required field
 
