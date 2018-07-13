@@ -48,13 +48,14 @@ const formConfig = {
 
 ### Form footer
 
-This widget appears at the bottom of every page of the form (if it has multiple pages).
+This widget appears at the bottom of every page of the form (if it has multiple pages). It is not required.
 
 ![A form footer that lists phone numbers to call for help](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Footer.png)
 
 #### Usage guidelines
 
-This component is not required. To define footer content, create a React component that renders HTML to act as a footer. The starter app does not include a footer, but the design of this component would be very similar to the Introduction component that the starter app contains.
+To define footer content, create a React component that renders HTML to act as a footer. The starter app does not include a footer, but the design of this component would be very similar to the Introduction component that the starter app contains. For example:
+
 ```js
 import Footer from '../components/Footer.jsx';
 const formConfig = {
@@ -63,7 +64,8 @@ const formConfig = {
   …
 };
 ```
-Implementation: [FormApp.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/containers/FormApp.jsx)
+
+For the code implementation, see [FormApp.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/containers/FormApp.jsx).
 
 ### Progress bar
 
