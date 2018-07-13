@@ -216,7 +216,7 @@ For more information, see "[`String` fields](https://github.com/mozilla-services
 
 ### Duplicate field validation
 
-User enters duplicate data in two fields. Validation included.
+This feature validates that a user has correctly entered duplicate data in two fields.
 
 ![Two fields with an error indicating the value of the entries must match](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Duplicate-Field-Validation.jpg)
 
