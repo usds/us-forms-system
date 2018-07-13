@@ -52,7 +52,6 @@ describe('Schemaform review: SubmitController', () => {
     const tree = SkinDeep.shallowRender(
       <SubmitController
         form={form}
-        formConfig={{}}
         route={{ formConfig, pageList }}
         router={router}/>
     );
@@ -109,7 +108,6 @@ describe('Schemaform review: SubmitController', () => {
         setSubmission={setSubmission}
         submitForm={submitForm}
         form={form}
-        formConfig={{}}
         pagesByChapter={pagesByChapter}
         privacyAgreementAccepted={false}/>
     );
@@ -184,7 +182,6 @@ describe('Schemaform review: SubmitController', () => {
         setSubmission={setSubmission}
         submitForm={submitForm}
         form={form}
-        formConfig={{}}
         pagesByChapter={pagesByChapter}
         pageList={pageList}
         route={{ formConfig, pageList }}/>
@@ -261,7 +258,6 @@ describe('Schemaform review: SubmitController', () => {
       <SubmitController
         submitForm={submitForm}
         form={form}
-        formConfig={{}}
         pagesByChapter={pagesByChapter}
         pageList={pageList}
         route={{ formConfig, pageList }}/>
@@ -310,7 +306,7 @@ describe('Schemaform review: SubmitController', () => {
     const tree = mount(
       <SubmitController
         form={form}
-        formConfig={formConfig}
+        formConfg={formConfig}
         pageList={['chapter1', 'chatper2']}
         router={router}
         submission={submission}/>

@@ -17,11 +17,6 @@
     "test": "BABEL_ENV=test mocha --require test/config/unit-test-setup.js --require test/config/enzyme-setup.jsx --compilers js:babel-core/register ./test/**/*.spec.jsx",
     "webpack": "webpack"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run build && git diff --quiet || echo '** NOT PUSHED: Uncommitted changes! **'"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/usds/us-forms-system.git"
@@ -64,7 +59,6 @@
     "eslint-plugin-scanjs-rules": "^0.1.4",
     "eslint-stats": "^1.0.0",
     "foundation-sites": "^5.5.3",
-    "husky": "^1.0.0-rc.13",
     "isomorphic-fetch": "http://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz",
     "jsdom": "^11.11.0",
     "jsonschema": "^1.1.1",
