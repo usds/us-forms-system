@@ -171,13 +171,75 @@ A group of options where the user can only select a single item.
 
 #### Usage guidelines
 
-In `formConfig`, define this in the data definition.
+The data for a group of radio buttons will be quite similar to the data for a select field (i.e., `string` type with an `enum` property), which means the `SelectWidget` will by default be rendered.
 
-For the code implementation, see [`RadioWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx).
+In order to override the `SelectWidget`, you must pass `'ui:widget': 'radio'` to your `uiSchema` for that field. If you also want to specify different label text for each option, you would pass `'ui:options'` to `uiSchema`.
+
+Your config for a question where the answer is selected from a group of radio buttons might look like this:
+```
+schema: {
+  type: 'object',
+  properties: {
+    favoriteAnimal: {
+      type: 'string',
+      enum: ['dog', 'cat', 'octopus', 'sloth']
+    }
+  }
+},
+uiSchema: {
+  'ui:widget': 'radio',
+  'ui:options': {
+    labels: {
+      dog: 'Dog',
+      cat: 'Cat',
+      octopus: 'Octopus',
+      sloth: 'Sloth'
+    }
+  }
+}
+```
+
+For more information about this widget, see [`RadioWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx).
 
 ### Checkbox group
 
-A group of options where the user can select multiple items.
+Each individual checkbox is used to store `boolean` data. If you want to include a group of checkboxes, you would include separate fields for each checkbox, with `type: 'boolean'` passed to the `schema`.
+
+Your config for a group of checkboxes might look like this:
+```
+schema: {
+  type: 'object',
+  properties: {
+    'view:booksRead': {
+      type: 'object',
+      properties: {
+        hasReadPrideAndPrejudice: { type: 'boolean' },
+        hasReadJaneEyre: { type: 'boolean' },
+        hasReadGreatGatsby: { type: 'boolean' },
+        hasReadBuddenbrooks: { type: 'boolean' }
+      }
+    }
+  }
+},
+uiSchema: {
+  'view:booksRead': {
+    'ui:title': 'Which books have you read?',
+    'ui:description': 'You may check more than one.',
+    hasReadPrideAndPrejudice: {
+      'ui:title': 'Pride and Prejudice by Jane Austen'
+    },
+    hasReadJaneEyre: {
+      'ui:title': 'Jane Eyre by Charlotte Brontë'
+    },
+    hasReadGreatGatsby: {
+      'ui:title': 'The Great Gatsby by F. Scott Fitzgerald'
+    },
+    hasReadBuddenbrooks: {
+      'ui:title': 'Buddenbrooks by Thomas Mann'
+    }
+  }
+}
+```
 
 ![A multiple choice question with two options selected](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Boolean-checkbox.jpg)
 
@@ -185,7 +247,7 @@ A group of options where the user can select multiple items.
 
 In `formConfig`, define this in the data definition.
 
-For the code implementation, see [`CheckboxWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx).
+For more information about this widget, see [`CheckboxWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx).
 
 ### Required field
 
