@@ -13,19 +13,21 @@ These common widgets are included in the us-forms-system by default. Set these w
 
 To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](../../src/js/widgets).
 
-Widget       | Default schema type or format
+Widget       | How it is used
 ------------ | -------------
-`ArrayCountWidget` |
-`CheckboxWidget` | type: `boolean`
-`CurrencyWidget` |
-`DateWidget` |
-`EmailWidget` |
-`PhoneNumberWidget`
-`RadioWidget` |
-`SelectWidget` | type: `string` with an enum property
-`SSNWidget` |
-`TextWidget` | type: `string`
-`YesNoWidget` |
+`ArrayCountWidget` | In the 'uiSchema', specify `'ui:widget': ArrayCountWidget` for the given field
+`CheckboxWidget` | Default widget for a schema that specifies `type: 'boolean'`
+`CurrencyWidget` | In the 'uiSchema', specify `'ui:widget': CurrencyWidget` for the given field
+`DateWidget` | In the `uiSchema`, specify `'ui:widget': 'date'` for the given field
+`EmailWidget` | In the `uiSchema`, specify `'ui:widget': 'email'` for the given field
+`PhoneNumberWidget` | In the 'uiSchema', specify `'ui:widget': PhoneNumberWidget` for the given field
+`RadioWidget` | In the `uiSchema`, specify `'ui:widget': 'radio'` for the given field
+`SelectWidget` | Default widget for a schema that specifies `type: 'string'` with an `enum` property
+`SSNWidget` | In the 'uiSchema', specify `'ui:widget': SSNWidget` for the given field
+`TextWidget` | Default widget for a schema that specifies `type: 'string'`
+`YesNoWidget` | In the `uiSchema`, specify `'ui:widget': 'yesNo'` for the given field
+
+** Note: some widgets are specified as a string (e.g., `'ui: widget': 'date'`) and some you pass the actual widget to the config (e.g., `'ui:widget': 'CurrencyWidget'`). This is because the [react-jsonschema-form library](./about-the-us-forms-system-library#understanding-react-jsonschema-form-rjsf) includes some widgets already that have string mappings. Widgets that we created specifically for us-forms-system do not have these mappings, and therefore must be specified by passing the widget directly to the config.
 
 ### Common definitions
 
