@@ -13,7 +13,7 @@ These common widgets are included in the us-forms-system by default. Set these w
 
 To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](../../src/js/widgets).
 
-Widget       | How it is used
+Widget       | How it's used
 ------------ | -------------
 `ArrayCountWidget` | In the 'uiSchema', specify `'ui:widget': ArrayCountWidget` for the given field
 `CheckboxWidget` | Default widget for a schema that specifies `type: 'boolean'`
@@ -27,7 +27,7 @@ Widget       | How it is used
 `TextWidget` | Default widget for a schema that specifies `type: 'string'`
 `YesNoWidget` | In the `uiSchema`, specify `'ui:widget': 'yesNo'` for the given field
 
-** Note: some widgets are specified as a string (e.g., `'ui: widget': 'date'`) and some you pass the actual widget to the config (e.g., `'ui:widget': 'CurrencyWidget'`). This is because the [react-jsonschema-form library](./about-the-us-forms-system-library#understanding-react-jsonschema-form-rjsf) includes some widgets already that have string mappings. Widgets that we created specifically for us-forms-system do not have these mappings, and therefore must be specified by passing the widget directly to the config.
+** Note: Some widgets are passed as a string (e.g., `'ui: widget': 'date'`), while others are passed as the component itself (e.g., `'ui:widget': CurrencyWidget`). Widgets from the [react-jsonschema-form library](./about-the-us-forms-system-library#understanding-react-jsonschema-form-rjsf) includes string mappings. Those created specifically for us-forms-system do not have these mappings, and therefore must be specified by passing the component for the widget directly to the config.
 
 ### Common definitions
 

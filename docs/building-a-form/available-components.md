@@ -173,7 +173,7 @@ A group of options where the user can only select a single item.
 
 The data for a group of radio buttons will be quite similar to the data for a select field (i.e., `string` type with an `enum` property), which means the `SelectWidget` will by default be rendered.
 
-In order to override the `SelectWidget`, you must pass `'ui:widget': 'radio'` to your `uiSchema` for that field. If you also want to specify different label text for each option, you would pass `'ui:options'` to `uiSchema`.
+To override the `SelectWidget`, pass `'ui:widget': 'radio'` to your `uiSchema` for that field. To specify different label text for each option, pass `'ui:options'` to `uiSchema`.
 
 Your config for a question where the answer is selected from a group of radio buttons might look like this:
 ```
@@ -202,6 +202,12 @@ uiSchema: {
 For more information about this widget, see [`RadioWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx).
 
 ### Checkbox group
+
+A group of options where the user can select multiple items.
+
+![A multiple choice question with two options selected](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Boolean-checkbox.jpg)
+
+#### Usage guidelines
 
 Each individual checkbox is used to store `boolean` data. If you want to include a group of checkboxes, you would include separate fields for each checkbox, with `type: 'boolean'` passed to the `schema`.
 
@@ -241,12 +247,6 @@ uiSchema: {
 }
 ```
 
-![A multiple choice question with two options selected](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Boolean-checkbox.jpg)
-
-#### Usage guidelines
-
-In `formConfig`, define this in the data definition.
-
 For more information about this widget, see [`CheckboxWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx).
 
 ### Required field
@@ -267,7 +267,20 @@ This indicates to the user that they have either not filled out a required field
 
 #### Usage guidelines
 
-Adding a field to the `required` property in `schema` will automatically render an error on the field if it is blank. There are [default error messages](/src/js/validations.js#L24) for different situations. If you want to display a custom error message, add the message you want to the `ui:errorMessages` object in the `uiSchema`. You must add the error message as a key value pair: the key is the `schema` property that the data is in violation of (e.g., the entry doesn't match the requirements of the `pattern` property), and the value is the text of the error message. You may have more than 1 message in the `ui:errorMessages` object; they will be evaluated in order.
+There are several ways in which form fields can be invalid: a required field in blank, the entry is too short or long, the entry does not satisfy a specific format, etc.
+
+To show an error on a blank field that is required, include the field in the array under the `required` property in the `schema`. An error on that field will automatically be rendered if the field is blank.
+
+To show an error on a field for any other reason (e.g., it has not met certain data requirements), pass a validation function to the array for the `ui:validations` property under that field in `uiSchema`.
+
+The error message that is displayed can either be a default message or one that you specify. There are several [default error messages](/src/js/validations.js#L24) for different situations.
+
+To show a custom error message, add the message to the `ui:errorMessages` object in the `uiSchema` as a key value pair:
+
+- The key is the `schema` property that the data is in violation of (e.g., the entry doesn't match the requirements of the `pattern` property)
+- The value is the text of the error message. 
+
+When you include multiple messages in the `ui:errorMessages` object, they will be evaluated in order.
 
 Your config file may look like this:
 ```
@@ -282,14 +295,16 @@ schema: {
   }
 },
 uiSchema: {
-  'ui:widget': SSNWidget,
-  'ui:title': 'Social Security number',
-  'ui:validations': [
-    validateSSN
-  ],
-  'ui:errorMessages': {
-    required: 'Please enter your SSN',
-    pattern: 'Please enter a valid 9 digit SSN (dashes not allowed)'
+  ssn: {
+    'ui:widget': SSNWidget,
+    'ui:title': 'Social Security number',
+    'ui:validations': [
+      validateSSN
+    ],
+    'ui:errorMessages': {
+      required: 'Please enter your SSN',
+      pattern: 'Please enter a valid 9 digit SSN (dashes not allowed)'
+    }
   }
 }
 ```
