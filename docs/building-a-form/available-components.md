@@ -267,7 +267,32 @@ This indicates to the user that they have either not filled out a required field
 
 #### Usage guidelines
 
-- ?
+Adding a field to the `required` property in `schema` will automatically render an error on the field if it is blank. There are [default error messages](/src/js/validations.js#L24) for different situations. If you want to display a custom error message, add the message you want to the `ui:errorMessages` object in the `uiSchema`. You must add the error message as a key value pair: the key is the `schema` property that the data is in violation of (e.g., the entry doesn't match the requirements of the `pattern` property), and the value is the text of the error message. You may have more than 1 message in the `ui:errorMessages` object; they will be evaluated in order.
+
+Your config file may look like this:
+```
+schema: {
+  type: 'object',
+  required: ['ssn'],
+  properties: {
+    ssn: {
+      type: 'string',
+      pattern: '^[0-9]{9}$'
+    }
+  }
+},
+uiSchema: {
+  'ui:widget': SSNWidget,
+  'ui:title': 'Social Security number',
+  'ui:validations': [
+    validateSSN
+  ],
+  'ui:errorMessages': {
+    required: 'Please enter your SSN',
+    pattern: 'Please enter a valid 9 digit SSN (dashes not allowed)'
+  }
+}
+```
 
 ### Password
 
