@@ -16,7 +16,6 @@ TBD
 - [Required field](#required-field)
 - [Contextual error message](#contextual-error-message)
 - [Action buttons](#action-buttons)
-- [Password](#password)
 - [Duplicate field validation](#duplicate-field-validation)
 - [Conditional form fields](#conditional-form-fields)
 - [Sequential duplicate form groups](#sequential-duplicate-form-groups)
@@ -308,14 +307,6 @@ uiSchema: {
   }
 }
 ```
-
-### Password
-
-Description TBD
-
-#### Usage guidelines
-
-For more information, see "[`String` fields](https://github.com/mozilla-services/react-jsonschema-form#for-string-fields)" in the *react-jsonschema-form README*.
 
 ### Duplicate field validation
 
