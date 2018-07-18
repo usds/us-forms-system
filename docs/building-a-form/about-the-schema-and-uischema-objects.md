@@ -2,7 +2,7 @@
 
 The US Forms System lets you build web-based forms using the JSON Schema standard for form data and React for the form UI. The form data and UI are represented by `schema` and `uiSchema` objects, respectively, which are included in the form configuration file.
 
-- [Understanding the `schema` object](#understanding-json-schema-and-the `schema` object)
+- [Understanding the `schema` object](#understanding-json-schema-and-the-schema-object)
   - [Describing object fields and arrays](#describing-object-fields-and-arrays)
 - [Understanding the `uiSchema` object](#understanding-the-uischema-object)
   - [Configuring `uiSchema` using rjsf options](#configuring-uischema-using-rjsf-options)
@@ -236,3 +236,5 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
   }
 }
 ```
+
+[Back to *Building a Form*](README.md)
