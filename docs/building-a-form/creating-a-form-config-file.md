@@ -168,6 +168,6 @@ Similar to Redux, all state is kept in the `Form` component, or the root of the 
 
 ##### About the `uiSchema` field component
 
-Along with the regular JSON Schema, a UI schema for UI-specific options that don't fit within the JSON Schema standard is also optionally defined for each field. The `uiSchema` field component is primarily used for specifying custom fields and widgets for specific fields in the schema using `ui:field` and `ui:widget`. In the us-forms-system, it's also used for label names, custom validation, and conditionally required fields.
+Along with the regular JSON Schema, a UI schema for UI-specific options that don't fit within the JSON Schema standard is also optionally defined for each field. The UI schema is passed to the form config file as an object, `uiSchema`, for each field. For more information, see "[Understanding the `uiSchema` object](about-the-schema-and-uischema-objects.md#understanding-the-uischema-object)."
 
 [Back to *Building a Form*](README.md)
