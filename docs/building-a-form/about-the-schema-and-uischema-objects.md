@@ -12,7 +12,7 @@ The US Forms System lets you build web-based forms using the JSON Schema standar
 
 The JSON Schema standard describes the allowed shape of JSON objects. Using a `schema` object, a JSON schema provides information about structured JSON data. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
 
-The US Forms System uses [ajv](https://www.npmjs.com/package/ajv) for unit tests and [jsonschema](https://www.npmjs.com/package/jsonschema) in the us-forms-system code.
+For JSON Schema validator libraries, the US Forms System uses [ajv](https://www.npmjs.com/package/ajv) for unit tests and [jsonschema](https://www.npmjs.com/package/jsonschema) in the us-forms-system code.
 
 ##### Describing object fields and arrays
 
@@ -29,7 +29,7 @@ This example describes a JSON document that is an object with one property calle
 }
 ```
 
-However, `{}` is also valid. To require a property in an object, use the `required` property. As in this example, `required` is always on the object that contains the field, not the field itself:
+However, `{}` is also valid. To require a property in an object, use the `required` property, which takes an array of property names passed as strings. As in this example, `required` is always on the object that contains the field, not the field itself:
 
 ```
 {
