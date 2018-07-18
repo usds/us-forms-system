@@ -24,7 +24,6 @@ TBD
 - [Linear form sections](#linear-form-sections)
 - [Review page](#review-page)
 - [Required checkbox before form submission](#required-checkbox-before-form-submission)
-- [Document upload](#document-upload)
 
 ### Form instructions
 
@@ -258,13 +257,4 @@ Use this feature to require a user to indicate they have read terms & conditions
 
 - https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx
 
-### Document upload
-
-User uploads a file from local server to cloud location.
-
-![A file upload button with text explaining the desired format of the uploaded file](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Doc-Upload.jpg)
-
-#### What's available and where?
-
-- https://github.com/usds/us-forms-system/blob/master/src/js/fields/FileField.jsx
-- https://github.com/usds/us-forms-system/blob/master/src/js/definitions/file.js
+[Back to *Building a Form*](README.md)
