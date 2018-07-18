@@ -8,7 +8,7 @@
 
 ### How us-forms-system uses rjsf
 
-The us-forms-system code uses rjsf to render form fields, but it builds a scaffolding on top of it to support multi-page forms and our common form patterns. The second part is creating a form configuration spec that allows devs to specify the structure of one of our multi-page forms.
+The us-forms-system code uses rjsf to render form fields, but it builds a scaffolding on top of it to support multi-page forms and our common form patterns. Additionally, us-forms-system uses rjsf to create a form configuration spec that allows devs to specify the structure of one of our multi-page forms.
 
 ##### Customizing fields, widgets, and events from rjsf
 
