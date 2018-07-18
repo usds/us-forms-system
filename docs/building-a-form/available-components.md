@@ -175,7 +175,7 @@ The data for a group of radio buttons will be quite similar to the data for a se
 To override the `SelectWidget`, pass `'ui:widget': 'radio'` to your `uiSchema` for that field. To specify different label text for each option, pass `'ui:options'` to `uiSchema`.
 
 Your config for a question where the answer is selected from a group of radio buttons might look like this:
-```
+```js
 schema: {
   type: 'object',
   properties: {
@@ -211,7 +211,7 @@ A group of options where the user can select multiple items.
 Each individual checkbox is used to store `boolean` data. To include a group of checkboxes, include separate fields for each checkbox, with `type: 'boolean'` passed to the `schema`.
 
 Your config for a group of checkboxes might look like this:
-```
+```js
 schema: {
   type: 'object',
   properties: {
@@ -282,7 +282,7 @@ To show a custom error message, add the message to the `ui:errorMessages` object
 When you include multiple messages in the `ui:errorMessages` object, they will be evaluated in order.
 
 Your config file may look like this:
-```
+```js
 schema: {
   type: 'object',
   required: ['ssn'],
@@ -326,7 +326,43 @@ You can set follow up questions to appear only if the user answers a form questi
 
 #### Usage guidelines
 
-In `formConfig`, define this in the data definition.
+There are 2 fields you can use to conditionally expand a form field:
+1. `expandUnder`: This property takes the name of the other field upon which your field is shown.
+2. `expandUnderCondition`: This property takes 1 of 2 values:
+- The answer to the other field that would satisfy the condition to show your field. If the other field takes boolean data, your field will automatically be shown if the answer to the other field is `true`, so there is no need to include `expandUnderCondition: true` in that case. However, if the other field takes any other type of data, you will need to include `expandUnderCondition`.
+- A function that receives the data from the `expandUnder` field as an argument.
+
+Both fields are nested under the `ui:options` property in the `uiSchema`.
+
+Your config file might look like this:
+```js
+{
+  schema: {
+    type: 'object',
+    properties: {
+      hasPet: {
+        type: 'boolean'
+      },
+      petName: {
+        type: 'string'
+      }
+    }
+  },
+  uiSchema: {
+    hasPet: {
+      'ui:title': 'Do you have a pet?'
+      'ui:widget': 'yesNo'
+    },
+    petName: {
+      'ui:title': 'What is your pet‘s name?',
+      'ui:options': {
+        expandUnder: 'hasPet',
+        expandUnderCondition: true
+      }
+    }
+  }
+}
+```
 
 For the code implementation, see [`helpers.js`](https://github.com/usds/us-forms-system/blob/master/src/js/state/helpers.js).
 
@@ -338,7 +374,37 @@ Use this feature to collect multiple items with the same form questions, such as
 
 #### Usage guidelines
 
-In `formConfig`, define this in the data definition.
+In order to display multiple items with the same form questions, the data in the `schema` must be passed as an array, with each group of questions an `item` in that `array`. The `schema` and `uiSchema` for the group of questions within the `items` object is structured the same as other fields.
+
+Your config file might look like this:
+```js
+{
+  schema: {
+    type: 'object',
+    properties: {
+      dogs: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            nameOfDog: { type: 'string' },
+            age: { type: 'string' },
+            breed: { type: 'string' }
+          }
+        }
+      }
+    }
+  },
+  uiSchema: {
+    'ui:title': 'How many dogs do you have?',
+    items: {
+      nameOfDog: { 'ui:title': 'What is your dog‘s name?' },
+      age: { 'ui:title': 'How old is your dog?' },
+      breed: { 'ui:title': 'What is your dog‘s breed?' }
+    }
+  }
+}
+```
 
 ### Review page
 
@@ -348,7 +414,16 @@ When you build a form with more than one chapter (shown by the segments in a pro
 
 #### Usage guidelines
 
-Break into separate topic?
+In general, the review page renders the form data in review mode automatically. There are, however, some specific options you can pass to the form config to customize certain review functionality.
+
+This property is nested directly under `uiSchema`:
+- `'ui:reviewWidget'`: takes a widget component to render on the review page for that field. Default review widgets are automatically rendered, so only use this if you need to customize the review widget that is used.
+
+These properties are nested under `uiSchema: { `ui:options`: {} }`:
+- `hideOnReview`: Hides the specified field on the review page; takes a `boolean`
+- `hideOnReviewIfFalse`: Hides the specified field on the review page when the field value is `false`; takes a `boolean`
+- `keepInPageOnReview`: Used when you have an array field that should not be pulled out of the page its in and shown separately on the review page; takes a `boolean`
+
 
 - https://github.com/usds/us-forms-system/tree/master/src/js/review
 
@@ -356,10 +431,8 @@ Break into separate topic?
 
 Use this feature to require a user to indicate they have read terms & conditions, a privacy policy, or any other text before submitting your form. This includes a checkbox and short-form text that can include relevant links to more verbose text on separate pages on your site.
 
-! Update image
-
-![](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-Checkbox.jpg)
+![Required checkbox before form submission](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-Checkbox.jpg)
 
 #### Usage guidelines
 
-- https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx
+Right now the required checkbox is included automatically. We'll [be doing](https://github.com/usds/us-forms-system/issues/53) some refactoring of this component soon to make it more customizable.
