@@ -12,7 +12,7 @@ Your form is generated from a JSON Schema configuration file called `form.js`, a
   - [Example schema: `string` with `enum` property](#example-schema-string-with-enum-property)
   - [Example schema: `object`](#example-schema-object)
   - [Example schema: `ArrayField`](#example-schema-arrayfield)
-- [Field components](#field-components)
+- [Field component props](#field-component-props)
   - [About the `onChange` field component](#about-the-onchange-field-component)
   - [About the `uiSchema` field component](#about-the-uischema-field-component)
 
@@ -128,9 +128,9 @@ The `ObjectField` component renders a `SchemaField` component for each of its pr
 }
 ```
 
-### Field components
+### Field component props
 
-These field components pass a collection of props down through each component. Most are passed to widget components.
+In order for each component to know what to render, they pass a collection of props down through the component hierarchy. Most are passed to widget components.
 
 - `name`: The property name of the current field. For example, the object schema above would be named `field1`.
 - `required`: If the field is required or not (i.e. the property name is in the schema's `required` array).
