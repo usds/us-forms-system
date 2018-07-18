@@ -16,7 +16,6 @@ TBD
 - [Required field](#required-field)
 - [Contextual error message](#contextual-error-message)
 - [Action buttons](#action-buttons)
-- [Password](#password)
 - [Duplicate field validation](#duplicate-field-validation)
 - [Conditional form fields](#conditional-form-fields)
 - [Sequential duplicate form groups](#sequential-duplicate-form-groups)
@@ -171,7 +170,33 @@ A group of options where the user can only select a single item.
 
 #### Usage guidelines
 
-In `formConfig`, define this in the data definition.
+The data for a group of radio buttons will be quite similar to the data for a select field (i.e., `string` type with an `enum` property), which means the `SelectWidget` will be rendered by default.
+
+To override the `SelectWidget`, pass `'ui:widget': 'radio'` to your `uiSchema` for that field. To specify different label text for each option, pass `'ui:options'` to `uiSchema`.
+
+Your config for a question where the answer is selected from a group of radio buttons might look like this:
+```
+schema: {
+  type: 'object',
+  properties: {
+    favoriteAnimal: {
+      type: 'string',
+      enum: ['dog', 'cat', 'octopus', 'sloth']
+    }
+  }
+},
+uiSchema: {
+  'ui:widget': 'radio',
+  'ui:options': {
+    labels: {
+      dog: 'Dog',
+      cat: 'Cat',
+      octopus: 'Octopus',
+      sloth: 'Sloth'
+    }
+  }
+}
+```
 
 For the code implementation, see [`RadioWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx).
 
@@ -183,7 +208,43 @@ A group of options where the user can select multiple items.
 
 #### Usage guidelines
 
-In `formConfig`, define this in the data definition.
+Each individual checkbox is used to store `boolean` data. To include a group of checkboxes, include separate fields for each checkbox, with `type: 'boolean'` passed to the `schema`.
+
+Your config for a group of checkboxes might look like this:
+```
+schema: {
+  type: 'object',
+  properties: {
+    'view:booksRead': {
+      type: 'object',
+      properties: {
+        hasReadPrideAndPrejudice: { type: 'boolean' },
+        hasReadJaneEyre: { type: 'boolean' },
+        hasReadGreatGatsby: { type: 'boolean' },
+        hasReadBuddenbrooks: { type: 'boolean' }
+      }
+    }
+  }
+},
+uiSchema: {
+  'view:booksRead': {
+    'ui:title': 'Which books have you read?',
+    'ui:description': 'You may check more than one.',
+    hasReadPrideAndPrejudice: {
+      'ui:title': 'Pride and Prejudice by Jane Austen'
+    },
+    hasReadJaneEyre: {
+      'ui:title': 'Jane Eyre by Charlotte Brontë'
+    },
+    hasReadGreatGatsby: {
+      'ui:title': 'The Great Gatsby by F. Scott Fitzgerald'
+    },
+    hasReadBuddenbrooks: {
+      'ui:title': 'Buddenbrooks by Thomas Mann'
+    }
+  }
+}
+```
 
 For the code implementation, see [`CheckboxWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx).
 
@@ -205,15 +266,47 @@ This indicates to the user that they have either not filled out a required field
 
 #### Usage guidelines
 
-- ?
+There are several ways in which form fields can be invalid: a required field in blank, the entry is too short or long, the entry does not satisfy a specific format, etc.
 
-### Password
+- **To show an error on a blank field that is required**, include the field in the array under the `required` property in the `schema`. An error on that field will automatically be rendered if the field is blank.
 
-Description TBD
+- **To show an error on a field for any other reason** (e.g., it has not met certain data requirements), pass a validation function to the array for the `ui:validations` property under that field in `uiSchema`.
 
-#### Usage guidelines
+The error message that is displayed can either be a default message or one that you specify. There are several [default error messages](/src/js/validations.js#L24) for different situations.
 
-For more information, see "[`String` fields](https://github.com/mozilla-services/react-jsonschema-form#for-string-fields)" in the *react-jsonschema-form README*.
+To show a custom error message, add the message to the `ui:errorMessages` object in the `uiSchema` as a key value pair:
+
+- The key is the `schema` property that the data is in violation of (e.g., the entry doesn't match the requirements of the `pattern` property)
+- The value is the text of the error message. 
+
+When you include multiple messages in the `ui:errorMessages` object, they will be evaluated in order.
+
+Your config file may look like this:
+```
+schema: {
+  type: 'object',
+  required: ['ssn'],
+  properties: {
+    ssn: {
+      type: 'string',
+      pattern: '^[0-9]{9}$'
+    }
+  }
+},
+uiSchema: {
+  ssn: {
+    'ui:widget': SSNWidget,
+    'ui:title': 'Social Security number',
+    'ui:validations': [
+      validateSSN
+    ],
+    'ui:errorMessages': {
+      required: 'Please enter your SSN',
+      pattern: 'Please enter a valid 9 digit SSN (dashes not allowed)'
+    }
+  }
+}
+```
 
 ### Duplicate field validation
 
