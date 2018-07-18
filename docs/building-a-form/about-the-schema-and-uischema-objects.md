@@ -120,26 +120,30 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
   // It can also be a component, which passes the current form data as a property.
   'ui:title': ({ formData }) => <legend>{`A ${formData.thing} title`}</legend>,
 
-  // Used instead of the `description` property in the JSON Schema. This can be a string or a React component, and is normally used on
-  // object fields in the schema to provide description text or HTML before a block of fields.
+  // Used instead of the `description` property in the JSON Schema. This can be a string
+  // or a React component, and is normally used on object fields in the schema to provide
+  // description text or HTML before a block of fields.
   'ui:description': '' || DescriptionComponent,
 
   // Customizes the field or widget you're using.
   'ui:field': '' || FieldComponent,
   'ui:widget': '' || WidgetComponent,
 
-  // Renders string fields on the review page. Always used when you specify a custom widget component. Can also be used with regular widgets.
+  // Renders string fields on the review page. Always used when you specify a custom widget
+  // component. Can also be used with regular widgets.
   'ui:reviewWidget': WidgetComponent,
 
-  // Provides a function to make a field conditionally required. The data in the whole form, with no page breaks, is the only
-  // parameter. Don't make a field required in the JSON schema and in addition to using `ui:required` on that field. The index
-  // argument is provided if you use `ui:required` on data inside an array.
+  // Provides a function to make a field conditionally required. The data in the whole form,
+  // with no page breaks, is the only parameter. Don't make a field required in the JSON
+  // schema and in addition to using `ui:required` on that field. The index argument is
+  // provided if you use `ui:required` on data inside an array.
   'ui:required': function (formData, index) {
     return true || false;
   },
 
-  // An array of validation functions or objects that you can use to add validation that's not possible through JSON Schema. See below
-  // for the properties passed to the validation functions and how to use them.
+  // An array of validation functions or objects that you can use to add validation that's
+  // not possible through JSON Schema. See below for the properties passed to the validation
+  // functions and how to use them.
   'ui:validations': [
     /**
      * Note the difference between the three data parameters:
@@ -158,8 +162,9 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
     }
   ],
 
-  // An object with field-specific error messages. Structured by error name (from JSON Schema error types). This is passed to custom
-  // validations in `ui:validations` in order to allow configurable error messages in a validator.
+  // An object with field-specific error messages. Structured by error name (from JSON Schema
+  // error types). This is passed to custom validations in `ui:validations` in order to allow
+  // configurable error messages in a validator.
   'ui:errorMessages': {
     'pattern': 'Please provide a value in the right format'
   },
@@ -170,30 +175,37 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
       chapter30: 'A readable description (Chapter 30)'
     },
 
-    // A map of values to a component, text, or JSX (https://reactjs.org/docs/introducing-jsx.html). If your field is a radio widget,
-    // the content here is shown underneath the radio button for that value when it's selected.
+    // A map of values to a component, text, or JSX
+    // (https://reactjs.org/docs/introducing-jsx.html). If your field is a radio widget, the
+    // content here is shown underneath the radio button for that value when it's selected.
     nestedContent: {
       'value': <p>Some text</p>
     },
 
-    // A string of class names that are added to the widget for the current field. `widgetClassNames` is similar to the default
-    // `classNames` property, but it puts the class names on the input/select/etc element itself, rather than a surrounding `div`.
+    // A string of class names that are added to the widget for the current field.
+    // `widgetClassNames` is similar to the default `classNames` property, but it puts the
+    // class names on the input/select/etc element itself, rather than a surrounding `div`.
     widgetClassNames: '',
 
-    // For array fields, this component is shown when the item in the array is rendered as read-only on a page that is not a review page.
+    // For array fields, this component is shown when the item in the array is rendered as
+    // read-only on a page that is not a review page.
     viewField: RowViewComponent,
 
-    // To show a field only when another field is true, set this option to the property name. It wraps the fields with an
-    // ExpandingGroup component using the `expandUnder` field as the first question.
+    // To show a field only when another field is true, set this option to the property name.
+    // It wraps the fields with an ExpandingGroup component using the `expandUnder` field as
+    // the first question.
     expandUnder: '',
 
-    // To match to a specific value, use the `expandUnderCondition` option to specify the value that the `expandUnder` field's data should equal.
+    // To match to a specific value, use the `expandUnderCondition` option to specify the
+    // value that the `expandUnder` field's data should equal.
     expandUnderCondition: 'someValue',
-    // `expandUnderCondition` can also be a function that receives the data from the `expandUnder` field as an argument.
+    // `expandUnderCondition` can also be a function that receives the data from the
+    // `expandUnder` field as an argument.
     expandUnderCondition: (field) => field === 'someValue' || field === 'someOtherValue',
 
-    // When using the expandUnder option, you can set `expandUnderClassNames` on the field specified by `expandUnder` and it will add
-    // classes to the `div` that wraps all of the fields when they're expanded. See cookbook for an example use case.
+    // When using the expandUnder option, you can set `expandUnderClassNames` on the field
+    // specified by `expandUnder` and it will add classes to the `div` that wraps all of the
+    // fields when they're expanded. See cookbook for an example use case.
     expandUnderClassNames: '',
 
     // Hides the specified field on the review page.
@@ -202,20 +214,24 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
     // Hides the specified field on the review page when the field value is `false`.
     hideOnReviewIfFalse: true || false
 
-    // A function that conditionally hides fields in the form. `hideIf` provides the `index` argument when you use `ui:required` on data inside an array.
+    // A function that conditionally hides fields in the form. `hideIf` provides the `index`
+    // argument when you use `ui:required` on data inside an array.
     hideIf: function (formData, index) {
       return true || false;
     }
 
-    // A function that conditionally replaces the current field's schema. `updateSchema` provides the `index` argument when you use `ui:required` on data inside an array.
+    // A function that conditionally replaces the current field's schema. `updateSchema`
+    // provides the `index` argument when you use `ui:required` on data inside an array.
     updateSchema: function (formData, schema, uiSchema, index, pathToCurrentData) {
-      // This function returns an object with the properties you want to update. Instead of replacing the existing schema, it updates the individual properties.
+      // This function returns an object with the properties you want to update. Instead of
+      // replacing the existing schema, it updates the individual properties.
       return {
         type: 'string'
       };
     },
 
-    // Use this when you have an array field that should not be pulled out of the page its in and shown separately on the review page.
+    // Use this when you have an array field that should not be pulled out of the page its
+    // in and shown separately on the review page.
     keepInPageOnReview: true
   }
 }
