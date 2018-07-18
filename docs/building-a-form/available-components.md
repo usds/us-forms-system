@@ -95,6 +95,7 @@ The Title and Subtitle represent the name and form number, respectively. The sub
 #### Usage guidelines
 
 Define the title and subtitle in `formConfig`. For example:
+
 ```js
 const formConfig = {
   …
