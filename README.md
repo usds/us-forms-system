@@ -14,6 +14,18 @@ For information about setting up and using the US Forms System, see the *[US For
 
 Additionally, the [US Forms System Starter App](https://github.com/usds/us-forms-system-starter-app) provides the basic files and configuration needed to get started building a form using the US Forms System.
 
+### Contributing to this project:
+
+Please read our [Code of Conduct](https://github.com/usds/us-forms-system/blob/master/CODE_OF_CONDUCT.md) and [CONTRIBUTING.md](https://github.com/usds/us-forms-system/blob/master/CONTRIBUTING.md) for more details.
+
+#### Join the contributor mailing list: 
+
+To receive regular updates about this project, please join our mailing list by sending an email to forms-subscribe-request@listserv.gsa.gov. 
+
+#### Contact the project team:
+
+If you want to directly contact the project team, you can send your questions to forms@lists.usds.gov. 
+
 ### More project artifacts
 
 - Roadmap, research, and process: [US Forms System Wiki](https://github.com/usds/us-forms-system/wiki)

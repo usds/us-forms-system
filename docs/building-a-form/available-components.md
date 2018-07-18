@@ -85,8 +85,6 @@ The name of the form. The form number should be specified in the Subtitle widget
 
 ![A title and subtitle of a form with the title highlighted](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Title.jpg)
 
-![A title and subtitle of a form with the subtitle highlighted](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Subtitle.jpg)
-
 #### What's available and where?
 
 Define the form's title and subtitle in `formConfig`:
