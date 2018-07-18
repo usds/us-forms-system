@@ -170,7 +170,7 @@ A group of options where the user can only select a single item.
 
 #### Usage guidelines
 
-The data for a group of radio buttons will be quite similar to the data for a select field (i.e., `string` type with an `enum` property), which means the `SelectWidget` will by default be rendered.
+The data for a group of radio buttons will be quite similar to the data for a select field (i.e., `string` type with an `enum` property), which means the `SelectWidget` will be rendered by default.
 
 To override the `SelectWidget`, pass `'ui:widget': 'radio'` to your `uiSchema` for that field. To specify different label text for each option, pass `'ui:options'` to `uiSchema`.
 
@@ -198,7 +198,7 @@ uiSchema: {
 }
 ```
 
-For more information about this widget, see [`RadioWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx).
+For the code implementation, see [`RadioWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx).
 
 ### Checkbox group
 
@@ -208,7 +208,7 @@ A group of options where the user can select multiple items.
 
 #### Usage guidelines
 
-Each individual checkbox is used to store `boolean` data. If you want to include a group of checkboxes, you would include separate fields for each checkbox, with `type: 'boolean'` passed to the `schema`.
+Each individual checkbox is used to store `boolean` data. To include a group of checkboxes, include separate fields for each checkbox, with `type: 'boolean'` passed to the `schema`.
 
 Your config for a group of checkboxes might look like this:
 ```
@@ -246,7 +246,7 @@ uiSchema: {
 }
 ```
 
-For more information about this widget, see [`CheckboxWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx).
+For the code implementation, see [`CheckboxWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx).
 
 ### Required field
 
@@ -268,9 +268,9 @@ This indicates to the user that they have either not filled out a required field
 
 There are several ways in which form fields can be invalid: a required field in blank, the entry is too short or long, the entry does not satisfy a specific format, etc.
 
-To show an error on a blank field that is required, include the field in the array under the `required` property in the `schema`. An error on that field will automatically be rendered if the field is blank.
+- **To show an error on a blank field that is required**, include the field in the array under the `required` property in the `schema`. An error on that field will automatically be rendered if the field is blank.
 
-To show an error on a field for any other reason (e.g., it has not met certain data requirements), pass a validation function to the array for the `ui:validations` property under that field in `uiSchema`.
+- **To show an error on a field for any other reason** (e.g., it has not met certain data requirements), pass a validation function to the array for the `ui:validations` property under that field in `uiSchema`.
 
 The error message that is displayed can either be a default message or one that you specify. There are several [default error messages](/src/js/validations.js#L24) for different situations.
 

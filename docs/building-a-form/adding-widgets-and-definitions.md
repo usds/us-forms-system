@@ -15,15 +15,15 @@ To use a widget, set `ui:widget` for a field to the name of the widget. Widgets 
 
 Widget       | How it's used
 ------------ | -------------
-`ArrayCountWidget` | In the 'uiSchema', specify `'ui:widget': ArrayCountWidget` for the given field
+`ArrayCountWidget` | In the `uiSchema`, specify `'ui:widget': ArrayCountWidget` for the given field
 `CheckboxWidget` | Default widget for a schema that specifies `type: 'boolean'`
-`CurrencyWidget` | In the 'uiSchema', specify `'ui:widget': CurrencyWidget` for the given field
+`CurrencyWidget` | In the `uiSchema`, specify `'ui:widget': CurrencyWidget` for the given field
 `DateWidget` | In the `uiSchema`, specify `'ui:widget': 'date'` for the given field
 `EmailWidget` | In the `uiSchema`, specify `'ui:widget': 'email'` for the given field
-`PhoneNumberWidget` | In the 'uiSchema', specify `'ui:widget': PhoneNumberWidget` for the given field
+`PhoneNumberWidget` | In the `uiSchema`, specify `'ui:widget': PhoneNumberWidget` for the given field
 `RadioWidget` | In the `uiSchema`, specify `'ui:widget': 'radio'` for the given field
 `SelectWidget` | Default widget for a schema that specifies `type: 'string'` with an `enum` property
-`SSNWidget` | In the 'uiSchema', specify `'ui:widget': SSNWidget` for the given field
+`SSNWidget` | In the `uiSchema`, specify `'ui:widget': SSNWidget` for the given field
 `TextWidget` | Default widget for a schema that specifies `type: 'string'`
 `YesNoWidget` | In the `uiSchema`, specify `'ui:widget': 'yesNo'` for the given field
 
