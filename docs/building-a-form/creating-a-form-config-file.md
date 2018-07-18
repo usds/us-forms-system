@@ -130,7 +130,7 @@ The `ObjectField` component renders a `SchemaField` component for each of its pr
 
 ### Field component props
 
-In order for each component to know what to render, they pass a collection of props down through the component hierarchy. Most are passed to widget components.
+In order for each component to know what to render, field components pass a collection of props down through the component hierarchy. Most are passed to widget components.
 
 - `name`: The property name of the current field. For example, the object schema above would be named `field1`.
 - `required`: If the field is required or not (i.e. the property name is in the schema's `required` array).
