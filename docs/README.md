@@ -9,6 +9,6 @@
   - [Quick Start: Example `form.js` file](building-a-form/quick-start-example-formjs-file.md)
   - [Creating a form config file](building-a-form/creating-a-form-config-file.md)
   - [Adding widgets and definitions](building-a-form/adding-widgets-and-definitions.md)
-  - [Available components](building-a-form/available-components.md)
+  - [Available form features and usage guidelines](building-a-form/available-form-features-and-usage-guidelines.md)
   - [Common patterns for building forms](building-a-form/common-patterns-for-building-forms.md)
   - [Creating custom fields and widgets](building-a-form/creating-custom-fields-and-widgets.md)

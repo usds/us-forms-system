@@ -1,6 +1,6 @@
-# Available components
+# Available form features and usage guidelines
 
-TBD
+These form features are available in the US Forms System library. We've provided information about how to implement them in your form.
 
 ### In this guide
 
