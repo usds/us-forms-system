@@ -233,7 +233,7 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
     // By default, array fields that are displayed on a single page in a form, such as
     // information for multiple dependents, are displayed in a separate section on the
     // review page. To keep the information in a single section on a review page, set
-    // this property.
+    // this property to `true`.
     keepInPageOnReview: true
   }
 }
