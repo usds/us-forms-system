@@ -16,9 +16,9 @@ Your form is generated from a `form.js` file, along with a few other key configu
 
 There are many common fields and widgets you can use to build forms. There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects.
 
-### [Available components](available-components.md)
+### [Available form features and usage guidelines](available-form-features-and-usage-guidelines.md)
 
-TBD
+These form features are available in the US Forms System library. We've provided information about how to implement them in your form.
 
 ### [Common patterns for building forms](common-patterns-for-building-forms.md)
 
