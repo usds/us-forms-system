@@ -150,18 +150,6 @@ Alerts are included automatically in fields that include validation. Taken from 
 
 For examples of how alerts are used, see https://github.com/usds/us-forms-system/tree/master/src/js/widgets.
 
-### Hidden contextual information
-
-This component hides contextual information so that the user can opt to see it only if needed.
-
-![Two questions, one with contextual information hidden and one with information shown](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Contextual-info-hidden.jpg)
-
-#### Usage guidelines
-
-How to specify?
-
-For the code implementation, see [`ExpandingGroup`](https://github.com/usds/us-forms-system/blob/master/src/js/components/ExpandingGroup.jsx).
-
 ### Radio button group
 
 A group of options where the user can only select a single item.
