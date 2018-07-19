@@ -47,13 +47,13 @@ const formConfig = {
 
 ### Form footer
 
-This widget appears at the bottom of every page of the form (if it has multiple pages). It is not required.
+This widget appears at the bottom of every page of a multi-page form. It is not required.
 
 ![A form footer that lists phone numbers to call for help](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Footer.png)
 
 #### Usage guidelines
 
-To define footer content, create a React component that renders HTML to act as a footer. The starter app does not include a footer, but the design of this component would be very similar to the Introduction component that the starter app contains. For example:
+To define footer content, create a React component that renders HTML to act as a footer. The [US Forms System Starter App](https://github.com/usds/us-forms-system-starter-app) does not include a footer, but the design of this component would be very similar to the Introduction component that the starter app contains. For example:
 
 ```js
 import Footer from '../components/Footer.jsx';
@@ -158,11 +158,12 @@ A group of options where the user can only select a single item.
 
 #### Usage guidelines
 
-The data for a group of radio buttons will be quite similar to the data for a select field (i.e., `string` type with an `enum` property), which means the `SelectWidget` will be rendered by default.
+The data for a group of radio buttons is similar to the data for a select field (i.e., `string` type with an `enum` property), which means the `SelectWidget` will be rendered by default.
 
 To override the `SelectWidget`, pass `'ui:widget': 'radio'` to your `uiSchema` for that field. To specify different label text for each option, pass `'ui:options'` to `uiSchema`.
 
 Your config for a question where the answer is selected from a group of radio buttons might look like this:
+
 ```js
 schema: {
   type: 'object',
@@ -199,6 +200,7 @@ A group of options where the user can select multiple items.
 Each individual checkbox is used to store `boolean` data. To include a group of checkboxes, include separate fields for each checkbox, with `type: 'boolean'` passed to the `schema`.
 
 Your config for a group of checkboxes might look like this:
+
 ```js
 schema: {
   type: 'object',
@@ -254,18 +256,17 @@ This indicates to the user that they have either not filled out a required field
 
 #### Usage guidelines
 
-There are several ways in which form fields can be invalid: a required field in blank, the entry is too short or long, the entry does not satisfy a specific format, etc.
+There are several ways that form fields can be invalid, such as a required field is blank, the entry is too short or long, or the entry does not satisfy a specific format.
 
 - **To show an error on a blank field that is required**, include the field in the array under the `required` property in the `schema`. An error on that field will automatically be rendered if the field is blank.
-
 - **To show an error on a field for any other reason** (e.g., it has not met certain data requirements), pass a validation function to the array for the `ui:validations` property under that field in `uiSchema`.
 
 The error message that is displayed can either be a default message or one that you specify. There are several [default error messages](/src/js/validations.js#L24) for different situations.
 
 To show a custom error message, add the message to the `ui:errorMessages` object in the `uiSchema` as a key value pair:
 
-- The key is the `schema` property that the data is in violation of (e.g., the entry doesn't match the requirements of the `pattern` property)
-- The value is the text of the error message. 
+- The key is the `schema` property that the data is in violation of (e.g., the entry doesn't match the requirements of the `pattern` property).
+- The value is the text of the error message.
 
 When you include multiple messages in the `ui:errorMessages` object, they will be evaluated in order.
 
@@ -315,8 +316,8 @@ You can set follow up questions to appear only if the user answers a form questi
 #### Usage guidelines
 
 There are 2 fields you can use to conditionally expand a form field:
-1. `expandUnder`: This property takes the name of the other field upon which your field is shown.
-2. `expandUnderCondition`: This property takes 1 of 2 values:
+- `expandUnder`: This property takes the name of the other field upon which your field is shown.
+- `expandUnderCondition`: This property takes 1 of 2 values:
 - The answer to the other field that would satisfy the condition to show your field. If the other field takes boolean data, your field will automatically be shown if the answer to the other field is `true`, so there is no need to include `expandUnderCondition: true` in that case. However, if the other field takes any other type of data, you will need to include `expandUnderCondition`.
 - A function that receives the data from the `expandUnder` field as an argument.
 
@@ -398,7 +399,7 @@ Your config file might look like this:
 
 ### Review page
 
-When you build a form with more than one chapter (shown by the segments in a progress bar), the review page lets users edit all of their entered form data without having to go back one page at a time.
+When you build a form with more than one chapter (shown by the segments in a progress bar), the review page lets a user edit all of their entered form data without having to go back one page at a time.
 
 ![Multiple collapsed summaries of sections within a form](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Review-Page.jpg)
 
@@ -418,10 +419,14 @@ For the code implementation, see the [`review` folder](https://github.com/usds/u
 
 ### Required checkbox before form submission
 
-Use this feature to require a user to indicate they have read terms & conditions, a privacy policy, or any other text before submitting your form. This includes a checkbox and short-form text that can include relevant links to more verbose text on separate pages on your site.
+Use this feature to require a user to indicate they have read terms and conditions, a privacy policy, or any other text before submitting your form. This includes a checkbox and short-form text that can include relevant links to more verbose text on separate pages on your site.
 
 ![Required checkbox before form submission](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-Checkbox.jpg)
 
 #### Usage guidelines
 
 Right now, the required checkbox is automatically included in all forms. The US Forms System team will refactor this component to make it more customizable. To follow that discussion, subscribe to https://github.com/usds/us-forms-system/issues/53.
+
+For the code implementation, see [`ErrorableCheckbox`](https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx).
+
+[Back to *Building a Form*](README.md)
