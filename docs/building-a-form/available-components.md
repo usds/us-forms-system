@@ -437,3 +437,7 @@ Use this feature to require a user to indicate they have read terms & conditions
 #### Usage guidelines
 
 Right now, the required checkbox is automatically included in all forms. The US Forms System team will refactor this component to make it more customizable. To follow that discussion, subscribe to https://github.com/usds/us-forms-system/issues/53.
+
+- https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx
+
+[Back to *Building a Form*](README.md)
