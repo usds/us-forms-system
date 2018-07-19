@@ -334,6 +334,8 @@ There are 2 fields you can use to conditionally expand a form field:
 
 Both fields are nested under the `ui:options` property in the `uiSchema`.
 
+These properties for conditionally showing form fields are distinctly separate from the `depends` property, which is used to conditionally show entire pages of the form. You can read more about `depends` and conditionally showing pages [here](./common-patterns-for-building-forms#conditionally-including-a-page).
+
 Your config file might look like this:
 ```js
 {
@@ -374,7 +376,7 @@ Use this feature to collect multiple items with the same form questions, such as
 
 #### Usage guidelines
 
-In order to display multiple items with the same form questions, the data in the `schema` must be passed as an array, with each group of questions an `item` in that `array`. The `schema` and `uiSchema` for the group of questions within the `items` object is structured the same as other fields.
+In order to display multiple items with the same form questions, the data in the `schema` must be defined as `type: 'array'`, with each group of questions an `item` in that `array`. The `schema` and `uiSchema` for the group of questions within the `items` object is structured the same as other fields.
 
 Your config file might look like this:
 ```js
@@ -420,7 +422,7 @@ This property is nested directly under `uiSchema`:
 - `'ui:reviewWidget'`: takes a widget component to render on the review page for that field. Default review widgets are automatically rendered, so only use this if you need to customize the review widget that is used.
 
 These properties are nested under `uiSchema: { `ui:options`: {} }`:
-- `hideOnReview`: Hides the specified field on the review page; takes a `boolean`
+- `hideOnReview`: Hides the field on the review page; takes a `boolean`
 - `hideOnReviewIfFalse`: Hides the specified field on the review page when the field value is `false`; takes a `boolean`
 - `keepInPageOnReview`: Used when you have an array field that should not be pulled out of the page its in and shown separately on the review page; takes a `boolean`
 
