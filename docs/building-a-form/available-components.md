@@ -423,7 +423,7 @@ This property is nested directly under `uiSchema`:
 
 These properties are nested under `uiSchema: { `ui:options`: {} }`:
 - `hideOnReview`: Hides the field on the review page; takes a `boolean`
-- `hideOnReviewIfFalse`: Hides the specified field on the review page when the field value is `false`; takes a `boolean`
+- `hideOnReviewIfFalse`: Hides the field on the review page when the field value is `false`; takes a `boolean`
 - `keepInPageOnReview`: By default, array fields that are displayed on a single page in a form, such as information for multiple dependents, are displayed in a separate section on the review page. To keep the information in a single section on a review page, set this property.
 
 For the code implementation, see the [`review` folder](https://github.com/usds/us-forms-system/tree/master/src/js/review).
