@@ -334,7 +334,7 @@ There are 2 fields you can use to conditionally expand a form field:
 
 Both fields are nested under the `ui:options` property in the `uiSchema`.
 
-These properties for conditionally showing form fields are distinctly separate from the `depends` property, which is used to conditionally show entire pages of the form. You can read more about `depends` and conditionally showing pages [here](./common-patterns-for-building-forms#conditionally-including-a-page).
+The `expandUnder` and `expandUnderCondition` properties are distinctly separate from the `depends` property, which conditionally shows entire pages of the form. For more information, see "[Conditionally excluding a page](./common-patterns-for-building-forms#conditionally-including-a-page).
 
 Your config file might look like this:
 ```js
@@ -376,7 +376,7 @@ Use this feature to collect multiple items with the same form questions, such as
 
 #### Usage guidelines
 
-In order to display multiple items with the same form questions, the data in the `schema` must be defined as `type: 'array'`, with each group of questions an `item` in that `array`. The `schema` and `uiSchema` for the group of questions within the `items` object is structured the same as other fields.
+To display multiple groups of the same form questions, define the data in the `schema` as `type: 'array'`, with each group of questions as an `item` in that `array`. The `schema` and `uiSchema` for the group of questions within the `items` object is structured the same as other fields.
 
 Your config file might look like this:
 ```js
@@ -416,7 +416,7 @@ When you build a form with more than one chapter (shown by the segments in a pro
 
 #### Usage guidelines
 
-In general, the review page renders the form data in review mode automatically. There are, however, some specific options you can pass to the form config to customize certain review functionality.
+The review page renders the form data in review mode automatically. However, you can pass some specific options to the form config to customize some review features.
 
 This property is nested directly under `uiSchema`:
 - `'ui:reviewWidget'`: takes a widget component to render on the review page for that field. Default review widgets are automatically rendered, so only use this if you need to customize the review widget that is used.
@@ -426,10 +426,7 @@ These properties are nested under `uiSchema: { `ui:options`: {} }`:
 - `hideOnReviewIfFalse`: Hides the specified field on the review page when the field value is `false`; takes a `boolean`
 - `keepInPageOnReview`: By default, array fields that are displayed on a single page in a form, such as information for multiple dependents, are displayed in a separate section on the review page. To keep the information in a single section on a review page, set this property.
 
-Used when you have an array field that should not be pulled out of the page its in and shown separately on the review page; takes a `boolean`
-
-
-- https://github.com/usds/us-forms-system/tree/master/src/js/review
+For the code implementation, see the [`review` folder](https://github.com/usds/us-forms-system/tree/master/src/js/review).
 
 ### Required checkbox before form submission
 
@@ -439,4 +436,4 @@ Use this feature to require a user to indicate they have read terms & conditions
 
 #### Usage guidelines
 
-Right now the required checkbox is included automatically. We'll [be doing](https://github.com/usds/us-forms-system/issues/53) some refactoring of this component soon to make it more customizable.
+Right now, the required checkbox is automatically included in all forms. The US Forms System team will refactor this component to make it more customizable. To follow that discussion, subscribe to https://github.com/usds/us-forms-system/issues/53.
