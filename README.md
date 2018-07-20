@@ -10,7 +10,7 @@ Inspired by Mozilla's [react-jsonschema-form](https://github.com/mozilla-service
 
 ### Using the library
 
-For information about setting up and using the US Forms System, see the *[US Forms System Documentation](../docs/README.md)*.
+For information about setting up and using the US Forms System, see the *[US Forms System Documentation](./docs/README.md)*.
 
 Additionally, the [US Forms System Starter App](https://github.com/usds/us-forms-system-starter-app) provides the basic files and configuration needed to get started building a form using the US Forms System.
 
