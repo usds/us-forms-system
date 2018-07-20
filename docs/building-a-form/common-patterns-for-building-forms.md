@@ -151,64 +151,52 @@ To create a block of text with no fields that follow, create an empty view objec
 
 ### Conditionally hiding a group of fields
 
-Sometimes fields in a form are siblings to others, but must be hidden conditionally. For example, see this schema snippet from [VA Form 22-5490](https://www.va.gov/vaforms/form_detail.asp?FormNo=22-5490):
+Sometimes fields in a form are siblings to others, but should be hidden conditionally. For example, this schema defines a field named `employed` that is rendered as a checkbox the user can check. If this field is false (the checkbox is not checked) there is no need to display the `jobStartDate` or `monthlyWages` fields:
 
 ```json
-"previousBenefits": {
-  "type": "object",
-  "properties": {
-    "disability": { "type": "boolean" },
-    "dic": { "type": "boolean" },
-    "chapter31": { "type": "boolean" },
-    "ownServiceBenefits": { "type": "string" },
-    "chapter35": { "type": "boolean" },
-    "chapter33": { "type": "boolean" },
-    "transferOfEntitlement": { "type": "boolean" },
-    "other": { "type": "string" },
-    "veteranFullName": { "$ref": "#/definitions/fullName" },
-    "veteranSocialSecurityNumber": { "$ref": "#/definitions/ssn" }
+schema: {
+  type: 'object',
+  properties: {
+    employed: { type: 'boolean' },
+    jobStartDate: { type: 'string' },
+    monthlyWages: { type: 'string' },
+    otherMonthlyIncome: { type: 'string' }
   }
 }
+
 ```
 
-Only `chapter35`, `chapter33`, `transferOfEntitlement`, `veteranFullName`, and `veteranSocialSecurityNumber` are conditionally hidden, so the `schema` and `uiSchema` are written as:
+To accomplish this, the `schema` and `uiSchema` are written as:
 
 ```js
-// schema
-{
-  disability: { ... },
-  dic: { ... },
-  chapter31: { ... },
-  ownServiceBenefits: { ... },
-  'view:sponsorServiceOptions': {
-    chapter35: { ... },
-    chapter33: { ... },
-    transferOfEntitlement: { ... },
-    veteranFullName: { ... },
-    veteranSocialSecurityNumber: { ... }
+schema: {
+  type: 'object',
+  properties: {
+    employed: { type: 'boolean' },
+    'view:jobInformation': {
+      type: 'object',
+      properties: {
+        jobStartDate: { type: 'string' },
+        monthlyWages: { type: 'string' }
+      }
+    },
+    otherMonthlyIncome: { type: 'string' }
+  }
+},
+uiSchema: {
+  employed: { 'ui:title': 'I am employed' },
+  'view:jobInformation': {
+    'ui:options': {
+      hideIf: (formData) => !formData.employed
+    },
+    jobStartDate: { 'ui:title': 'Job start date' },
+    monthlyWages: { 'ui:title': 'Monthly wages' },
   },
-  other: { ... }
-}
-
-// uiSchema
-{
-  disability: { ... },
-  dic: { ... },
-  chapter31: { ... },
-  ownServiceBenefits: { ... },
-  'view:sponsorServiceOptions': {
-    hideIf: (formData) => /* Some condition here */,
-    chapter35: { ... },
-    chapter33: { ... },
-    transferOfEntitlement: { ... },
-    veteranFullName: { ... },
-    veteranSocialSecurityNumber: { ... }
-  },
-  other: { ... }
+  otherMonthlyIncome: { 'ui:title': 'Other monthly income' }
 }
 ```
 
-From this, the fields in the `view:sponsorServiceOptions` object are moved up one level and sent alongside `dic` and `chapter31`. The back end doesn't see objects with names that start with `view:`, but it gets all fields inside those objects.
+The back end doesn't see objects with names that start with `view:`, but it gets all fields inside those objects because the form processing includes them in the parent object (in this example, the one containing `employed` and `otherMonthlyIncome`). The `hideIf` function is passed a copy of the current `formData`, in this case it will hide the fields unless `employed` is `true`.
 
 ## Styling expanded or collapsed fields
 
