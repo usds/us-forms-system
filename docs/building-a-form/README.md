@@ -16,7 +16,7 @@ Your form is generated from a `form.js` file, along with a few other key configu
 
 These form features are available in the US Forms System library. We've provided information about how to implement them in your form.
 
-### [Common widgets](common-widgets.md)
+### [Available widgets](available-widgets.md)
 
 These common widgets are included in the us-forms-system by default. Set these widgets in a config file while building your form.
 
