@@ -144,7 +144,7 @@ A function that takes a full name `schema` and sets its required field list to `
 
 ### Person ID
 
-A function that allows the user to input a form of personal identification. For example, the form can ask for a social security number and include a checkbox to specify that the user doesn't have one, allowing them to instead input a Veterans Affairs file number.
+A function that allows the user to specify a form of personal identification. For example, the form can ask for a social security number and include a checkbox to specify that the user doesn't have one, allowing them to instead specify a Veterans Affairs file number.
 
 - File: [/src/js/definitions/personId.js](../../src/js/definitions/personId.js)
 - `uiSchema`: Yes

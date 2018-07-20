@@ -4,7 +4,7 @@ These widgets are included in the us-forms-system by default. Set these widgets 
 
 Some widgets are associated with particular schema types or formats. There are additional widgets available, but the us-forms-system uses definitions they're included in, rather than just the field. To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](../../src/js/widgets).
 
-Some widgets are passed as a string (e.g., `'ui: widget': 'date'`), while others are passed as the component itself (e.g., `'ui:widget': CurrencyWidget`).
+Some widgets are passed as a string (e.g., `'ui: widget': 'date'`), while others are passed as a reference to the component itself (e.g., `'ui:widget': CurrencyWidget`).
 - Widgets from the [react-jsonschema-form library](./about-the-us-forms-system-library#understanding-react-jsonschema-form-rjsf) include string mappings.
 - Widgets created specifically for US Forms System do not have these mappings, and therefore must be specified by passing the component for the widget directly to the config.
 
