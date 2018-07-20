@@ -12,13 +12,17 @@ Use this example `form.js` file to build a basic form.
 
 Your form is generated from a `form.js` file, along with a few other key configuration files.
 
-### [Adding widgets and definitions](adding-widgets-and-definitions.md)
-
-There are many common fields and widgets you can use to build forms. There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects.
-
 ### [Available form features and usage guidelines](available-form-features-and-usage-guidelines.md)
 
 These form features are available in the US Forms System library. We've provided information about how to implement them in your form.
+
+### [Common widgets](common-widgets.md)
+
+These common widgets are included in the us-forms-system by default. Set these widgets in a config file while building your form.
+
+### [Common definitions](common-definitions.md)
+
+These definitions address form field patterns that are more complex than widgets and include common label text, validation, or field components.
 
 ### [Common patterns for building forms](common-patterns-for-building-forms.md)
 
