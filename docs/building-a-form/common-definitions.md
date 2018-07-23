@@ -12,7 +12,7 @@ There are common types of definitions: `schema`/`uiSchema` objects and functions
 To use a definition, import it near the top of the file you want to reference it in:
 
 ```js
-import CurrencyWidgetUI from 'us-forms-system/lib/js/definitions/currency';
+import currencyUI from 'us-forms-system/lib/js/definitions/currency';
 ```
 
 Then, call it to add all the `uiSchema` definitions:
@@ -20,7 +20,7 @@ Then, call it to add all the `uiSchema` definitions:
 ```js
 uiSchema: {
   ...
-  monthlyWages: CurrencyWidgetUI('Monthly wages')
+  monthlyWages: currencyUI('Monthly wages')
   ...
 }
 ```
