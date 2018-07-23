@@ -27,7 +27,6 @@ rjsf passes all field and widget components to `SchemaField` (and most other com
 The us-forms-system uses these custom fields and widgets:
 
 - [`YesNoWidget`](available-widgets.md#yesnowidget)
-- `AddressField`
 - [`DateWidget`](available-widgets.md#datewidget)
 - [`SSNWidget`](available-widgets.md#ssnwidget)
 - [`PhoneNumberWidget`](available-widgets.md#phonenumberwidget)
