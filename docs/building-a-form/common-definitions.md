@@ -15,7 +15,7 @@ To use a definition, import it near the top of the file you want to reference it
 import currencyUI from 'us-forms-system/lib/js/definitions/currency';
 ```
 
-Then, call it to add all the `uiSchema` definitions:
+Then, call it to add all the `uiSchema` definitions. In this example, the definition is a function that takes the title for that field, which is used to populate the 'ui:title' property in uiSchema:
 
 ```js
 uiSchema: {
