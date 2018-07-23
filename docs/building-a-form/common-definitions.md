@@ -7,6 +7,24 @@ There are common types of definitions: `schema`/`uiSchema` objects and functions
 - Simple definitions are provided as `schema` and `uiSchema` objects that you can import and overwrite to customize.
 - More complex definitions are functions that require certain parameters.
 
+### Using definitions
+
+To use a definition, import it near the top of the file you want to reference it in:
+
+```js
+import CurrencyWidgetUI from 'us-forms-system/lib/js/definitions/currency';
+```
+
+Then, call it to add all the `uiSchema` definitions:
+
+```js
+uiSchema: {
+  ...
+  monthlyWages: CurrencyWidgetUI('Monthly wages')
+  ...
+}
+```
+
 Available definitions are:
 
 - [Address](#address)
