@@ -18,11 +18,11 @@ These form features are available in the US Forms System library. We've provided
 
 ### [Available widgets](available-widgets.md)
 
-These common widgets are included in the us-forms-system by default. Set these widgets in a config file while building your form.
+Widgets are React components that return specific HTML form elements. Set these widgets in a config file while building your form.
 
 ### [Common definitions](common-definitions.md)
 
-These definitions address form field patterns that are more complex than widgets and include common label text, validation, or field components.
+Definitions are pieces of the form config that can be dropped in to represent specific types of questions. Most often used in `uiSchema`, definitions include features such as label text, validation functions, error messages, and rules for which widget to render.
 
 ### [Common patterns for building forms](common-patterns-for-building-forms.md)
 

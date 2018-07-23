@@ -1,6 +1,6 @@
 # Available widgets
 
-These widgets are included in the us-forms-system by default. Set these widgets in a config file while building your form.
+Widgets are React components that return specific HTML form elements. Set these widgets in a config file while building your form.
 
 Some widgets are associated with particular schema types or formats. There are additional widgets available, but the us-forms-system uses definitions they're included in, rather than just the field.
 
