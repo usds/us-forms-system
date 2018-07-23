@@ -8,6 +8,24 @@ Some widgets are passed as a string (e.g., `'ui: widget': 'date'`), while others
 - Widgets from the [react-jsonschema-form library](./about-the-us-forms-system-library#understanding-react-jsonschema-form-rjsf) include string mappings.
 - Widgets created specifically for US Forms System do not have these mappings, and therefore must be specified by passing the component for the widget directly to the config.
 
+### Using widgets
+
+To include a widget, import the widget at the top of the file:
+
+```js
+import CurrencyWidget from 'us-forms-system/lib/js/widgets/CurrencyWidget';
+```
+
+Then, set the `ui:widget` field to the imported widget name:
+
+```js
+uiSchema: {
+  ...
+  'ui:widget': CurrencyWidget,
+  ...
+}
+```
+
 Available widgets are:
 
 - [`ArrayCountWidget`](#arraycountwidget)
