@@ -12,3 +12,5 @@
   - [Available form features and usage guidelines](building-a-form/available-form-features-and-usage-guidelines.md)
   - [Common patterns for building forms](building-a-form/common-patterns-for-building-forms.md)
   - [Creating custom fields and widgets](building-a-form/creating-custom-fields-and-widgets.md)
+- [How the library works](how-the-library-works/README.md)
+  - [The component hierarchy](how-the-library-works/the-component-hierarchy.md)
