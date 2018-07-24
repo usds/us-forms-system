@@ -1,6 +1,6 @@
 # Creating custom fields and widgets
 
-You can customize the base library in order to build web-based forms using React and the JSON Schema standard.
+You can customize the base library to satisfy the unique requirements of your particular form.
 
 ### In this guide
 
