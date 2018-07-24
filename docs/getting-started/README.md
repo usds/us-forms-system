@@ -16,4 +16,4 @@ The US Forms System Starter App creates the initial files, configuration, build 
 
 If you're using an existing React application, you can install the US Forms System in that app.
 
-[Back to *US Forms System Documentation*](docs/README.md)
+[Back to *US Forms System Documentation*](../../README.md)
