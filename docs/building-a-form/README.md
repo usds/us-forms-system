@@ -28,8 +28,4 @@ Definitions are pieces of the form config that can be dropped in to represent sp
 
 Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
 
-### [Creating custom fields and widgets](creating-custom-fields-and-widgets.md)
-
-The US Forms System lets you build web-based forms using React and the JSON Schema standard.
-
 [Back to *US Forms System Documentation*](docs/README.md)
