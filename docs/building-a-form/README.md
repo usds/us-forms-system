@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](docs/README.md)
+:book: [*US Forms System Documentation*](../../README.md)
 
 # Building a form
 
@@ -30,4 +30,4 @@ Definitions are pieces of the form config that can be dropped in to represent sp
 
 Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
 
-[Back to *US Forms System Documentation*](docs/README.md)
+[Back to *US Forms System Documentation*](../../README.md)
