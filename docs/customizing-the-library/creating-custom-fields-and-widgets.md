@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Customizing the library*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Customizing the library*](./README.md)
 
 # Creating custom fields and widgets
 
@@ -7,7 +7,7 @@ You can customize the base library to satisfy the unique requirements of your pa
 ### In this guide
 
 - [How the us-forms-system uses rjsf](#how-us-forms-system-uses-rjsf)
-  - [Customizing fields and widgets from rjsf](customizing-fields-and-widgets-from-rjsf)
+  - [Customizing fields and widgets from rjsf](#customizing-fields-and-widgets-from-rjsf)
   - [Supporting multi-page forms](#supporting-multi-page-forms)
 
 ### How us-forms-system uses rjsf
@@ -58,4 +58,4 @@ The review page also takes the config file and renders each chapter in an accord
 
 Each array item on a review page is rendered as read-only, and individual items can be edited independently. To accomplish this, the review `ArrayField` component renders each item in the array as it's own rjsf `Form`. In addition, array fields are taken from the page's read-only view and rendered separately.
 
-[Back to *Customizing the library*](README.md)
+[Back to *Customizing the library*](./README.md)

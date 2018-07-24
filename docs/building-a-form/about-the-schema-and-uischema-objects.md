@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Building a Form*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
 
 # About the `schema` and `uiSchema` objects
 
@@ -241,4 +241,4 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
 }
 ```
 
-[Back to *Building a Form*](README.md)
+[Back to *Building a Form*](./README.md)

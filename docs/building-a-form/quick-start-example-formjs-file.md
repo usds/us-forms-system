@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../README.md)  :arrow_right: [*Building a Form*](./README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
 
 # Quick Start: Example `form.js` file
 
@@ -107,4 +107,4 @@ Use this example `form.js` file to build a basic form. For more information abou
 }
 ```
 
-[Back to *Building a Form*](README.md)
+[Back to *Building a Form*](./README.md)

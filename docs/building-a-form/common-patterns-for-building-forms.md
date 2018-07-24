@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Building a Form*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
 
 # Common patterns for building forms
 
@@ -299,4 +299,4 @@ If a user types 'open sesame' for the `passPhrase` on the first page, `otherPage
 
 **Don't use the pass phrase as a secure login or other authentication mechanism.** Within the source, the text of a pass phrase is clear text, even when it's in a function.
 
-[Back to *Building a Form*](README.md)
+[Back to *Building a Form*](./README.md)

@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Building a Form*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
 
 # Creating a form config file
 
@@ -33,3 +33,5 @@ You rarely need to create or interact with React components directly to use this
 - You may need to build a custom React component that isn't included in the library by default, such as for the introduction and review pages, or for special content that might appear on each a particular form page. For more information, see "[Creating custom fields and widgets](../customizing-the-library/creating-custom-fields-and-widgets)."
 
 For more information, see "[About the component hierarchy](../how-the-library-works/about-the-component-hierarchy)."
+
+[Back to *Building a Form*](./README.md)
