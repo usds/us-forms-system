@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](docs/README.md) :arrow_right: [*Getting Started with the US Forms System*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Getting Started with the US Forms System*](./README.md)
 
 # Tools for getting started with the US Forms System
 
@@ -37,4 +37,4 @@ JSON Schema is a concise method of describing JSON data. We recommend basic fami
 
 rjsf is a React component maintained by Mozilla that's used to build web forms based on JSON Schema. For more information, see the [react-jsonschema-form documentation](https://github.com/mozilla-services/react-jsonschema-form#react-jsonschema-form).
 
-[Back to *Getting Started with the US Forms System*](README.md)
+[Back to *Getting Started with the US Forms System*](./README.md)

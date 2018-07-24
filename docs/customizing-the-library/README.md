@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../../README.md)
+:book: [*US Forms System Documentation*](../README.md)
 
 # Customizing the library
 
@@ -10,4 +10,4 @@ The US Forms System builds a React application of a form, and determines which R
 
 You can customize the base library to satisfy the unique requirements of your particular form.
 
-[Back to *US Forms System Documentation*](../../README.md)
+[Back to *US Forms System Documentation*](../README.md)

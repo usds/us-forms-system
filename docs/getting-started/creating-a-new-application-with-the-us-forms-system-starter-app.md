@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Getting Started with the US Forms System*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Getting Started with the US Forms System*](./README.md)
 
 # Creating a new application with the US Forms System Starter App
 
@@ -85,4 +85,4 @@ Once your repository is set up and dependencies are installed, you can begin bui
 
 To run your app locally, in Terminal (Mac and Linux) or the Command Prompt (Windows), type `npm start`. Once the server has started, you can view your form in a browser window at `localhost:8080`.
 
-[Back to *Getting Started with the US Forms System*](README.md)
+[Back to *Getting Started with the US Forms System*](./README.md)

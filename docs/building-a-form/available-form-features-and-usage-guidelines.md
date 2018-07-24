@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Building a Form*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
 
 # Available form features and usage guidelines
 
@@ -431,4 +431,4 @@ Right now, the required checkbox is automatically included in all forms. The US 
 
 For the code implementation, see [`ErrorableCheckbox`](https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx).
 
-[Back to *Building a Form*](README.md)
+[Back to *Building a Form*](./README.md)

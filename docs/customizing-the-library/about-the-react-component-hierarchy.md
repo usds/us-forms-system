@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Customizing the library*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Customizing the library*](./README.md)
 
 # About the React component hierarchy
 
@@ -171,4 +171,4 @@ Similar to Redux, all state is kept in the `Form` component, or the root of the 
 
 Along with the regular JSON Schema, a UI schema for UI-specific options that don't fit within the JSON Schema standard is also optionally defined for each field. The UI schema is passed to the form config file as an object, `uiSchema`, for each field. For more information, see "[Understanding the `uiSchema` object](../building-a-form/about-the-schema-and-uischema-objects.md#understanding-the-uischema-object)."
 
-[Back to *Customizing the library*](README.md)
+[Back to *Customizing the library*](./README.md)

@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](docs/README.md) :arrow_right: [*Building a Form*](README.md)
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
 
 # Available widgets
 
@@ -113,4 +113,4 @@ Renders two radio buttons, one with a value of "Yes" and one with a value of "No
 - **File:** [YesNoWidget.jsx](src/js/widgets/YesNoWidget.jsx)
 - **Usage:** In the `uiSchema`, specify `'ui:widget': 'yesNo'` for the given field.
 
-[Back to *Building a Form*](README.md)
+[Back to *Building a Form*](./README.md)
