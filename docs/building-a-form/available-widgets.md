@@ -6,7 +6,7 @@ Widgets are React components that return specific HTML form elements. Set these 
 
 Some widgets are associated with particular schema types or formats. There are additional widgets available, but the us-forms-system uses definitions they're included in, rather than just the field.
 
-Widgets from the [react-jsonschema-form library](./about-the-us-forms-system-library#understanding-react-jsonschema-form-rjsf) include string mappings. Widgets created specifically for US Forms System do not have mappings, and therefore must be specified by passing the component for the widget directly to the config. To include such widgets, import the widget at the top of the file:
+Widgets from the [react-jsonschema-form library](./about-the-schema-and-uischema-objects.md#understanding-the-uischema-object) include string mappings. Widgets created specifically for US Forms System do not have mappings, and therefore must be specified by passing the component for the widget directly to the config. To include such widgets, import the widget at the top of the file:
 
 ```js
 import CurrencyWidget from 'us-forms-system/lib/js/widgets/CurrencyWidget';
@@ -45,7 +45,7 @@ Renders a `<input type="number">` HTML element, and is used when determining how
 
 ### `CheckboxWidget`
 
-Renders a single `<input type="checkbox">` HTML element. For information about rendering multiple checkboxes together, see "[Checkbox Group](./available-form-features-and-usage-guidelines#radio-button-group#checkbox-group)."
+Renders a single `<input type="checkbox">` HTML element. For information about rendering multiple checkboxes together, see "[Checkbox Group](./available-form-features-and-usage-guidelines#checkbox-group)."
 
 - **File:** [CheckboxWidget.jsx](src/js/widgets/CheckboxWidget.jsx)
 - **Usage:** Usually the `CheckboxWidget` is not specified directly in the `uiSchema` because it renders by default for a schema that specifies `type: 'boolean'`.

@@ -12,7 +12,7 @@ You can customize the base library to satisfy the unique requirements of your pa
 
 ### How us-forms-system uses rjsf
 
-The us-forms-system code uses rjsf to render form fields, but it builds a scaffolding on top of it to support multi-page forms and common form patterns. Additionally, us-forms-system uses rjsf to create a form configuration spec that allows developers to specify the structure of a multi-page form.
+The us-forms-system code uses react-jsonschema-form, or rjsf, to render form fields, but it builds a scaffolding on top of it to support multi-page forms and common form patterns. Additionally, us-forms-system uses rjsf to create a form configuration spec that allows developers to specify the structure of a multi-page form.
 
 ##### Customizing fields, widgets, and events from rjsf
 
