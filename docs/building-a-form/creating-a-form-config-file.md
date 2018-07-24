@@ -9,8 +9,6 @@ Your form is generated from a JSON Schema configuration file called `form.js`, a
 
 - [Elements of the form config](#elements-of-the-form-config)
 - [How React components are rendered](#how-react-components-are-rendered)
-  - [How components receive their props](#how-components-receive-their-props)
-  - [Advanced information about the React component hierarchy](#advanced-information-about-the-react-component-hierarchy)
 
 ### Elements of the form config
 
