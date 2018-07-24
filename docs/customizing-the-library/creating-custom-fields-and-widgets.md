@@ -1,5 +1,7 @@
 # Creating custom fields and widgets
 
+You can customize the base library to satisfy the unique requirements of your particular form.
+
 ### In this guide
 
 - [How the us-forms-system uses rjsf](#how-us-forms-system-uses-rjsf)
@@ -8,7 +10,7 @@
 
 ### How us-forms-system uses rjsf
 
-The us-forms-system code uses rjsf to render form fields, but it builds a scaffolding on top of it to support multi-page forms and our common form patterns. Additionally, us-forms-system uses rjsf to create a form configuration spec that allows devs to specify the structure of one of our multi-page forms.
+The us-forms-system code uses rjsf to render form fields, but it builds a scaffolding on top of it to support multi-page forms and common form patterns. Additionally, us-forms-system uses rjsf to create a form configuration spec that allows developers to specify the structure of a multi-page form.
 
 ##### Customizing fields, widgets, and events from rjsf
 
