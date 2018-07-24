@@ -1,8 +1,6 @@
-# The component hierarcy
+# About the component hierarchy
 
 The US Forms System builds a React application of a form, and determines which React components to render based on the description of the form in the form configuration file.
-
-To understand more about how the library determines which React components to render and the resulting component hierarchy, read through the following topics.
 
 ### In this guide
 
