@@ -1,3 +1,5 @@
+:book: [*US Forms System Documentation*](docs/README.md)
+
 # Getting started with the US Forms System
 
 Depending on your needs, you can either create a brand new application from scratch or install the US Forms System in an existing application.

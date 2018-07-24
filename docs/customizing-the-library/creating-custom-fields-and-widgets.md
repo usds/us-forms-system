@@ -1,3 +1,5 @@
+:book: [*US Forms System Documentation*](docs/README.md) :arrow_right: [*Customizing the library*](README.md)
+
 # Creating custom fields and widgets
 
 You can customize the base library to satisfy the unique requirements of your particular form.
