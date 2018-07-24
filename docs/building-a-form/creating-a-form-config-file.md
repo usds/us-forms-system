@@ -19,7 +19,7 @@ The form config itself is an object with many properties that determine how your
 
 Your form config should contain the following essential elements:
 - Top level information about the form (e.g., title, url, whether or not certain features are enabled, etc.)
-- If you are building a multi-page form, nested objects for each `chapter` of the form. Within each `chapter`, additional nested objects for each `page` within that `chapter`. Read more about multi-page forms[here](creating-custom-fields-and-widgets#supporting-multi-page-forms).
+- If you are building a multi-page form, nested objects for each `chapter` of the form. Within each `chapter`, additional nested objects for each `page` within that `chapter`. For more information, see "[Supporting multi-page forms](../customizing-the-library/creating-custom-fields-and-widgets#supporting-multi-page-forms)."
 - Each `page` of the form should contain top level information about the page (e.g, title, url), as well as 2 essential objects:
   - `schema`: the description of the form fields and the type of data each field accepts
   - `uiSchema`: the description of all UI elements of the form fields (e.g., label text, error message text, CSS classes, etc.)
@@ -30,14 +30,14 @@ Refer [here](quick-start-example-formjs-file.md) to a comprehensive example of w
 
 ### How React components are rendered
 
-The form config is used by the US Forms System code to determine which React components to render in order to build your form. This determination is usually done automatically; you are rarely creating React components in using this library. 
+The form config is used by the US Forms System code to determine which React components to render in order to build your form. This determination is usually done automatically; you are rarely creating React components in using this library.
 
 #### When you need to create React components
 
 There are only 2 times where you may need to interact with React components directly:
 
 1. Each form needs to manually the top level `Form` component. For more information about how to include the `Form` component in your application, read about the [required files needed](../getting-started/installing-the-us-forms-system-in-an-existing-application#create-required-files).
-2. There are times you may need to build a custom React component that isn't included in the library by default. Examples of times where custom React components are needed are for the introduction and confirmation pages, [building custom fields and widgets](creating-custom-fields-and-widgets), and for special content that might appear on each a particular form page.
+2. There are times you may need to build a custom React component that isn't included in the library by default. Examples of times where custom React components are needed are for the introduction and confirmation pages, [building custom fields and widgets](../customizing-the-library/creating-custom-fields-and-widgets), and for special content that might appear on each a particular form page.
 
 #### How components receive their props
 
