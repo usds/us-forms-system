@@ -21,7 +21,7 @@ Your form is generated from a JSON Schema configuration file called `form.js`, a
 At the top level, rjsf uses a `Form` component to take the schema inputs and render a hierarchy of components for each field rendered on the form:
 
 - *Fields* generally match the `type` attribute in a `schema` object. There are object fields, array fields, number fields, boolean fields, and string fields. Except for arrays and objects, the fields render a label (via `FieldTemplate`) and a widget. To specify a particular field, set the `ui:field` property to a specific field.
-- A *widget* is the html input element that accepts data from the user. To specify a particular widget, set the  `ui:widget` property to `text`, `email`, `checkbox`, `radio`, `select`, and `textarea`. While there are many widgets provided by rjsf, the defaults are overwritten with these versions.
+- A *widget* is the html input element that accepts data from the user. To specify a particular widget, set the  `ui:widget` property to [`text`](available-widgets.md#textwidget), [`email`](available-widgets.md#emailwidget), [`checkbox`](available-widgets.md#checkboxwidget), [`radio`](available-widgets.md#radiowidget), [`select`](available-widgets.md#selectwidget), and `textarea`. While there are many widgets provided by rjsf, the defaults are overwritten with these versions.
 
 ##### Example schema: `string` object
 

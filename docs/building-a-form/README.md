@@ -12,13 +12,17 @@ Use this example `form.js` file to build a basic form.
 
 Your form is generated from a `form.js` file, along with a few other key configuration files.
 
-### [Adding widgets and definitions](adding-widgets-and-definitions.md)
-
-There are many common fields and widgets you can use to build forms. There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects.
-
 ### [Available form features and usage guidelines](available-form-features-and-usage-guidelines.md)
 
 These form features are available in the US Forms System library. We've provided information about how to implement them in your form.
+
+### [Available widgets](available-widgets.md)
+
+Widgets are React components that return specific HTML form elements. Set these widgets in a config file while building your form.
+
+### [Common definitions](common-definitions.md)
+
+Definitions are pieces of the form config that can be dropped in to represent specific types of questions. Most often used in `uiSchema`, definitions include features such as label text, validation functions, error messages, and rules for which widget to render.
 
 ### [Common patterns for building forms](common-patterns-for-building-forms.md)
 

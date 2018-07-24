@@ -1,40 +1,29 @@
-# Adding widgets and definitions
+# Common definitions
 
-There are many common fields and widgets you can use to build forms. There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects. For the function versions, there is documentation within the fields for the parameters.
+Definitions are pieces of the form config that can be dropped in to represent specific types of questions. Most often used in `uiSchema`, definitions include features such as label text, validation functions, error messages, and rules for which widget to render.
 
-### In this guide
-
-- [Common widgets](#common-widgets)
-- [Common definitions](#common-definitions)
-
-### Common widgets
-
-These common widgets are included in the us-forms-system by default. Set these widgets in a config file while building your form. Some are associated with particular schema types or formats. There are additional widgets available, but the us-forms-system uses definitions they're included in, rather than just the field.
-
-To use a widget, set `ui:widget` for a field to the name of the widget. Widgets are located in [/src/js/widgets](../../src/js/widgets).
-
-Widget       | How it's used
------------- | -------------
-`ArrayCountWidget` | In the `uiSchema`, specify `'ui:widget': ArrayCountWidget` for the given field
-`CheckboxWidget` | Default widget for a schema that specifies `type: 'boolean'`
-`CurrencyWidget` | In the `uiSchema`, specify `'ui:widget': CurrencyWidget` for the given field
-`DateWidget` | In the `uiSchema`, specify `'ui:widget': 'date'` for the given field
-`EmailWidget` | In the `uiSchema`, specify `'ui:widget': 'email'` for the given field
-`PhoneNumberWidget` | In the `uiSchema`, specify `'ui:widget': PhoneNumberWidget` for the given field
-`RadioWidget` | In the `uiSchema`, specify `'ui:widget': 'radio'` for the given field
-`SelectWidget` | Default widget for a schema that specifies `type: 'string'` with an `enum` property
-`SSNWidget` | In the `uiSchema`, specify `'ui:widget': SSNWidget` for the given field
-`TextWidget` | Default widget for a schema that specifies `type: 'string'`
-`YesNoWidget` | In the `uiSchema`, specify `'ui:widget': 'yesNo'` for the given field
-
-** Note: Some widgets are passed as a string (e.g., `'ui: widget': 'date'`), while others are passed as the component itself (e.g., `'ui:widget': CurrencyWidget`). Widgets from the [react-jsonschema-form library](./about-the-us-forms-system-library#understanding-react-jsonschema-form-rjsf) includes string mappings. Those created specifically for us-forms-system do not have these mappings, and therefore must be specified by passing the component for the widget directly to the config.
-
-### Common definitions
-
-These definitions address form field patterns that are more complex than widgets and include common label text, validation, or field components. Definitions are located in [/src/js/definitions](../src/js/definitions).
+There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects. For the function versions, there is documentation within the fields for the parameters. Definitions are located in [/src/js/definitions](../src/js/definitions).
 
 - Simple definitions are provided as `schema` and `uiSchema` objects that you can import and overwrite to customize.
 - More complex definitions are functions that require certain parameters.
+
+### Using definitions
+
+To use a definition, import it near the top of the file you want to reference it in:
+
+```js
+import currencyUI from 'us-forms-system/lib/js/definitions/currency';
+```
+
+Then, call it to add all the `uiSchema` definitions. In this example, the definition is a function that takes the title for that field, which is used to populate the 'ui:title' property in uiSchema:
+
+```js
+uiSchema: {
+  ...
+  monthlyWages: currencyUI('Monthly wages')
+  ...
+}
+```
 
 Available definitions are:
 
@@ -56,7 +45,7 @@ Available definitions are:
 - [Social Security Number](#social-security-number)
 - [Year](#year)
 
-##### Address
+### Address
 
 Validates a complete street address that a user types.
 
@@ -65,7 +54,7 @@ Validates a complete street address that a user types.
 - `schema`: Yes
 - Function or object: Functions
 
-##### Autosuggest
+### Autosuggest
 
 A common type-ahead widget that lets a user type in values and narrow down a longer list of options.
 
@@ -74,7 +63,7 @@ A common type-ahead widget that lets a user type in values and narrow down a lon
 - `schema`: Yes (for use when you are not using an `enum` in the schema)
 - Function or object: Function for `uiSchema`, object for `schema`
 
-##### Bank account
+### Bank account
 
 The common electronic funds transfer (EFT) account information field that collects account type (checking or savings), bank account number, and bank routing number.
 
@@ -83,14 +72,14 @@ The common electronic funds transfer (EFT) account information field that collec
 - `schema`: No
 - Function or object: Object
 
-##### Currency
+### Currency
 
 - File: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
 - `uiSchema`: Yes
 - `schema`: No
 - Function or object: Function
 
-##### Current or past dates
+### Current or past dates
 
 The common date field with current or past validation set.
 
@@ -99,7 +88,7 @@ The common date field with current or past validation set.
 - `schema`: No
 - Function or object: Function
 
-##### Current or past month/year
+### Current or past month/year
 
 The common date field without the day field and with current or past validation set.
 
@@ -108,7 +97,7 @@ The common date field without the day field and with current or past validation 
 - `schema`: No
 - Function or object: Function
 
-##### Date
+### Date
 
 The common date field with basic date validation.
 
@@ -117,7 +106,7 @@ The common date field with basic date validation.
 - `schema`: No
 - Function or object: Function
 
-##### Date range
+### Date range
 
 Two common date fields with validation to ensure they form a valid range.
 
@@ -126,7 +115,7 @@ Two common date fields with validation to ensure they form a valid range.
 - `schema`: No
 - Function or object: Function
 
-##### File upload
+### File upload
 
 The file upload field. Requires a specified endpoint for the upload.
 
@@ -135,7 +124,7 @@ The file upload field. Requires a specified endpoint for the upload.
 - `schema`: Yes (the same as in vets-json-schema)
 - Function or object: Function for `uiSchema`, object for `schema`
 
-##### Full name
+### Full name
 
 The normal name field, including first, middle, last, and suffix.
 
@@ -144,7 +133,7 @@ The normal name field, including first, middle, last, and suffix.
 - `schema`: No
 - Function or object: Object
 
-##### Month/year
+### Month/year
 
 The common date field, excluding day field, with basic validation.
 
@@ -153,7 +142,7 @@ The common date field, excluding day field, with basic validation.
 - `schema`: No
 - Function or object: Function
 
-##### Month/year range
+### Month/year range
 
 Two common date fields, excluding day field, with validation to ensure the dates form a valid range.
 
@@ -162,7 +151,7 @@ Two common date fields, excluding day field, with validation to ensure the dates
 - `schema`: No
 - Function or object: Function
 
-##### Non-required full name
+### Non-required full name
 
 A function that takes a full name `schema` and sets its required field list to `empty`.
 
@@ -171,16 +160,16 @@ A function that takes a full name `schema` and sets its required field list to `
 - `schema`: Yes
 - Function or object: Function
 
-##### Person ID
+### Person ID
 
-A function that allows the user to input a form of personal identification. For example, the form can ask for a social security number and include a checkbox to specify that the user doesn't have one, allowing them to instead input a Veterans Affairs file number.
+A function that allows the user to specify a form of personal identification. For example, the form can ask for a social security number and include a checkbox to specify that the user doesn't have one, allowing them to instead specify a Veterans Affairs file number.
 
 - File: [/src/js/definitions/personId.js](../../src/js/definitions/personId.js)
 - `uiSchema`: Yes
 - `schema`: Yes
 - Function or object: Function
 
-##### Phone
+### Phone
 
 A phone number with basic validation.
 
@@ -189,7 +178,7 @@ A phone number with basic validation.
 - `schema`: No
 - Function or object: Function
 
-##### Social Security Number
+### Social Security Number
 
 A social security number with default label text and validation.
 
@@ -198,7 +187,7 @@ A social security number with default label text and validation.
 - `schema`: No
 - Function or object: Object
 
-##### Year
+### Year
 
 A text field that validates the current or a past year.
 

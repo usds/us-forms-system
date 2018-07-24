@@ -17,20 +17,19 @@ rjsf passes all field and widget components to `SchemaField` (and most other com
 - `ObjectField`
 - `ArrayField`
 - `FieldTemplate`
-- `TextWidget`
-- `SelectWidget`
-- `EmailWidget`
-- `CheckboxWidget`
-- `RadioWidget`
+- [`TextWidget`](available-widgets.md#textwidget)
+- [`SelectWidget`](available-widgets.md#selectwidget)
+- [`EmailWidget`](available-widgets.md#emailwidget)
+- [`CheckboxWidget`](available-widgets.md#checkboxwidget)
+- [`RadioWidget`](available-widgets.md#radiowidget)
 - `TextareaWidget`
 
 The us-forms-system uses these custom fields and widgets:
 
-- `YesNoWidget`
-- `AddressField`
-- `DateWidget`
-- `SSNWidget`
-- `PhoneWidget`
+- [`YesNoWidget`](available-widgets.md#yesnowidget)
+- [`DateWidget`](available-widgets.md#datewidget)
+- [`SSNWidget`](available-widgets.md#ssnwidget)
+- [`PhoneNumberWidget`](available-widgets.md#phonenumberwidget)
 
 Writing custom widgets is similar to writing React components: A value is passed in, and an `onChange` hook is provided for changing data. Other properties like the schemas and field ID are also provided.
 
