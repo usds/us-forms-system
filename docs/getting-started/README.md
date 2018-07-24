@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](../docs/README.md)
+:book: [*US Forms System Documentation*](./README.md)
 
 # Getting started with the US Forms System
 
