@@ -196,6 +196,51 @@ describe('Schemaform <FormPage>', () => {
 
     expect(router.push.calledWith('first-page'));
   });
+  it('should not show a Back button on the first page', () => {
+    const route = {
+      pageConfig: {
+        pageKey: 'testPage',
+        schema: {},
+        uiSchema: {},
+        errorMessages: {},
+        title: ''
+      },
+      pageList: [
+        {
+          path: 'testing',
+          pageKey: 'testPage'
+        }
+      ]
+    };
+    const form = {
+      pages: {
+        testPage: {
+          depends: () => false,
+          schema: {},
+          uiSchema: {},
+        }
+      },
+      data: {}
+    };
+    const user = {
+      profile: {
+        savedForms: []
+      },
+      login: {
+        currentlyLoggedIn: false
+      }
+    };
+
+    const tree = SkinDeep.shallowRender(
+      <FormPage
+        form={form}
+        user={user}
+        route={route}
+        location={location}/>
+    );
+
+    expect(tree.subTree('ProgressButton').props.buttonText).to.equal('Continue');
+  });
   it('should render array page', () => {
     const route = {
       pageConfig: {

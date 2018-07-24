@@ -99,7 +99,11 @@ class FormPage extends React.Component {
       // And the data should be for just the item in the array
       data = _.get([route.pageConfig.arrayPath, params.index], data);
     }
-
+    // It should be "safe" to check that this is the first page because it is
+    // always eligible and enabled, no need to call getPreviousPagePath.
+    const isFirstRoutePage = route.pageList[0].path === this.props.location.pathname;
+console.log(JSON.stringify(route.pageList, null, "  "))
+console.log(JSON.stringify(this.props.location, null, "  "))
     return (
       <div className={pageClasses}>
         <SchemaForm
@@ -115,11 +119,12 @@ class FormPage extends React.Component {
           onSubmit={this.onSubmit}>
           <div className="row form-progress-buttons schemaform-buttons">
             <div className="small-6 medium-5 columns">
-              <ProgressButton
-                onButtonClick={this.goBack}
-                buttonText="Back"
-                buttonClass="usa-button-secondary"
-                beforeText="«"/>
+              { !isFirstRoutePage &&
+                <ProgressButton
+                  onButtonClick={this.goBack}
+                  buttonText="Back"
+                  buttonClass="usa-button-secondary"
+                  beforeText="«"/> }
             </div>
             <div className="small-6 medium-5 end columns">
               <ProgressButton
