@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](docs/README.md) :arrow_right: [*Getting Started with the US Forms System*](README.md)
+:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Getting Started with the US Forms System*](README.md)
 
 # Creating a new application with the US Forms System Starter App
 
