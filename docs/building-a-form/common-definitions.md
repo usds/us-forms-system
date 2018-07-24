@@ -65,37 +65,59 @@ A common type-ahead widget that lets a user type in values and narrow down a lon
 
 ### Bank account
 
-The common electronic funds transfer (EFT) account information field that collects account type (checking or savings), bank account number, and bank routing number.
+The common electronic funds transfer (EFT) account information field that collects account type (checking or savings), bank account number, and bank routing number. Use these definitions as the uiSchema for the field that represents the account number.
 
-- File: [/src/js/definitions/bankAccount.js](../../src/js/definitions/bankAccount.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Object
+```js
+import { uiSchema as bankAccountUI }
+  from 'us-forms-system/lib/js/definitions/bankAccount'
+
+uiSchema: {
+  eftinfo: bankAccountUI;
+}
+```
+Source: [/src/js/definitions/bankAccount.js](../../src/js/definitions/bankAccount.js)
 
 ### Currency
 
-- File: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Function
+Formats and validates a US currency field. The display includes a leading `$` character. Call this exported function and pass it the label to be used on the field.
+
+```js
+import { uiSchema as currencyUI }
+  from 'us-forms-system/lib/js/definitions/currency'
+
+uiSchema: {
+  payments: currencyUI('Total Payments');
+}
+```
+Source: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
 
 ### Current or past dates
 
-The common date field with current or past validation set.
+The common date field with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
 
-- File: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/currentOrPastDate.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Function
+```js
+import { uiSchema as currentOrPastDateUI }
+  from 'us-forms-system/lib/js/definitions/currentOrPastDate'
+
+uiSchema: {
+  birthdate: currentOrPastDate('Date of Birth');
+}
+```
+Source: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/currentOrPastDate.js)
 
 ### Current or past month/year
 
-The common date field without the day field and with current or past validation set.
+The common date field without the day field and with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
 
-- File: [/src/js/definitions/currentOrPastMonthYear.js](../../src/js/definitions/currentOrPastMonthYear.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Function
+```js
+import { uiSchema as currentOrPastMonthYear }
+  from 'us-forms-system/lib/js/definitions/currentOrPastMonthYear'
+
+uiSchema: {
+  lastContact: currentOrPastMonthYear('Last Contact');
+}
+```
+Source:  [/src/js/definitions/currentOrPastMonthYear.js](../../src/js/definitions/currentOrPastMonthYear.js)
 
 ### Date
 
