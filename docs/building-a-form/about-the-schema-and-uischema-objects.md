@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](docs/README.md) :arrow_right: [*Building a Form*](README.md)
+:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Building a Form*](README.md)
 
 # About the `schema` and `uiSchema` objects
 

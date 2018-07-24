@@ -1,4 +1,4 @@
-:book: [*US Forms System Documentation*](docs/README.md) :arrow_right: [*Customizing the library*](README.md)
+:book: [*US Forms System Documentation*](../../README.md) :arrow_right: [*Customizing the library*](README.md)
 
 # Creating custom fields and widgets
 
