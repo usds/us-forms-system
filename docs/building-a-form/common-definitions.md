@@ -56,12 +56,40 @@ Validates a complete street address that a user types.
 
 ### Autosuggest
 
-A common type-ahead widget that lets a user type in values and narrow down a longer list of options.
+A common type-ahead widget that lets a user type in values and narrow down a longer list of options. It is most commonly used with an `enum` of the available options as shown here. Define the uiSchema by calling the function that you import. You can pass an object with additional uiSchema properties.
+```js
+import { uiSchema as autosuggestUI } from 'us-forms-system/lib/js/definitions/autosuggest';
 
-- File: [/src/js/definitions/autosuggest.js](../../src/js/definitions/autosuggest.js)
-- `uiSchema`: Yes
-- `schema`: Yes (for use when you are not using an `enum` in the schema)
-- Function or object: Function for `uiSchema`, object for `schema`
+schema: {
+  type: 'object',
+  properties: {
+    officeLocation: {
+      type: 'string',
+      enum: [
+        'LA', 'NY', 'CH'
+      ],
+      enumNames: [
+        'Los Angeles',
+        'New York',
+        'Chicago'
+      ]
+    }
+  }
+},
+uiSchema: {
+  officeLocation: autosuggestUI(
+    'Preferred Office Location',  // field title
+    null,         // Promise to get options (optional)
+    {             // Additional uiSchema options
+      'ui:options': {
+        // When labels are not provided, it uses enumNames
+        labels: { }
+      }
+    }
+  )
+}
+```
+Source: [/src/js/definitions/autosuggest.js](../../src/js/definitions/autosuggest.js)
 
 ### Bank account
 
