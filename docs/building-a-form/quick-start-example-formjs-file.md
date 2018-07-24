@@ -1,4 +1,4 @@
-### Quick Start: Example `form.js` file
+# Quick Start: Example `form.js` file
 
 Use this example `form.js` file to build a basic form. For more information about `form.js`, see "[Creating a form config file](creating-a-form-config-file.md)."
 
