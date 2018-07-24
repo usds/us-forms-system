@@ -68,11 +68,10 @@ A common type-ahead widget that lets a user type in values and narrow down a lon
 The common electronic funds transfer (EFT) account information field that collects account type (checking or savings), bank account number, and bank routing number. Use these definitions as the uiSchema for the field that represents the account number.
 
 ```js
-import { uiSchema as bankAccountUI }
-  from 'us-forms-system/lib/js/definitions/bankAccount'
+import bankAccountUI from 'us-forms-system/lib/js/definitions/bankAccount';
 
 uiSchema: {
-  eftinfo: bankAccountUI;
+  eftinfo: bankAccountUI
 }
 ```
 Source: [/src/js/definitions/bankAccount.js](../../src/js/definitions/bankAccount.js)
@@ -82,11 +81,10 @@ Source: [/src/js/definitions/bankAccount.js](../../src/js/definitions/bankAccoun
 Formats and validates a US currency field. The display includes a leading `$` character. Call this exported function and pass it the label to be used on the field.
 
 ```js
-import { uiSchema as currencyUI }
-  from 'us-forms-system/lib/js/definitions/currency'
+import currencyUI from 'us-forms-system/lib/js/definitions/currency';
 
 uiSchema: {
-  payments: currencyUI('Total Payments');
+  payments: currencyUI('Total Payments')
 }
 ```
 Source: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
@@ -96,11 +94,10 @@ Source: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
 The common date field with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
 
 ```js
-import { uiSchema as currentOrPastDateUI }
-  from 'us-forms-system/lib/js/definitions/currentOrPastDate'
+import currentOrPastDateUI from 'us-forms-system/lib/js/definitions/currentOrPastDate';
 
 uiSchema: {
-  birthdate: currentOrPastDate('Date of Birth');
+  birthdate: currentOrPastDate('Date of Birth')
 }
 ```
 Source: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/currentOrPastDate.js)
@@ -110,68 +107,79 @@ Source: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/curr
 The common date field without the day field and with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
 
 ```js
-import { uiSchema as currentOrPastMonthYear }
-  from 'us-forms-system/lib/js/definitions/currentOrPastMonthYear'
+import currentOrPastMonthYear from 'us-forms-system/lib/js/definitions/currentOrPastMonthYear';
 
 uiSchema: {
-  lastContact: currentOrPastMonthYear('Last Contact');
+  lastContact: currentOrPastMonthYear('Last Contact')
 }
 ```
 Source:  [/src/js/definitions/currentOrPastMonthYear.js](../../src/js/definitions/currentOrPastMonthYear.js)
 
 ### Date
 
-The common date field with basic date validation.
+The common date field with basic date validation. Call this exported function and pass it the label to be used on the field.
+```js
+import dateUI from 'us-forms-system/lib/js/definitions/date';
 
-- File: [/src/js/definitions/date.js](../../src/js/definitions/date.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Function
+uiSchema: {
+  startDate: dateUI('startDate')
+}
+```
+Source: [/src/js/definitions/date.js](../../src/js/definitions/date.js)
 
 ### Date range
 
-Two common date fields with validation to ensure they form a valid range.
+Two common date fields with validation to ensure they form a valid range. Call this exported function.
+```js
+import dateRangeUI from 'us-forms-system/lib/js/definitions/dateRange';
 
-- File: [/src/js/definitions/dateRange.js](../../src/js/definitions/dateRange.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Function
+uiSchema: {
+  servicePeriod: dateRangeUI('servicePeriod')
+}
+```
+Source: [/src/js/definitions/dateRange.js](../../src/js/definitions/dateRange.js)
 
 ### File upload
 
-The file upload field. Requires a specified endpoint for the upload.
+*Note: This is currently not functional. The file upload field requires a specified endpoint for the upload. Documentation will be updated later.*
 
-- File: [/src/js/definitions/file.js](../../src/js/definitions/file.js)
-- `uiSchema`: Yes
-- `schema`: Yes (the same as in vets-json-schema)
-- Function or object: Function for `uiSchema`, object for `schema`
+Source: [/src/js/definitions/file.js](../../src/js/definitions/file.js)
 
 ### Full name
 
 The normal name field, including first, middle, last, and suffix.
+```js
+import fullNameUI from 'us-forms-system/lib/js/definitions/fullName';
 
-- File: [/src/js/definitions/fullName.js](../../src/js/definitions/fullName.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Object
+uiSchema: {
+  fullName: fullNameUI
+}
+```
+Source: [/src/js/definitions/fullName.js](../../src/js/definitions/fullName.js)
 
 ### Month/year
 
-The common date field, excluding day field, with basic validation.
+The common date field, excluding day field, with basic validation. Call this exported function with the label to be displayed on the field.
+```js
+import monthYearUI from 'us-forms-system/lib/js/definitions/monthYear';
 
-- File: [/src/js/definitions/monthYear.js](../../src/js/definitions/monthYear.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Function
+uiSchema: {
+  serviceStart: monthYearUI('Month/Year Service Started')
+}
+```
+Source: [/src/js/definitions/monthYear.js](../../src/js/definitions/monthYear.js)
 
 ### Month/year range
 
-Two common date fields, excluding day field, with validation to ensure the dates form a valid range.
+Two common date fields, excluding day field, with validation to ensure the dates form a valid range. Similar to the `Date range` above but without the days. Call this exported function.
+```js
+import monthYearRangeUI from 'us-forms-system/lib/js/definitions/monthYearRange';
 
-- File: [/src/js/definitions/monthYearRange.js](../../src/js/definitions/monthYearRange.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Function
+uiSchema: {
+  serviceStart: monthYearRangeUI()
+}
+```
+Source: [/src/js/definitions/monthYearRange.js](../../src/js/definitions/monthYearRange.js)
 
 ### Non-required full name
 
@@ -193,29 +201,39 @@ A function that allows the user to specify a form of personal identification. Fo
 
 ### Phone
 
-A phone number with basic validation.
+A phone number with basic validation. Call this exported function, optionally passing it the label for the field (the default is "Phone").
+```js
+import phoneUI from 'us-forms-system/lib/js/definitions/phone';
 
-- File: [/src/js/definitions/phone.js](../../src/js/definitions/phone.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Function
+uiSchema: {
+  homePhone: phoneUI('Home Phone')
+}
+```
+Source: [/src/js/definitions/phone.js](../../src/js/definitions/phone.js)
 
 ### Social Security Number
 
-A social security number with default label text and validation.
+A social security number with default label text and validation. This is an object.
+```js
+import ssnUI from 'us-forms-system/lib/js/definitions/ssn';
 
-- File: [/src/js/definitions/ssn.js](../../src/js/definitions/ssn.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Object
+uiSchema: {
+  ssn: ssnUI
+}
+```
+Source: [/src/js/definitions/ssn.js](../../src/js/definitions/ssn.js)
 
 ### Year
 
-A text field that validates the current or a past year.
+A text field that validates the current or a past year. This is an object.
+```js
+import yearUI from 'us-forms-system/lib/js/definitions/year';
 
-- File: [/src/js/definitions/year.js](../../src/js/definitions/year.js)
-- `uiSchema`: Yes
-- `schema`: No
-- Function or object: Object
+uiSchema: {
+  yearBorn: yearUI
+}
+```
+Source: [/src/js/definitions/year.js](../../src/js/definitions/year.js)
+
 
 [Back to *Building a Form*](README.md)
