@@ -20,7 +20,7 @@ At the top level, rjsf uses a `Form` component to take the schema inputs and ren
 - *Fields* generally match the `type` attribute in a `schema` object. There are object fields, array fields, number fields, boolean fields, and string fields. Except for arrays and objects, the fields render a label (via `FieldTemplate`) and a widget. To specify a particular field, set the `ui:field` property to a specific field.
 - A *widget* is the html input element that accepts data from the user. To specify a particular widget, set the  `ui:widget` property to `text`, `email`, `checkbox`, `radio`, `select`, and `textarea`. While there are many widgets provided by rjsf, the defaults are overwritten with these versions.
 
-The only React component you need to manually render in your application is the `Form` component. All other components are automatically determined based on the form config. For more information about how to include the `Form` component in your application, read about the [required files needed](../getting-started/installing-the-us-forms-system-in-an-existing-application#create-required-files).
+The `Form` component is the only React component that you need to manually render in your application. All other components are automatically determined based on the form config. For more information, see "[Create required files](../getting-started/installing-the-us-forms-system-in-an-existing-application#create-required-files)."
 
 ##### Example schema: `string` object
 
