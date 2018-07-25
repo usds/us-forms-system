@@ -83,8 +83,8 @@ In `formConfig`, define your form's chapters and the pages contained inside each
 US Forms System includes the progress bar by default, and will display automatically when the chapters and pages are defined. To remove the progress bar, edit the `FormNav.jsx` component to remove the defined `SegmentedProgressBar` in the HTML.
 
 For the code implementation, see:
-- [FormNav.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/FormNav.jsx)
-- [SegmentedProgressBar.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/SegmentedProgressBar.jsx)
+- [FormNav.jsx](../../src/js/components/FormNav.jsx)
+- [SegmentedProgressBar.jsx](../../src/js/components/SegmentedProgressBar.jsx)
 
 ### Title and Subtitle
 
@@ -104,7 +104,7 @@ const formConfig = {
 };
 ```
 
-For the code implementation, see [FormTitle.jsx](https://github.com/usds/us-forms-system/blob/master/src/js/components/FormTitle.jsx).
+For the code implementation, see [FormTitle.jsx](../../src/js/components/FormTitle.jsx).
 
 ### Date
 
@@ -116,11 +116,11 @@ Defines a date picker with validations.
 
 Define these fields in the `schema` and then reference them in the `uiSchema`. These date field definitions are available:
 
-- [date.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/date.js)
-- [dateRange.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/dateRange.js)
-- [currentOrPastDate.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/currentOrPastDate.js)
-- [monthYear.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYear.js)
-- [monthYearRange.js](https://github.com/usds/us-forms-system/blob/master/src/js/definitions/monthYearRange.js)
+- [date.js](../../src/js/definitions/date.js)
+- [dateRange.js](../../src/js/definitions/dateRange.js)
+- [currentOrPastDate.js](../../src/js/definitions/currentOrPastDate.js)
+- [monthYear.js](../../src/js/definitions/monthYear.js)
+- [monthYearRange.js](../../src/js/definitions/monthYearRange.js)
 
 For example:
 
@@ -187,7 +187,7 @@ uiSchema: {
 }
 ```
 
-For the code implementation, see [`RadioWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/RadioWidget.jsx).
+For the code implementation, see [`RadioWidget`](../../src/js/widgets/RadioWidget.jsx).
 
 ### Checkbox group
 
@@ -236,7 +236,7 @@ uiSchema: {
 }
 ```
 
-For the code implementation, see [`CheckboxWidget`](https://github.com/usds/us-forms-system/blob/master/src/js/widgets/CheckboxWidget.jsx).
+For the code implementation, see [`CheckboxWidget`](../../src/js/widgets/CheckboxWidget.jsx).
 
 ### Required field
 
@@ -246,7 +246,7 @@ Require any field. Validation is included.
 
 #### Usage guidelines
 
-For information on requiring fields or components, see "[About the schema and uiSchema objects](https://github.com/usds/us-forms-system/blob/master/docs/building-a-form/about-the-schema-and-uischema-objects)."
+For information on requiring fields or components, see "[About the schema and uiSchema objects](./building-a-form/about-the-schema-and-uischema-objects.md)."
 
 ### Contextual error message
 
@@ -261,7 +261,7 @@ There are several ways that form fields can be invalid, such as a required field
 - **To show an error on a blank field that is required**, include the field in the array under the `required` property in the `schema`. An error on that field will automatically be rendered if the field is blank.
 - **To show an error on a field for any other reason** (e.g., it has not met certain data requirements), pass a validation function to the array for the `ui:validations` property under that field in `uiSchema`.
 
-The error message that is displayed can either be a default message or one that you specify. There are several [default error messages](/src/js/validations.js#L24) for different situations.
+The error message that is displayed can either be a default message or one that you specify. There are several [default error messages](../../src/js/validations.js#L24) for different situations.
 
 To show a custom error message, add the message to the `ui:errorMessages` object in the `uiSchema` as a key value pair:
 
@@ -305,7 +305,7 @@ This feature validates that a user has correctly entered duplicate data in two f
 
 #### Usage guidelines
 
-For more information, see "[Validating a field based on other fields in the same object](common-patterns-for-building-forms.md#validating-a-field-based-on-other-fields-in-the-same-object)."
+For more information, see "[Validating a field based on other fields in the same object](./common-patterns-for-building-forms.md#validating-a-field-based-on-other-fields-in-the-same-object)."
 
 ### Conditional form fields
 
@@ -355,7 +355,7 @@ Your config file might look like this:
 }
 ```
 
-For the code implementation, see [`helpers.js`](https://github.com/usds/us-forms-system/blob/master/src/js/state/helpers.js).
+For the code implementation, see [`helpers.js`](../../src/js/state/helpers.js).
 
 ### Sequential duplicate form groups
 
@@ -415,7 +415,7 @@ These properties are nested under `uiSchema: { `ui:options`: {} }`:
 - `hideOnReviewIfFalse`: Hides the field on the review page when the field value is `false`; takes a `boolean`
 - `keepInPageOnReview`: By default, array fields that are displayed on a single page in a form, such as information for multiple dependents, are displayed in a separate section on the review page. To keep the information in a single section on a review page, set this property.
 
-For the code implementation, see the [`review` folder](https://github.com/usds/us-forms-system/tree/master/src/js/review).
+For the code implementation, see the [`review` folder](../../src/js/review).
 
 ### Required checkbox before form submission
 
@@ -427,6 +427,6 @@ Use this feature to require a user to indicate they have read terms and conditio
 
 Right now, the required checkbox is automatically included in all forms. The US Forms System team will refactor this component to make it more customizable. To follow that discussion, subscribe to https://github.com/usds/us-forms-system/issues/53.
 
-For the code implementation, see [`ErrorableCheckbox`](https://github.com/usds/us-forms-system/blob/master/src/js/components/ErrorableCheckbox.jsx).
+For the code implementation, see [`ErrorableCheckbox`](../../src/js/components/ErrorableCheckbox.jsx).
 
 [Back to *Building a Form*](./README.md)
