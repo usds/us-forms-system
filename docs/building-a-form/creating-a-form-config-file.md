@@ -32,6 +32,6 @@ You rarely need to create or interact with React components directly to use this
 - You must manually add the top level `Form` component for every form. For more information, see "[Create required files](../getting-started/installing-the-us-forms-system-in-an-existing-application.md#create-required-files)."
 - You may need to build a custom React component that isn't included in the library by default, such as for the introduction and review pages, or for special content that might appear on each a particular form page. For more information, see "[Creating custom fields and widgets](../customizing-the-library/creating-custom-fields-and-widgets.md)."
 
-For more information, see "[About the component hierarchy](../customizing-the-library/about-the-component-hierarchy.md)."
+For more information, see "[About the component hierarchy](../customizing-the-library/about-the-react-component-hierarchy.md)."
 
 [Back to *Building a Form*](./README.md)
