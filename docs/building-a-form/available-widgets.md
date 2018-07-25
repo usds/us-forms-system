@@ -45,7 +45,7 @@ Renders a `<input type="number">` HTML element, and is used when determining how
 
 ### `CheckboxWidget`
 
-Renders a single `<input type="checkbox">` HTML element. For information about rendering multiple checkboxes together, see "[Checkbox Group](./available-form-features-and-usage-guidelines#checkbox-group)."
+Renders a single `<input type="checkbox">` HTML element. For information about rendering multiple checkboxes together, see "[Checkbox Group](./available-form-features-and-usage-guidelines.md#checkbox-group)."
 
 - **File:** [CheckboxWidget.jsx](../../src/js/widgets/CheckboxWidget.jsx)
 - **Usage:** Usually the `CheckboxWidget` is not specified directly in the `uiSchema` because it renders by default for a schema that specifies `type: 'boolean'`.
