@@ -246,7 +246,7 @@ Require any field. Validation is included.
 
 #### Usage guidelines
 
-For information on requiring fields or components, see "[About the schema and uiSchema objects](./building-a-form/about-the-schema-and-uischema-objects.md)."
+For information on requiring fields or components, see "[About the schema and uiSchema objects](./about-the-schema-and-uischema-objects.md)."
 
 ### Contextual error message
 
