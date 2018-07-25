@@ -16,7 +16,7 @@ Your form is generated from a JSON Schema configuration file called `form.js`, a
 
 The form config itself is an object with many properties that determine how your form is rendered. It must contain these elements:
 - Top level information about the form, such as title, URL, and whether or not certain features are enabled
-- Nested objects for each `chapter` of the form (if you're building a multi-page form). Within each `chapter`, additional nested objects for each `page` within that `chapter`. For more information, see "[Supporting multi-page forms](./customizing-the-library/creating-custom-fields-and-widgets#supporting-multi-page-forms)."
+- Nested objects for each `chapter` of the form (if you're building a multi-page form). Within each `chapter`, additional nested objects for each `page` within that `chapter`. For more information, see "[Supporting multi-page forms](./creating-custom-fields-and-widgets#supporting-multi-page-forms)."
 - Top-level title and URL information about each `page` of the form, as well as 2 essential objects:
   - `schema`: Describes the form fields and the type of data each field accepts
   - `uiSchema`: Describes all UI elements of the form fields, such as label text, error message text, or CSS classes
