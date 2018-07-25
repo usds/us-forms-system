@@ -2,7 +2,7 @@
 
 # Customizing the library
 
-### [About the React component hierarchy](about-the-react-component-hierarhcy.md)
+### [About the React component hierarchy](about-the-react-component-hierarchy.md)
 
 The US Forms System builds a React application of a form, and determines which React components to render based on the description of the form in the form configuration file.
 
