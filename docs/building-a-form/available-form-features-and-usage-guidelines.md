@@ -261,7 +261,7 @@ There are several ways that form fields can be invalid, such as a required field
 - **To show an error on a blank field that is required**, include the field in the array under the `required` property in the `schema`. An error on that field will automatically be rendered if the field is blank.
 - **To show an error on a field for any other reason** (e.g., it has not met certain data requirements), pass a validation function to the array for the `ui:validations` property under that field in `uiSchema`.
 
-The error message that is displayed can either be a default message or one that you specify. There are several [default error messages](../../src/js/validations.js) for different situations.
+The error message that is displayed can either be a default message or one that you specify. There are several [default error messages](../../src/js/validation.js) for different situations.
 
 To show a custom error message, add the message to the `ui:errorMessages` object in the `uiSchema` as a key value pair:
 
