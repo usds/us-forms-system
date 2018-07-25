@@ -4,11 +4,11 @@
 
 The US Forms System lets you build web-based forms using the JSON Schema standard for form data and React for the form UI. The form data and UI are represented by `schema` and `uiSchema` objects, respectively, which are included in the form configuration file.
 
-- [Understanding the `schema` object](#understanding-json-schema-and-the-schema-object)
+- [Understanding the `schema` object](#understanding-the-schema-object)
   - [Describing object fields and arrays](#describing-object-fields-and-arrays)
 - [Understanding the `uiSchema` object](#understanding-the-uischema-object)
   - [Configuring `uiSchema` using rjsf options](#configuring-uischema-using-rjsf-options)
-  - [Configuring `uiSchema` using US Form System options](#configuring-uischema-using-us-form-system-options)
+  - [Configuring `uiSchema` using US Form System options](#configuring-uischema-using-us-forms-system-options)
 
 ### Understanding the `schema` object
 
@@ -104,14 +104,14 @@ For array fields, you must specify an `items` object that contains the fields fo
 
 ##### Configuring `uiSchema` using rjsf options
 
-If you're not already familiar with the rjsf uiSchema options, see the [library docs](https://github.com/mozilla-services/react-jsonschema-form#the-uischema-object). Some commonly used options include:
+If you're not already familiar with the rjsf uiSchema options, see the [rjsf library documentation](https://github.com/mozilla-services/react-jsonschema-form#the-uischema-object). Some commonly used options include:
 
 - [ui:order](https://github.com/mozilla-services/react-jsonschema-form#object-fields-ordering): An array of field names in the order in which they should appear.
 - [ui:widget](https://github.com/mozilla-services/react-jsonschema-form#alternative-widgets): The name of an alternative widget to use for the field, for example, a custom widget called `yesNo`.
 - [ui:field](https://github.com/mozilla-services/react-jsonschema-form#custom-field-components): The name of a custom field.
 - [classNames](https://github.com/mozilla-services/react-jsonschema-form#custom-css-class-names): The class names to put on the component.
 
-##### Configuring `uiSchema` using US Form System options
+##### Configuring `uiSchema` using US Forms System options
 
 The us-forms-system code includes additional `uiSchema` functionality not found in the rjsf library.
 
