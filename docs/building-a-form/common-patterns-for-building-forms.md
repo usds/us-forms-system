@@ -196,7 +196,9 @@ uiSchema: {
 }
 ```
 
-The back end doesn't see objects with names that start with `view:`, but it gets all fields inside those objects because the form processing includes them in the parent object (in this example, the one containing `employed` and `otherMonthlyIncome`). The `hideIf` function is passed a copy of the current `formData`, in this case it will hide the fields unless `employed` is `true`.
+The hideIf function is passed a copy of the current formData in order to determine the condition upon which the fields are shown. In this example, it will hide the fields unless employed is true.
+
+Objects from the form config with names that start with `view:` are not passed to the back-end, but fields within those `view:` objects are passed to the back-end by including them in the parent object. In this example, the fields `jobStartDate` and `monthlyWages` would be included in the same object as `employed` and `otherMonthlyIncome`, while the field for `view:JobInformation` would be filtered out.
 
 ## Styling expanded or collapsed fields
 
