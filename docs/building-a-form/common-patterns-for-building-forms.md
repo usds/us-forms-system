@@ -153,7 +153,7 @@ To create a block of text with no fields that follow, create an empty view objec
 
 Sometimes fields in a form are siblings to others, but should be hidden conditionally. For example, this schema defines a field named `employed` that is rendered as a checkbox the user can check. If this field is false (the checkbox is not checked) there is no need to display the `jobStartDate` or `monthlyWages` fields:
 
-```json
+```js
 schema: {
   type: 'object',
   properties: {
@@ -196,7 +196,7 @@ uiSchema: {
 }
 ```
 
-The hideIf function is passed a copy of the current formData in order to determine the condition upon which the fields are shown. In this example, it will hide the fields unless employed is true.
+The `hideIf` function is passed a copy of the current `formData` in order to determine the condition upon which the fields are shown. In this example, it will hide the fields unless `employed` is `true`.
 
 Objects from the form config with names that start with `view:` are not passed to the back-end, but fields within those `view:` objects are passed to the back-end by including them in the parent object. In this example, the fields `jobStartDate` and `monthlyWages` would be included in the same object as `employed` and `otherMonthlyIncome`, while the field for `view:JobInformation` would be filtered out.
 
