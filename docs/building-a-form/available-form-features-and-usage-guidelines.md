@@ -323,7 +323,7 @@ There are 2 fields you can use to conditionally expand a form field:
 
 Both fields are nested under the `ui:options` property in the `uiSchema`.
 
-The `expandUnder` and `expandUnderCondition` properties are distinctly separate from the `depends` property, which conditionally shows entire pages of the form. For more information, see "[Conditionally excluding a page](./common-patterns-for-building-forms#conditionally-including-a-page).
+The `expandUnder` and `expandUnderCondition` properties are distinctly separate from the `depends` property, which conditionally shows entire pages of the form. For more information, see "[Conditionally excluding a page](./common-patterns-for-building-forms.md#conditionally-including-a-page)."
 
 Your config file might look like this:
 ```js
