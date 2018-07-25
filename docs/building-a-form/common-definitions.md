@@ -4,7 +4,7 @@
 
 Definitions are pieces of the form config that can be dropped in to represent specific types of questions. Most often used in `uiSchema`, definitions include features such as label text, validation functions, error messages, and rules for which widget to render.
 
-There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects. For the function versions, there is documentation within the fields for the parameters. Definitions are located in [/src/js/definitions](../src/js/definitions).
+There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects. For the function versions, there is documentation within the fields for the parameters. Definitions are located in [/src/js/definitions](../../src/js/definitions).
 
 - Simple definitions are provided as `schema` and `uiSchema` objects that you can import and overwrite to customize.
 - More complex definitions are functions that require certain parameters.
