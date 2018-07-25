@@ -40,14 +40,14 @@ Available widgets are:
 
 Renders a `<input type="number">` HTML element, and is used when determining how many times a group of questions should be rendered. For more information about grouping common questions, see "[Sequential duplicate form groups](./available-form-features-and-usage-guidelines#radio-button-group#sequential-duplicate-form-groups)."
 
-- **File:** [ArrayCountWidget.jsx](../src/js/widgets/ArrayCountWidget.jsx)
+- **File:** [ArrayCountWidget.jsx](../../src/js/widgets/ArrayCountWidget.jsx)
 - **Usage:** In the `uiSchema`, specify `'ui:widget': ArrayCountWidget` for the given field.
 
 ### `CheckboxWidget`
 
 Renders a single `<input type="checkbox">` HTML element. For information about rendering multiple checkboxes together, see "[Checkbox Group](./available-form-features-and-usage-guidelines#checkbox-group)."
 
-- **File:** [CheckboxWidget.jsx](../src/js/widgets/CheckboxWidget.jsx)
+- **File:** [CheckboxWidget.jsx](../../src/js/widgets/CheckboxWidget.jsx)
 - **Usage:** Usually the `CheckboxWidget` is not specified directly in the `uiSchema` because it renders by default for a schema that specifies `type: 'boolean'`.
 
 ### `CurrencyWidget`
