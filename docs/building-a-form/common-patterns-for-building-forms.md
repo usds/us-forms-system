@@ -1,3 +1,5 @@
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
+
 # Common patterns for building forms
 
 Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
@@ -210,7 +212,7 @@ Only `chapter35`, `chapter33`, `transferOfEntitlement`, `veteranFullName`, and `
 
 From this, the fields in the `view:sponsorServiceOptions` object are moved up one level and sent alongside `dic` and `chapter31`. The back end doesn't see objects with names that start with `view:`, but it gets all fields inside those objects.
 
-## Styling expanded or collapsed fields
+### Styling expanded or collapsed fields
 
 To indent or otherwise style fields that are expanded or collapsed with the `expandUnder` option, set a class on the controlling field. For example:
 
@@ -297,4 +299,4 @@ If a user types 'open sesame' for the `passPhrase` on the first page, `otherPage
 
 **Don't use the pass phrase as a secure login or other authentication mechanism.** Within the source, the text of a pass phrase is clear text, even when it's in a function.
 
-[Back to *Building a Form*](README.md)
+[Back to *Building a Form*](./README.md)

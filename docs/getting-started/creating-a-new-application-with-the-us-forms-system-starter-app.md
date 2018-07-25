@@ -1,3 +1,5 @@
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Getting Started with the US Forms System*](./README.md)
+
 # Creating a new application with the US Forms System Starter App
 
 The US Forms System Starter App creates the initial files, configuration, build process, and web server you need to start building your form.
@@ -35,7 +37,7 @@ origin https://github.com/usds/us-forms-system-starter-app.git (push)
 $ git remote set-url origin https://github.com/YOUR-USERNAME/YOUR-NEW-REPOSITORY-NAME.git
 # Changes 'origin' to the new remote's URL
 ```
-7. Review your current remote URL again. `origin` should be set to *your* repository on GitHub, not https://github.com/usds/us-forms-system-starter-app.git:
+7. Review your current remote URL again. `origin` should be set to *your* repository on GitHub, not `https://github.com/usds/us-forms-system-starter-app.git`:
 ```bash
 $ git remote -v
 # Lists all remote repositories, along with the URL for those remotes.
@@ -71,7 +73,7 @@ Now that you've created a new app in a new repository based on the us-forms-syst
 
 Use npm to install dependencies specified in `us-forms-system-starter-app/package-lock.json`.
 
-1. [Make sure Node and npm are installed](tools-for-getting-started-with-the-us-forms-system.md#node-js-and-npm).
+1. [Make sure Node and npm are installed](tools-for-getting-started-with-the-us-forms-system.md#nodejs-and-npm).
 2. In Terminal (Mac and Linux) or the Command Prompt (Windows), use npm to install dependencies for the Starter App:
 ```bash
 $ npm install
@@ -83,4 +85,4 @@ Once your repository is set up and dependencies are installed, you can begin bui
 
 To run your app locally, in Terminal (Mac and Linux) or the Command Prompt (Windows), type `npm start`. Once the server has started, you can view your form in a browser window at `localhost:8080`.
 
-[Back to *Getting Started with the US Forms System*](README.md)
+[Back to *Getting Started with the US Forms System*](./README.md)
