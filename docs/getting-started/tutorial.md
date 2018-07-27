@@ -1,8 +1,10 @@
 # Tutorial
 
-Use this tutorial to learn the basics of using this library by building a simple form for an address. This tutorial assumes no knowledge of our library or React.
+Use this tutorial to learn the basics of using this library. This tutorial assumes no knowledge of our library or React.
 
 ## Tutorial steps
+
+In 10 steps we'll be building a simple form for an address.
 
 ### Step 1: Installing the starter app
 
@@ -55,11 +57,11 @@ Your config with the `schema` object, which is empty for now, added within `firs
 ```js
 ...
 firstPage: {
-	path: 'first-chapter/first-page',
-	title: 'First Page',
-	schema: {
+  path: 'first-chapter/first-page',
+  title: 'First Page',
+  schema: {
 
-	}
+  }
 }
 ...
 ```
@@ -73,14 +75,14 @@ Adding these 2 properties, our schema now looks like this:
 ```js
 ...
 firstPage: {
-	path: 'first-chapter/first-page',
-	title: 'First Page',
-	schema: {
-		type: 'object',
-		properties: {
+  path: 'first-chapter/first-page',
+  title: 'First Page',
+  schema: {
+    type: 'object',
+    properties: {
 
-		}
-	}
+    }
+  }
 }
 ...
 ```
@@ -108,14 +110,14 @@ For the purposes of this tutorial, we'll be building a simple address form. The 
 
 ```js
 ...
-	schema: {
-		type: 'object',
-		properties: {
-			street: {
-				type: 'string'
-			}
-		}
-	}
+  schema: {
+    type: 'object',
+    properties: {
+      street: {
+        type: 'string'
+      }
+    }
+  }
 ...
 ```
 
@@ -140,17 +142,17 @@ The `uiSchema` object is added to our `page` at the same level as the `schema` o
 
 ```js
 firstPage: {
-	path: 'first-chapter/first-page',
-	title: 'First Page',
-	schema: {
-		type: 'object',
-		properties: {
-			...
-		}
-	},
-	uiSchmea: {
+  path: 'first-chapter/first-page',
+  title: 'First Page',
+  schema: {
+    type: 'object',
+    properties: {
+      ...
+    }
+  },
+  uiSchmea: {
 
-	}
+  }
 }
 ```
 
@@ -158,19 +160,19 @@ Let's return to the example of changing the label text of the `street` field. We
 
 ```js
 ...
-	schema: {
-		type: 'object',
-		properties: {
-			street: {
-				type: 'string'
-			}
-		}
-	},
-	uiSchema: {
-		street: {
-			'ui:title': 'Street'
-		}
-	}
+  schema: {
+    type: 'object',
+    properties: {
+      street: {
+        type: 'string'
+      }
+    }
+  },
+  uiSchema: {
+    street: {
+      'ui:title': 'Street'
+    }
+  }
 ...
 ```
 (Note: most properties that are passed to `uiSchema` are prefixed with `ui:`, and therefore need to be passed as a string to `formConfig`.)
@@ -189,25 +191,25 @@ Did it work? Let's compare `formConfig`s:
 
 ```js
 ...
-	schema: {
-		type: 'object',
-		properties: {
-			street: {
-				type: 'string'
-			},
-			city: {
-				type: 'string'
-			}
-		}
-	},
-	uiSchema: {
-		street: {
-			'ui:title': 'Street'
-		},
-		city: {
-			'ui:title': 'City'
-		}
-	}
+  schema: {
+    type: 'object',
+    properties: {
+      street: {
+        type: 'string'
+      },
+      city: {
+        type: 'string'
+      }
+    }
+  },
+  uiSchema: {
+    street: {
+      'ui:title': 'Street'
+    },
+    city: {
+      'ui:title': 'City'
+    }
+  }
 ...
 ```
 
@@ -221,21 +223,21 @@ Your `formConfig` for states might look like this:
 
 ```js
 ...
-	schema: {
-		type: 'object',
-		properties: {
-			street: {
-				type: 'string'
-			},
-			city: {
-				type: 'string'
-			},
-			states: {
-				type: 'string',
-				enum: ['AK', 'IL', 'MA', 'TX', 'WY']
-			}
-		}
-	},
+  schema: {
+    type: 'object',
+    properties: {
+      street: {
+        type: 'string'
+      },
+      city: {
+        type: 'string'
+      },
+      states: {
+        type: 'string',
+        enum: ['AK', 'IL', 'MA', 'TX', 'WY']
+      }
+    }
+  },
 ...
 ```
 
@@ -255,28 +257,28 @@ Again, we specify this in the `uiSchema` by passing a `labels` object to that fi
 
 ```js
 ...
-	schema: {
-		type: 'object',
-		properties: {
-			street: {
-				type: 'string'
-			},
-			city: {
-				type: 'string'
-			},
-			state: {
-	      type: 'string',
-	      enum: ['AK', 'IL', 'MA', 'TX', 'WY']
-	    },
-		}
-	},
-	uiSchema: {
-		street: {
-			'ui:title': 'Street'
-		},
-		city: {
-			'ui:title': 'City'
-		},
+  schema: {
+    type: 'object',
+    properties: {
+      street: {
+        type: 'string'
+      },
+      city: {
+        type: 'string'
+      },
+      state: {
+        type: 'string',
+        enum: ['AK', 'IL', 'MA', 'TX', 'WY']
+      },
+    }
+  },
+  uiSchema: {
+    street: {
+      'ui:title': 'Street'
+    },
+    city: {
+      'ui:title': 'City'
+    },
     state: {
       'ui:title': 'State',
       'ui:options': {
@@ -289,7 +291,7 @@ Again, we specify this in the `uiSchema` by passing a `labels` object to that fi
         }
       }
     },
-	}
+  }
 ...
 ```
 
@@ -306,25 +308,25 @@ We're going to be using the `pattern` property to validate our ZIP code input, w
 This is what our `schema` looks like with the ZIP code field added:
 ```js
 ...
-	schema: {
-		type: 'object',
-		properties: {
-			street: {
-				type: 'string'
-			},
-			city: {
-				type: 'string'
-			},
-			state: {
-	      type: 'string',
-	      enum: ['AK', 'IL', 'MA', 'TX', 'WY']
-	    },
-	    zip: {
-	    	type: 'string',
-	    	pattern: '^[0-9]{5,9}$'
-	    }
-		}
-	},
+  schema: {
+    type: 'object',
+    properties: {
+      street: {
+        type: 'string'
+      },
+      city: {
+        type: 'string'
+      },
+      state: {
+        type: 'string',
+        enum: ['AK', 'IL', 'MA', 'TX', 'WY']
+      },
+      zip: {
+        type: 'string',
+        pattern: '^[0-9]{5,9}$'
+      }
+    }
+  },
 ...
 ```
 
@@ -337,13 +339,13 @@ We can add custom error messages to our form for specific cases. Again, since th
 
 ```js
 ...
-	uiSchema: {
-		street: {
-			'ui:title': 'Street'
-		},
-		city: {
-			'ui:title': 'City'
-		},
+  uiSchema: {
+    street: {
+      'ui:title': 'Street'
+    },
+    city: {
+      'ui:title': 'City'
+    },
     state: {
       'ui:title': 'State',
       'ui:options': {
@@ -362,7 +364,7 @@ We can add custom error messages to our form for specific cases. Again, since th
         'pattern': 'Please enter a valid US ZIP code. It must be between 5 and 9 numbers.'
       }
     }
-	}
+  }
 ...
 ```
 
