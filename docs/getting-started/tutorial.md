@@ -52,25 +52,13 @@ Now that we have the page structure of our form, we want to start adding questio
 
 The `schema` object takes the JSON Schema specification of our questions. You can think about the information contained in the `schema` object as a description of the type of data each question accepts. The `schema` object follows the JSON Schema standard, which describes the allowed shape of JSON objects. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
 
-Your config with the `schema` object, which is empty for now, added within `firstPage` should now look like this:
-
-```js
-...
-firstPage: {
-  path: 'first-chapter/first-page',
-  title: 'First Page',
-  schema: {
-
-  }
-}
-...
-```
-
 Each `schema` object within your form always need to contain the following properties:
 1. `type: 'object'`: this describes the shape of the `schema` data
 2. `properties: {}`: an object containing the fields within that `schema`
 
-Adding these 2 properties, our schema now looks like this:
+Note: when you begin building forms, it's common to receive an error for forgetting one of these two required properties in your `schema` objects.
+
+Adding these two properties, our schema should look like this:
 
 ```js
 ...
@@ -86,7 +74,6 @@ firstPage: {
 }
 ...
 ```
-(Note: a common error you may encounter at first when building forms is forgetting one of these 2 properties in your `schema` objects.)
 
 ### Step 5: Render the form so far
 
@@ -138,24 +125,6 @@ While the `schema` is the main description of the fields of our form, there are 
 
 That's where `uiSchema` comes in. You can think of the `uiSchema` object as a mirror to the `schema` one. It usually has the same fields as the `schema` object, with different properties within each field to specify UI-specific characteristics of that field.
 
-The `uiSchema` object is added to our `page` at the same level as the `schema` object:
-
-```js
-firstPage: {
-  path: 'first-chapter/first-page',
-  title: 'First Page',
-  schema: {
-    type: 'object',
-    properties: {
-      ...
-    }
-  },
-  uiSchmea: {
-
-  }
-}
-```
-
 Let's return to the example of changing the label text of the `street` field. We can pass a property to the `uiSchema` under `street` called `ui:title` that lets us specify the exact label text we want displayed. This is how your `formConfig` would look:
 
 ```js
@@ -175,7 +144,7 @@ Let's return to the example of changing the label text of the `street` field. We
   }
 ...
 ```
-(Note: most properties that are passed to `uiSchema` are prefixed with `ui:`, and therefore need to be passed as a string to `formConfig`.)
+(Note: most properties that are passed to `uiSchema` are prefixed with `ui:`, and therefore need to be passed as a quoted string to `formConfig`.)
 
 Take another look at your form. You'll see that the label text has changed from "street" to "Street" because we overrode the default label text by adding `'ui:title': 'Street'` to our `formConfig`.
 
