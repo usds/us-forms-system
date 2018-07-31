@@ -56,6 +56,6 @@ Large forms are organized into *chapters* and *pages*. A chapter is a collection
 
 The review page also takes the config file and renders each chapter in an accordion panel. Inside a panel, the us-forms-system uses rjsf to render each page in a read-only view. This view uses simplified widgets and a different `FieldTemplate` component to render each form field in a definition list. The read-only view uses the rjsf `Form` component with no input elements, rendering instead with text. When a user on the review page clicks Edit for a form page, the normal widgets are used and a normal form is rendered.
 
-Each array item on a review page is rendered as read-only, and individual items can be edited independently. To accomplish this, the review `ArrayField` component renders each item in the array as it's own rjsf `Form`. In addition, array fields are taken from the page's read-only view and rendered separately.
+Each array item on a review page is rendered as read-only, and individual items can be edited independently. To accomplish this, the review `ArrayField` component renders each item in the array as its own rjsf `Form`. In addition, array fields are taken from the page's read-only view and rendered separately.
 
 [Back to *Customizing the library*](./README.md)
