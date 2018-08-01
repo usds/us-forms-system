@@ -146,11 +146,9 @@ Most properties that are passed to `uiSchema` are prefixed with `ui:`, and there
 
 Go back to your browser window to see the form again. Because you overrode the default label text by adding `'ui:title': 'Street'` to your `formConfig`, your label text has changed from "street" to "Street".
 
-Now that we understand the basics of adding fields to our `formConfig`, let's explore some different types of questions!
-
 ### Step 8: Add another `string` question.
 
-Now let's us we want to add a field for the city in the address. And we also want the city to use a text input. Can you guess how we would do this? Give it a try!
+Now that we understand the basics of adding fields to our `formConfig`, it's time to add more questions. On your own, add a field for the city in the address. The field should use a text input.
 
 (waits a few minutes)
 
@@ -180,11 +178,13 @@ Did it work? Let's compare `formConfig`s:
 ...
 ```
 
-Now your form has 2 questions! Halfway there to a complete address form. Now let's say we want to add a field for states. But this time we want the field to be a dropdown to ensure the user enters a valid state. So far we've only added text inputs; how would we add a select field?
+You're now halfway to a complete address!
 
 ### Step 9: Add a select field
 
-Remember earlier where we described how there are default determinations made by the library on what type of field to render based on the type of data? This is how you would render a select field too. A select is rendered when the data is `type: 'string'` and an `enum` property is passed in.
+In Step 6, you learned that the library makes default determinations about the type of field to render based on the type of data. This applies to select fields as well. A select is rendered when the data is `type: 'string'` and an `enum` property is passed in.
+
+The `enum` property takes an array of the valid options for that field. For states, we'll pass some string values to the `enum` array for some sample states. We'll just add five so we don't have to add all 50 states and 14 territories. Add a few of your favorite states to your `formConfig`.
 
 Your `formConfig` for states might look like this:
 
@@ -210,17 +210,15 @@ Your `formConfig` for states might look like this:
 
 The `enum` property takes an array of all the valid options for that field. 
 
-Take a look at your form now that you've added this additional `schema` property. You should see this:
+This is how your form looks after adding this additional `schema` property:
 ![State dropdown](../images/state-dropdown.png)
 
 Behold, a dropdown of states! And it contains exactly the states we passed to it:
 ![Cities in dropdown](../images/cities-in-dropdown.png)
 
-(Don't feel left out if your state isn't included, we wanted to save some space so we didn't enter all 50 states and 14 territories!)
+As you've seen, the state names come directly from the `schema`, but what's rendered isn't as user-friendly as it could be. The back-end may only accept abbreviations, but users should still be able to see the full state name.
 
-Again, the names of the states are taken directly from the `schema`, but what if we want to make this more user-friendly? Our back-end may only accept abbreviations, but users should still be able to see the full state name.
-
-Again, we specify this in the `uiSchema` by passing a `labels` object to that field:
+You can specify the text that appears to the user for each option in the uiSchema by passing a `labels` object to that field:
 
 ```js
 ...
@@ -262,17 +260,13 @@ Again, we specify this in the `uiSchema` by passing a `labels` object to that fi
 ...
 ```
 
-Some properties as passed within a `ui:options` object within that field, `labels` included. You can find out more about which properties are available and how they get passed to `uiSchema` by reading more in [about the schema and uiSchema objects](../building-a-form/about-the-schema-and-uischema-objects.md).
+Some properties, like `labels`, are passed in a `ui:options` object within that field. For more information about which properties are available and how they get passed to `uiSchema`, see "[About the `schema` and `uiSchema` objects](../building-a-form/about-the-schema-and-uischema-objects.md)."
 
 ### Step 10: Add specific data constraints and validation
 
-The final question in our form is for the ZIP code, which is also the most complicated question. While ZIP codes are usually `string` data, they also need to follow specific formats. How do we specify data contraints in our `formConfig`?
+The last question in this address form lets the user provide a ZIP code. While ZIP codes are usually `string` data, they also need to follow specific formats, which means specifying data constraints in your `formConfig` through the `schema` object. The JSON Schema specification includes several properties to add constraints to the data accepted for that field, including `minLength`, `maxLength`, `format`, and `pattern`.
 
-The primary way to do so is through the `schema` object. The JSON Schem specification includes multiple properties to add constraints to the data that is accepted for that field: `minLength`, `maxLength`, `format`, and `pattern`, among others.
-
-We're going to be using the `pattern` property to validate our ZIP code input, which takes a regex to match the user entry against.
-
-This is what our `schema` looks like with the ZIP code field added:
+To validate ZIP code input, use the `pattern` property, which matches the user entry against a regex, as in this `schema`:
 ```js
 ...
   schema: {
@@ -297,12 +291,10 @@ This is what our `schema` looks like with the ZIP code field added:
 ...
 ```
 
-Wonderful! Now we have a ZIP code field. Let's test entering an invalid ZIP code. Enter an invalid entry and focus away from the ZIP code field:
+You're part way there; you have a ZIP code field. To test it, type an invalid ZIP code and focus away from the ZIP code field:
 ![ZIP code pattern error](../images/zip-pattern-error.png)
 
-Uh oh! While the form caught that the entry wasn't correct, and displayed an error to the user, the error isn't particularly readable.
-
-We can add custom error messages to our form for specific cases. Again, since this is related to what is displayed to the user, custom error messages go in the `uiSchema`:
+While the form caught that the entry wasn't correct and displayed an error, the error isn't particularly human-readable. You can add custom error messages to your form for specific cases. Because custom error messages are displayed to the user, they go in the `uiSchema`:
 
 ```js
 ...
@@ -328,22 +320,22 @@ We can add custom error messages to our form for specific cases. Again, since th
     zip: {
       'ui:title': 'ZIP code',
       'ui:errorMessages': {
-        'pattern': 'Please enter a valid US ZIP code. It must be between 5 and 9 numbers.'
+        'pattern': 'Please enter a valid US ZIP code between 5 and 9 digits.'
       }
     }
   }
 ...
 ```
 
-In order to display a custom error message, we pass the `ui:errorMessages` object to `uiSchema` under the field for `zip`. The `ui:errorMessages` object takes key-value pairs, with the key being the name of the JSON Schema property the entry is in violation of, the value being the message we want displayed in that case. By doing this, we can add much more description error messages to the form to improve the user experience.
+To display a custom error message, you pass the `ui:errorMessages` object to `uiSchema` under the field for `zip`. `ui:errorMessages` takes key-value pairs, where the key is the name of the JSON Schema property that the entry violates, and the value is the user-friendly, descriptive message displayed for the violation.
 
-Now we're seeing a much more useful error message:
+Now you'll see a much more useful error message::
 ![Helpful error message](../images/helpful-error-message.png)
 
 
 ## End of Tutorial
 
-Congratulations! You've now built your first form using only a JSON config file. Hopefully you are starting to see the potential benefits of being able to describe the form you want as opposed to having to build all of the components and UI patterns directly.
+Well done! You've built your first form using only a JSON config file. Hopefully you are starting to see the benefits of describing the form you want as opposed to building all of the components and UI patterns directly.
 
-There are so many more things you can do with US Forms Systems, including much more complex form patterns, like conditionally expanded fields, custom validation functions, more complex form elements, groups of similar questions, and more. Continue reading through our [docs](../building-a-form/README.md) to learn more about what's possible!
+There are so many more things you can do with US Forms Systems, including more complex form patterns, like conditionally expanded fields, custom validation functions, more complex form elements, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
 
