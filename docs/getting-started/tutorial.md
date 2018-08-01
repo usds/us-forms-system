@@ -18,7 +18,7 @@ There are several properties in the top level of the `formConfig` object. You ca
 
 ### Step 3: Understand chapters and pages
 
-In this tutorial, you'll be working on the section of the `formConfig` within `chapters`. Forms are organized into *chapters*, which are broader topics, and *pages*, which are specific sections or pages of questions within that topic. For example, a form may have a chapter on personal information, and separate pages within that chapter for name, address, and other contact information.
+In this tutorial, you'll be working on the section of the `formConfig` within `chapters`. Forms are organized into *chapters*, which are broader topics, and *pages*, which are separate pages of questions within that topic. For example, a form may have a chapter on personal information, and separate pages within that chapter for name, address, and other contact information.
 
 The starter app includes two chapters, `firstChapter` and `secondChapter`. The `firstChapter` object includes the `title` of the chapter, as well as an object containing the `page`s within that chapter. Each page is also an object.
 
@@ -48,13 +48,13 @@ Each page also includes `path` and `title` properties: `path` takes the url of t
 
 Now that you have the page structure of your form, you can start adding questions! To do this, add the `schema` object to the `firstPage` object.
 
-You can think about the information contained in the `schema` object as a description of the type of data each question accepts. That "description of the type of data" follows the JSON Schema standard, which specifies the allowed shape of JSON objects. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
+You can think about the information contained in the `schema` object as a description of the type of data each question accepts. The `schema` follows the JSON Schema standard, which specifies the allowed shape of JSON objects. For more information about the JSON Schema Standard, see [Understanding JSON Schema](https://spacetelescope.github.io/understanding-json-schema/).
 
 Each `schema` object must always contain the following properties:
 - `type: 'object'`: this describes the shape of the `schema` data
 - `properties: {}`: an object containing the fields within that `schema`
 
-Note: when you begin building forms, it's common to receive an error for forgetting one of these two required properties in your `schema` objects.
+Note: when you begin building forms, it's common to receive an error for forgetting one of these two required properties in your `schema` objects. The error will appear in your console as `Error found in schema: Missing type in root schema.`.
 
 With these two properties, your schema should look like this:
 
@@ -75,7 +75,7 @@ firstPage: {
 
 ### Step 5: Render the form so far
 
-Take a look at your form so far! In your terminal, run `npm start` at the starter app directory. This will automatically open a browser window with your form app rendered. The first page is an introduction, which you'll learn more about later. For now, skip it by clicking the "Start Form" button, which takes you to the first page of the form.
+Take a look at your form by runing `npm start` in your terminal at the starter app directory. This will automatically open a browser window with your form app rendered. The first page is an introduction, which you'll learn more about later. For now, skip it by clicking the "Start Form" button, which takes you to the first page of the form.
 
 This is what you should see:
 ![Blank page](../images/blank-page.png)
@@ -87,7 +87,7 @@ You'll notice a few things:
 - The `title` of the `chapter`.
 - The navigation buttons, "Back" and "Continue".
 
-There's nothing else on this page because we haven't added any questions yet! Let's do that next.
+There's nothing else on this page because we haven't added any questions yet.
 
 ### Step 6: Add a question
 
@@ -113,15 +113,15 @@ This is what you should see:
 
 Excellent, now you have a form field! But how did the library know to render a text input with a label of `street` based on what you added to the `schema`?
 
-The `street` field accepts `string` data. For the basic data types, an automatic determination is made by the library code on what type of HTML form element to render. `string` data renders a text input, a field with an `enum` property renders a select, and `boolean` data renders checkbox.
+The `street` field accepts `string` data. For basic data types, an automatic determination is made by the library on what type of HTML form element to render. `string` data renders a text input, a field with an `enum` property renders a select, and `boolean` data renders checkbox.
 
-The label is taken from the name of the field in the `formConfig`. `street` becomes "street" in your form. But what if we want to change the name that appears to the user? Let's do that next.
-
+The label is taken from the name of the field in the `formConfig`. `street` becomes "street" in your form. But what if we want to change the label text? We can do that be editing the `uiSchema` object, which we'll learn about next.
+ 
 ### Step 7: Add the `uiSchema` object
 
 While the `schema` describes the fields of a form and the type of data each field accepts, there are UI-specific things you may want to change about how those fields appear to the user.
 
-That's where `uiSchema` comes in. Think of the `uiSchema` object as a mirror of `schema`. It usually has the same fields as the `schema` object, each with different properties to specify UI-specific characteristics of that field.
+That's where `uiSchema` comes in. Think of the `uiSchema` object as a mirror of `schema`. It usually has the same fields as the `schema` object, but with different properties to specify UI-specific characteristics of that field.
 
 Returning to the example of changing the label text of the `street` field, pass a property to the `uiSchema` under `street` called `ui:title`. `ui:title` lets you specify the exact label text you want displayed. This is how your `formConfig` would look:
 
@@ -142,7 +142,7 @@ Returning to the example of changing the label text of the `street` field, pass 
   }
 ...
 ```
-Most properties that are passed to `uiSchema` are prefixed with `ui:`, and therefore need to be passed as a quoted string to `formConfig`.
+Most properties that are passed to `uiSchema` are prefixed with `ui:`, which means they need to be passed as a quoted string to `formConfig`.
 
 Go back to your browser window to see the form again. Because you overrode the default label text by adding `'ui:title': 'Street'` to your `formConfig`, your label text has changed from "street" to "Street".
 
@@ -150,9 +150,9 @@ Go back to your browser window to see the form again. Because you overrode the d
 
 Now that we understand the basics of adding fields to our `formConfig`, it's time to add more questions. On your own, add a field for the city in the address. The field should use a text input.
 
-(waits a few minutes)
+(We'll wait a few minutes while you add the field)
 
-Did it work? Let's compare `formConfig`s:
+Did it work? Let's compare our `formConfig`:
 
 ```js
 ...
@@ -178,13 +178,16 @@ Did it work? Let's compare `formConfig`s:
 ...
 ```
 
+This is now what your form looks like:
+![Street and city](../images/street-and-city.png)
+
 You're now halfway to a complete address!
 
 ### Step 9: Add a select field
 
 In Step 6, you learned that the library makes default determinations about the type of field to render based on the type of data. This applies to select fields as well. A select is rendered when the data is `type: 'string'` and an `enum` property is passed in.
 
-The `enum` property takes an array of the valid options for that field. For states, we'll pass some string values to the `enum` array for some sample states. We'll just add five so we don't have to add all 50 states and 14 territories. Add a few of your favorite states to your `formConfig`.
+The `enum` property takes an array of the valid options for that field. For states, we pass string values to the `enum` array for the states we want to include. We'll just add five so we don't have to add all 50 states and 14 territories. Add a few of your favorite states to your `formConfig`.
 
 Your `formConfig` for states might look like this:
 
@@ -207,8 +210,6 @@ Your `formConfig` for states might look like this:
   },
 ...
 ```
-
-The `enum` property takes an array of all the valid options for that field. 
 
 This is how your form looks after adding this additional `schema` property:
 ![State dropdown](../images/state-dropdown.png)
@@ -327,7 +328,7 @@ While the form caught that the entry wasn't correct and displayed an error, the 
 ...
 ```
 
-To display a custom error message, you pass the `ui:errorMessages` object to `uiSchema` under the field for `zip`. `ui:errorMessages` takes key-value pairs, where the key is the name of the JSON Schema property that the entry violates, and the value is the user-friendly, descriptive message displayed for the violation.
+To display a custom error message, pass the `ui:errorMessages` object to `uiSchema` under the field for `zip`. `ui:errorMessages` takes key-value pairs, where the key is the name of the JSON Schema property that the entry violates, and the value is the user-friendly, descriptive message displayed for the violation.
 
 Now you'll see a much more useful error message::
 ![Helpful error message](../images/helpful-error-message.png)
@@ -335,7 +336,7 @@ Now you'll see a much more useful error message::
 
 ## End of Tutorial
 
-Well done! You've built your first form using only a JSON config file. Hopefully you are starting to see the benefits of describing the form you want as opposed to building all of the components and UI patterns directly.
+Well done! You've built your first form using only a JSON config file. Hopefully you are starting to see the benefits of describing the form as opposed to building all of the components and UI patterns directly.
 
-There are so many more things you can do with US Forms Systems, including more complex form patterns, like conditionally expanded fields, custom validation functions, more complex form elements, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
+There are so many more things you can do with US Forms Systems, including more complex form patterns, like conditionally expanded fields, custom validation functions, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
 
