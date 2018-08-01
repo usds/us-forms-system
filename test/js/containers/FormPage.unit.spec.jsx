@@ -7,7 +7,7 @@ import { FormPage } from '../../../src/js/containers/FormPage';
 
 describe('Schemaform <FormPage>', () => {
   const location = {
-    pathname: '/testing/0'
+    pathname: '/testing'
   };
 
   it('should render', () => {
@@ -20,6 +20,9 @@ describe('Schemaform <FormPage>', () => {
         title: ''
       },
       pageList: [
+        {
+          path: 'initial'
+        },
         {
           path: 'testing'
         }
