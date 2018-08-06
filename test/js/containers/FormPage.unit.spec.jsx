@@ -250,7 +250,7 @@ describe('Schemaform <FormPage>', () => {
         form={form}
         route={route}
         params={{ index: 0 }}
-        location={{pathname: '/testing/0'}}/>
+        location={{ pathname: '/testing/0' }}/>
     );
 
     expect(tree.subTree('SchemaForm').props.schema).to.equal(form.pages.testPage.schema.properties.arrayProp.items[0]);
@@ -361,7 +361,7 @@ describe('Schemaform <FormPage>', () => {
         router={router}
         form={form}
         route={route}
-        location={{pathname: '/testing/0'}}
+        location={{ pathname: '/testing/0' }}
         params={{ index: 0 }}/>
     );
 
