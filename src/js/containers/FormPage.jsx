@@ -101,8 +101,7 @@ class FormPage extends React.Component {
     }
     // It should be "safe" to check that this is the first page because it is
     // always eligible and enabled, no need to call getPreviousPagePath.
-    const isFirstRoutePage =
-        (route.pageConfig.urlPrefix || '/') + route.pageList[0].path === this.props.location.pathname;
+    const isFirstRoutePage = route.pageList[0].path === this.props.location.pathname;
 
     return (
       <div className={pageClasses}>

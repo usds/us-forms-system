@@ -21,10 +21,10 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'initial'
+          path: '/initial'
         },
         {
-          path: 'testing'
+          path: '/testing'
         }
       ]
     };
@@ -77,14 +77,14 @@ describe('Schemaform <FormPage>', () => {
         },
         pageList: [
           {
-            path: 'previous-page'
+            path: '/previous-page'
           },
           {
-            path: 'testing',
+            path: '/testing',
             pageKey: 'testPage'
           },
           {
-            path: 'next-page'
+            path: '/next-page'
           }
         ]
       };
@@ -153,13 +153,13 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'first-page'
+          path: '/first-page'
         },
         {
-          path: 'previous-page'
+          path: '/previous-page'
         },
         {
-          path: 'testing',
+          path: '/testing',
           pageKey: 'testPage'
         }
       ]
@@ -210,7 +210,7 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'testing',
+          path: '/testing',
           pageKey: 'testPage'
         }
       ]
@@ -255,7 +255,7 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'testing'
+          path: '/testing'
         }
       ]
     };
@@ -295,7 +295,7 @@ describe('Schemaform <FormPage>', () => {
         user={user}
         route={route}
         params={{ index: 0 }}
-        location={location}/>
+        location={{pathname: '/testing/0'}}/>
     );
 
     expect(tree.subTree('SchemaForm').props.schema).to.equal(form.pages.testPage.schema.properties.arrayProp.items[0]);
@@ -314,7 +314,7 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'testing'
+          path: '/testing'
         }
       ]
     };
@@ -380,7 +380,7 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'testing'
+          path: '/testing'
         }
       ]
     };
@@ -424,7 +424,7 @@ describe('Schemaform <FormPage>', () => {
         form={form}
         user={user}
         route={route}
-        location={location}
+        location={{pathname: '/testing/0'}}
         params={{ index: 0 }}/>
     );
 
