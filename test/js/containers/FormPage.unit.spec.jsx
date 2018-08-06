@@ -37,17 +37,9 @@ describe('Schemaform <FormPage>', () => {
       },
       data: {}
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: true
-      }
-    };
 
     const tree = SkinDeep.shallowRender(
-      <FormPage form={form} route={route} user={user} location={location}/>
+      <FormPage form={form} route={route} location={location}/>
     );
 
     expect(tree.everySubTree('SchemaForm')).not.to.be.empty;
@@ -60,7 +52,6 @@ describe('Schemaform <FormPage>', () => {
     let onSubmit;
     let form;
     let route;
-    let user;
     beforeEach(() => {
       setData = sinon.spy();
       onSubmit = sinon.spy();
@@ -102,21 +93,12 @@ describe('Schemaform <FormPage>', () => {
           data: {}
         }
       };
-      user = {
-        profile: {
-          savedForms: []
-        },
-        login: {
-          currentlyLoggedIn: false
-        }
-      };
 
       tree = SkinDeep.shallowRender(
         <FormPage
           router={router}
           setData={setData}
           form={form}
-          user={user}
           onSubmit={onSubmit}
           location={location}
           route={route}/>
@@ -174,14 +156,6 @@ describe('Schemaform <FormPage>', () => {
       },
       data: {}
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
     const router = {
       push: sinon.spy()
     };
@@ -190,7 +164,6 @@ describe('Schemaform <FormPage>', () => {
       <FormPage
         router={router}
         form={form}
-        user={user}
         route={route}
         location={location}/>
     );
@@ -225,19 +198,10 @@ describe('Schemaform <FormPage>', () => {
       },
       data: {}
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
 
     const tree = SkinDeep.shallowRender(
       <FormPage
         form={form}
-        user={user}
         route={route}
         location={location}/>
     );
@@ -280,19 +244,10 @@ describe('Schemaform <FormPage>', () => {
         arrayProp: [{}]
       }
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
 
     const tree = SkinDeep.shallowRender(
       <FormPage
         form={form}
-        user={user}
         route={route}
         params={{ index: 0 }}
         location={{pathname: '/testing/0'}}/>
@@ -339,20 +294,11 @@ describe('Schemaform <FormPage>', () => {
         arrayProp: [{}]
       }
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
 
     const tree = SkinDeep.shallowRender(
       <FormPage
         setData={setData}
         form={form}
-        user={user}
         route={route}
         params={{ index: 0 }}
         location={location}/>
@@ -405,14 +351,6 @@ describe('Schemaform <FormPage>', () => {
         arrayProp: [{}]
       }
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
     const router = {
       push: sinon.spy()
     };
@@ -422,7 +360,6 @@ describe('Schemaform <FormPage>', () => {
         setData={setData}
         router={router}
         form={form}
-        user={user}
         route={route}
         location={{pathname: '/testing/0'}}
         params={{ index: 0 }}/>
