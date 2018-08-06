@@ -47,19 +47,9 @@ describe('Schemaform review: ReviewPage', () => {
       }
     };
 
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: true
-      }
-    };
-
     const tree = shallow(
       <ReviewPage
         form={form}
-        user={user}
         openChapters={[]}
         route={{ formConfig, pageList }}
         setEditMode={f => f}

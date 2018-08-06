@@ -7,7 +7,7 @@ import { FormPage } from '../../../src/js/containers/FormPage';
 
 describe('Schemaform <FormPage>', () => {
   const location = {
-    pathname: '/testing/0'
+    pathname: '/testing'
   };
 
   it('should render', () => {
@@ -21,7 +21,10 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'testing'
+          path: '/initial'
+        },
+        {
+          path: '/testing'
         }
       ]
     };
@@ -34,17 +37,9 @@ describe('Schemaform <FormPage>', () => {
       },
       data: {}
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: true
-      }
-    };
 
     const tree = SkinDeep.shallowRender(
-      <FormPage form={form} route={route} user={user} location={location}/>
+      <FormPage form={form} route={route} location={location}/>
     );
 
     expect(tree.everySubTree('SchemaForm')).not.to.be.empty;
@@ -57,7 +52,6 @@ describe('Schemaform <FormPage>', () => {
     let onSubmit;
     let form;
     let route;
-    let user;
     beforeEach(() => {
       setData = sinon.spy();
       onSubmit = sinon.spy();
@@ -74,14 +68,14 @@ describe('Schemaform <FormPage>', () => {
         },
         pageList: [
           {
-            path: 'previous-page'
+            path: '/previous-page'
           },
           {
-            path: 'testing',
+            path: '/testing',
             pageKey: 'testPage'
           },
           {
-            path: 'next-page'
+            path: '/next-page'
           }
         ]
       };
@@ -99,21 +93,12 @@ describe('Schemaform <FormPage>', () => {
           data: {}
         }
       };
-      user = {
-        profile: {
-          savedForms: []
-        },
-        login: {
-          currentlyLoggedIn: false
-        }
-      };
 
       tree = SkinDeep.shallowRender(
         <FormPage
           router={router}
           setData={setData}
           form={form}
-          user={user}
           onSubmit={onSubmit}
           location={location}
           route={route}/>
@@ -150,13 +135,13 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'first-page'
+          path: '/first-page'
         },
         {
-          path: 'previous-page'
+          path: '/previous-page'
         },
         {
-          path: 'testing',
+          path: '/testing',
           pageKey: 'testPage'
         }
       ]
@@ -171,14 +156,6 @@ describe('Schemaform <FormPage>', () => {
       },
       data: {}
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
     const router = {
       push: sinon.spy()
     };
@@ -187,7 +164,6 @@ describe('Schemaform <FormPage>', () => {
       <FormPage
         router={router}
         form={form}
-        user={user}
         route={route}
         location={location}/>
     );
@@ -195,6 +171,42 @@ describe('Schemaform <FormPage>', () => {
     tree.getMountedInstance().goBack();
 
     expect(router.push.calledWith('first-page'));
+  });
+  it('should not show a Back button on the first page', () => {
+    const route = {
+      pageConfig: {
+        pageKey: 'testPage',
+        schema: {},
+        uiSchema: {},
+        errorMessages: {},
+        title: ''
+      },
+      pageList: [
+        {
+          path: '/testing',
+          pageKey: 'testPage'
+        }
+      ]
+    };
+    const form = {
+      pages: {
+        testPage: {
+          depends: () => false,
+          schema: {},
+          uiSchema: {},
+        }
+      },
+      data: {}
+    };
+
+    const tree = SkinDeep.shallowRender(
+      <FormPage
+        form={form}
+        route={route}
+        location={location}/>
+    );
+
+    expect(tree.subTree('ProgressButton').props.buttonText).to.equal('Continue');
   });
   it('should render array page', () => {
     const route = {
@@ -207,7 +219,7 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'testing'
+          path: '/testing'
         }
       ]
     };
@@ -232,22 +244,13 @@ describe('Schemaform <FormPage>', () => {
         arrayProp: [{}]
       }
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
 
     const tree = SkinDeep.shallowRender(
       <FormPage
         form={form}
-        user={user}
         route={route}
         params={{ index: 0 }}
-        location={location}/>
+        location={{ pathname: '/testing/0' }}/>
     );
 
     expect(tree.subTree('SchemaForm').props.schema).to.equal(form.pages.testPage.schema.properties.arrayProp.items[0]);
@@ -266,7 +269,7 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'testing'
+          path: '/testing'
         }
       ]
     };
@@ -291,20 +294,11 @@ describe('Schemaform <FormPage>', () => {
         arrayProp: [{}]
       }
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
 
     const tree = SkinDeep.shallowRender(
       <FormPage
         setData={setData}
         form={form}
-        user={user}
         route={route}
         params={{ index: 0 }}
         location={location}/>
@@ -332,7 +326,7 @@ describe('Schemaform <FormPage>', () => {
       },
       pageList: [
         {
-          path: 'testing'
+          path: '/testing'
         }
       ]
     };
@@ -357,14 +351,6 @@ describe('Schemaform <FormPage>', () => {
         arrayProp: [{}]
       }
     };
-    const user = {
-      profile: {
-        savedForms: []
-      },
-      login: {
-        currentlyLoggedIn: false
-      }
-    };
     const router = {
       push: sinon.spy()
     };
@@ -374,9 +360,8 @@ describe('Schemaform <FormPage>', () => {
         setData={setData}
         router={router}
         form={form}
-        user={user}
         route={route}
-        location={location}
+        location={{ pathname: '/testing/0' }}
         params={{ index: 0 }}/>
     );
 
