@@ -1,4 +1,4 @@
-# Tutorial
+# Tutorial: Building a simple address form
 
 Learn the basics of the US Forms System library, with no knowledge of React required, by building a simple form that asks for an address.
 
@@ -126,7 +126,7 @@ Excellent, now you have a form field! But how did the library know to render a t
 The `street` field accepts `string` data. For basic data types, an automatic determination is made by the library on what type of HTML form element to render. `string` data renders a text input, a field with an `enum` property renders a select, and `boolean` data renders checkbox.
 
 The label is taken from the name of the field in the `formConfig`. `street` becomes "street" in your form. But what if we want to change the label text? We can do that be editing the `uiSchema` object, which we'll learn about next.
- 
+
 ### Step 7: Add the `uiSchema` object
 
 While the `schema` describes the fields of a form and the type of data each field accepts, there are UI-specific things you may want to change about how those fields appear to the user.
