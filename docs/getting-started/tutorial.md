@@ -16,9 +16,9 @@ Learn the basics of the US Forms System library, with no knowledge of React requ
 - [Step 10: Add specific data constraints and validation](#step-10-add-specific-data-constraints-and-validation)
 - [Review](#review)
 
-The first step to building a form using the US Forms System is to install our starter app. The starter app includes the initial files, configuration, build process, and web server you need to start building your form immediately. It's the fastest way to start learning how to use the library.
+### Step 1: Install the starter app
 
-If you haven't already followed these [installation instructions](creating-a-new-application-with-the-us-forms-system-starter-app.md), complete those steps first and then come back here!
+The the fastest way to start building a form using the US Forms System library is to install the US Forms System Starter App. The starter app includes the initial files, configuration, build process, and web server you need to start building your form immediately. For installation instructions, see "[Creating a new application with the US Forms System Starter App](creating-a-new-application-with-the-us-forms-system-starter-app.md)."
 
 ### Step 2: Get familiar with the form config
 
@@ -156,7 +156,7 @@ Most properties that are passed to `uiSchema` are prefixed with `ui:`, which mea
 
 Go back to your browser window to see the form again. Because you overrode the default label text by adding `'ui:title': 'Street'` to your `formConfig`, your label text has changed from "street" to "Street".
 
-### Step 8: Add another `string` question.
+### Step 8: Add another `string` question
 
 Now that we understand the basics of adding fields to our `formConfig`, it's time to add more questions. On your own, add a field for the city in the address. The field should use a text input.
 
