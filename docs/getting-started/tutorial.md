@@ -2,9 +2,19 @@
 
 Learn the basics of the US Forms System library, with no knowledge of React required, by building a simple form that asks for an address.
 
-## Tutorial steps
+### In this tutorial
 
-### Step 1: Install the starter app
+- [Step 1: Install the starter app](#step-1-install-the-starter-app)
+- [Step 2: Get familiar with the form config](#step-2-get-familiar-with-the-form-config)
+- [Step 3: Understand chapters and pages](#step-3-understand-chapters-and-pages)
+- [Step 4: Add the `schema` object](#step-4-add-the-schema-object)
+- [Step 5: Render the form so far](#step-5-render-the-form-so-far)
+- [Step 6: Add a question](#step-6-add-a-question)
+- [Step 7: Add the `uiSchema` object](#step-7-add-the-uischema-object)
+- [Step 8: Add another `string` question](#step-8-add-another-string-question)
+- [Step 9: Add a select field](#step-9-add-a-select-field)
+- [Step 10: Add specific data constraints and validation](#step-10-add-specific-data-constraints-and-validation)
+- [Review](#review)
 
 The first step to building a form using the US Forms System is to install our starter app. The starter app includes the initial files, configuration, build process, and web server you need to start building your form immediately. It's the fastest way to start learning how to use the library.
 
@@ -333,10 +343,8 @@ To display a custom error message, pass the `ui:errorMessages` object to `uiSche
 Now you'll see a much more useful error message::
 ![Helpful error message](../images/helpful-error-message.png)
 
-
-## End of Tutorial
+### Review
 
 Well done! You've built your first form using only a JSON config file. Hopefully you are starting to see the benefits of describing the form as opposed to building all of the components and UI patterns directly.
 
 There are so many more things you can do with US Forms Systems, including more complex form patterns, like conditionally expanded fields, custom validation functions, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
-
