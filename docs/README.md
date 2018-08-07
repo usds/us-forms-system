@@ -3,6 +3,7 @@
 - [Getting started with the US Forms System](getting-started/README.md)
   - [Tools for getting started with the US Forms System](getting-started/tools-for-getting-started-with-the-us-forms-system.md)
   - [Creating a new application with the US Forms System Starter App](getting-started/creating-a-new-application-with-the-us-forms-system-starter-app.md)
+  - [Tutorial: Building a simple address form](getting-started/tutorial.md)
   - [Installing the US Forms System in an existing application](getting-started/installing-the-us-forms-system-in-an-existing-application.md)
 - [Building a form](building-a-form/README.md)
   - [About the `schema` and `uiSchema` objects](building-a-form/about-the-schema-and-uischema-objects.md)
