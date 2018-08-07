@@ -345,6 +345,8 @@ Now you'll see a much more useful error message::
 
 ### Review
 
-Well done! You've built your first form using only a JSON config file. Hopefully you are starting to see the benefits of describing the form as opposed to building all of the components and UI patterns directly.
+Well done! You've built your first form using only a JSON config file, and and you're starting to see the benefits of describing your form rather than building components and UI patterns directly.
+
+There are many more complex form patterns you can build with the US Forms System, including conditionally expanded fields, custom validation functions, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
 
 There are so many more things you can do with US Forms Systems, including more complex form patterns, like conditionally expanded fields, custom validation functions, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
