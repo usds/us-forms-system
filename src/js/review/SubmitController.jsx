@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import SubmitButtons from './SubmitButtons';
-import PrivacyAgreement from '../components/PrivacyAgreement';
+import { PreSubmitSection } from '../components/PreSubmitSection';
 import { isValidForm } from '../validation';
 import {
   createPageListByChapter,
@@ -14,7 +14,7 @@ import {
   recordEvent
 } from '../helpers';
 import {
-  setPrivacyAgreement,
+  setPreSubmit,
   setSubmission,
   submitForm
 } from '../actions';
@@ -48,7 +48,7 @@ class SubmitController extends React.Component {
       form,
       formConfig,
       pagesByChapter,
-      privacyAgreementAccepted,
+      preSubmitAccepted,
       trackingPrefix
     } = this.props;
 
@@ -62,7 +62,7 @@ class SubmitController extends React.Component {
     } else {
       // validation errors in this situation are not visible, so we’d
       // like to know if they’re common
-      if (privacyAgreementAccepted) {
+      if (preSubmitAccepted) {
         recordEvent({
           event: `${trackingPrefix}-validation-failed`,
         });
@@ -80,19 +80,20 @@ class SubmitController extends React.Component {
 
   render() {
     const {
-      privacyAgreementAccepted,
+      formConfig,
+      preSubmitAccepted,
+      showPreSubmitError,
       renderErrorMessage,
-      showPrivacyAgreementError,
       submission
     } = this.props;
     return (
       <div>
-        <p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>
-        <PrivacyAgreement
+        <PreSubmitSection
           required
-          onChange={this.props.setPrivacyAgreement}
-          checked={privacyAgreementAccepted}
-          showError={showPrivacyAgreementError}/>
+          preSubmitInfo={formConfig.preSubmitInfo}
+          onChange={this.props.setPreSubmit}
+          checked={preSubmitAccepted}
+          showError={showPreSubmitError}/>
         <SubmitButtons
           onBack={this.goBack}
           onSubmit={this.handleSubmit}
@@ -115,25 +116,25 @@ function mapStateToProps(state, ownProps) {
   const pagesByChapter = createPageListByChapter(formConfig);
   const trackingPrefix = formConfig.trackingPrefix;
   const submission = form.submission;
-  const showPrivacyAgreementError = submission.hasAttemptedSubmit;
-  const privacyAgreementAccepted = form.data.privacyAgreementAccepted;
+  const showPreSubmitError = submission.hasAttemptedSubmit;
+  const preSubmitAccepted = form.data.preSubmitAccepted;
 
   return {
     form,
     formConfig,
     pagesByChapter,
     pageList,
-    privacyAgreementAccepted,
+    preSubmitAccepted,
     renderErrorMessage,
     router,
     submission,
-    showPrivacyAgreementError,
+    showPreSubmitError,
     trackingPrefix
   };
 }
 
 const mapDispatchToProps = {
-  setPrivacyAgreement,
+  setPreSubmit,
   setSubmission,
   submitForm
 };
@@ -143,10 +144,10 @@ SubmitController.propTypes = {
   formConfig: PropTypes.object.isRequired,
   pagesByChapter: PropTypes.object.isRequired,
   pageList: PropTypes.array.isRequired,
-  privacyAgreementAccepted: PropTypes.bool.isRequired,
+  preSubmitAccepted: PropTypes.bool.isRequired,
   renderErrorMessage: PropTypes.func,
   router: PropTypes.object.isRequired,
-  setPrivacyAgreement: PropTypes.func.isRequired,
+  setPreSubmit: PropTypes.func.isRequired,
   setSubmission: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
   submission: PropTypes.object.isRequired,

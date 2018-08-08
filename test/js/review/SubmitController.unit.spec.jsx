@@ -9,6 +9,12 @@ import { SubmitController } from '../../../src/js/review/SubmitController';
 describe('Schemaform review: SubmitController', () => {
   it('should route to confirmation page after submit', () => {
     const formConfig = {
+      preSubmitInfo: {
+        field: 'privacyAgreementAccepted',
+        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        label: 'I accept the privacy agreement',
+        error: 'You must accept the privacy agreement'
+      },
       chapters: {
         chapter1: {
           pages: {
@@ -52,13 +58,22 @@ describe('Schemaform review: SubmitController', () => {
     const tree = SkinDeep.shallowRender(
       <SubmitController
         form={form}
+        formConfig={formConfig}
         route={{ formConfig, pageList }}
         router={router}/>
     );
 
     tree.getMountedInstance().componentWillReceiveProps({
       route: {
-        formConfig: {}
+      },
+      formConfig: {
+        urlPrefix: '/',
+        preSubmitInfo: {
+          field: 'privacyAgreementAccepted',
+          notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+          label: 'I accept the privacy agreement',
+          error: 'You must accept the privacy agreement'
+        }
       },
       form: {
         submission: {
@@ -67,9 +82,6 @@ describe('Schemaform review: SubmitController', () => {
         data: {
           privacyAgreementAccepted: false
         }
-      },
-      formConfig: {
-        urlPrefix: '/'
       }
     });
 
@@ -99,7 +111,14 @@ describe('Schemaform review: SubmitController', () => {
         pageKey: 'page2'
       }]
     };
-
+    const formConfig = {
+      preSubmitInfo: {
+        field: 'privacyAgreementAccepted',
+        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        label: 'I accept the privacy agreement',
+        error: 'You must accept the privacy agreement'
+      }
+    };
     const submitForm = sinon.spy();
     const setSubmission = sinon.spy();
 
@@ -107,6 +126,7 @@ describe('Schemaform review: SubmitController', () => {
       <SubmitController
         setSubmission={setSubmission}
         submitForm={submitForm}
+        formConfig={formConfig}
         form={form}
         pagesByChapter={pagesByChapter}
         privacyAgreementAccepted={false}/>
@@ -119,6 +139,12 @@ describe('Schemaform review: SubmitController', () => {
   });
   it('should not submit when invalid', () => {
     const formConfig = {
+      preSubmitInfo: {
+        field: 'privacyAgreementAccepted',
+        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        label: 'I accept the privacy agreement',
+        error: 'You must accept the privacy agreement'
+      },
       chapters: {
         chapter1: {
           pages: {
@@ -182,6 +208,7 @@ describe('Schemaform review: SubmitController', () => {
         setSubmission={setSubmission}
         submitForm={submitForm}
         form={form}
+        formConfig={formConfig}
         pagesByChapter={pagesByChapter}
         pageList={pageList}
         route={{ formConfig, pageList }}/>
@@ -194,6 +221,12 @@ describe('Schemaform review: SubmitController', () => {
   });
   it('should submit when valid', () => {
     const formConfig = {
+      preSubmitInfo: {
+        field: 'privacyAgreementAccepted',
+        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        label: 'I accept the privacy agreement',
+        error: 'You must accept the privacy agreement'
+      },
       chapters: {
         chapter1: {
           pages: {
@@ -257,6 +290,7 @@ describe('Schemaform review: SubmitController', () => {
     const tree = SkinDeep.shallowRender(
       <SubmitController
         submitForm={submitForm}
+        formConfig={formConfig}
         form={form}
         pagesByChapter={pagesByChapter}
         pageList={pageList}
@@ -272,6 +306,12 @@ describe('Schemaform review: SubmitController', () => {
       push: sinon.spy()
     };
     const formConfig = {
+      preSubmitInfo: {
+        field: 'privacyAgreementAccepted',
+        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        label: 'I accept the privacy agreement',
+        error: 'You must accept the privacy agreement'
+      },
       chapters: {
         chapter1: {
           pages: {
@@ -306,7 +346,7 @@ describe('Schemaform review: SubmitController', () => {
     const tree = mount(
       <SubmitController
         form={form}
-        formConfg={formConfig}
+        formConfig={formConfig}
         pageList={['chapter1', 'chatper2']}
         router={router}
         submission={submission}/>

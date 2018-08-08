@@ -493,7 +493,7 @@ export function createInitialState(formConfig) {
       return state;
     }, {
       data: {
-        privacyAgreementAccepted: false,
+        preSubmitAccepted: false,
       },
       pages: {},
     });
@@ -505,4 +505,3 @@ export function createInitialState(formConfig) {
 
   return initialState;
 }
-
