@@ -20,7 +20,7 @@ Learn the basics of the US Forms System library, with no knowledge of React requ
 
 ### Step 1: Install the starter app
 
-The the fastest way to start building a form using the US Forms System library is to install the US Forms System Starter App. The starter app includes the initial files, configuration, build process, and web server you need to start building your form immediately. For installation instructions, see "[Creating a new application with the US Forms System Starter App](creating-a-new-application-with-the-us-forms-system-starter-app.md)."
+The fastest way to start building a form using the US Forms System library is to install the US Forms System Starter App. The starter app includes the initial files, configuration, build process, and web server you need to start building your form immediately. For installation instructions, see "[Creating a new application with the US Forms System Starter App](creating-a-new-application-with-the-us-forms-system-starter-app.md)."
 
 ### Step 2: Get familiar with the form config
 
@@ -347,7 +347,7 @@ Now you'll see a much more useful error message::
 
 ### Review
 
-Well done! You've built your first form using only a JSON config file, and and you're starting to see the benefits of describing your form rather than building components and UI patterns directly.
+Well done! You've built your first form using only a JSON config file, and you're starting to see the benefits of describing your form rather than building components and UI patterns directly.
 
 There are many more complex form patterns you can build with the US Forms System, including conditionally expanded fields, custom validation functions, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
 
