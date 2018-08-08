@@ -9,7 +9,7 @@ import {
   isValidCurrentOrPastYear,
   isValidCurrentOrFutureMonthYear,
   isValidDateRange,
-  isValidRoutingNumber,
+  // isValidRoutingNumber,
   isValidPartialMonthYear,
   isValidPartialMonthYearInPast
 } from './utilities/validations';
@@ -301,11 +301,11 @@ export function validateMatch(field1, field2) {
   };
 }
 
-export function validateRoutingNumber(errors, routingNumber, formData, schema, errorMessages) {
-  if (!isValidRoutingNumber(routingNumber)) {
-    errors.addError(errorMessages.pattern);
-  }
-}
+// export function validateRoutingNumber(errors, routingNumber, formData, schema, errorMessages) {
+//   if (!isValidRoutingNumber(routingNumber)) {
+//     errors.addError(errorMessages.pattern);
+//   }
+// }
 
 export function convertToDateField(dateStr) {
   const date = parseISODate(dateStr);
