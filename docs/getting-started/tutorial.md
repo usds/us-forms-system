@@ -1,14 +1,26 @@
-# Tutorial
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Getting Started with the US Forms System*](./README.md)
+
+# Tutorial: Building a simple address form
 
 Learn the basics of the US Forms System library, with no knowledge of React required, by building a simple form that asks for an address.
 
-## Tutorial steps
+### In this tutorial
+
+- [Step 1: Install the starter app](#step-1-install-the-starter-app)
+- [Step 2: Get familiar with the form config](#step-2-get-familiar-with-the-form-config)
+- [Step 3: Understand chapters and pages](#step-3-understand-chapters-and-pages)
+- [Step 4: Add the `schema` object](#step-4-add-the-schema-object)
+- [Step 5: Render the form so far](#step-5-render-the-form-so-far)
+- [Step 6: Add a question](#step-6-add-a-question)
+- [Step 7: Add the `uiSchema` object](#step-7-add-the-uischema-object)
+- [Step 8: Add another `string` question](#step-8-add-another-string-question)
+- [Step 9: Add a select field](#step-9-add-a-select-field)
+- [Step 10: Add specific data constraints and validation](#step-10-add-specific-data-constraints-and-validation)
+- [Review](#review)
 
 ### Step 1: Install the starter app
 
-The first step to building a form using the US Forms System is to install our starter app. The starter app includes the initial files, configuration, build process, and web server you need to start building your form immediately. It's the fastest way to start learning how to use the library.
-
-If you haven't already followed these [installation instructions](creating-a-new-application-with-the-us-forms-system-starter-app.md), complete those steps first and then come back here!
+The fastest way to start building a form using the US Forms System library is to install the US Forms System Starter App. The starter app includes the initial files, configuration, build process, and web server you need to start building your form immediately. For installation instructions, see "[Creating a new application with the US Forms System Starter App](creating-a-new-application-with-the-us-forms-system-starter-app.md)."
 
 ### Step 2: Get familiar with the form config
 
@@ -116,7 +128,7 @@ Excellent, now you have a form field! But how did the library know to render a t
 The `street` field accepts `string` data. For basic data types, an automatic determination is made by the library on what type of HTML form element to render. `string` data renders a text input, a field with an `enum` property renders a select, and `boolean` data renders checkbox.
 
 The label is taken from the name of the field in the `formConfig`. `street` becomes "street" in your form. But what if we want to change the label text? We can do that be editing the `uiSchema` object, which we'll learn about next.
- 
+
 ### Step 7: Add the `uiSchema` object
 
 While the `schema` describes the fields of a form and the type of data each field accepts, there are UI-specific things you may want to change about how those fields appear to the user.
@@ -146,7 +158,7 @@ Most properties that are passed to `uiSchema` are prefixed with `ui:`, which mea
 
 Go back to your browser window to see the form again. Because you overrode the default label text by adding `'ui:title': 'Street'` to your `formConfig`, your label text has changed from "street" to "Street".
 
-### Step 8: Add another `string` question.
+### Step 8: Add another `string` question
 
 Now that we understand the basics of adding fields to our `formConfig`, it's time to add more questions. On your own, add a field for the city in the address. The field should use a text input.
 
@@ -333,10 +345,10 @@ To display a custom error message, pass the `ui:errorMessages` object to `uiSche
 Now you'll see a much more useful error message::
 ![Helpful error message](../images/helpful-error-message.png)
 
+### Review
 
-## End of Tutorial
+Well done! You've built your first form using only a JSON config file, and you're starting to see the benefits of describing your form rather than building components and UI patterns directly.
 
-Well done! You've built your first form using only a JSON config file. Hopefully you are starting to see the benefits of describing the form as opposed to building all of the components and UI patterns directly.
+There are many more complex form patterns you can build with the US Forms System, including conditionally expanded fields, custom validation functions, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
 
-There are so many more things you can do with US Forms Systems, including more complex form patterns, like conditionally expanded fields, custom validation functions, groups of similar questions, and more. Learn more about what's possible in "[Building a form](../building-a-form/README.md)".
-
+[Back to *Getting Started with the US Forms System*](./README.md)
