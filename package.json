@@ -14,7 +14,7 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "lint:sass": "sass-lint -c test/config/sass-lint.yaml --verbose",
-    "test": "BABEL_ENV=test mocha --require test/config/unit-test-setup.js --require test/config/enzyme-setup.jsx --compilers js:babel-core/register ./test/**/*.spec.jsx",
+    "test": "BABEL_ENV=test mocha --require test/config/unit-test-setup.js --require test/config/enzyme-setup.jsx --compilers js:babel-core/register './test/**/*.spec.js?(x)' ",
     "webpack": "webpack"
   },
   "repository": {
