@@ -29,32 +29,18 @@ uiSchema: {
 
 Available definitions are:
 
-- [Address](#address)
 - [Autosuggest](#autosuggest)
-- [Bank account](#bank-account)
 - [Currency](#currency)
 - [Current or past dates](#current-or-past-dates)
 - [Current or past month/year](#current-or-past-monthyear)
 - [Date](#date)
 - [Date range](#date-range)
 - [File upload](#file-upload)
-- [Full name](#full-name)
 - [Month/year](#monthyear)
 - [Month/year range](#monthyear-range)
-- [Non-required full name](#non-required-full-name)
-- [Person ID](#person-id)
 - [Phone](#phone)
 - [Social Security Number](#social-security-number)
 - [Year](#year)
-
-### Address
-
-Validates a complete street address that a user types.
-
-- File: [/src/js/definitions/address.js](../../src/js/definitions/address.js)
-- `uiSchema`: Yes
-- `schema`: Yes
-- Function or object: Functions
 
 ### Autosuggest
 
@@ -92,19 +78,6 @@ uiSchema: {
 }
 ```
 Source: [/src/js/definitions/autosuggest.js](../../src/js/definitions/autosuggest.js)
-
-### Bank account
-
-The common electronic funds transfer (EFT) account information field that collects account type (checking or savings), bank account number, and bank routing number. Use these definitions as the uiSchema for the field that represents the account number.
-
-```js
-import bankAccountUI from 'us-forms-system/lib/js/definitions/bankAccount';
-
-uiSchema: {
-  eftinfo: bankAccountUI
-}
-```
-Source: [/src/js/definitions/bankAccount.js](../../src/js/definitions/bankAccount.js)
 
 ### Currency
 
@@ -175,18 +148,6 @@ Source: [/src/js/definitions/dateRange.js](../../src/js/definitions/dateRange.js
 
 Source: [/src/js/definitions/file.js](../../src/js/definitions/file.js)
 
-### Full name
-
-The normal name field, including first, middle, last, and suffix.
-```js
-import fullNameUI from 'us-forms-system/lib/js/definitions/fullName';
-
-uiSchema: {
-  fullName: fullNameUI
-}
-```
-Source: [/src/js/definitions/fullName.js](../../src/js/definitions/fullName.js)
-
 ### Month/year
 
 The common date field, excluding day field, with basic validation. Call this exported function with the label to be displayed on the field.
@@ -210,24 +171,6 @@ uiSchema: {
 }
 ```
 Source: [/src/js/definitions/monthYearRange.js](../../src/js/definitions/monthYearRange.js)
-
-### Non-required full name
-
-A function that takes a full name `schema` and sets its required field list to `empty`.
-
-- File: [/src/js/definitions/nonRequiredFullName.js](../../src/js/definitions/nonRequiredFullName.js)
-- `uiSchema`: No
-- `schema`: Yes
-- Function or object: Function
-
-### Person ID
-
-A function that allows the user to specify a form of personal identification. For example, the form can ask for a social security number and include a checkbox to specify that the user doesn't have one, allowing them to instead specify a Veterans Affairs file number.
-
-- File: [/src/js/definitions/personId.js](../../src/js/definitions/personId.js)
-- `uiSchema`: Yes
-- `schema`: Yes
-- Function or object: Function
 
 ### Phone
 
