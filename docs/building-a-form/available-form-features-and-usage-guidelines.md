@@ -14,12 +14,11 @@ These form features are available in the US Forms System library. We've provided
 - [Alerts](#alerts)
 - [Radio button group](#radio-button-group)
 - [Checkbox group](#checkbox-group)
-- [Contextual error message](#contextual-error-message)
 - [Required field](#required-field)
+- [Contextual error message](#contextual-error-message)
 - [Duplicate field validation](#duplicate-field-validation)
 - [Conditional form fields](#conditional-form-fields)
 - [Sequential duplicate form groups](#sequential-duplicate-form-groups)
-- [Linear form sections](#linear-form-sections)
 - [Review page](#review-page)
 - [Required checkbox before form submission](#required-checkbox-before-form-submission)
 
@@ -95,6 +94,7 @@ The Title and Subtitle represent the name and form number, respectively. The sub
 #### Usage guidelines
 
 Define the title and subtitle in `formConfig`. For example:
+
 ```js
 const formConfig = {
   …
