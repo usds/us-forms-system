@@ -5,8 +5,8 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Form from '@department-of-veterans-affairs/react-jsonschema-form';
 
 import { DefinitionTester } from '../../config/schemaform-utils.jsx';
-import uiSchema from '../../../src/js/definitions/dateRange';
-import { dateRange as schema, date } from 'vets-json-schema/dist/definitions.json';
+import { dateRangeConfig } from '../../../src/js/definitions/dateRange';
+import { dateConfig } from '../../../src/js/definitions/date';
 
 function fillDate(find, toFrom, day, month, year) {
   ReactTestUtils.Simulate.change(find(`#root_${toFrom}Day`), {
@@ -30,9 +30,9 @@ describe('Schemaform definition dateRange', () => {
   it('should render dateRange', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
-        definitions={{ date }}
-        uiSchema={uiSchema()}/>
+        schema={dateRangeConfig.schema}
+        definitions={dateConfig.schema}
+        uiSchema={dateRangeConfig.uiSchema()}/>
     );
 
     const formDOM = findDOMNode(form);
@@ -42,11 +42,11 @@ describe('Schemaform definition dateRange', () => {
     expect(formDOM.querySelectorAll('select').length).to.equal(4);
   });
   it('should render invalid dateRange error', () => {
-    const dateRangeUISchema = uiSchema();
+    const dateRangeUISchema = dateRangeConfig.uiSchema();
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
-        definitions={{ date }}
+        schema={dateRangeConfig.schema}
+        definitions={dateConfig.schema}
         uiSchema={dateRangeUISchema}/>
     );
 
@@ -64,9 +64,9 @@ describe('Schemaform definition dateRange', () => {
   it('should render dateRange title and messages', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
-        definitions={{ date }}
-        uiSchema={uiSchema('My from date', 'My to date', 'My error')}/>
+        schema={dateRangeConfig.schema}
+        definitions={dateConfig.schema}
+        uiSchema={dateRangeConfig.uiSchema('My from date', 'My to date', 'My error')}/>
     );
 
     const formDOM = findDOMNode(form);

@@ -4,15 +4,14 @@ import { expect } from 'chai';
 import ReactTestUtils from 'react-dom/test-utils';
 
 import { DefinitionTester } from '../../config/schemaform-utils.jsx';
-import uiSchema from '../../../src/js/definitions/ssn';
-import { ssn as schema } from 'vets-json-schema/dist/definitions.json';
+import { ssnConfig } from '../../../src/js/definitions/ssn';
 
 describe('Schemaform definition ssn', () => {
   it('should render ssn with error', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
-        uiSchema={uiSchema}/>
+        schema={ssnConfig.schema}
+        uiSchema={ssnConfig.uiSchema}/>
     );
 
     const formDOM = findDOMNode(form);
@@ -28,14 +27,14 @@ describe('Schemaform definition ssn', () => {
     ReactTestUtils.Simulate.blur(node);
 
     expect(formDOM.querySelector('.usa-input-error-message').textContent)
-      .to.equal(`Error ${uiSchema['ui:errorMessages'].pattern}`);
+      .to.equal(`Error ${ssnConfig.uiSchema['ui:errorMessages'].pattern}`);
   });
   it('should render formatted ssn for review', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
         reviewMode
-        schema={schema}
-        uiSchema={uiSchema}
+        schema={ssnConfig.schema}
+        uiSchema={ssnConfig.uiSchema}
         data="123456789"/>
     );
 

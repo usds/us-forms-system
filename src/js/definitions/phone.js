@@ -1,6 +1,11 @@
 import PhoneNumberWidget from '../widgets/PhoneNumberWidget';
 import PhoneNumberReviewWidget from '../review/PhoneNumberWidget';
 
+export const schema = {
+  type: 'string',
+  minLength: 10
+};
+
 /*
  * Phone uiSchema
  *

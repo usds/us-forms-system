@@ -5,15 +5,14 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Form from '@department-of-veterans-affairs/react-jsonschema-form';
 
 import { DefinitionTester } from '../../config/schemaform-utils.jsx';
-import uiSchema from '../../../src/js/definitions/date';
-import { date as schema } from 'vets-json-schema/dist/definitions.json';
+import { dateConfig } from '../../../src/js/definitions/date';
 
 describe('Schemaform definition date', () => {
   it('should render date', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
-        uiSchema={uiSchema()}/>
+        schema={dateConfig.schema}
+        uiSchema={dateConfig.uiSchema()}/>
     );
 
     const formDOM = findDOMNode(form);
@@ -24,10 +23,10 @@ describe('Schemaform definition date', () => {
     expect(selects.length).to.equal(2);
   });
   it('should render invalid date error', () => {
-    const dateUISchema = uiSchema();
+    const dateUISchema = dateConfig.uiSchema();
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
+        schema={dateConfig.schema}
         uiSchema={dateUISchema}/>
     );
 
@@ -47,8 +46,8 @@ describe('Schemaform definition date', () => {
   it('should render date title', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
-        uiSchema={uiSchema('My date')}/>
+        schema={dateConfig.schema}
+        uiSchema={dateConfig.uiSchema('My date')}/>
     );
 
     const formDOM = findDOMNode(form);
