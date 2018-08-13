@@ -1,8 +1,11 @@
 import _ from 'lodash/fp';
 import { validateCurrentOrPastMonthYear } from '../validation';
 import monthYearUI from './monthYear';
+import { dateConfig } from './date';
 
-export default function uiSchema(title = 'Date') {
+const schema = dateConfig.schema;
+
+function uiSchema(title = 'Date') {
   return _.assign(monthYearUI(title), {
     'ui:validations': [
       validateCurrentOrPastMonthYear
@@ -12,3 +15,8 @@ export default function uiSchema(title = 'Date') {
     }
   });
 }
+
+export const currentOrPastMonthYearConfig = {
+  schema,
+  uiSchema
+};

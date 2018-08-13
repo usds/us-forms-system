@@ -1,7 +1,7 @@
 import PhoneNumberWidget from '../widgets/PhoneNumberWidget';
 import PhoneNumberReviewWidget from '../review/PhoneNumberWidget';
 
-export const schema = {
+const schema = {
   type: 'string',
   minLength: 10
 };
@@ -11,7 +11,7 @@ export const schema = {
  *
  * @param {string} title - The field label, defaults to Phone
  */
-export default function uiSchema(title = 'Phone') {
+function uiSchema(title = 'Phone') {
   return {
     'ui:widget': PhoneNumberWidget,
     'ui:reviewWidget': PhoneNumberReviewWidget,
@@ -25,3 +25,8 @@ export default function uiSchema(title = 'Phone') {
     }
   };
 }
+
+export const phoneConfig = {
+  schema,
+  uiSchema
+};

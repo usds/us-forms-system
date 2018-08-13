@@ -1,6 +1,11 @@
 import { validateCurrentOrPastYear } from '../validation';
 import * as ReviewWidget from '../review/widgets';
 
+const schema = {
+  type: 'integer',
+  minimum: 1900
+};
+
 const uiSchema = {
   'ui:title': 'Year',
   'ui:reviewWidget': ReviewWidget.TextWidget,
@@ -15,4 +20,7 @@ const uiSchema = {
   }
 };
 
-export default uiSchema;
+export const yearConfig = {
+  schema,
+  uiSchema
+};
