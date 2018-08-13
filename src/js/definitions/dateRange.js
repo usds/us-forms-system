@@ -1,11 +1,11 @@
 import { validateDateRange } from '../validation';
-import { dateConfig, schema as ssnSchema } from './date';
+import { dateConfig } from './date';
 
 const schema = {
   type: 'object',
   properties: {
-    from: ssnSchema,
-    to: ssnSchema
+    from: dateConfig.schema,
+    to: dateConfig.schema
   }
 };
 
