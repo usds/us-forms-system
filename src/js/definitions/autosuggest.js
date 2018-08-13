@@ -5,7 +5,7 @@ import { validateAutosuggestOption } from '../validation';
 
 // don't use for enum fields, they need access to the
 // list of enums and names
-export const schema = {
+const schema = {
   type: 'object',
   properties: {
     id: {
@@ -24,7 +24,7 @@ export const schema = {
  * @param {function} getOptions - Function that fetchs options to be shown and returns a promise
  * @param {object} options - Any other options to override the uiSchema defaults with
  */
-export function uiSchema(label, getOptions, options = {}) {
+function uiSchema(label, getOptions, options = {}) {
   const validations = [];
   if (!_.get('ui:options.freeInput', options)) {
     validations.push(validateAutosuggestOption);
@@ -44,3 +44,9 @@ export function uiSchema(label, getOptions, options = {}) {
     }
   }, options);
 }
+
+export const autosuggestConfig = {
+  schema,
+  uiSchema
+};
+
