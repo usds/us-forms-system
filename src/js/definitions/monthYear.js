@@ -1,6 +1,9 @@
 import { validateMonthYear } from '../validation';
+import { dateConfig } from './date';
 
-export default function uiSchema(title = 'Date') {
+const schema = dateConfig.schema;
+
+function uiSchema(title = 'Date') {
   return {
     'ui:title': title,
     'ui:widget': 'date',
@@ -15,3 +18,8 @@ export default function uiSchema(title = 'Date') {
     }
   };
 }
+
+export const monthYearConfig = {
+  schema,
+  uiSchema
+};

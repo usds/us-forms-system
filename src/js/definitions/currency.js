@@ -1,7 +1,11 @@
 import CurrencyWidget from '../widgets/CurrencyWidget';
 import CurrencyReviewWidget from '../review/CurrencyWidget';
 
-export default function uiSchema(title) {
+const schema = {
+  type: 'number'
+};
+
+function uiSchema(title) {
   return {
     'ui:widget': CurrencyWidget,
     'ui:reviewWidget': CurrencyReviewWidget,
@@ -14,3 +18,8 @@ export default function uiSchema(title) {
     }
   };
 }
+
+export const currencyConfig = {
+  schema,
+  uiSchema
+};

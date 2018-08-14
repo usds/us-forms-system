@@ -5,15 +5,14 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Form from '@department-of-veterans-affairs/react-jsonschema-form';
 
 import { DefinitionTester } from '../../config/schemaform-utils.jsx';
-import uiSchema from '../../../src/js/definitions/phone';
-import { phone as schema } from 'vets-json-schema/dist/definitions.json';
+import { phoneConfig } from '../../../src/js/definitions/phone';
 
 describe('Schemaform definition phone', () => {
   it('should render phone', () => {
-    const phoneUiSchema = uiSchema();
+    const phoneUiSchema = phoneConfig.uiSchema();
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
+        schema={phoneConfig.schema}
         uiSchema={phoneUiSchema}/>
     );
 
@@ -29,8 +28,8 @@ describe('Schemaform definition phone', () => {
   it('should render phone title', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
-        uiSchema={uiSchema('My phone')}/>
+        schema={phoneConfig.schema}
+        uiSchema={phoneConfig.uiSchema('My phone')}/>
     );
 
     const formDOM = findDOMNode(form);
@@ -40,8 +39,8 @@ describe('Schemaform definition phone', () => {
   it('should render phone error', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={schema}
-        uiSchema={uiSchema()}/>
+        schema={phoneConfig.schema}
+        uiSchema={phoneConfig.uiSchema()}/>
     );
 
     const formDOM = findDOMNode(form);

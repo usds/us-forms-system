@@ -1,7 +1,15 @@
 import { validateDateRange } from '../validation';
-import dateUI from './date';
+import { dateConfig } from './date';
 
-export default function uiSchema(from = 'From', to = 'To', rangeError = 'To date must be after From date') {
+const schema = {
+  type: 'object',
+  properties: {
+    from: dateConfig.schema,
+    to: dateConfig.schema
+  }
+};
+
+function uiSchema(from = 'From', to = 'To', rangeError = 'To date must be after From date') {
   return {
     'ui:validations': [
       validateDateRange
@@ -9,7 +17,12 @@ export default function uiSchema(from = 'From', to = 'To', rangeError = 'To date
     'ui:errorMessages': {
       pattern: rangeError,
     },
-    from: dateUI(from),
-    to: dateUI(to)
+    from: dateConfig.uiSchema(from),
+    to: dateConfig.uiSchema(to)
   };
 }
+
+export const dateRangeConfig = {
+  schema,
+  uiSchema
+};

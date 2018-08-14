@@ -3,7 +3,25 @@ import _ from 'lodash/fp';
 import FileField from '../fields/FileField';
 import { validateFileField } from '../validation';
 
-export default function fileUiSchema(label, userOptions = {}) {
+const schema = {
+  type: 'array',
+  items: {
+    type: 'object',
+    properties: {
+      name: {
+        type: 'string'
+      },
+      size: {
+        type: 'integer'
+      },
+      confirmationCode: {
+        type: 'string'
+      }
+    }
+  }
+};
+
+function uiSchema(label, userOptions = {}) {
   return {
     'ui:title': label,
     'ui:field': FileField,
@@ -40,28 +58,7 @@ export default function fileUiSchema(label, userOptions = {}) {
   };
 }
 
-// An example schema so we don’t forget it for now
-export const fileSchema = {
-  type: 'array',
-  minItems: 1,
-  items: {
-    type: 'object',
-    properties: {
-      fileName: {
-        type: 'string'
-      },
-      fileSize: {
-        type: 'integer'
-      },
-      confirmationNumber: {
-        type: 'string'
-      },
-      errorMessage: {
-        type: 'string'
-      },
-      uploading: {
-        type: 'boolean'
-      }
-    }
-  }
+export const fileConfig = {
+  schema,
+  uiSchema
 };

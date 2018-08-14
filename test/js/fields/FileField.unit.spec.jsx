@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import { DefinitionTester, getFormDOM } from '../../config/schemaform-utils.jsx';
 
 import FileField from '../../../src/js/fields/FileField';
-import fileUploadUI, { fileSchema } from '../../../src/js/definitions/file';
+import { fileConfig } from '../../../src/js/definitions/file';
 
 const formContext = {
   setTouched: sinon.spy()
@@ -25,7 +25,7 @@ describe('Schemaform <FileField>', () => {
         properties: {}
       }]
     };
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const registry = {
       fields: {
         SchemaField: f => f
@@ -54,7 +54,7 @@ describe('Schemaform <FileField>', () => {
         properties: {}
       }]
     };
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const formData = [
       {
         confirmationCode: 'asdfds',
@@ -91,7 +91,7 @@ describe('Schemaform <FileField>', () => {
         properties: {}
       }]
     };
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const formData = [
       {
         confirmationCode: 'asdfds',
@@ -133,7 +133,7 @@ describe('Schemaform <FileField>', () => {
         properties: {}
       }]
     };
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const formData = [
       {
         uploading: true
@@ -170,7 +170,7 @@ describe('Schemaform <FileField>', () => {
         properties: {}
       }]
     };
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const formData = [
       {
         uploading: true
@@ -210,7 +210,7 @@ describe('Schemaform <FileField>', () => {
         properties: {}
       }]
     };
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const formData = [
       {
         errorMessage: 'asdfas'
@@ -255,7 +255,7 @@ describe('Schemaform <FileField>', () => {
         properties: {}
       }]
     };
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const formData = [
       {
         confirmationCode: 'asdfds',
@@ -283,11 +283,11 @@ describe('Schemaform <FileField>', () => {
   });
 
   it('should delete file', () => {
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const schema = {
       type: 'object',
       properties: {
-        fileField: fileSchema
+        fileField: fileConfig.schema
       }
     };
     const form = ReactTestUtils.renderIntoDocument(
@@ -314,11 +314,11 @@ describe('Schemaform <FileField>', () => {
   });
 
   it('should upload file', () => {
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const schema = {
       type: 'object',
       properties: {
-        fileField: fileSchema
+        fileField: fileConfig.schema
       }
     };
     const uploadFile = sinon.spy();
@@ -365,7 +365,7 @@ describe('Schemaform <FileField>', () => {
         }
       }]
     };
-    const uiSchema = fileUploadUI('Files');
+    const uiSchema = fileConfig.uiSchema('Files');
     const formData = [
       {
         confirmationCode: 'asdfds',
@@ -414,7 +414,7 @@ describe('Schemaform <FileField>', () => {
         }
       }]
     };
-    const uiSchema = fileUploadUI('Files', {
+    const uiSchema = fileConfig.uiSchema('Files', {
       attachmentName: {
         'ui:title': 'Document name'
       }

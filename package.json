@@ -75,8 +75,7 @@
     "sass-lint": "^1.10.2",
     "sinon": "^6.0.0",
     "skin-deep": "^1.0.0",
-    "uswds": "^1.6.4",
-    "vets-json-schema": "git+https://github.com/department-of-veterans-affairs/vets-json-schema.git"
+    "uswds": "^1.6.4"
   },
   "peerDependencies": {
     "react": "^15.5.4",
