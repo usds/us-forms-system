@@ -1,5 +1,5 @@
 import { validateDateRange } from '../validation';
-import monthYearUI from './monthYear';
+import { monthYearConfig } from './monthYear';
 import { dateRangeConfig } from './dateRange';
 
 const schema = dateRangeConfig.schema;
@@ -12,8 +12,8 @@ function uiSchema(from = 'From', to = 'To', rangeError = 'To date must be after 
     'ui:errorMessages': {
       pattern: rangeError,
     },
-    from: monthYearUI(from),
-    to: monthYearUI(to)
+    from: monthYearConfig.uiSchema(from),
+    to: monthYearConfig.uiSchema(to)
   };
 }
 
