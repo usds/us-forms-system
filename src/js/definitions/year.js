@@ -1,10 +1,17 @@
 import { validateCurrentOrPastYear } from '../validation';
 import * as ReviewWidget from '../review/widgets';
 
-const schema = {
-  type: 'integer',
-  minimum: 1900
-};
+// const schema = {
+//   type: 'integer',
+//   minimum: 1900
+// };
+
+function schema() {
+  return {
+    type: 'integer',
+    minimum: 1900
+  };
+}
 
 function uiSchema(title = 'Year') {
   return {

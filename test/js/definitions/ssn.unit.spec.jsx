@@ -10,7 +10,7 @@ describe('Schemaform definition ssn', () => {
   it('should render ssn with error', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
-        schema={ssnConfig.schema}
+        schema={ssnConfig.schema()}
         uiSchema={ssnConfig.uiSchema()}/>
     );
 
@@ -33,7 +33,7 @@ describe('Schemaform definition ssn', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
         reviewMode
-        schema={ssnConfig.schema}
+        schema={ssnConfig.schema()}
         uiSchema={ssnConfig.uiSchema()}
         data="123456789"/>
     );

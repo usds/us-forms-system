@@ -1,7 +1,11 @@
 import { validateMonthYear } from '../validation';
 import { dateConfig } from './date';
 
-const schema = dateConfig.schema;
+// const schema = dateConfig.schema;
+
+function schema() {
+  dateConfig.schema();
+}
 
 function uiSchema(title = 'Date') {
   return {

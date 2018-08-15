@@ -1,10 +1,17 @@
 import PhoneNumberWidget from '../widgets/PhoneNumberWidget';
 import PhoneNumberReviewWidget from '../review/PhoneNumberWidget';
 
-const schema = {
-  type: 'string',
-  minLength: 10
-};
+// const schema = {
+//   type: 'string',
+//   minLength: 10
+// };
+
+function schema() {
+  return {
+    type: 'string',
+    minLength: 10
+  };
+}
 
 /*
  * Phone uiSchema

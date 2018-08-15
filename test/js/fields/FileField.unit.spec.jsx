@@ -287,7 +287,7 @@ describe('Schemaform <FileField>', () => {
     const schema = {
       type: 'object',
       properties: {
-        fileField: fileConfig.schema
+        fileField: fileConfig.schema()
       }
     };
     const form = ReactTestUtils.renderIntoDocument(
@@ -318,7 +318,7 @@ describe('Schemaform <FileField>', () => {
     const schema = {
       type: 'object',
       properties: {
-        fileField: fileConfig.schema
+        fileField: fileConfig.schema()
       }
     };
     const uploadFile = sinon.spy();
