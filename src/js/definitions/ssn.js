@@ -2,11 +2,6 @@ import { validateSSN } from '../validation';
 import SSNWidget from '../widgets/SSNWidget';
 import SSNReviewWidget from '../review/SSNWidget';
 
-// const schema = {
-//   type: 'string',
-//   pattern: '^[0-9]{9}$'
-// };
-
 function schema() {
   return {
     type: 'string',
