@@ -1,9 +1,15 @@
 import CurrencyWidget from '../widgets/CurrencyWidget';
 import CurrencyReviewWidget from '../review/CurrencyWidget';
 
-const schema = {
-  type: 'number'
-};
+// const schema = {
+//   type: 'number'
+// };
+
+function schema() {
+  return {
+    type: 'number'
+  };
+}
 
 function uiSchema(title) {
   return {
