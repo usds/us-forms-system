@@ -4,7 +4,11 @@ import { dateConfig } from './date';
 // const schema = dateConfig.schema;
 
 function schema() {
-  dateConfig.schema();
+  const dateSchema = dateConfig.schema();
+
+  return {
+    dateSchema
+  };
 }
 
 function uiSchema(title = 'Date') {
