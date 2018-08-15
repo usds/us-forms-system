@@ -5,18 +5,6 @@ import { validateAutosuggestOption } from '../validation';
 
 // don't use for enum fields, they need access to the
 // list of enums and names
-// const schema = {
-//   type: 'object',
-//   properties: {
-//     id: {
-//       type: 'any'
-//     },
-//     label: {
-//       type: 'string'
-//     }
-//   }
-// };
-
 function schema() {
   return {
     type: 'object',

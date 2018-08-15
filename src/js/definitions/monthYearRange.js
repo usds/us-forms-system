@@ -2,8 +2,6 @@ import { validateDateRange } from '../validation';
 import { monthYearConfig } from './monthYear';
 import { dateRangeConfig } from './dateRange';
 
-// const schema = dateRangeConfig.schema;
-
 function schema() {
   return dateRangeConfig.schema();
 }
