@@ -11,7 +11,7 @@ describe('Schemaform definition ssn', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
         schema={ssnConfig.schema}
-        uiSchema={ssnConfig.uiSchema}/>
+        uiSchema={ssnConfig.uiSchema()}/>
     );
 
     const formDOM = findDOMNode(form);
@@ -27,14 +27,14 @@ describe('Schemaform definition ssn', () => {
     ReactTestUtils.Simulate.blur(node);
 
     expect(formDOM.querySelector('.usa-input-error-message').textContent)
-      .to.equal(`Error ${ssnConfig.uiSchema['ui:errorMessages'].pattern}`);
+      .to.equal(`Error ${ssnConfig.uiSchema()['ui:errorMessages'].pattern}`);
   });
   it('should render formatted ssn for review', () => {
     const form = ReactTestUtils.renderIntoDocument(
       <DefinitionTester
         reviewMode
         schema={ssnConfig.schema}
-        uiSchema={ssnConfig.uiSchema}
+        uiSchema={ssnConfig.uiSchema()}
         data="123456789"/>
     );
 
