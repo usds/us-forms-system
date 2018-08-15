@@ -5,11 +5,7 @@ import { dateRangeConfig } from './dateRange';
 // const schema = dateRangeConfig.schema;
 
 function schema() {
-  const dateRangeSchema = dateRangeConfig.schema();
-
-  return {
-    dateRangeSchema
-  };
+  return dateRangeConfig.schema();
 }
 
 function uiSchema(from = 'From', to = 'To', rangeError = 'To date must be after From date') {

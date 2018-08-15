@@ -6,11 +6,7 @@ import { monthYearConfig } from './monthYear';
 // const schema = dateConfig.schema;
 
 function schema() {
-  const dateSchema = dateConfig.schema();
-
-  return {
-    dateSchema
-  };
+  return dateConfig.schema();
 }
 
 function uiSchema(title = 'Date') {
