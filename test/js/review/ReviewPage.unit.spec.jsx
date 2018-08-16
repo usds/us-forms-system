@@ -11,6 +11,13 @@ describe('Schemaform review: ReviewPage', () => {
 
   it('should render chapters', () => {
     const formConfig = {
+      preSubmitInfo: {
+        required: true,
+        field: 'privacyAgreementAccepted',
+        notice: 'Notice',
+        label: 'I accept the privacy agreement',
+        error: 'You must accept the privacy agreement'
+      },
       chapters: {
         chapter1: {
           pages: {
@@ -53,7 +60,7 @@ describe('Schemaform review: ReviewPage', () => {
         openChapters={[]}
         route={{ formConfig, pageList }}
         setEditMode={f => f}
-        setPrivacyAgreement={f => f}
+        setPreSubmit={f => f}
         location={location}/>
     );
 

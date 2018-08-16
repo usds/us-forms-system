@@ -10,8 +10,9 @@ describe('Schemaform review: SubmitController', () => {
   it('should route to confirmation page after submit', () => {
     const formConfig = {
       preSubmitInfo: {
+        required: true,
         field: 'privacyAgreementAccepted',
-        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        notice: '<div>Notice</div>',
         label: 'I accept the privacy agreement',
         error: 'You must accept the privacy agreement'
       },
@@ -69,8 +70,9 @@ describe('Schemaform review: SubmitController', () => {
       formConfig: {
         urlPrefix: '/',
         preSubmitInfo: {
+          required: true,
           field: 'privacyAgreementAccepted',
-          notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+          notice: '<div>Notice</div>',
           label: 'I accept the privacy agreement',
           error: 'You must accept the privacy agreement'
         }
@@ -85,7 +87,7 @@ describe('Schemaform review: SubmitController', () => {
       }
     });
 
-    expect(router.push.calledWith('confirmation'));
+    expect(router.push.calledWith('/confirmation')).to.be.true;
   });
   it('should not submit when privacy agreement not accepted', () => {
     const form = {
@@ -113,8 +115,9 @@ describe('Schemaform review: SubmitController', () => {
     };
     const formConfig = {
       preSubmitInfo: {
+        required: true,
         field: 'privacyAgreementAccepted',
-        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        notice: '<div>Notice</div>',
         label: 'I accept the privacy agreement',
         error: 'You must accept the privacy agreement'
       }
@@ -140,8 +143,9 @@ describe('Schemaform review: SubmitController', () => {
   it('should not submit when invalid', () => {
     const formConfig = {
       preSubmitInfo: {
+        required: true,
         field: 'privacyAgreementAccepted',
-        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        notice: '<div>Notice</div>',
         label: 'I accept the privacy agreement',
         error: 'You must accept the privacy agreement'
       },
@@ -222,8 +226,9 @@ describe('Schemaform review: SubmitController', () => {
   it('should submit when valid', () => {
     const formConfig = {
       preSubmitInfo: {
+        required: true,
         field: 'privacyAgreementAccepted',
-        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        notice: 'Notice',
         label: 'I accept the privacy agreement',
         error: 'You must accept the privacy agreement'
       },
@@ -307,8 +312,9 @@ describe('Schemaform review: SubmitController', () => {
     };
     const formConfig = {
       preSubmitInfo: {
+        required: true,
         field: 'privacyAgreementAccepted',
-        notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+        notice: 'Notice',
         label: 'I accept the privacy agreement',
         error: 'You must accept the privacy agreement'
       },
@@ -354,6 +360,6 @@ describe('Schemaform review: SubmitController', () => {
 
     tree.goBack();
 
-    expect(router.push.calledWith('previous-page'));
+    expect(router.push.calledWith('previous-page')).to.be.true;
   });
 });

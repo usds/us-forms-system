@@ -492,9 +492,7 @@ export function createInitialState(formConfig) {
 
       return state;
     }, {
-      data: {
-        preSubmitAccepted: false,
-      },
+      data: {},
       pages: {},
     });
 

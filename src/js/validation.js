@@ -188,10 +188,6 @@ export function isValidForm(form, pageListByChapters) {
 
   const v = new Validator();
 
-  if (!form.data.privacyAgreementAccepted) {
-    return { isValid: false };
-  }
-
   return validPages.reduce(({ isValid, errors }, page) => {
     const { uiSchema, schema, showPagePerItem, itemFilter, arrayPath } = form.pages[page];
     let formData = form.data;

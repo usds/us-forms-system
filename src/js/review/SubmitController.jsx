@@ -48,21 +48,30 @@ class SubmitController extends React.Component {
       form,
       formConfig,
       pagesByChapter,
-      preSubmitAccepted,
       trackingPrefix
     } = this.props;
 
-    const {
-      isValid,
-      errors
-    } = isValidForm(form, pagesByChapter);
+    let isValid, errors;
+
+    // If a pre-submit agreement was specified, it has to be accepted first
+    const preSubmitField = formConfig.preSubmitInfo &&
+      formConfig.preSubmitInfo.required && formConfig.preSubmitInfo.field || 'AGREED';
+console.log('------------------', preSubmitField, form.data[preSubmitField])
+console.log(formConfig.preSubmitInfo)
+console.log('------------------')
+    if (preSubmitField && !form.data[preSubmitField]) {
+      isValid = false;
+    } else {
+      ({ isValid, errors } = isValidForm(form, pagesByChapter));
+    }
 
     if (isValid) {
+      console.log('WE   ARE   SUBMITTING')
       this.props.submitForm(formConfig, form);
     } else {
       // validation errors in this situation are not visible, so we’d
       // like to know if they’re common
-      if (preSubmitAccepted) {
+      if (preSubmitField && form.data[preSubmitField]) {
         recordEvent({
           event: `${trackingPrefix}-validation-failed`,
         });
@@ -80,8 +89,8 @@ class SubmitController extends React.Component {
 
   render() {
     const {
+      form,
       formConfig,
-      preSubmitAccepted,
       showPreSubmitError,
       renderErrorMessage,
       submission
@@ -92,7 +101,7 @@ class SubmitController extends React.Component {
           required
           preSubmitInfo={formConfig.preSubmitInfo}
           onChange={this.props.setPreSubmit}
-          checked={preSubmitAccepted}
+          form={form}
           showError={showPreSubmitError}/>
         <SubmitButtons
           onBack={this.goBack}
@@ -117,14 +126,12 @@ function mapStateToProps(state, ownProps) {
   const trackingPrefix = formConfig.trackingPrefix;
   const submission = form.submission;
   const showPreSubmitError = submission.hasAttemptedSubmit;
-  const preSubmitAccepted = form.data.preSubmitAccepted;
 
   return {
     form,
     formConfig,
     pagesByChapter,
     pageList,
-    preSubmitAccepted,
     renderErrorMessage,
     router,
     submission,
@@ -144,7 +151,6 @@ SubmitController.propTypes = {
   formConfig: PropTypes.object.isRequired,
   pagesByChapter: PropTypes.object.isRequired,
   pageList: PropTypes.array.isRequired,
-  preSubmitAccepted: PropTypes.bool.isRequired,
   renderErrorMessage: PropTypes.func,
   router: PropTypes.object.isRequired,
   setPreSubmit: PropTypes.func.isRequired,

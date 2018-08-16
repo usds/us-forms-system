@@ -55,9 +55,10 @@ export function setSubmission(field, value, extra = null) {
   };
 }
 
-export function setPreSubmit(preSubmitAccepted) {
+export function setPreSubmit(preSubmitField, preSubmitAccepted) {
   return {
     type: SET_PRE_SUBMIT,
+    preSubmitField,
     preSubmitAccepted
   };
 }

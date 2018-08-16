@@ -5,7 +5,7 @@ import {
   OPEN_REVIEW_CHAPTER,
   SET_DATA,
   SET_EDIT_MODE,
-  SET_PRIVACY_AGREEMENT,
+  SET_PRE_SUBMIT,
   SET_SUBMISSION,
   SET_SUBMITTED
 } from '../../../src/js/actions';
@@ -15,6 +15,13 @@ import createSchemaFormReducer from '../../../src/js/state';
 describe('schemaform createSchemaFormReducer', () => {
   it('creates a reducer with initial state for each page', () => {
     const formConfig = {
+      preSubmitInfo: {
+        required: true,
+        field: 'privacyAgreementAccepted',
+        notice: 'Notice',
+        label: 'I accept the privacy agreement',
+        error: 'You must accept the privacy agreement'
+      },
       disableSave: true,
       chapters: {
         test: {
@@ -181,7 +188,7 @@ describe('schemaform createSchemaFormReducer', () => {
           privacyAgreementAccepted: false
         }
       }, {
-        type: SET_PRIVACY_AGREEMENT,
+        type: SET_PRE_SUBMIT,
         privacyAgreementAccepted: true
       });
 

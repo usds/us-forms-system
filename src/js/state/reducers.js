@@ -52,7 +52,7 @@ export default {
     return _.set(['pages', action.page, 'editMode'], action.edit, state);
   },
   [SET_PRE_SUBMIT]: (state, action) => {
-    return _.set('data.preSubmitAccepted', action.preSubmitAccepted, state);
+    return _.set(action.preSubmitField, action.preSubmitAccepted, state.data);
   },
   [SET_SUBMISSION]: (state, action) => {
     const newState = _.set(['submission', action.field], action.value, state);
