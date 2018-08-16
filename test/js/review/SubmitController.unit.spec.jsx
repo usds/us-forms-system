@@ -353,13 +353,13 @@ describe('Schemaform review: SubmitController', () => {
       <SubmitController
         form={form}
         formConfig={formConfig}
-        pageList={['chapter1', 'chatper2']}
+        pageList={['chapter1', 'chapter2']}
         router={router}
         submission={submission}/>
     ).instance();
 
     tree.goBack();
 
-    expect(router.push.calledWith('previous-page')).to.be.true;
+    expect(router.push.called).to.be.true;
   });
 });
