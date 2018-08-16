@@ -419,7 +419,7 @@ For the code implementation, see the [`review` folder](../../src/js/review).
 
 ### Required checkbox before form submission
 
-Use this feature to require a user to indicate they have read terms and conditions, a privacy policy, or any other text before submitting your form. It optionally includes a checkbox and short-form text that can include relevant links to more verbose text on separate pages on your site. To configure this feature, place a `preSubmitInfo` object in the `formConfig`:
+Use this feature to require a user to indicate they have read terms and conditions, a privacy policy, or any other text before submitting your form. It includes a checkbox and short-form text that can include relevant links to more verbose information on separate pages on your site. To configure this feature, place a `preSubmitInfo` object in the `formConfig`:
 
 ```js
 preSubmitInfo: {
