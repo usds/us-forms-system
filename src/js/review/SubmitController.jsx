@@ -51,14 +51,12 @@ class SubmitController extends React.Component {
       trackingPrefix
     } = this.props;
 
-    let isValid, errors;
+    let isValid;
+    let errors;
 
     // If a pre-submit agreement was specified, it has to be accepted first
     const preSubmitField = formConfig.preSubmitInfo &&
-      formConfig.preSubmitInfo.required && formConfig.preSubmitInfo.field || 'AGREED';
-console.log('------------------', preSubmitField, form.data[preSubmitField])
-console.log(formConfig.preSubmitInfo)
-console.log('------------------')
+        formConfig.preSubmitInfo.required && formConfig.preSubmitInfo.field || 'AGREED';
     if (preSubmitField && !form.data[preSubmitField]) {
       isValid = false;
     } else {
@@ -66,7 +64,6 @@ console.log('------------------')
     }
 
     if (isValid) {
-      console.log('WE   ARE   SUBMITTING')
       this.props.submitForm(formConfig, form);
     } else {
       // validation errors in this situation are not visible, so we’d
