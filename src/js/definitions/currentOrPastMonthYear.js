@@ -3,7 +3,9 @@ import { validateCurrentOrPastMonthYear } from '../validation';
 import { dateConfig } from './date';
 import { monthYearConfig } from './monthYear';
 
-const schema = dateConfig.schema;
+function schema() {
+  return dateConfig.schema();
+}
 
 function uiSchema(title = 'Date') {
   return _.assign(monthYearConfig.uiSchema(title), {

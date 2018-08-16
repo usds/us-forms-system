@@ -2,7 +2,9 @@ import { validateDateRange } from '../validation';
 import { monthYearConfig } from './monthYear';
 import { dateRangeConfig } from './dateRange';
 
-const schema = dateRangeConfig.schema;
+function schema() {
+  return dateRangeConfig.schema();
+}
 
 function uiSchema(from = 'From', to = 'To', rangeError = 'To date must be after From date') {
   return {

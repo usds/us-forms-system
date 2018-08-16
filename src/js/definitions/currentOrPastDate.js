@@ -1,7 +1,9 @@
 import { validateCurrentOrPastDate } from '../validation';
 import { dateConfig } from './date';
 
-const schema = dateConfig.schema;
+function schema() {
+  return dateConfig.schema();
+}
 
 function uiSchema(title = 'Date') {
   return {
