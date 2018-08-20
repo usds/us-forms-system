@@ -82,7 +82,7 @@ const formConfig = {
               'view:field2': {
                 type: 'string'
               },
-              'view:artificialGroup'{
+              'view:artificialGroup': {
                 type: 'object',
                 properties: {
                   // `view:artificialGroup` is flattened. `subField1` and `subField2` are siblings of `field1` when sent to the API.
