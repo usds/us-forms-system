@@ -348,7 +348,12 @@ describe('Schemaform helpers:', () => {
           },
           chapter2: {
             pages: {
-              page2: {}
+              page2: {
+                schema: {
+                  type: 'object',
+                  properties: {}
+                }
+              }
             }
           }
         }
@@ -364,6 +369,60 @@ describe('Schemaform helpers:', () => {
 
       expect(output).to.eql({
         field: 'testing'
+      });
+    });
+    it('should not remove properties that are on both active and inactive pages', () => {
+      const formConfig = {
+        chapters: {
+          chapter1: {
+            pages: {
+              page1: {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    otherField: {
+                      type: 'string'
+                    },
+                    anotherField: {
+                      type: 'string'
+                    }
+                  }
+                },
+                depends: {
+                  field: 'something'
+                }
+              },
+            }
+          },
+          chapter2: {
+            pages: {
+              page2: {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    anotherField: {
+                      type: 'string'
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      };
+      const formData = {
+        data: {
+          otherField: 'testing2',
+          anotherField: 'testing3',
+          field: 'testing'
+        }
+      };
+
+      const output = JSON.parse(transformForSubmit(formConfig, formData));
+
+      expect(output).to.eql({
+        field: 'testing',
+        anotherField: 'testing3'
       });
     });
     it('should remove empty addresses', () => {

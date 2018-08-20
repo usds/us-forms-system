@@ -1,3 +1,5 @@
+:book: [*US Forms System Documentation*](../README.md) :arrow_right: [*Building a Form*](./README.md)
+
 # Common patterns for building forms
 
 Some forms require custom validation, styles, or conditional information based on user input. Use these patterns to address those needs.
@@ -151,66 +153,56 @@ To create a block of text with no fields that follow, create an empty view objec
 
 ### Conditionally hiding a group of fields
 
-Sometimes fields in a form are siblings to others, but must be hidden conditionally. For example, see this schema snippet from [VA Form 22-5490](https://www.va.gov/vaforms/form_detail.asp?FormNo=22-5490):
-
-```json
-"previousBenefits": {
-  "type": "object",
-  "properties": {
-    "disability": { "type": "boolean" },
-    "dic": { "type": "boolean" },
-    "chapter31": { "type": "boolean" },
-    "ownServiceBenefits": { "type": "string" },
-    "chapter35": { "type": "boolean" },
-    "chapter33": { "type": "boolean" },
-    "transferOfEntitlement": { "type": "boolean" },
-    "other": { "type": "string" },
-    "veteranFullName": { "$ref": "#/definitions/fullName" },
-    "veteranSocialSecurityNumber": { "$ref": "#/definitions/ssn" }
-  }
-}
-```
-
-Only `chapter35`, `chapter33`, `transferOfEntitlement`, `veteranFullName`, and `veteranSocialSecurityNumber` are conditionally hidden, so the `schema` and `uiSchema` are written as:
+Sometimes fields in a form are siblings to others, but should be hidden conditionally. For example, this schema defines a field named `employed` that is rendered as a checkbox the user can check. If this field is false (the checkbox is not checked) there is no need to display the `jobStartDate` or `monthlyWages` fields:
 
 ```js
-// schema
-{
-  disability: { ... },
-  dic: { ... },
-  chapter31: { ... },
-  ownServiceBenefits: { ... },
-  'view:sponsorServiceOptions': {
-    chapter35: { ... },
-    chapter33: { ... },
-    transferOfEntitlement: { ... },
-    veteranFullName: { ... },
-    veteranSocialSecurityNumber: { ... }
-  },
-  other: { ... }
+schema: {
+  type: 'object',
+  properties: {
+    employed: { type: 'boolean' },
+    jobStartDate: { type: 'string' },
+    monthlyWages: { type: 'string' },
+    otherMonthlyIncome: { type: 'string' }
+  }
 }
 
-// uiSchema
-{
-  disability: { ... },
-  dic: { ... },
-  chapter31: { ... },
-  ownServiceBenefits: { ... },
-  'view:sponsorServiceOptions': {
-    hideIf: (formData) => /* Some condition here */,
-    chapter35: { ... },
-    chapter33: { ... },
-    transferOfEntitlement: { ... },
-    veteranFullName: { ... },
-    veteranSocialSecurityNumber: { ... }
+```
+
+To accomplish this, the `schema` and `uiSchema` are written as:
+
+```js
+schema: {
+  type: 'object',
+  properties: {
+    employed: { type: 'boolean' },
+    'view:jobInformation': {
+      type: 'object',
+      properties: {
+        jobStartDate: { type: 'string' },
+        monthlyWages: { type: 'string' }
+      }
+    },
+    otherMonthlyIncome: { type: 'string' }
+  }
+},
+uiSchema: {
+  employed: { 'ui:title': 'I am employed' },
+  'view:jobInformation': {
+    'ui:options': {
+      hideIf: (formData) => !formData.employed
+    },
+    jobStartDate: { 'ui:title': 'Job start date' },
+    monthlyWages: { 'ui:title': 'Monthly wages' },
   },
-  other: { ... }
+  otherMonthlyIncome: { 'ui:title': 'Other monthly income' }
 }
 ```
 
-From this, the fields in the `view:sponsorServiceOptions` object are moved up one level and sent alongside `dic` and `chapter31`. The back end doesn't see objects with names that start with `view:`, but it gets all fields inside those objects.
+The `hideIf` function is passed a copy of the current `formData` in order to determine the condition upon which the fields are shown. In this example, it will hide the fields unless `employed` is `true`.
 
-## Styling expanded or collapsed fields
+Objects from the form config with names that start with `view:` are not passed to the back-end, but fields within those `view:` objects are passed to the back-end by including them in the parent object. In this example, the fields `jobStartDate` and `monthlyWages` would be included in the same object as `employed` and `otherMonthlyIncome`, while the field for `view:JobInformation` would be filtered out.
+
+### Styling expanded or collapsed fields
 
 To indent or otherwise style fields that are expanded or collapsed with the `expandUnder` option, set a class on the controlling field. For example:
 
@@ -297,4 +289,4 @@ If a user types 'open sesame' for the `passPhrase` on the first page, `otherPage
 
 **Don't use the pass phrase as a secure login or other authentication mechanism.** Within the source, the text of a pass phrase is clear text, even when it's in a function.
 
-[Back to *Building a Form*](README.md)
+[Back to *Building a Form*](./README.md)
