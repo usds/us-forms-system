@@ -5,7 +5,7 @@
 Use this example `form.js` file to build a basic form. For more information about `form.js`, see "[Creating a form config file](creating-a-form-config-file.md)."
 
 ```js
-{
+const formConfig = {
   // Prefix string to add to the path for each page.
   urlPrefix: '',
 
@@ -28,83 +28,90 @@ Use this example `form.js` file to build a basic form. For more information abou
   defaultDefinitions: {},
 
   // When a user begins completing a pre-filled form, this function is called after data migrations are run for pre-filled data in order to make necessary updates to the data or form schema ahead of time.
-  prefillTransformer: (pages, formData, metadata ) => { pages, formData, metadata }
+  prefillTransformer: (pages, formData, metadata ) => { pages, formData, metadata },
 
-  // The object that contains the configuration for each chapter. Each property is the key for a chapter.
+  // The object that contains the configuration for each chapter.
   chapters: {
-
-    // The title of the chapter.
-    title: '',
-
-    // The object that contains the pages in each chapter. Each property is the key for a page, and should be unique across chapters.
-    pages: {
-
-      // The URL for the page.
-      path: 'some-path',
-
-      // The title of the page that renders on the review page.
+    // Each property is the key for a chapter.
+    chapterOne: {
+      // The title of the chapter.
       title: '',
-      // This can also be a function that receives the current data as a parameter.
-      title: formData => `A title for ${formData.thing}`,
 
-      // Any initial data that should be set for the form.
-      initialData: {
-        field1: 'Default string'
-      },
+      // The object that contains the pages in each chapter.
+      pages: {
+        // Each property is the key for a page, and should be unique across chapters.
+        pageOne: {
+            // The URL for the page.
+          path: 'some-path',
 
-      // Specifies that a page will turn its schema into a page for each item in an array, such as an array of children with a page
-      // for each child. The schema/uiSchema for this type of page should be built as usual for an array field.
-      showPagePerItem: true,
-      // The path to the array.
-      arrayPath: 'children',
-      // Items in the array that should not have a page.
-      itemFilter: () => true,
-      // You must specify a path with an :index parameter.
-      path: 'some-path/:index',
+          // The title of the page that renders on the review page.
+          title: '',
+          // `title` can also be a function that receives the current data as a parameter:
+          title: formData => `A title for ${formData.thing}`,
 
-      // The JSON schema object for the page, following the JSON Schema format.
-      schema: {
-        type: 'object',
-        // A schema's properties refer to definitions. For example:
-        //   "homePhone": { "$ref": "#/definitions/phone" }
-        // In the configuration file, the definition for `phone` must be added into definitions in order to be parsed correctly and added to `homePhone`.
-        definitions: {},
-        properties: {
-          field1: {
-            type: 'string'
+          // Any initial data that should be set for the form.
+          initialData: {
+            field1: 'Default string'
           },
-          // Fields of type `string`, `boolean`, `number`, and `array` that begin with `view:` are excluded from data that's sent to
-          // the server. Instead, their children are merged into the parent object and sent to the server. Use these to exclude fields
-          // from being sent to the server, such as a question that's only used to reveal other questions, or to group related
-          // questions together to be conditionally revealed that aren't in an object in the schema.
-          'view:field2': {
-            type: 'string'
-          },
-          'view:artificialGroup'{
+
+          // Specifies that a page will turn its schema into a page for each item in an array, such as an array of children with a page
+          // for each child. The schema/uiSchema for this type of page should be built as usual for an array field.
+          showPagePerItem: true,
+          // The path to the array.
+          arrayPath: 'children',
+          // Items in the array that should not have a page.
+          itemFilter: () => true,
+          // You must specify a path with an :index parameter.
+          path: 'some-path/:index',
+
+          // The JSON schema object for the page, following the JSON Schema format.
+          schema: {
             type: 'object',
+            // A schema's properties refer to definitions. For example:
+            //   "homePhone": { "$ref": "#/definitions/phone" }
+            // In the configuration file, the definition for `phone` must be added into definitions in order to be parsed correctly and added to `homePhone`.
+            definitions: {},
             properties: {
-              // `view:artificialGroup` is flattened. `subField1` and `subField2` are siblings of `field1` when sent to the API.
-              subField1: {
+              field1: {
                 type: 'string'
               },
-              subField2: {
-                type: 'boolean'
+              // Fields of type `string`, `boolean`, `number`, and `array` that begin with `view:` are excluded from data that's sent to
+              // the server. Instead, their children are merged into the parent object and sent to the server. Use these to exclude fields
+              // from being sent to the server, such as a question that's only used to reveal other questions, or to group related
+              // questions together to be conditionally revealed that aren't in an object in the schema.
+              'view:field2': {
+                type: 'string'
+              },
+              'view:artificialGroup': {
+                type: 'object',
+                properties: {
+                  // `view:artificialGroup` is flattened. `subField1` and `subField2` are siblings of `field1` when sent to the API.
+                  subField1: {
+                    type: 'string'
+                  },
+                  subField2: {
+                    type: 'boolean'
+                  }
+                }
               }
             }
-          }
-        }
-      },
+          },
 
-      // See "About the `schema` and `uiSchema` objects" below.
-      uiSchema: {
-        'ui:title': 'My form',
-        field1: {
-          'ui:title': 'My field'
+          // See "About the `schema` and `uiSchema` objects" below.
+          uiSchema: {
+            'ui:title': 'My form',
+            field1: {
+              'ui:title': 'My field'
+            }
+          }
         }
       }
     }
   }
 }
+
+export default formConfig
 ```
+[About the `schema` and `uiSchema` objects](./about-the-schema-and-uischema-objects.md)
 
 [Back to *Building a Form*](./README.md)
