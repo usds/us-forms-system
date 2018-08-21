@@ -2,27 +2,29 @@
 
 # Common definitions
 
-Definitions are pieces of the form config that can be dropped in to represent specific types of questions. Most often used in `uiSchema`, definitions include features such as label text, validation functions, error messages, and rules for which widget to render.
+Definitions, located in [/src/js/definitions](../../src/js/definitions), are pieces of the form config that can be dropped in to represent specific types of questions. They include features such as label text, validation functions, error messages, and rules for which widget to render.
 
-There are common types of definitions: `schema`/`uiSchema` objects and functions that return `schema`/`uiSchema` objects. For the function versions, there is documentation within the fields for the parameters. Definitions are located in [/src/js/definitions](../../src/js/definitions).
-
-- Simple definitions are provided as `schema` and `uiSchema` objects that you can import and overwrite to customize.
-- More complex definitions are functions that require certain parameters.
+Definitions export `schema` and `uiSchema` objects, which are functions that require certain parameters.
 
 ### Using definitions
 
 To use a definition, import it near the top of the file you want to reference it in:
 
 ```js
-import currencyUI from 'us-forms-system/lib/js/definitions/currency';
+import currencyConfig from 'us-forms-system/lib/js/definitions/currency';
 ```
 
-Then, call it to add all the `uiSchema` definitions. In this example, the definition is a function that takes the title for that field, which is used to populate the 'ui:title' property in uiSchema:
+Then, call it to add the `schema` and `uiSchema` functions. The definition is a function that takes the title for that field, which is used to populate the 'ui:title' property in uiSchema:
 
 ```js
+schema: {
+  ...
+  currency: currencyConfig.schema(),
+  ...
+}
 uiSchema: {
   ...
-  monthlyWages: currencyUI('Monthly wages')
+  currency: currencyConfig.uiSchema('Currency'),
   ...
 }
 ```
@@ -45,22 +47,25 @@ Available definitions are:
 ### Autosuggest
 
 A common type-ahead widget that lets a user type in values and narrow down a longer list of options. It is most commonly used with an `enum` of the available options as shown here. Define the uiSchema by calling the function that you import. You can pass an object with additional uiSchema properties.
+
 ```js
 import { uiSchema as autosuggestUI } from 'us-forms-system/lib/js/definitions/autosuggest';
 
-schema: {
-  type: 'object',
-  properties: {
-    officeLocation: {
-      type: 'string',
-      enum: [
-        'LA', 'NY', 'CH'
-      ],
-      enumNames: [
-        'Los Angeles',
-        'New York',
-        'Chicago'
-      ]
+function schema() {
+  return {
+    type: 'object'
+    properties: {
+      officeLocation: {
+        type: 'string',
+        enum: [
+          'LA', 'NY', 'CH'
+        ],
+        enumNames: [
+          'Los Angeles',
+          'New York',
+          'Chicago'
+        ]
+      }
     }
   }
 },
@@ -84,10 +89,16 @@ Source: [/src/js/definitions/autosuggest.js](../../src/js/definitions/autosugges
 Formats and validates a US currency field. The display includes a leading `$` character. Call this exported function and pass it the label to be used on the field.
 
 ```js
-import currencyUI from 'us-forms-system/lib/js/definitions/currency';
+import { currencyConfig } from 'us-forms-system/lib/js/definitions/currency';
 
 uiSchema: {
-  payments: currencyUI('Total Payments')
+  currency: currencyConfig.uiSchema('Currency')
+},
+schema: {
+  type: 'object',
+  properties: {
+    currency: currencyConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
@@ -97,10 +108,16 @@ Source: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
 The common date field with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
 
 ```js
-import currentOrPastDateUI from 'us-forms-system/lib/js/definitions/currentOrPastDate';
+import { currentOrPastDateConfig } from 'us-forms-system/lib/js/definitions/currentOrPastDate';
 
 uiSchema: {
-  birthdate: currentOrPastDate('Date of Birth')
+  currentOrPastDate: currentOrPastDateConfig.uiSchema()
+},
+schema: {
+  type: 'object'
+  properties: {
+    currentOrPastDate: currentOrPastDateConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/currentOrPastDate.js)
@@ -110,10 +127,16 @@ Source: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/curr
 The common date field without the day field and with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
 
 ```js
-import currentOrPastMonthYear from 'us-forms-system/lib/js/definitions/currentOrPastMonthYear';
+import { currentOrPastMonthYearConfig } from 'us-forms-system/lib/js/definitions/currentOrPastMonthYear';
 
 uiSchema: {
-  lastContact: currentOrPastMonthYear('Last Contact')
+  currentOrPastMonthYear: currentOrPastMonthYearConfig.uiSchema()
+},
+schema: {
+  type: 'object',
+  properties: {
+    currentOrPastMonthYear: currentOrPastMonthYearConfig.schema()
+  }
 }
 ```
 Source:  [/src/js/definitions/currentOrPastMonthYear.js](../../src/js/definitions/currentOrPastMonthYear.js)
@@ -122,10 +145,16 @@ Source:  [/src/js/definitions/currentOrPastMonthYear.js](../../src/js/definition
 
 The common date field with basic date validation. Call this exported function and pass it the label to be used on the field.
 ```js
-import dateUI from 'us-forms-system/lib/js/definitions/date';
+import { dateConfig } from 'us-forms-system/lib/js/definitions/date';
 
 uiSchema: {
-  startDate: dateUI('startDate')
+  date: dateConfig.uiSchema()
+},
+schema: {
+  type: 'object',
+  properties: {
+    date: dateConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/date.js](../../src/js/definitions/date.js)
@@ -134,10 +163,16 @@ Source: [/src/js/definitions/date.js](../../src/js/definitions/date.js)
 
 Two common date fields with validation to ensure they form a valid range. Call this exported function.
 ```js
-import dateRangeUI from 'us-forms-system/lib/js/definitions/dateRange';
+import { dateRangeConfig } from 'us-forms-system/lib/js/definitions/dateRange';
 
 uiSchema: {
-  servicePeriod: dateRangeUI('servicePeriod')
+  dateRange: dateRangeConfig.uiSchema()
+},
+schema: {
+  type: 'object',
+  properties: {
+    dateRange: dateRangeConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/dateRange.js](../../src/js/definitions/dateRange.js)
@@ -152,10 +187,16 @@ Source: [/src/js/definitions/file.js](../../src/js/definitions/file.js)
 
 The common date field, excluding day field, with basic validation. Call this exported function with the label to be displayed on the field.
 ```js
-import monthYearUI from 'us-forms-system/lib/js/definitions/monthYear';
+import { monthYearConfig } from 'us-forms-system/lib/js/definitions/monthYear';
 
 uiSchema: {
-  serviceStart: monthYearUI('Month/Year Service Started')
+  monthYear: monthYearConfig.uiSchema()
+},
+schema: {
+  type: 'object',
+  properties: {
+    monthYear: monthYearConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/monthYear.js](../../src/js/definitions/monthYear.js)
@@ -164,10 +205,16 @@ Source: [/src/js/definitions/monthYear.js](../../src/js/definitions/monthYear.js
 
 Two common date fields, excluding day field, with validation to ensure the dates form a valid range. Similar to the `Date range` above but without the days. Call this exported function.
 ```js
-import monthYearRangeUI from 'us-forms-system/lib/js/definitions/monthYearRange';
+import { monthYearRangeConfig } from 'us-forms-system/lib/js/definitions/monthYearRange';
 
 uiSchema: {
-  serviceStart: monthYearRangeUI()
+  monthYearRange: monthYearRangeConfig.uiSchema()
+},
+schema: {
+  type: 'object',
+  properties: {
+    monthYearRange: monthYearRangeConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/monthYearRange.js](../../src/js/definitions/monthYearRange.js)
@@ -176,10 +223,16 @@ Source: [/src/js/definitions/monthYearRange.js](../../src/js/definitions/monthYe
 
 A phone number with basic validation. Call this exported function, optionally passing it the label for the field (the default is "Phone").
 ```js
-import phoneUI from 'us-forms-system/lib/js/definitions/phone';
+import { phoneConfig } from 'us-forms-system/lib/js/definitions/phone';
 
 uiSchema: {
-  homePhone: phoneUI('Home Phone')
+  phone: phoneConfig.uiSchema()
+},
+schema: {
+  type: 'object',
+  properties: {
+    phone: phoneConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/phone.js](../../src/js/definitions/phone.js)
@@ -188,10 +241,16 @@ Source: [/src/js/definitions/phone.js](../../src/js/definitions/phone.js)
 
 A social security number with default label text and validation. This is an object.
 ```js
-import ssnUI from 'us-forms-system/lib/js/definitions/ssn';
+import { ssnConfig } from 'us-forms-system/lib/js/definitions/ssn';
 
 uiSchema: {
-  ssn: ssnUI
+  ssn: ssnConfig.uiSchema()
+},
+schema: {
+  type: 'object',
+  properties: {
+    ssn: ssnConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/ssn.js](../../src/js/definitions/ssn.js)
@@ -200,10 +259,16 @@ Source: [/src/js/definitions/ssn.js](../../src/js/definitions/ssn.js)
 
 A text field that validates the current or a past year. This is an object.
 ```js
-import yearUI from 'us-forms-system/lib/js/definitions/year';
+import { yearConfig } from 'us-forms-system/lib/js/definitions/year';
 
 uiSchema: {
-  yearBorn: yearUI
+  year: yearConfig.uiSchema()
+},
+schema: {
+  type: 'object',
+  properties: {
+    year: yearConfig.schema()
+  }
 }
 ```
 Source: [/src/js/definitions/year.js](../../src/js/definitions/year.js)
