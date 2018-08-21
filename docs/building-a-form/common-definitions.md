@@ -17,14 +17,14 @@ import currencyConfig from 'us-forms-system/lib/js/definitions/currency';
 Then, call it to add the `schema` and `uiSchema` functions. The definition is a function that takes the title for that field, which is used to populate the 'ui:title' property in uiSchema:
 
 ```js
-schema: {
-  ...
-  currency: currencyConfig.schema(),
-  ...
-}
 uiSchema: {
   ...
   currency: currencyConfig.uiSchema('Currency'),
+  ...
+}
+schema: {
+  ...
+  currency: currencyConfig.schema(),
   ...
 }
 ```
