@@ -87,6 +87,7 @@ Source: [/src/js/definitions/autosuggest.js](../../src/js/definitions/autosugges
 ### Currency
 
 Formats and validates a US currency field. The display includes a leading `$` character. Call this exported function and pass it the label to be used on the field.
+![Two currency fields, one with the field selected](../images/definitions/currency.png)
 
 ```js
 import { currencyConfig } from 'us-forms-system/lib/js/definitions/currency';
@@ -106,6 +107,7 @@ Source: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
 ### Current or past dates
 
 The common date field with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
+![Four date fields, with and without focus, with an invalid year, and with valid data](../images/definitions/currentOrPastDate.png)
 
 ```js
 import { currentOrPastDateConfig } from 'us-forms-system/lib/js/definitions/currentOrPastDate';
@@ -125,6 +127,7 @@ Source: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/curr
 ### Current or past month/year
 
 The common date field without the day field and with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
+![Three date fields, one empty, one with invalid data, and one with valid data](../images/definitions/currentOrPastMonthYear.png)
 
 ```js
 import { currentOrPastMonthYearConfig } from 'us-forms-system/lib/js/definitions/currentOrPastMonthYear';
@@ -144,6 +147,8 @@ Source:  [/src/js/definitions/currentOrPastMonthYear.js](../../src/js/definition
 ### Date
 
 The common date field with basic date validation. Call this exported function and pass it the label to be used on the field.
+![Two date fields, one with an invalid year](../images/definitions/date.png)
+
 ```js
 import { dateConfig } from 'us-forms-system/lib/js/definitions/date';
 
@@ -162,6 +167,8 @@ Source: [/src/js/definitions/date.js](../../src/js/definitions/date.js)
 ### Date range
 
 Two common date fields with validation to ensure they form a valid range. Call this exported function.
+![Two date fields, signifying a date range](../images/definitions/dateRange.png)
+
 ```js
 import { dateRangeConfig } from 'us-forms-system/lib/js/definitions/dateRange';
 
@@ -186,6 +193,8 @@ Source: [/src/js/definitions/file.js](../../src/js/definitions/file.js)
 ### Month/year
 
 The common date field, excluding day field, with basic validation. Call this exported function with the label to be displayed on the field.
+![Two date fields, one unfilled and one filled with a date](../images/definitions/date.png)
+
 ```js
 import { monthYearConfig } from 'us-forms-system/lib/js/definitions/monthYear';
 
@@ -204,6 +213,8 @@ Source: [/src/js/definitions/monthYear.js](../../src/js/definitions/monthYear.js
 ### Month/year range
 
 Two common date fields, excluding day field, with validation to ensure the dates form a valid range. Similar to the `Date range` above but without the days. Call this exported function.
+![Four range fields, one empty, one with valid data, and two with invalid data](../images/definitions/monthYearRange.png)
+
 ```js
 import { monthYearRangeConfig } from 'us-forms-system/lib/js/definitions/monthYearRange';
 
@@ -222,6 +233,8 @@ Source: [/src/js/definitions/monthYearRange.js](../../src/js/definitions/monthYe
 ### Phone
 
 A phone number with basic validation. Call this exported function, optionally passing it the label for the field (the default is "Phone").
+![A phone field without focus, with focus, invalid data, and valid data](../images/definitions/phone.png)
+
 ```js
 import { phoneConfig } from 'us-forms-system/lib/js/definitions/phone';
 
@@ -240,6 +253,8 @@ Source: [/src/js/definitions/phone.js](../../src/js/definitions/phone.js)
 ### Social Security Number
 
 A social security number with default label text and validation. This is an object.
+![Three social security fields, one unselected, one selected, and one with invalid data](../images/definitions/ssn.png)
+
 ```js
 import { ssnConfig } from 'us-forms-system/lib/js/definitions/ssn';
 
@@ -258,6 +273,8 @@ Source: [/src/js/definitions/ssn.js](../../src/js/definitions/ssn.js)
 ### Year
 
 A text field that validates the current or a past year. This is an object.
+![Four year fields, selected, unselected, and with valid and invalid data](../images/definitions/year.png)
+
 ```js
 import { yearConfig } from 'us-forms-system/lib/js/definitions/year';
 
