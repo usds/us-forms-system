@@ -426,7 +426,7 @@ preSubmitInfo: {
   notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
   required: true,  // when false, the notice is shown without a checkbox
   field: 'privacyAgreementAccepted',  // name of the field in submitted data
-  label: 'I have read and accept the <a href-"/privacy">privacy policy</a>.',
+  label: 'I have read and accept the <a href="/privacy">privacy policy</a>.',
   error: 'You must accept the privacy policy before continuing',
 }
 ```
