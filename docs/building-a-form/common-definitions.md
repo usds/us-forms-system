@@ -66,7 +66,6 @@ schema: {
         'New York',
         'Chicago'
       ]
-      }
     }
   }
 },
