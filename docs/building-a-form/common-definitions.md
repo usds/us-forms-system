@@ -86,7 +86,8 @@ Source: [/src/js/definitions/autosuggest.js](../../src/js/definitions/autosugges
 
 ### Currency
 
-Formats and validates a US currency field. The display includes a leading `$` character. Call this exported function and pass it the label to be used on the field.
+Formats and validates a US currency field that includes a leading `$` character. You can pass this function a label to be used on the field.
+
 ![Two currency fields, one with the field selected](../images/definitions/currency.png)
 
 ```js
@@ -106,7 +107,8 @@ Source: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
 
 ### Current or past dates
 
-The common date field with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
+The common date field with validation warning that dates in the past or future are not valid. You can pass this function a label to be used on the field. Dates must be on or before January 1, 1900.
+
 ![Four date fields, with and without focus, with an invalid year, and with valid data](../images/definitions/currentOrPastDate.png)
 
 ```js
@@ -126,7 +128,8 @@ Source: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/curr
 
 ### Current or past month/year
 
-The common date field without the day field and with current or past validation set (i.e., dates in the future are not valid). Call this exported function and pass it the label to be used on the field.
+The common date field with only month and year fields and with validation warning that dates in the past or future are not valid. You can pass this function a label to be used on the field. Dates must be on or before January 1, 1900.
+
 ![Three date fields, one empty, one with invalid data, and one with valid data](../images/definitions/currentOrPastMonthYear.png)
 
 ```js
@@ -146,7 +149,8 @@ Source:  [/src/js/definitions/currentOrPastMonthYear.js](../../src/js/definition
 
 ### Date
 
-The common date field with basic date validation. Call this exported function and pass it the label to be used on the field.
+The common date field with basic date validation. You can pass this function the label to be used on the field. Dates must be on or before January 1, 1900.
+
 ![Two date fields, one with an invalid year](../images/definitions/date.png)
 
 ```js
@@ -166,7 +170,8 @@ Source: [/src/js/definitions/date.js](../../src/js/definitions/date.js)
 
 ### Date range
 
-Two common date fields with validation to ensure they form a valid range. Call this exported function.
+Two common date fields with validation to ensure they form a valid range. Dates must be on or before January 1, 1900.
+
 ![Two date fields, signifying a date range](../images/definitions/dateRange.png)
 
 ```js
@@ -192,7 +197,8 @@ Source: [/src/js/definitions/file.js](../../src/js/definitions/file.js)
 
 ### Month/year
 
-The common date field, excluding day field, with basic validation. Call this exported function with the label to be displayed on the field.
+The common date field, excluding day field, with basic validation. Dates must be on or before January 1, 1900. You can call this function with the label to be displayed on the field.
+
 ![Two date fields, one unfilled and one filled with a date](../images/definitions/date.png)
 
 ```js
@@ -212,7 +218,8 @@ Source: [/src/js/definitions/monthYear.js](../../src/js/definitions/monthYear.js
 
 ### Month/year range
 
-Two common date fields, excluding day field, with validation to ensure the dates form a valid range. Similar to the `Date range` above but without the days. Call this exported function.
+Two common date fields, excluding day field, with validation to ensure the dates form a valid range. Dates must be on or before January 1, 1900.
+
 ![Four range fields, one empty, one with valid data, and two with invalid data](../images/definitions/monthYearRange.png)
 
 ```js
@@ -232,7 +239,8 @@ Source: [/src/js/definitions/monthYearRange.js](../../src/js/definitions/monthYe
 
 ### Phone
 
-A phone number with basic validation. Call this exported function, optionally passing it the label for the field (the default is "Phone").
+A phone number with basic validation. You can pass this function the label to be used on the field.
+
 ![A phone field without focus, with focus, invalid data, and valid data](../images/definitions/phone.png)
 
 ```js
@@ -252,7 +260,8 @@ Source: [/src/js/definitions/phone.js](../../src/js/definitions/phone.js)
 
 ### Social Security Number
 
-A social security number with default label text and validation. This is an object.
+A US social security number field with validation.
+
 ![Three social security fields, one unselected, one selected, and one with invalid data](../images/definitions/ssn.png)
 
 ```js
@@ -272,7 +281,8 @@ Source: [/src/js/definitions/ssn.js](../../src/js/definitions/ssn.js)
 
 ### Year
 
-A text field that validates the current or a past year. This is an object.
+A text field that validates the current or a past year. Dates must be on or before January 1, 1900.
+
 ![Four year fields, selected, unselected, and with valid and invalid data](../images/definitions/year.png)
 
 ```js
