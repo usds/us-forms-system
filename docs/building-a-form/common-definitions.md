@@ -71,8 +71,16 @@ schema: {
   }
 },
 uiSchema: {
+  uiSchema: {
   officeLocation: autosuggestConfig.uiSchema(
-    ...
+    'Preferred Office Location',  // field title
+    null,         // Promise to get options (optional)
+    {             // Additional uiSchema options
+      'ui:options': {
+        // When labels are not provided, it uses enumNames
+        labels: { }
+      }
+    }
   )
 }
 ```
@@ -114,7 +122,7 @@ uiSchema: {
 schema: {
   type: 'object'
   properties: {
-    currentOrPastDate: currentOrPastDateConfig.schema()
+    birthdate: currentOrPastDateConfig.schema()
   }
 }
 ```
@@ -135,7 +143,7 @@ uiSchema: {
 schema: {
   type: 'object',
   properties: {
-    currentOrPastMonthYear: currentOrPastMonthYearConfig.schema()
+    lastContact: currentOrPastMonthYearConfig.schema()
   }
 }
 ```
@@ -156,7 +164,7 @@ uiSchema: {
 schema: {
   type: 'object',
   properties: {
-    date: dateConfig.schema()
+    startDate: dateConfig.schema()
   }
 }
 ```
@@ -177,7 +185,7 @@ uiSchema: {
 schema: {
   type: 'object',
   properties: {
-    dateRange: dateRangeConfig.schema()
+    servicePeriod: dateRangeConfig.schema()
   }
 }
 ```
@@ -204,7 +212,7 @@ uiSchema: {
 schema: {
   type: 'object',
   properties: {
-    monthYear: monthYearConfig.schema()
+    serviceStart: monthYearConfig.schema()
   }
 }
 ```
@@ -225,7 +233,7 @@ uiSchema: {
 schema: {
   type: 'object',
   properties: {
-    monthYearRange: monthYearRangeConfig.schema()
+    serviceRange: monthYearRangeConfig.schema()
   }
 }
 ```
@@ -288,7 +296,7 @@ uiSchema: {
 schema: {
   type: 'object',
   properties: {
-    year: yearConfig.schema()
+    taxYear: yearConfig.schema()
   }
 }
 ```
