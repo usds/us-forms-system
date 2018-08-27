@@ -11,10 +11,12 @@ Definitions export `schema` and `uiSchema` objects, which are functions that req
 To use a definition, import it near the top of the file you want to reference it in:
 
 ```js
-import currencyConfig from 'us-forms-system/lib/js/definitions/currency';
+import { currencyConfig } from 'us-forms-system/lib/js/definitions/currency';
 ```
 
-Then, call it to add the `schema` and `uiSchema` functions. The definition is a function that takes the title for that field, which is used to populate the 'ui:title' property in uiSchema:
+Then, call the `schema` and `uiSchema` functions on the definition where needed.
+
+Functions may take arguments to configure how the definitions are used. In this example, the `uiSchema` for currency takes an optional argument for the title of the field. To set the title to "Currency", pass that as a string to the `uiSchema` function:
 
 ```js
 uiSchema: {
@@ -49,36 +51,28 @@ Available definitions are:
 A common type-ahead widget that lets a user type in values and narrow down a longer list of options. It is most commonly used with an `enum` of the available options as shown here. Define the uiSchema by calling the function that you import. You can pass an object with additional uiSchema properties.
 
 ```js
-import { uiSchema as autosuggestUI } from 'us-forms-system/lib/js/definitions/autosuggest';
+import { autosuggestConfig } from 'us-forms-system/lib/js/definitions/autosuggest';
 
-function schema() {
-  return {
-    type: 'object'
-    properties: {
-      officeLocation: {
-        type: 'string',
-        enum: [
-          'LA', 'NY', 'CH'
-        ],
-        enumNames: [
-          'Los Angeles',
-          'New York',
-          'Chicago'
-        ]
+schema: {
+  type: 'object',
+  properties: {
+    officeLocation: {
+      type: 'string',
+      enum: [
+        'LA', 'NY', 'CH'
+      ],
+      enumNames: [
+        'Los Angeles',
+        'New York',
+        'Chicago'
+      ]
       }
     }
   }
 },
 uiSchema: {
-  officeLocation: autosuggestUI(
-    'Preferred Office Location',  // field title
-    null,         // Promise to get options (optional)
-    {             // Additional uiSchema options
-      'ui:options': {
-        // When labels are not provided, it uses enumNames
-        labels: { }
-      }
-    }
+  officeLocation: autosuggestConfig.uiSchema(
+    ...
   )
 }
 ```
@@ -86,7 +80,7 @@ Source: [/src/js/definitions/autosuggest.js](../../src/js/definitions/autosugges
 
 ### Currency
 
-Formats and validates a US currency field that includes a leading `$` character. You can pass this function a label to be used on the field.
+Formats and validates a US currency field that includes a leading `$` character. You can pass the `uiSchema` function a label to be used on the field.
 
 ![Two currency fields, one with the field selected](../images/definitions/currency.png)
 
@@ -107,7 +101,7 @@ Source: [/src/js/definitions/currency.js](../../src/js/definitions/currency.js)
 
 ### Current or past dates
 
-The common date field with validation warning that dates in the past or future are not valid. You can pass this function a label to be used on the field. Dates must be on or before January 1, 1900.
+The common date field with validation warning that dates in the past or future are not valid. You can pass the `uiSchema` function a label to be used on the field. Dates must be on or before January 1, 1900.
 
 ![Four date fields, with and without focus, with an invalid year, and with valid data](../images/definitions/currentOrPastDate.png)
 
@@ -115,7 +109,7 @@ The common date field with validation warning that dates in the past or future a
 import { currentOrPastDateConfig } from 'us-forms-system/lib/js/definitions/currentOrPastDate';
 
 uiSchema: {
-  currentOrPastDate: currentOrPastDateConfig.uiSchema()
+  birthdate: currentOrPastDateConfig.uiSchema('Date of Birth')
 },
 schema: {
   type: 'object'
@@ -128,7 +122,7 @@ Source: [/src/js/definitions/currentOrPastDate.js](../../src/js/definitions/curr
 
 ### Current or past month/year
 
-The common date field with only month and year fields and with validation warning that dates in the past or future are not valid. You can pass this function a label to be used on the field. Dates must be on or before January 1, 1900.
+The common date field with only month and year fields and with validation warning that dates in the past or future are not valid. You can pass the `uiSchema` function a label to be used on the field. Dates must be on or before January 1, 1900.
 
 ![Three date fields, one empty, one with invalid data, and one with valid data](../images/definitions/currentOrPastMonthYear.png)
 
@@ -136,7 +130,7 @@ The common date field with only month and year fields and with validation warnin
 import { currentOrPastMonthYearConfig } from 'us-forms-system/lib/js/definitions/currentOrPastMonthYear';
 
 uiSchema: {
-  currentOrPastMonthYear: currentOrPastMonthYearConfig.uiSchema()
+  lastContact: currentOrPastMonthYearConfig.uiSchema('Last Contact')
 },
 schema: {
   type: 'object',
@@ -149,7 +143,7 @@ Source:  [/src/js/definitions/currentOrPastMonthYear.js](../../src/js/definition
 
 ### Date
 
-The common date field with basic date validation. You can pass this function the label to be used on the field. Dates must be on or before January 1, 1900.
+The common date field with basic date validation. You can pass the `uiSchema` function a label to be used on the field. Dates must be on or before January 1, 1900.
 
 ![Two date fields, one with an invalid year](../images/definitions/date.png)
 
@@ -157,7 +151,7 @@ The common date field with basic date validation. You can pass this function the
 import { dateConfig } from 'us-forms-system/lib/js/definitions/date';
 
 uiSchema: {
-  date: dateConfig.uiSchema()
+  startDate: dateConfig.uiSchema('Start Date')
 },
 schema: {
   type: 'object',
@@ -178,7 +172,7 @@ Two common date fields with validation to ensure they form a valid range. Dates 
 import { dateRangeConfig } from 'us-forms-system/lib/js/definitions/dateRange';
 
 uiSchema: {
-  dateRange: dateRangeConfig.uiSchema()
+  servicePeriod: dateRangeConfig.uiSchema('Period of Service')
 },
 schema: {
   type: 'object',
@@ -197,7 +191,7 @@ Source: [/src/js/definitions/file.js](../../src/js/definitions/file.js)
 
 ### Month/year
 
-The common date field, excluding day field, with basic validation. Dates must be on or before January 1, 1900. You can call this function with the label to be displayed on the field.
+The common date field, excluding day field, with basic validation. Dates must be on or before January 1, 1900. You can pass the `uiSchema` function a label to be used on the field.
 
 ![Two date fields, one unfilled and one filled with a date](../images/definitions/date.png)
 
@@ -205,7 +199,7 @@ The common date field, excluding day field, with basic validation. Dates must be
 import { monthYearConfig } from 'us-forms-system/lib/js/definitions/monthYear';
 
 uiSchema: {
-  monthYear: monthYearConfig.uiSchema()
+  serviceStart: monthYearConfig.uiSchema('Month and Year Service Started')
 },
 schema: {
   type: 'object',
@@ -218,7 +212,7 @@ Source: [/src/js/definitions/monthYear.js](../../src/js/definitions/monthYear.js
 
 ### Month/year range
 
-Two common date fields, excluding day field, with validation to ensure the dates form a valid range. Dates must be on or before January 1, 1900.
+Two common date fields, excluding day field, with validation to ensure the dates form a valid range. Dates must be on or before January 1, 1900. You can pass the `uiSchema` function a label to be used on the field.
 
 ![Four range fields, one empty, one with valid data, and two with invalid data](../images/definitions/monthYearRange.png)
 
@@ -226,7 +220,7 @@ Two common date fields, excluding day field, with validation to ensure the dates
 import { monthYearRangeConfig } from 'us-forms-system/lib/js/definitions/monthYearRange';
 
 uiSchema: {
-  monthYearRange: monthYearRangeConfig.uiSchema()
+  serviceRange: monthYearRangeConfig.uiSchema('Period of Service')
 },
 schema: {
   type: 'object',
@@ -239,7 +233,7 @@ Source: [/src/js/definitions/monthYearRange.js](../../src/js/definitions/monthYe
 
 ### Phone
 
-A phone number with basic validation. You can pass this function the label to be used on the field.
+A phone number with basic validation. You can pass the `uiSchema` function a label to be used on the field.
 
 ![A phone field without focus, with focus, invalid data, and valid data](../images/definitions/phone.png)
 
@@ -247,7 +241,7 @@ A phone number with basic validation. You can pass this function the label to be
 import { phoneConfig } from 'us-forms-system/lib/js/definitions/phone';
 
 uiSchema: {
-  phone: phoneConfig.uiSchema()
+  phone: phoneConfig.uiSchema('Home Phone')
 },
 schema: {
   type: 'object',
@@ -281,7 +275,7 @@ Source: [/src/js/definitions/ssn.js](../../src/js/definitions/ssn.js)
 
 ### Year
 
-A text field that validates the current or a past year. Dates must be on or before January 1, 1900.
+A text field that validates the current or a past year. Dates must be on or before January 1, 1900. You can pass the `uiSchema` function a label to be used on the field.
 
 ![Four year fields, selected, unselected, and with valid and invalid data](../images/definitions/year.png)
 
@@ -289,7 +283,7 @@ A text field that validates the current or a past year. Dates must be on or befo
 import { yearConfig } from 'us-forms-system/lib/js/definitions/year';
 
 uiSchema: {
-  year: yearConfig.uiSchema()
+  taxYear: yearConfig.uiSchema('Year Filed')
 },
 schema: {
   type: 'object',
