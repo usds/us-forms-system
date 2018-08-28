@@ -189,7 +189,8 @@ describe('schemaform createSchemaFormReducer', () => {
         }
       }, {
         type: SET_PRE_SUBMIT,
-        privacyAgreementAccepted: true
+        preSubmitField: 'privacyAgreementAccepted',
+        preSubmitAccepted: true
       });
 
       expect(state.data.privacyAgreementAccepted).to.be.true;
