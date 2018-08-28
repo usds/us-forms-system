@@ -56,7 +56,7 @@ class SubmitController extends React.Component {
 
     // If a pre-submit agreement was specified, it has to be accepted first
     const preSubmitField = formConfig.preSubmitInfo &&
-        formConfig.preSubmitInfo.required && formConfig.preSubmitInfo.field || 'AGREED';
+        formConfig.preSubmitInfo.required && (formConfig.preSubmitInfo.field || 'AGREED');
     if (preSubmitField && !form.data[preSubmitField]) {
       isValid = false;
     } else {

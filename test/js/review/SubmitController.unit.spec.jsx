@@ -6,16 +6,18 @@ import sinon from 'sinon';
 
 import { SubmitController } from '../../../src/js/review/SubmitController';
 
+const preSubmitInfo = {
+  required: true,
+  field: 'privacyAgreementAccepted',
+  notice: '<div>Notice</div>',
+  label: 'I accept the privacy agreement',
+  error: 'You must accept the privacy agreement'
+};
+
 describe('Schemaform review: SubmitController', () => {
   it('should route to confirmation page after submit', () => {
     const formConfig = {
-      preSubmitInfo: {
-        required: true,
-        field: 'privacyAgreementAccepted',
-        notice: '<div>Notice</div>',
-        label: 'I accept the privacy agreement',
-        error: 'You must accept the privacy agreement'
-      },
+      preSubmitInfo,
       chapters: {
         chapter1: {
           pages: {
@@ -69,13 +71,7 @@ describe('Schemaform review: SubmitController', () => {
       },
       formConfig: {
         urlPrefix: '/',
-        preSubmitInfo: {
-          required: true,
-          field: 'privacyAgreementAccepted',
-          notice: '<div>Notice</div>',
-          label: 'I accept the privacy agreement',
-          error: 'You must accept the privacy agreement'
-        }
+        preSubmitInfo
       },
       form: {
         submission: {
@@ -114,13 +110,7 @@ describe('Schemaform review: SubmitController', () => {
       }]
     };
     const formConfig = {
-      preSubmitInfo: {
-        required: true,
-        field: 'privacyAgreementAccepted',
-        notice: '<div>Notice</div>',
-        label: 'I accept the privacy agreement',
-        error: 'You must accept the privacy agreement'
-      }
+      preSubmitInfo
     };
     const submitForm = sinon.spy();
     const setSubmission = sinon.spy();
@@ -142,13 +132,7 @@ describe('Schemaform review: SubmitController', () => {
   });
   it('should not submit when invalid', () => {
     const formConfig = {
-      preSubmitInfo: {
-        required: true,
-        field: 'privacyAgreementAccepted',
-        notice: '<div>Notice</div>',
-        label: 'I accept the privacy agreement',
-        error: 'You must accept the privacy agreement'
-      },
+      preSubmitInfo,
       chapters: {
         chapter1: {
           pages: {
@@ -225,13 +209,7 @@ describe('Schemaform review: SubmitController', () => {
   });
   it('should submit when valid', () => {
     const formConfig = {
-      preSubmitInfo: {
-        required: true,
-        field: 'privacyAgreementAccepted',
-        notice: 'Notice',
-        label: 'I accept the privacy agreement',
-        error: 'You must accept the privacy agreement'
-      },
+      preSubmitInfo,
       chapters: {
         chapter1: {
           pages: {
@@ -306,18 +284,86 @@ describe('Schemaform review: SubmitController', () => {
 
     expect(submitForm.called).to.be.true;
   });
+  it('should submit when valid and no preSubmit specified', () => {
+    const formConfig = {
+      chapters: {
+        chapter1: {
+          pages: {
+            page1: {
+              schema: {}
+            }
+          }
+        },
+        chapter2: {
+          pages: {
+            page2: {
+            }
+          }
+        }
+      }
+    };
+
+    const pagesByChapter = {
+      chapter1: [{
+        chapterKey: 'chapter1',
+        pageKey: 'page1'
+      }],
+      chapter2: [{
+        chapterKey: 'chapter2',
+        pageKey: 'page2'
+      }]
+    };
+
+    const form = {
+      submission: {
+        hasAttemptedSubmit: false
+      },
+      pages: {
+        page1: {
+          schema: {},
+        },
+        page2: {
+          schema: {},
+        },
+      },
+      data: {}
+    };
+
+    const pageList = [
+      {
+        path: 'previous-page'
+      },
+      {
+        path: 'testing',
+        pageKey: 'testPage'
+      },
+      {
+        path: 'next-page'
+      }
+    ];
+
+    const submitForm = sinon.spy();
+
+    const tree = SkinDeep.shallowRender(
+      <SubmitController
+        submitForm={submitForm}
+        formConfig={formConfig}
+        form={form}
+        pagesByChapter={pagesByChapter}
+        pageList={pageList}
+        route={{ formConfig, pageList }}/>
+    );
+
+    tree.getMountedInstance().handleSubmit();
+
+    expect(submitForm.called).to.be.true;
+  });
   it('should go back', () => {
     const router = {
       push: sinon.spy()
     };
     const formConfig = {
-      preSubmitInfo: {
-        required: true,
-        field: 'privacyAgreementAccepted',
-        notice: 'Notice',
-        label: 'I accept the privacy agreement',
-        error: 'You must accept the privacy agreement'
-      },
+      preSubmitInfo,
       chapters: {
         chapter1: {
           pages: {
