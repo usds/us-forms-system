@@ -31,4 +31,12 @@ This release includes breaking changes that you should consider before updating.
 - **Brief description** <Elaborate if necessary here, otherwise delete.> Reported in <issue link>, fixed in <pull request link>.
 - **Brief description** <Elaborate if necessary here, otherwise delete.> Reported in <issue link>, fixed in <pull request link>.
 
+## Thanks
+
+Thank you to the following people for contributing to this release:
+
+- [@username](https://github.com/<username>): <Issue or PR link>
+- [@username](https://github.com/<username>): <Issue or PR link>
+- [@username](https://github.com/<username>): <Issue or PR link>
+
 ```
