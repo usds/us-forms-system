@@ -80,8 +80,7 @@ export function isValidDateRange(fromDate, toDate) {
   }
   const momentStart = dateToMoment(fromDate);
   const momentEnd = dateToMoment(toDate);
-
-  return momentStart.isBefore(momentEnd);
+  return momentStart.isSameOrBefore(momentEnd);
 }
 
 // Pulled from https://en.wikipedia.org/wiki/Routing_transit_number#Check_digit

@@ -312,7 +312,7 @@ export function validateDateRange(errors, dateRange, formData, schema, errorMess
   const toDate = convertToDateField(dateRange.to);
 
   if (!isValidDateRange(fromDate, toDate)) {
-    errors.to.addError(errorMessages.pattern || 'To date must be after from date');
+    errors.to.addError(errorMessages.pattern || 'To date must be on or after from date');
   }
 }
 
