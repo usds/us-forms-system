@@ -419,7 +419,17 @@ For the code implementation, see the [`review` folder](../../src/js/review).
 
 ### Required checkbox before form submission
 
-Use this feature to require a user to indicate they have read terms and conditions, a privacy policy, or any other text before submitting your form. This includes a checkbox and short-form text that can include relevant links to more verbose text on separate pages on your site.
+Use this feature to require a user to indicate they have read terms and conditions, a privacy policy, or any other text before submitting your form. It includes a checkbox and short-form text that can include relevant links to more verbose information on separate pages on your site. To configure this feature, place a `preSubmitInfo` object in the `formConfig`:
+
+```js
+preSubmitInfo: {
+  notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
+  required: true,  // when false, the notice is shown without a checkbox
+  field: 'privacyAgreementAccepted',  // name of the field in submitted data
+  label: 'I have read and accept the <a href="/privacy">privacy policy</a>.',
+  error: 'You must accept the privacy policy before continuing',
+}
+```
 
 ![Required checkbox before form submission](https://raw.githubusercontent.com/wiki/usds/us-forms-system/images/Required-Checkbox.jpg)
 

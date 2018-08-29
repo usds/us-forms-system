@@ -492,11 +492,15 @@ export function createInitialState(formConfig) {
 
       return state;
     }, {
-      data: {
-        privacyAgreementAccepted: false,
-      },
+      data: {},
       pages: {},
     });
+
+  // Initialize the preSubmit flag if one was specified
+  const preSubmitInfo = formConfig.preSubmitInfo;
+  if (preSubmitInfo && preSubmitInfo.field) {
+    pageAndDataState.data[preSubmitInfo.field] = false;
+  }
 
   initialState = _.assign(initialState, pageAndDataState);
   // Take another pass and recalculate the schema and data based on the default data
@@ -505,4 +509,3 @@ export function createInitialState(formConfig) {
 
   return initialState;
 }
-

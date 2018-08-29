@@ -7,7 +7,7 @@ import { timeFromNow } from './utilities/date';
 export const SET_EDIT_MODE = 'SET_EDIT_MODE';
 export const SET_DATA = 'SET_DATA';
 export const SET_VIEWED_PAGES = 'SET_VIEWED_PAGES';
-export const SET_PRIVACY_AGREEMENT = 'SET_PRIVACY_AGREEMENT';
+export const SET_PRE_SUBMIT = 'SET_PRE_SUBMIT';
 export const SET_SUBMISSION = 'SET_SUBMISSION';
 export const SET_SUBMITTED = 'SET_SUBMITTED';
 export const OPEN_REVIEW_CHAPTER = 'OPEN_REVIEW_CHAPTER';
@@ -55,10 +55,11 @@ export function setSubmission(field, value, extra = null) {
   };
 }
 
-export function setPrivacyAgreement(privacyAgreementAccepted) {
+export function setPreSubmit(preSubmitField, preSubmitAccepted) {
   return {
-    type: SET_PRIVACY_AGREEMENT,
-    privacyAgreementAccepted
+    type: SET_PRE_SUBMIT,
+    preSubmitField,
+    preSubmitAccepted
   };
 }
 
