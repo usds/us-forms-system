@@ -8,8 +8,8 @@ import {
   SET_EDIT_MODE,
   setSubmission,
   SET_SUBMISSION,
-  setPrivacyAgreement,
-  SET_PRIVACY_AGREEMENT,
+  setPreSubmit,
+  SET_PRE_SUBMIT,
   setSubmitted,
   SET_SUBMITTED,
   submitForm,
@@ -48,13 +48,13 @@ describe('Schemaform actions:', () => {
       expect(action.type).to.equal(SET_SUBMISSION);
     });
   });
-  describe('setPrivacyAgreement', () => {
+  describe('setPreSubmit', () => {
     it('should return action', () => {
       const accepted = false;
-      const action = setPrivacyAgreement(accepted);
+      const action = setPreSubmit('preSubmitAccepted', accepted);
 
-      expect(action.privacyAgreementAccepted).to.equal(accepted);
-      expect(action.type).to.equal(SET_PRIVACY_AGREEMENT);
+      expect(action.preSubmitAccepted).to.equal(accepted);
+      expect(action.type).to.equal(SET_PRE_SUBMIT);
     });
   });
   describe('setSubmitted', () => {

@@ -5,7 +5,7 @@ import {
   OPEN_REVIEW_CHAPTER,
   SET_DATA,
   SET_EDIT_MODE,
-  SET_PRIVACY_AGREEMENT,
+  SET_PRE_SUBMIT,
   SET_SUBMISSION,
   SET_SUBMITTED,
   SET_VIEWED_PAGES
@@ -51,8 +51,8 @@ export default {
     }
     return _.set(['pages', action.page, 'editMode'], action.edit, state);
   },
-  [SET_PRIVACY_AGREEMENT]: (state, action) => {
-    return _.set('data.privacyAgreementAccepted', action.privacyAgreementAccepted, state);
+  [SET_PRE_SUBMIT]: (state, action) => {
+    return { ...state, data: { ...state.data, [action.preSubmitField]: action.preSubmitAccepted } };
   },
   [SET_SUBMISSION]: (state, action) => {
     const newState = _.set(['submission', action.field], action.value, state);
