@@ -6,7 +6,7 @@ function schema() {
   return dateRangeConfig.schema();
 }
 
-function uiSchema(from = 'From', to = 'To', rangeError = 'To date must be after From date') {
+function uiSchema(from = 'From', to = 'To', rangeError = 'To date must be on or after From date') {
   return {
     'ui:validations': [
       validateDateRange

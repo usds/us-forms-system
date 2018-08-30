@@ -9,21 +9,15 @@ import { dateRangeConfig } from '../../../src/js/definitions/dateRange';
 import { dateConfig } from '../../../src/js/definitions/date';
 
 function fillDate(find, toFrom, day, month, year) {
-  ReactTestUtils.Simulate.change(find(`#root_${toFrom}Day`), {
-    target: {
-      value: day
-    }
-  });
-  ReactTestUtils.Simulate.change(find(`#root_${toFrom}Month`), {
-    target: {
-      value: month
-    }
-  });
-  ReactTestUtils.Simulate.change(find(`#root_${toFrom}Year`), {
-    target: {
-      value: year
-    }
-  });
+  const dayNode = find(`#root_${toFrom}Day`);
+  dayNode.value = day;
+  ReactTestUtils.Simulate.change(dayNode);
+  const monthNode = find(`#root_${toFrom}Month`);
+  monthNode.value = month;
+  ReactTestUtils.Simulate.change(monthNode);
+  const yearNode = find(`#root_${toFrom}Year`);
+  yearNode.value = year;
+  ReactTestUtils.Simulate.change(yearNode);
 }
 
 describe('Schemaform definition dateRange', () => {
@@ -52,14 +46,34 @@ describe('Schemaform definition dateRange', () => {
 
     const formDOM = findDOMNode(form);
     const find = formDOM.querySelector.bind(formDOM);
-    fillDate(find, 'from', 4, 4, 2000);
-    fillDate(find, 'to', 4, 4, 2001);
+    fillDate(find, 'from', 5, 5, 2001);
+    fillDate(find, 'to', 4, 4, 2000);
 
     ReactTestUtils.findRenderedComponentWithType(form, Form).onSubmit({
       preventDefault: f => f
     });
 
     expect(find('.usa-input-error-message').textContent).to.equal(`Error ${dateRangeUISchema['ui:errorMessages'].pattern}`);
+  });
+  it('should allow a single-date range', () => {
+    const dateRangeUISchema = dateRangeConfig.uiSchema();
+    const form = ReactTestUtils.renderIntoDocument(
+      <DefinitionTester
+        schema={dateRangeConfig.schema()}
+        definitions={dateConfig.schema()}
+        uiSchema={dateRangeUISchema}/>
+    );
+
+    const formDOM = findDOMNode(form);
+    const find = formDOM.querySelector.bind(formDOM);
+    fillDate(find, 'from', 11, 11, 1999);
+    fillDate(find, 'to', 11, 11, 1999);
+
+    ReactTestUtils.findRenderedComponentWithType(form, Form).onSubmit({
+      preventDefault: f => f
+    });
+
+    expect(find('.usa-input-error-message')).to.be.null;
   });
   it('should render dateRange title and messages', () => {
     const form = ReactTestUtils.renderIntoDocument(
