@@ -10,7 +10,7 @@ We encourage you to read this project's CONTRIBUTING policy (you are here), its 
   - You can report bugs and/or request features via [Github Issues](https://github.com/usds/us-forms-system/issues). You can also ask the team questions and make suggestions by creating an issue. 
   - If you prefer email to issues, you can reach us at [forms@lists.usds.gov](mailto://forms@lists.usds.gov) with your questions and comments. We're always open to suggestions.
 - Create a [Github pull request](https://github.com/usds/us-forms-system/blob/master/.github/ISSUE_TEMPLATE/PULL_REQUEST_TEMPLATE.md) with new functionality or fixing a bug.
-- Help improve our documentation for U.S. Forms System (for any changes that you make that require updates to the documentation, kindly help us update that accordingly.)
+- Help improve our documentation for U.S. Forms System. If you propose changes that require updates to the documentation, kindly help us update that accordingly in your pull request.
 - Help us improve our unit and integrations tests.
 - Triage tickets and review patches triaging-tickets created by other users.
 
