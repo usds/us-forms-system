@@ -419,13 +419,29 @@ For the code implementation, see the [`review` folder](../../src/js/review).
 
 ### Required checkbox before form submission
 
-Use this feature to require a user to indicate they have read terms and conditions, a privacy policy, or any other text before submitting your form. It includes a checkbox and short-form text that can include relevant links to more verbose information on separate pages on your site. To configure this feature, place a `preSubmitInfo` object in the `formConfig`:
+Use this feature to require a user to indicate they have read terms and conditions, a privacy policy, or any other text before submitting your form. It includes a checkbox and short-form text that can include relevant links to more verbose information on separate pages on your site.
+
+To configure this feature, place a `preSubmitInfo` object in the `formConfig`. These are the available options:
+<dl>
+<dt><code>notice</code></dt>
+<dd>An HTML string or React component that is placed above the checkbox (if specified) and submit button. Optional; if nothing is given for this property no notice appears.</dd>
+<dt><code>required</code></dt>
+<dd>When <code>true</code>, a checkbox is displayed above the submit button with a label. The user must check the box to be able to submit the form. Optional; if not specified or the value is <code>false</code> then no checkbox is shown.</dd>
+<dt><code>field</code></dt>
+<dd>When <code>required</code> is <code>true</code>, the name of the field submitted in the form for the checkbox.</dd>
+<dt><code>label</code></dt>
+<dd>When <code>required</code> is <code>true</code>, the label used for the checkbox.</dd>
+<dt><code>error</code></dt>
+<dd>When <code>required</code> is <code>true</code>, this error message is displayed if the user attempts to submit the form without first checking the checkbox.</dd>
+</dl>
+
+This is an example of `preSubmitInfo`:
 
 ```js
 preSubmitInfo: {
   notice: '<p><strong>Note:</strong> According to federal law, there are criminal penalties, including a fine and/or imprisonment for up to 5 years, for withholding information or for providing incorrect information. (See 18 U.S.C. 1001)</p>',
-  required: true,  // when false, the notice is shown without a checkbox
-  field: 'privacyAgreementAccepted',  // name of the field in submitted data
+  required: true,
+  field: 'privacyAgreementAccepted',
   label: 'I have read and accept the <a href="/privacy">privacy policy</a>.',
   error: 'You must accept the privacy policy before continuing',
 }
@@ -435,8 +451,8 @@ preSubmitInfo: {
 
 #### Usage guidelines
 
-Right now, the required checkbox is automatically included in all forms. The US Forms System team will refactor this component to make it more customizable. To follow that discussion, subscribe to https://github.com/usds/us-forms-system/issues/53.
+No notice or checkbox appears above the submit button unless a `preSubmitInfo` section is specified. Most applications will want, at minimum, to give some sort of notice to the user before the form is submitted. Although this section is optional, it is highly recommended. 
 
-For the code implementation, see [`ErrorableCheckbox`](../../src/js/components/ErrorableCheckbox.jsx).
+For the code implementation, see [`PreSubmitSection`](../../src/js/components/PreSubmitSection.jsx) and [`SubmitController`](../../src/js/review/SubmitController.jsx).
 
 [Back to *Building a Form*](./README.md)

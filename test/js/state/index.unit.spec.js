@@ -15,13 +15,6 @@ import createSchemaFormReducer from '../../../src/js/state';
 describe('schemaform createSchemaFormReducer', () => {
   it('creates a reducer with initial state for each page', () => {
     const formConfig = {
-      preSubmitInfo: {
-        required: true,
-        field: 'privacyAgreementAccepted',
-        notice: 'Notice',
-        label: 'I accept the privacy agreement',
-        error: 'You must accept the privacy agreement'
-      },
       disableSave: true,
       chapters: {
         test: {
@@ -50,7 +43,6 @@ describe('schemaform createSchemaFormReducer', () => {
     const state = reducer(undefined, {});
 
     expect(state.submission).not.to.be.undefined;
-    expect(state.data.privacyAgreementAccepted).to.be.false;
     expect(state.data.field).to.eql(formConfig.chapters.test.pages.page1.initialData.field);
   });
   describe('reducer', () => {

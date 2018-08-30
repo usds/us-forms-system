@@ -30,6 +30,16 @@ class SubmitController extends React.Component {
     }
   }
 
+  getPreSubmit = formConfig => {
+    return {
+      required: false,
+      field: 'AGREED',
+      label: 'I agree to the terms and conditions.',
+      error: 'You must accept the agreement before submitting.',
+      ...formConfig.preSubmitInfo
+    };
+  }
+
   goBack = () => {
     const {
       form,
@@ -40,6 +50,9 @@ class SubmitController extends React.Component {
     const eligiblePageList = getActivePages(pageList, form.data);
     const expandedPageList = expandArrayPages(eligiblePageList, this.props.form.data);
 
+    // TODO: Fix this bug that assumes there is a confirmation page.
+    // Actually, it assumes the app also doesn't add routes at the end!
+    // A component at this level should not need to know these things!
     router.push(expandedPageList[expandedPageList.length - 2].path);
   }
 
@@ -51,35 +64,36 @@ class SubmitController extends React.Component {
       trackingPrefix
     } = this.props;
 
-    let isValid;
-    let errors;
+    const preSubmit = this.getPreSubmit(formConfig);
+    let isValid = true;
 
-    // If a pre-submit agreement was specified, it has to be accepted first
-    const preSubmitField = formConfig.preSubmitInfo &&
-        formConfig.preSubmitInfo.required && (formConfig.preSubmitInfo.field || 'AGREED');
-    if (preSubmitField && !form.data[preSubmitField]) {
+    // If a pre-submit agreement is required, make sure it was accepted
+    if (preSubmit.required && !form.data[preSubmit.field]) {
       isValid = false;
+      // <PreSubmitSection/> displayed an error for this case
     } else {
-      ({ isValid, errors } = isValidForm(form, pagesByChapter));
-    }
+      const status = isValidForm(form, pagesByChapter);
+      isValid = status.isValid;
 
-    if (isValid) {
-      this.props.submitForm(formConfig, form);
-    } else {
-      // validation errors in this situation are not visible, so we’d
-      // like to know if they’re common
-      if (preSubmitField && form.data[preSubmitField]) {
+      if (!isValid) {
+        // validation errors in this situation are not visible, so we’d
+        // like to know if they’re common
         recordEvent({
           event: `${trackingPrefix}-validation-failed`,
         });
         Raven.captureMessage('Validation issue not displayed', {
           extra: {
-            errors,
+            errors: status.errors,
             prefix: trackingPrefix
           }
         });
         this.props.setSubmission('status', 'validationError');
       }
+    }
+
+    if (isValid) {
+      this.props.submitForm(formConfig, form);
+    } else {
       this.props.setSubmission('hasAttemptedSubmit', true);
     }
   }
@@ -92,13 +106,14 @@ class SubmitController extends React.Component {
       renderErrorMessage,
       submission
     } = this.props;
+    const preSubmit = this.getPreSubmit(formConfig);
+
     return (
       <div>
-        { this.preSubmitInfo && <PreSubmitSection
-          required
-          preSubmitInfo={formConfig.preSubmitInfo}
-          onChange={() => this.props.setPreSubmit(formConfig.preSubmitInfo.field, this.value)}
-          form={form}
+        <PreSubmitSection
+          preSubmitInfo={preSubmit}
+          onChange={(event) => this.props.setPreSubmit(preSubmit.field, event.target.value)}
+          checked={form.data[preSubmit.field]}
           showError={showPreSubmitError}/> }
         <SubmitButtons
           onBack={this.goBack}
