@@ -15,6 +15,7 @@ import {
 } from '../helpers';
 import {
   setPreSubmit,
+  // BUG: This is never passed to this.props.setSubmission afaict?
   setSubmission,
   submitForm
 } from '../actions';
@@ -103,8 +104,7 @@ class SubmitController extends React.Component {
       form,
       formConfig,
       showPreSubmitError,
-      renderErrorMessage,
-      submission
+      renderErrorMessage
     } = this.props;
     const preSubmit = this.getPreSubmit(formConfig);
 
@@ -118,7 +118,7 @@ class SubmitController extends React.Component {
         <SubmitButtons
           onBack={this.goBack}
           onSubmit={this.handleSubmit}
-          submission={submission}
+          submission={form.submission}
           renderErrorMessage={renderErrorMessage}/>
       </div>
     );

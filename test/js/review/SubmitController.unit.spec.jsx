@@ -1,12 +1,12 @@
 import React from 'react';
 import { expect } from 'chai';
-import SkinDeep from 'skin-deep';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 
 import { SubmitController } from '../../../src/js/review/SubmitController';
 
 // Return fresh objects from templates for use with individual tests
+// Default setup: Valid (but empty) form, privacy agreement not set
 const createFormConfig = options => ({
   urlPrefix: '/',
   preSubmitInfo: {
@@ -41,6 +41,7 @@ const createFormConfig = options => ({
 const createForm = options => ({
   submission: {
     hasAttemptedSubmit: false,
+    status: false
   },
   pages: {
     page1: {
@@ -98,7 +99,7 @@ describe('Schemaform review: SubmitController', () => {
     const pageList = createPageList();
     const router = { push: sinon.spy() };
 
-    const tree = SkinDeep.shallowRender(
+    const tree = shallow(
       <SubmitController
         form={form}
         formConfig={formConfig}
@@ -106,7 +107,7 @@ describe('Schemaform review: SubmitController', () => {
         router={router}/>
     );
 
-    tree.getMountedInstance().componentWillReceiveProps({
+    tree.setProps({
       route: {},
       formConfig,
       form: createForm({
@@ -125,7 +126,7 @@ describe('Schemaform review: SubmitController', () => {
     const submitForm = sinon.spy();
     const setSubmission = sinon.spy();
 
-    const tree = SkinDeep.shallowRender(
+    const tree = mount(
       <SubmitController
         setSubmission={setSubmission}
         submitForm={submitForm}
@@ -134,12 +135,14 @@ describe('Schemaform review: SubmitController', () => {
         pagesByChapter={pagesByChapter}/>
     );
 
-    tree.getMountedInstance().handleSubmit();
+    // SubmitButtons .usa-button-primary is the submit button
+    tree.find('.usa-button-primary').simulate('click');
 
     expect(submitForm.called).to.be.false;
-    expect(setSubmission.called).to.be.true;
+    expect(setSubmission.calledWith('hasAttemptedSubmit')).to.be.true;
   });
   it('should not submit when invalid', () => {
+    // Form with missing rquired field
     const formConfig = createFormConfig({
       chapters: {
         chapter1: {
@@ -165,7 +168,7 @@ describe('Schemaform review: SubmitController', () => {
     const submitForm = sinon.spy();
     const setSubmission = sinon.spy();
 
-    const tree = SkinDeep.shallowRender(
+    const tree = mount(
       <SubmitController
         setSubmission={setSubmission}
         submitForm={submitForm}
@@ -176,7 +179,7 @@ describe('Schemaform review: SubmitController', () => {
         route={{ formConfig, pageList }}/>
     );
 
-    tree.getMountedInstance().handleSubmit();
+    tree.find('.usa-button-primary').simulate('click');
 
     expect(submitForm.called).to.be.false;
     expect(setSubmission.calledWith('hasAttemptedSubmit')).to.be.true;
@@ -190,7 +193,7 @@ describe('Schemaform review: SubmitController', () => {
     const pageList = createPageList();
     const submitForm = sinon.spy();
 
-    const tree = SkinDeep.shallowRender(
+    const tree = mount(
       <SubmitController
         submitForm={submitForm}
         formConfig={formConfig}
@@ -200,7 +203,7 @@ describe('Schemaform review: SubmitController', () => {
         route={{ formConfig, pageList }}/>
     );
 
-    tree.getMountedInstance().handleSubmit();
+    tree.find('.usa-button-primary').simulate('click');
 
     expect(submitForm.called).to.be.true;
   });
@@ -213,7 +216,7 @@ describe('Schemaform review: SubmitController', () => {
     const pageList = createPageList();
     const submitForm = sinon.spy();
 
-    const tree = SkinDeep.shallowRender(
+    const tree = mount(
       <SubmitController
         submitForm={submitForm}
         formConfig={formConfig}
@@ -223,7 +226,7 @@ describe('Schemaform review: SubmitController', () => {
         route={{ formConfig, pageList }}/>
     );
 
-    tree.getMountedInstance().handleSubmit();
+    tree.find('.usa-button-primary').simulate('click');
 
     expect(submitForm.called).to.be.true;
   });
