@@ -230,6 +230,33 @@ describe('Schemaform review: SubmitController', () => {
 
     expect(submitForm.called).to.be.true;
   });
+  it('should submit when valid and only preSubmit.notice specified', () => {
+    const formConfig = createFormConfig({
+      preSubmitInfo: {
+        notice: <p className="presubmit-notice">NOTICE</p>,
+        required: false
+      }
+    });
+    const pagesByChapter = createPagesByChapter();
+    const form = createForm();
+    const pageList = createPageList();
+    const submitForm = sinon.spy();
+
+    const tree = mount(
+      <SubmitController
+        submitForm={submitForm}
+        formConfig={formConfig}
+        form={form}
+        pagesByChapter={pagesByChapter}
+        pageList={pageList}
+        route={{ formConfig, pageList }}/>
+    );
+
+    tree.find('.usa-button-primary').simulate('click');
+
+    expect(tree.find('.presubmit-notice').text()).to.equal('NOTICE');
+    expect(submitForm.called).to.be.true;
+  });
   it('should go back', () => {
     const formConfig = createFormConfig();
     const pageList = createPageList();

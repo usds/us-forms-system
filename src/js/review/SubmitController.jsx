@@ -15,7 +15,6 @@ import {
 } from '../helpers';
 import {
   setPreSubmit,
-  // BUG: This is never passed to this.props.setSubmission afaict?
   setSubmission,
   submitForm
 } from '../actions';
