@@ -21,6 +21,7 @@ These form features are available in the US Forms System library. We've provided
 - [Sequential duplicate form groups](#sequential-duplicate-form-groups)
 - [Review page](#review-page)
 - [Required checkbox before form submission](#required-checkbox-before-form-submission)
+- [Remote error and event monitoring](#remote-error-and-event-monitoring)
 
 ### Form instructions
 
@@ -447,5 +448,19 @@ preSubmitInfo: {
 If you don't specify a `preSubmitInfo` section, no notice or checkbox appears above the submit button. Most applications will want to give some sort of notice to the user before they submit the form. Although this section is optional, we recommend you specify it.
 
 For the code implementation, see [`PreSubmitSection`](../../src/js/components/PreSubmitSection.jsx) and [`SubmitController`](../../src/js/review/SubmitController.jsx).
+
+### Remote error and event monitoring
+
+If you provide a function for `formConfig.recordEvent`, the library calls that function when notable events occur. If you do not provide a function, the library logs these events onto the browser console.
+
+The `recordEvent` function receives a single object that can contain different information depending on the kind of event being reported. Events reported by the library always have a `event` property that is a string describing the event. The events currently supported by the library are:
+* **validation-failed-on-submit**: The user completed the form and tried to submit it, but there were still validation errors. This is most likely an error in the form definition or one of the React components, since the form should already be fully validated by the time this point is reached.
+* **form-submit-pending**: The user has pressed the submit button, the form validated, and the form has been sent to the server. This is informational only and does not represent an error.
+* **form-submit-successful**: The server returned a status indicating it has accepted the form.
+* **form-submit-error**: The form was submitted but some problem occurred that prevented it from being accepted by the server. The object contains an `error` and `errorType` with more information about the nature of the error.
+
+### Usage guidelines
+
+Web applications can fail for many reasons, including bad Internet connections, outdated browsers, and misbehaved browser extensions. Even if you test thoroughly, users may experience frustrating errors that they do not report. We highly recommend that you use an error and event reporting service to track the use of your forms. Examples of services that could be used are Google Analytics, Errorception, Sentry, Airbrake, and Raygun.
 
 [Back to *Building a Form*](./README.md)

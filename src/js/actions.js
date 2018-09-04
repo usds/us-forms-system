@@ -135,7 +135,7 @@ function submitToUrl(body, submitUrl, recordEvent) {
 export function submitForm(formConfig, form) {
   const recordEvent = formConfig.recordEvent ?
     formConfig.recordEvent.bind(formConfig) :
-    console.error.bind(console);      // eslint-disable-line no-console
+    console.log.bind(console);      // eslint-disable-line no-console
 
   return dispatch => {
     dispatch(setSubmission('status', 'submitPending'));
