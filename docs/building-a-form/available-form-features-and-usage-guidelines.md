@@ -419,20 +419,14 @@ For the code implementation, see the [`review` folder](../../src/js/review).
 
 ### Required checkbox before form submission
 
-Use this feature to require a user to indicate they have read terms and conditions, a privacy policy, or any other text before submitting your form. It includes a checkbox and short-form text that can include relevant links to more verbose information on separate pages on your site.
+Use this feature to require a user to agree they have read terms and conditions, a privacy policy, or any other text before submitting your form. It includes a checkbox and short-form text that can include relevant links to additional information on separate pages.
 
 To configure this feature, place a `preSubmitInfo` object in the `formConfig`. These are the available options:
-<dl>
-<dt><code>notice</code></dt>
-<dd>A text string or <a href="https://reactjs.org/docs/rendering-elements.html">React element</a> that is placed above the checkbox and submit button. If the form definition file is `.jsx` the definition can be inline, or use `import` to reference an external component. Optional; if nothing is given for this property no notice appears.</dd>
-<dt><code>required</code></dt>
-<dd>When <code>true</code>, a checkbox is displayed above the submit button with a label. The user must check the box to be able to submit the form. Optional; if not specified or the value is <code>false</code> then no checkbox is shown.</dd>
-<dt><code>field</code></dt>
-<dd>When <code>required</code> is <code>true</code>, the name of the field submitted in the form for the checkbox.</dd>
-<dt><code>label</code></dt>
-<dd>When <code>required</code> is <code>true</code>, this property is a text string or React component used as the label for the checkbox.</dd>
-<dt><code>error</code></dt>
-<dd>When <code>required</code> is <code>true</code>, this error message is displayed if the user attempts to submit the form without first checking the checkbox. It can be a text string or a <a href="https://reactjs.org/docs/rendering-elements.html">React element</a>.</dd>
+* `notice`: (Optional) A text string or [React element](https://reactjs.org/docs/rendering-elements.html) placed above the checkbox and submit button. If the form definition file is `.jsx` the definition can be inline, or use `import` to reference an external component. If not specified, no notice appears.
+* `required`: (Optional) When `true`, a checkbox and label appear above the submit button. The user must check the box before submitting the form. When `false` or not specified, the `field`, `label`, and `error` options are not used.
+* `field`: The name of the form field for the required checkbox. This field has the value `true` in the submitted form data.
+* `label`: A text string or React element that labels the checkbox.
+* `error`: A text string or React element displayed as an error message if the user attempts to submit the form without checking the checkbox.
 </dl>
 
 This is an example of `preSubmitInfo`:
@@ -450,7 +444,7 @@ preSubmitInfo: {
 
 #### Usage guidelines
 
-No notice or checkbox appears above the submit button unless a `preSubmitInfo` section is specified. Most applications will want, at minimum, to give some sort of notice to the user before the form is submitted. Although this section is optional, it is highly recommended.
+If you don't specify a `preSubmitInfo` section, no notice or checkbox appears above the submit button. Most applications will want to give some sort of notice to the user before they submit the form. Although this section is optional, we recommend you specify it.
 
 For the code implementation, see [`PreSubmitSection`](../../src/js/components/PreSubmitSection.jsx) and [`SubmitController`](../../src/js/review/SubmitController.jsx).
 

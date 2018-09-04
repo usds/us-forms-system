@@ -64,38 +64,34 @@ class SubmitController extends React.Component {
       trackingPrefix
     } = this.props;
 
-    const preSubmit = this.getPreSubmit(formConfig);
-    let isValid = true;
-
     // If a pre-submit agreement is required, make sure it was accepted
+    const preSubmit = this.getPreSubmit(formConfig);
     if (preSubmit.required && !form.data[preSubmit.field]) {
-      isValid = false;
-      // <PreSubmitSection/> displayed an error for this case
-    } else {
-      const status = isValidForm(form, pagesByChapter);
-      isValid = status.isValid;
-
-      if (!isValid) {
-        // validation errors in this situation are not visible, so we’d
-        // like to know if they’re common
-        recordEvent({
-          event: `${trackingPrefix}-validation-failed`,
-        });
-        Raven.captureMessage('Validation issue not displayed', {
-          extra: {
-            errors: status.errors,
-            prefix: trackingPrefix
-          }
-        });
-        this.props.setSubmission('status', 'validationError');
-      }
-    }
-
-    if (isValid) {
-      this.props.submitForm(formConfig, form);
-    } else {
       this.props.setSubmission('hasAttemptedSubmit', true);
+      // <PreSubmitSection/> is displaying an error for this case
+      return;
     }
+
+    // Validation errors in this situation are not visible, so we’d
+    // like to know if they’re common
+    const { isValid, errors } = isValidForm(form, pagesByChapter);
+    if (!isValid) {
+      recordEvent({
+        event: `${trackingPrefix}-validation-failed`,
+      });
+      Raven.captureMessage('Validation issue not displayed', {
+        extra: {
+          errors,
+          prefix: trackingPrefix
+        }
+      });
+      this.props.setSubmission('status', 'validationError');
+      this.props.setSubmission('hasAttemptedSubmit', true);
+      return;
+    }
+
+    // User accepted if required, and no errors, so submit
+    this.props.submitForm(formConfig, form);
   }
 
   render() {
