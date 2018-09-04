@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
+import DescriptionField from '../fields/DescriptionField';
+
 export default function CheckboxWidget({
   id,
   value,
@@ -25,6 +27,7 @@ export default function CheckboxWidget({
       <label className="schemaform-label" htmlFor={id}>
         {options.title || label}{requiredSpan}
       </label>
+      {options.description && <DescriptionField description={options.description}/>}
     </div>
   );
 }
