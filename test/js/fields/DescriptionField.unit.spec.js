@@ -13,7 +13,7 @@ describe('Schemaform <DescriptionField>', () => {
     expect(tree.text()).to.equal('description');
   });
   it('should render description element', () => {
-  const GetDescription = () => (<p>description</p>);
+    const GetDescription = () => (<p>description</p>);
     const tree = SkinDeep.shallowRender(
       <DescriptionField description={GetDescription}/>
     );
@@ -21,12 +21,12 @@ describe('Schemaform <DescriptionField>', () => {
     expect(tree.dive(['GetDescription']).text()).to.equal('description');
   });
   it('should render with optional props', () => {
-    const GetDescription = ({formData}) => (<p>{formData.name}</p>);
-    const formData = {name: 'abc'};
+    const GetDescription = ({ formData }) => (<p>{ formData.name }</p>);
+    const formData = { name: 'abc' };
     const tree = SkinDeep.shallowRender(
       <DescriptionField description={GetDescription} formData={formData}/>
     );
 
     expect(tree.dive(['GetDescription']).text()).to.equal('abc');
-  }); 
+  });
 });
