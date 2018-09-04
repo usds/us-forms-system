@@ -2,28 +2,25 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ErrorableCheckbox from './ErrorableCheckbox';
 
-export function PreSubmitSection({ onChange, showError, preSubmitInfo, form }) {
-  const info = preSubmitInfo || {};
-  const field = info.field || 'AGREED';
+export function PreSubmitSection({ onChange, showError, preSubmitInfo, checked }) {
 
   return (
     <div>
-      {info.notice}
-      {info.required &&
+      {preSubmitInfo.notice}
+      {preSubmitInfo.required &&
         <ErrorableCheckbox required
-          checked={form.data[field]}
+          checked={checked}
           onValueChange={onChange}
-          name={field}
-          errorMessage={showError && !form.data[field] ? (info.error || 'Please agree before continuing') : undefined}
-          label={info.label}/>
+          name={preSubmitInfo.field}
+          errorMessage={showError && !checked ? (preSubmitInfo.error || 'Please accept') : undefined}
+          label={preSubmitInfo.label}/>
       }
     </div>
   );
 }
 
 PreSubmitSection.propTypes = {
-  form: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
-  preSubmitInfo: PropTypes.object,
+  preSubmitInfo: PropTypes.object.isRequired,
   showError: PropTypes.bool
 };

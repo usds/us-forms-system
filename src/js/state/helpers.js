@@ -496,12 +496,6 @@ export function createInitialState(formConfig) {
       pages: {},
     });
 
-  // Initialize the preSubmit flag if one was specified
-  const preSubmitInfo = formConfig.preSubmitInfo;
-  if (preSubmitInfo && preSubmitInfo.field) {
-    pageAndDataState.data[preSubmitInfo.field] = false;
-  }
-
   initialState = _.assign(initialState, pageAndDataState);
   // Take another pass and recalculate the schema and data based on the default data
   // We do this to avoid passing undefined for the whole form state when the form first renders

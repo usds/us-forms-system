@@ -11,13 +11,6 @@ describe('Schemaform review: ReviewPage', () => {
 
   it('should render chapters', () => {
     const formConfig = {
-      preSubmitInfo: {
-        required: true,
-        field: 'privacyAgreementAccepted',
-        notice: 'Notice',
-        label: 'I accept the privacy agreement',
-        error: 'You must accept the privacy agreement'
-      },
       chapters: {
         chapter1: {
           pages: {
@@ -49,9 +42,7 @@ describe('Schemaform review: ReviewPage', () => {
       submission: {
         hasAttemptedSubmit: false
       },
-      data: {
-        privacyAgreementAccepted: false
-      }
+      data: {}
     };
 
     const tree = shallow(
