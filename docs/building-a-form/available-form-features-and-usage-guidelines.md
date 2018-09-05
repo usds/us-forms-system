@@ -454,10 +454,10 @@ For the code implementation, see [`PreSubmitSection`](../../src/js/components/Pr
 If you provide a function for `formConfig.recordEvent`, the library calls that function when notable events occur. If you do not provide a function, the library logs these events onto the browser console.
 
 The `recordEvent` function receives a single object that can contain different information depending on the kind of event being reported. Events reported by the library always have a `event` property that is a string describing the event. The events currently supported by the library are:
-* **validation-failed-on-submit**: The user completed the form and tried to submit it, but there were still validation errors. This is most likely an error in the form definition or one of the React components, since the form should already be fully validated by the time this point is reached.
-* **form-submit-pending**: The user has pressed the submit button, the form validated, and the form has been sent to the server. This is informational only and does not represent an error.
+* **validation-failed-on-submit**: This is likely an error in the form definition or a React component, since the form should be completely validated at this point.
+* **form-submit-pending**: An informational message showing that the user has pressed the submit button, and that the form has validated and been sent to the server.
 * **form-submit-successful**: The server returned a status indicating it has accepted the form.
-* **form-submit-error**: The form was submitted but some problem occurred that prevented it from being accepted by the server. The object contains an `error` and `errorType` with more information about the nature of the error.
+* **form-submit-error**: The form was submitted, but the server didn't accept the submission. The object contains an `error` and `errorType` with more information about the nature of the error.
 
 ### Usage guidelines
 
