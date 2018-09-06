@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import Scroll from 'react-scroll';
 
 import ReviewCollapsibleChapter from './ReviewCollapsibleChapter';
@@ -179,7 +178,7 @@ ReviewChapters.propTypes = {
   viewedPages: PropTypes.object.isRequired
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReviewChapters));
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewChapters);
 
 // for tests
 export { ReviewChapters };
