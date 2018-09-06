@@ -102,7 +102,7 @@ class SubmitController extends React.Component {
           preSubmitInfo={preSubmit}
           onChange={(event) => this.props.setPreSubmit(preSubmit.field, event.target.value)}
           checked={form.data[preSubmit.field]}
-          showError={showPreSubmitError}/>
+          showError={showPreSubmitError}/> }
         <SubmitButtons
           onBack={this.goBack}
           onSubmit={this.handleSubmit}
