@@ -15,9 +15,10 @@ describe('Schemaform <CheckboxWidget>', () => {
         required
         disabled={false}
         onChange={onChange}
-        options={{ title: 'Title' }}/>
+        options={{ title: 'Title', description: 'description' }}/>
     );
     expect(tree.text()).to.include('Title');
+    expect(tree.dive(['DescriptionField']).text()).to.equal('description');
     expect(tree.subTree('input').props.checked).to.be.true;
     expect(tree.everySubTree('.form-required-span')).not.to.be.empty;
   });
