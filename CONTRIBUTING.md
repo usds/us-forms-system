@@ -2,7 +2,7 @@
 
 We're so glad you're thinking about contributing to the U.S. Forms System open source project! If you're unsure about anything, just ask by submitting an issue or sending us an email.
 
-We encourage you to read this project's CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), and its [README](README.md).
+We encourage you to read this CONTRIBUTING policy, as well as the project's [LICENSE](LICENSE.md) and [README](README.md).
 
 ## How to contribute to U.S. Forms System
 
