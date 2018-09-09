@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import moment from 'moment';
 import sinon from 'sinon';
+import { format, addYears } from 'date-fns';
 
 import {
   transformErrors,
@@ -249,7 +249,7 @@ describe('Schemaform validations', () => {
   describe('validateCurrentOrPastDate', () => {
     it('should set message if invalid', () => {
       const errors = { addError: sinon.spy() };
-      const futureDate = moment().add(2, 'year').format('YYYY-MM-DD');
+      const futureDate = format(addYears(new Date(), 2), 'YYYY-MM-DD');
       validateCurrentOrPastDate(errors, futureDate);
 
       expect(errors.addError.callCount).to.equal(1);
@@ -257,7 +257,7 @@ describe('Schemaform validations', () => {
     });
     it('should use custom message', () => {
       const errors = { addError: sinon.spy() };
-      const futureDate = moment().add(2, 'year').format('YYYY-MM-DD');
+      const futureDate = format(addYears(new Date(), 2), 'YYYY-MM-DD');
       validateCurrentOrPastDate(errors, futureDate, null, null, { futureDate: 'Blah blah' });
 
       expect(errors.addError.callCount).to.equal(1);
@@ -524,7 +524,8 @@ describe('Schemaform validations', () => {
     });
     it('should fail with date in future', () => {
       const errors = { addError: sinon.spy() };
-      validateCurrentOrPastMonthYear(errors, moment().add(1, 'year').format('YYYY-MM-[XX]'));
+      const futureDate = format(addYears(new Date(), 1), 'YYYY-MM-DD');
+      validateCurrentOrPastMonthYear(errors, futureDate);
 
       expect(errors.addError.firstCall.args[0]).to.equal('Please provide a valid current or past date');
     });

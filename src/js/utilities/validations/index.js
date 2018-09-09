@@ -1,5 +1,12 @@
 import _ from 'lodash';
-import moment from 'moment';
+import {
+  addYears,
+  isSameDay,
+  isBefore,
+  isSameMonth,
+  isAfter,
+  getYear
+} from 'date-fns';
 
 // Conditions for valid SSN from the original 1010ez pdf form:
 // '123456789' is not a valid SSN
@@ -33,7 +40,7 @@ export function isValidSSN(value) {
 }
 
 export function isValidYear(value) {
-  return Number(value) >= 1900 && Number(value) <= moment().add(100, 'year').year();
+  return Number(value) >= 1900 && Number(value) <= getYear(addYears(new Date(), 100));
 }
 
 export function isValidPartialDate(day, month, year) {
@@ -45,17 +52,20 @@ export function isValidPartialDate(day, month, year) {
 }
 
 export function isValidCurrentOrPastDate(day, month, year) {
-  const momentDate = moment({ day, month: parseInt(month, 10) - 1, year });
-  return momentDate.isSameOrBefore(moment().endOf('day'), 'day');
+  const date = new Date(year, month - 1, day);
+  const today = new Date();
+  return isSameDay(date, today) || isBefore(date, today);
 }
 
 export function isValidCurrentOrPastYear(value) {
-  return Number(value) >= 1900 && Number(value) < moment().year() + 1;
+  const currentYear = getYear(new Date());
+  return Number(value) >= 1900 && Number(value) <= currentYear;
 }
 
 export function isValidCurrentOrFutureMonthYear(month, year) {
-  const momentDate = moment({ month: parseInt(month, 10) - 1, year });
-  return momentDate.isSameOrAfter(moment(), 'month');
+  const date = new Date(year, month - 1);
+  const today = new Date();
+  return isSameMonth(date, today) || isAfter(date, today);
 }
 
 function isBlank(value) {
@@ -66,21 +76,20 @@ function isBlankDateField(field) {
   return isBlank(field.day.value) && isBlank(field.month.value) && isBlank(field.year.value);
 }
 
-export function dateToMoment(dateField) {
-  return moment({
-    year: dateField.year.value,
-    month: dateField.month.value ? parseInt(dateField.month.value, 10) - 1 : '',
-    day: dateField.day ? dateField.day.value : null
-  });
+export function parseDateField(dateField) {
+  const year = dateField.year.value;
+  const month = dateField.month.value || null;
+  const day = dateField.day.value || null;
+  return new Date(year, month - 1, day);
 }
 
-export function isValidDateRange(fromDate, toDate) {
-  if (isBlankDateField(toDate) || isBlankDateField(fromDate)) {
+export function isValidDateRange(fromDateField, toDateField) {
+  if (isBlankDateField(toDateField) || isBlankDateField(fromDateField)) {
     return true;
   }
-  const momentStart = dateToMoment(fromDate);
-  const momentEnd = dateToMoment(toDate);
-  return momentStart.isSameOrBefore(momentEnd);
+  const fromDate = parseDateField(fromDateField);
+  const toDate = parseDateField(toDateField);
+  return fromDate <= toDate;
 }
 
 // Pulled from https://en.wikipedia.org/wiki/Routing_transit_number#Check_digit
@@ -112,6 +121,8 @@ export function isValidPartialMonthYearInPast(month, year) {
   if (typeof month === 'object') {
     throw new Error('Pass a month and a year to function');
   }
-  const momentDate = moment({ year, month: month ? parseInt(month, 10) - 1 : null });
-  return !year || isValidPartialMonthYear(month, year) && momentDate.isValid() && momentDate.isSameOrBefore(moment().startOf('month'));
+  const date = new Date(year, month, null);
+  const today = new Date();
+  const isSameOrBefore = (isSameMonth(date, today) || isBefore(date, today));
+  return !year || isValidPartialMonthYear(month, year) && isSameOrBefore;
 }

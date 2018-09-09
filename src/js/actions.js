@@ -1,4 +1,3 @@
-import moment from 'moment';
 import _ from './utilities/data';
 import { transformForSubmit } from './helpers';
 import { timeFromNow } from './utilities/date';
@@ -222,7 +221,8 @@ export function uploadFile(file, uiOptions, onProgress, onChange, onError) {
       } else {
         let errorMessage = req.statusText;
         if (req.status === 429) {
-          errorMessage = `You’ve reached the limit for the number of submissions we can accept at this time. Please try again in ${timeFromNow(moment.unix(parseInt(req.getResponseHeader('x-ratelimit-reset'), 10)))}.`;
+          const resetDate = new Date(req.getResponseHeader('x-ratelimit-reset') * 1000);
+          errorMessage = `You’ve reached the limit for the number of submissions we can accept at this time. Please try again in ${timeFromNow(resetDate)}.`;
         }
 
         onChange({
