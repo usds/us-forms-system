@@ -2,8 +2,8 @@ import _ from 'lodash/fp';
 import shouldUpdate from 'recompose/shouldUpdate';
 import { deepEquals } from '@department-of-veterans-affairs/react-jsonschema-form/lib/utils';
 
-import FormPage from './containers/FormPage';
-import ReviewPage from './review/ReviewPage';
+// import FormPage from './containers/FormPage';
+// import ReviewPage from './review/ReviewPage';
 
 // An active page is one that will be shown to the user.
 // Pages become inactive if they are conditionally shown based
