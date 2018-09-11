@@ -471,7 +471,7 @@ formConfig = {
     if (!window.dataLayer ||  /^form-submit-(successful|pending)$/).test(data.event)) {
       return;
     }
-    return window.dataLayer.push(event);
+    return window.dataLayer.push(data);
   },
   ...
 };
