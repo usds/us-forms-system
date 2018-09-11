@@ -74,7 +74,7 @@ class SubmitController extends React.Component {
     const { isValid, errors } = isValidForm(form, pagesByChapter);
     if (!isValid) {
       const recordEvent = formConfig.recordEvent ?
-        formConfig.recordEvent(formConfig) :
+        formConfig.recordEvent :
         console.log.bind(console);   // eslint-disable-line no-console
 
       recordEvent({ event: 'validation-failed-on-submit', errors });
