@@ -459,8 +459,26 @@ The `recordEvent` function receives a single object that can contain different i
 * **form-submit-successful**: The server returned a status indicating it has accepted the form.
 * **form-submit-error**: The form was submitted, but the server didn't accept the submission. The object contains an `error` and `errorType` with more information about the nature of the error.
 
+Other events may be added in the future. This `recordEvent` logs events to Google Analytics, except for pending/successful form submits which are filtered out:
+
+```js
+formConfig = {
+  ...
+  // The Google Analytics code snippet loads in the main document
+  // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+  recordEvent: data => {
+    // Don't log if GA is not (yet) loaded or if this is a form success/pending
+    if (!window.dataLayer ||  /^form-submit-(successful|pending)$/).test(data.event)) {
+      return;
+    }
+    return window.dataLayer.push(event);
+  },
+  ...
+};
+```
+
 ### Usage guidelines
 
-Web applications can fail for many reasons, including bad Internet connections, outdated browsers, and misbehaved browser extensions. Even if you test thoroughly, users may experience frustrating errors that they do not report. We highly recommend that you use an error and event reporting service to track the use of your forms. Examples of services that could be used are Google Analytics, Errorception, Sentry, Airbrake, and Raygun.
+Web applications can fail for many reasons, including bad Internet connections, outdated browsers, and misbehaved browser extensions. Even if you test thoroughly, users may experience frustrating errors that they do not or cannot report. We highly recommend that you use an error-reporting and/or event-reporting service to track the use of your forms. Examples of services that could be used are Google Analytics, Errorception, Sentry, Airbrake, and Raygun.
 
 [Back to *Building a Form*](./README.md)
