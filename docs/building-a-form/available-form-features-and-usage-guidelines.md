@@ -21,6 +21,7 @@ These form features are available in the US Forms System library. We've provided
 - [Sequential duplicate form groups](#sequential-duplicate-form-groups)
 - [Review page](#review-page)
 - [Required checkbox before form submission](#required-checkbox-before-form-submission)
+- [Remote error and event monitoring](#remote-error-and-event-monitoring)
 
 ### Form instructions
 
@@ -447,5 +448,37 @@ preSubmitInfo: {
 If you don't specify a `preSubmitInfo` section, no notice or checkbox appears above the submit button. Most applications will want to give some sort of notice to the user before they submit the form. Although this section is optional, we recommend you specify it.
 
 For the code implementation, see [`PreSubmitSection`](../../src/js/components/PreSubmitSection.jsx) and [`SubmitController`](../../src/js/review/SubmitController.jsx).
+
+### Remote error and event monitoring
+
+If you provide a function for `formConfig.recordEvent`, the library calls that function when notable events occur. If you do not provide a function, the library logs these events onto the browser console.
+
+The `recordEvent` function receives a single object that can contain different information depending on the kind of event being reported. Events reported by the library always have a `event` property that is a string describing the event. The events currently supported by the library are:
+* **validation-failed-on-submit**: This is likely an error in the form definition or a React component, since the form should be completely validated at this point.
+* **form-submit-pending**: An informational message showing that the user has pressed the submit button, and that the form has validated and been sent to the server.
+* **form-submit-successful**: The server returned a status indicating it has accepted the form.
+* **form-submit-error**: The form was submitted, but the server didn't accept the submission. The object contains an `error` and `errorType` with more information about the nature of the error.
+
+Other events may be added in the future. This `recordEvent` logs events to Google Analytics, except for pending/successful form submits which are filtered out:
+
+```js
+formConfig = {
+  ...
+  // The Google Analytics code snippet loads in the main document
+  // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+  recordEvent: data => {
+    // Don't log if GA is not (yet) loaded or if this is a form success/pending
+    if (!window.dataLayer ||  /^form-submit-(successful|pending)$/.test(data.event)) {
+      return;
+    }
+    return window.dataLayer.push(data);
+  },
+  ...
+};
+```
+
+### Usage guidelines
+
+Web applications can fail for many reasons, including bad Internet connections, outdated browsers, and misbehaved browser extensions. Even if you test thoroughly, users may experience frustrating errors that they do not or cannot report. We highly recommend that you use an error-reporting and/or event-reporting service to track the use of your forms. Examples of services that could be used are Google Analytics, Errorception, Sentry, Airbrake, and Raygun.
 
 [Back to *Building a Form*](./README.md)

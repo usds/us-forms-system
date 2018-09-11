@@ -1,7 +1,6 @@
-import Raven from 'raven-js';
 import moment from 'moment';
 import _ from './utilities/data';
-import { transformForSubmit, recordEvent } from './helpers';
+import { transformForSubmit } from './helpers';
 import { timeFromNow } from './utilities/date';
 
 export const SET_EDIT_MODE = 'SET_EDIT_MODE';
@@ -78,15 +77,14 @@ export function setViewedPages(pageKeys) {
   };
 }
 
-function submitToUrl(body, submitUrl, trackingPrefix) {
+function submitToUrl(body, submitUrl, recordEvent) {
   return new Promise((resolve, reject) => {
     const req = new XMLHttpRequest();
     req.open('POST', submitUrl);
     req.addEventListener('load', () => {
       if (req.status >= 200 && req.status < 300) {
-        recordEvent({
-          event: `${trackingPrefix}-submission-successful`,
-        });
+        recordEvent({ event: 'form-submit-successful' });
+
         // got this from the fetch polyfill, keeping it to be safe
         const responseBody = 'response' in req ? req.response : req.responseText;
         const results = JSON.parse(responseBody);
@@ -135,24 +133,13 @@ function submitToUrl(body, submitUrl, trackingPrefix) {
 }
 
 export function submitForm(formConfig, form) {
-  const captureError = (error, errorType) => {
-    Raven.captureException(error, {
-      fingerprint: [formConfig.trackingPrefix, error.message],
-      extra: {
-        errorType,
-        statusText: error.statusText
-      }
-    });
-    recordEvent({
-      event: `${formConfig.trackingPrefix}-submission-failed${errorType.startsWith('client') ? '-client' : ''}`,
-    });
-  };
+  const recordEvent = formConfig.recordEvent ?
+    formConfig.recordEvent :
+    console.log.bind(console);      // eslint-disable-line no-console
 
   return dispatch => {
     dispatch(setSubmission('status', 'submitPending'));
-    recordEvent({
-      event: `${formConfig.trackingPrefix}-submission`,
-    });
+    recordEvent({ event: 'form-submit-pending' });
 
     let promise;
     if (formConfig.submit) {
@@ -162,7 +149,7 @@ export function submitForm(formConfig, form) {
         ? formConfig.transformForSubmit(formConfig, form)
         : transformForSubmit(formConfig, form);
 
-      promise = submitToUrl(body, formConfig.submitUrl, formConfig.trackingPrefix);
+      promise = submitToUrl(body, formConfig.submitUrl, recordEvent);
     }
 
     return promise
@@ -177,7 +164,7 @@ export function submitForm(formConfig, form) {
         } else if (errorMessage.startsWith('vets_server_error')) {
           errorType = 'serverError';
         }
-        captureError(error, errorType);
+        recordEvent({ event: 'form-submit-error', error, errorType });
         dispatch(setSubmission('status', errorType, error.extra));
       });
   };
@@ -242,7 +229,8 @@ export function uploadFile(file, uiOptions, onProgress, onChange, onError) {
           name: file.name,
           errorMessage
         });
-        Raven.captureMessage(`vets_upload_error: ${req.statusText}`);
+        // Commenting until this is removed by a PR for #211
+        //      Raven.captureMessage(`vets_upload_error: ${req.statusText}`);
         onError();
       }
     });
@@ -253,11 +241,12 @@ export function uploadFile(file, uiOptions, onProgress, onChange, onError) {
         name: file.name,
         errorMessage
       });
-      Raven.captureMessage(`vets_upload_error: ${errorMessage}`, {
-        extra: {
-          statusText: req.statusText
-        }
-      });
+      // Commenting until this is removed by a PR for #211
+      //      Raven.captureMessage(`vets_upload_error: ${errorMessage}`, {
+      //        extra: {
+      //          statusText: req.statusText
+      //        }
+      //      });
       onError();
     });
 

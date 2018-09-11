@@ -1,5 +1,4 @@
 import React from 'react';
-import Raven from 'raven-js';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -10,8 +9,7 @@ import { isValidForm } from '../validation';
 import {
   createPageListByChapter,
   expandArrayPages,
-  getActivePages,
-  recordEvent
+  getActivePages
 } from '../helpers';
 import {
   setPreSubmit,
@@ -60,8 +58,7 @@ class SubmitController extends React.Component {
     const {
       form,
       formConfig,
-      pagesByChapter,
-      trackingPrefix
+      pagesByChapter
     } = this.props;
 
     // If a pre-submit agreement is required, make sure it was accepted
@@ -76,15 +73,11 @@ class SubmitController extends React.Component {
     // like to know if they’re common
     const { isValid, errors } = isValidForm(form, pagesByChapter);
     if (!isValid) {
-      recordEvent({
-        event: `${trackingPrefix}-validation-failed`,
-      });
-      Raven.captureMessage('Validation issue not displayed', {
-        extra: {
-          errors,
-          prefix: trackingPrefix
-        }
-      });
+      const recordEvent = formConfig.recordEvent ?
+        formConfig.recordEvent :
+        console.log.bind(console);   // eslint-disable-line no-console
+
+      recordEvent({ event: 'validation-failed-on-submit', errors });
       this.props.setSubmission('status', 'validationError');
       this.props.setSubmission('hasAttemptedSubmit', true);
       return;
@@ -130,7 +123,6 @@ function mapStateToProps(state, ownProps) {
 
   const form = state.form;
   const pagesByChapter = createPageListByChapter(formConfig);
-  const trackingPrefix = formConfig.trackingPrefix;
   const submission = form.submission;
   const showPreSubmitError = submission.hasAttemptedSubmit;
 
@@ -142,8 +134,7 @@ function mapStateToProps(state, ownProps) {
     renderErrorMessage,
     router,
     submission,
-    showPreSubmitError,
-    trackingPrefix
+    showPreSubmitError
   };
 }
 
@@ -163,8 +154,7 @@ SubmitController.propTypes = {
   setPreSubmit: PropTypes.func.isRequired,
   setSubmission: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
-  submission: PropTypes.object.isRequired,
-  trackingPrefix: PropTypes.string.isRequired
+  submission: PropTypes.object.isRequired
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SubmitController));
