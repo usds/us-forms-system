@@ -92,52 +92,52 @@ export function createPageList(formConfig, formPages) {
     });
 }
 
-/*
- * Create the routes based on a form config. This goes through each chapter in a form
- * config, pulls out the config for each page, then generates a list of Route components with the
- * config as props
- */
-export function createRoutes(formConfig) {
-  const formPages = createFormPageList(formConfig);
-  const pageList = createPageList(formConfig, formPages);
-  let routes = formPages
-    .map(page => {
-      return {
-        path: page.path,
-        component: page.component || FormPage,
-        pageConfig: page,
-        pageList,
-        urlPrefix: formConfig.urlPrefix
-      };
-    });
-  if (formConfig.introduction) {
-    routes = [
-      {
-        path: 'introduction',
-        component: formConfig.introduction,
-        formConfig,
-        pageList
-      }
-    ].concat(routes);
-  }
+// /*
+//  * Create the routes based on a form config. This goes through each chapter in a form
+//  * config, pulls out the config for each page, then generates a list of Route components with the
+//  * config as props
+//  */
+// export function createRoutes(formConfig) {
+//   const formPages = createFormPageList(formConfig);
+//   const pageList = createPageList(formConfig, formPages);
+//   let routes = formPages
+//     .map(page => {
+//       return {
+//         path: page.path,
+//         component: page.component || FormPage,
+//         pageConfig: page,
+//         pageList,
+//         urlPrefix: formConfig.urlPrefix
+//       };
+//     });
+//   if (formConfig.introduction) {
+//     routes = [
+//       {
+//         path: 'introduction',
+//         component: formConfig.introduction,
+//         formConfig,
+//         pageList
+//       }
+//     ].concat(routes);
+//   }
 
-  return routes.concat([
-    {
-      path: 'review-and-submit',
-      formConfig,
-      component: ReviewPage,
-      pageList
-    },
-    {
-      path: 'confirmation',
-      component: formConfig.confirmation
-    },
-    {
-      path: '*',
-      onEnter: (nextState, replace) => replace(formConfig.urlPrefix || '/')
-    }
-  ]);
-}
+//   return routes.concat([
+//     {
+//       path: 'review-and-submit',
+//       formConfig,
+//       component: ReviewPage,
+//       pageList
+//     },
+//     {
+//       path: 'confirmation',
+//       component: formConfig.confirmation
+//     },
+//     {
+//       path: '*',
+//       onEnter: (nextState, replace) => replace(formConfig.urlPrefix || '/')
+//     }
+//   ]);
+// }
 
 function formatDayMonth(val) {
   if (val) {
