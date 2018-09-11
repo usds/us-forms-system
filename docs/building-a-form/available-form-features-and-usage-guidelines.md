@@ -468,7 +468,7 @@ formConfig = {
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/
   recordEvent: data => {
     // Don't log if GA is not (yet) loaded or if this is a form success/pending
-    if (!window.dataLayer ||  /^form-submit-(successful|pending)$/).test(data.event)) {
+    if (!window.dataLayer ||  /^form-submit-(successful|pending)$/.test(data.event)) {
       return;
     }
     return window.dataLayer.push(data);
