@@ -134,7 +134,7 @@ function submitToUrl(body, submitUrl, recordEvent) {
 
 export function submitForm(formConfig, form) {
   const recordEvent = formConfig.recordEvent ?
-    formConfig.recordEvent.bind(formConfig) :
+    formConfig.recordEvent(formConfig) :
     console.log.bind(console);      // eslint-disable-line no-console
 
   return dispatch => {

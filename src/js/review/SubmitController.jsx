@@ -74,7 +74,7 @@ class SubmitController extends React.Component {
     const { isValid, errors } = isValidForm(form, pagesByChapter);
     if (!isValid) {
       const recordEvent = formConfig.recordEvent ?
-        formConfig.recordEvent.bind(formConfig) :
+        formConfig.recordEvent(formConfig) :
         console.log.bind(console);   // eslint-disable-line no-console
 
       recordEvent({ event: 'validation-failed-on-submit', errors });
@@ -154,8 +154,7 @@ SubmitController.propTypes = {
   setPreSubmit: PropTypes.func.isRequired,
   setSubmission: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
-  submission: PropTypes.object.isRequired,
-  trackingPrefix: PropTypes.string.isRequired
+  submission: PropTypes.object.isRequired
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SubmitController));
