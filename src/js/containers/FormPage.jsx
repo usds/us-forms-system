@@ -63,16 +63,16 @@ class FormPage extends React.Component {
 
     const path = getNextPagePath(route.pageList, form.data, location.pathname);
 
-    this.props.router.push(path);
-    // this.props.goToRoute(path);
+    // this.props.router.push(path);
+    this.props.route.goToRoute(path);
   }
 
   goBack = () => {
     const { form, route: { pageList }, location } = this.props;
     const path = getPreviousPagePath(pageList, form.data, location.pathname);
 
-    this.props.router.push(path);
-    // this.props.goToRoute(path);
+    // this.props.router.push(path);
+    this.props.route.goToRoute(path);
   }
 
   render() {
