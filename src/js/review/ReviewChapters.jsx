@@ -7,9 +7,8 @@ import Scroll from 'react-scroll';
 import ReviewCollapsibleChapter from './ReviewCollapsibleChapter';
 import {
   createPageListByChapter,
-  expandArrayPages,
+  getActiveExpandedPages,
   getActiveChapters,
-  getActivePages,
   getPageKeys
 } from '../helpers';
 import {
@@ -124,8 +123,7 @@ export function mapStateToProps(state, ownProps) {
   const chapters = chapterNames.map(chapterName => {
     const pages = pagesByChapter[chapterName];
 
-    let expandedPages = expandArrayPages(pages, formData);
-    expandedPages = getActivePages(expandedPages, formData);
+    const expandedPages = getActiveExpandedPages(pages, formData);
     const chapterFormConfig = formConfig.chapters[chapterName];
     const open = openChapters.includes(chapterName);
     const pageKeys = getPageKeys(pages, formData);

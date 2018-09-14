@@ -524,6 +524,22 @@ export function expandArrayPages(pageList, data) {
 }
 
 /**
+ * Gets active and expanded pages, in the correct order
+ *
+ * Any `showPagePerItem` pages are expanded to create items for each array item.
+ * We update the `path` for each of those pages to replace `:index` with the current item index.
+ *
+ * @param pages {Array<Object>} List of page configs
+ * @param data {Object} Current form data
+ * @returns {Array<Object>} A list of pages, includeing individual array
+ *   pages that are active
+ */
+export function getActiveExpandedPages(pages, data) {
+  const expandedPages = expandArrayPages(pages, data);
+  return getActivePages(expandedPages, data);
+}
+
+/**
  * getPageKeys returns a list of keys for the currently active pages
  *
  * @param pages {Array<Object>} List of page configs
@@ -532,8 +548,7 @@ export function expandArrayPages(pageList, data) {
  *   and the index if it’s a pagePerItem page
  */
 export function getPageKeys(pages, formData) {
-  const eligiblePageList = getActivePages(pages, formData);
-  const expandedPageList = expandArrayPages(eligiblePageList, formData);
+  const expandedPageList = getActiveExpandedPages(pages, formData);
 
   return expandedPageList.map(page => {
     let pageKey = page.pageKey;
@@ -554,8 +569,7 @@ export function getPageKeys(pages, formData) {
 export function getActiveChapters(formConfig, formData) {
   const formPages = createFormPageList(formConfig);
   const pageList = createPageList(formConfig, formPages);
-  const eligiblePageList = getActivePages(pageList, formData);
-  const expandedPageList = expandArrayPages(eligiblePageList, formData);
+  const expandedPageList = getActiveExpandedPages(pageList, formData);
 
   return _.uniq(expandedPageList.map(p => p.chapterKey).filter(key => !!key && key !== 'review'));
 }
@@ -578,3 +592,4 @@ export function omitRequired(schema) {
 
   return newSchema;
 }
+
