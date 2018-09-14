@@ -531,7 +531,7 @@ export function expandArrayPages(pageList, data) {
  *
  * @param pages {Array<Object>} List of page configs
  * @param data {Object} Current form data
- * @returns {Array<Object>} A list of pages, includeing individual array
+ * @returns {Array<Object>} A list of pages, including individual array
  *   pages that are active
  */
 export function getActiveExpandedPages(pages, data) {
