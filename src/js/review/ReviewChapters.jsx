@@ -74,7 +74,8 @@ class ReviewChapters extends React.Component {
       chapters,
       form,
       formContext,
-      setValid, viewedPages
+      setValid,
+      viewedPages
     } = this.props;
 
     return (
