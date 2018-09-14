@@ -125,8 +125,8 @@ function mapStateToProps(state, ownProps) {
   const chapters = chapterNames.map(chapterName => {
     const pages = pagesByChapter[chapterName];
 
-    const activePages = getActivePages(pages, formData);
-    const expandedPages = expandArrayPages(activePages, formData);
+    let expandedPages = expandArrayPages(pages, formData);
+    expandedPages = getActivePages(expandedPages, formData);
     const chapterFormConfig = formConfig.chapters[chapterName];
     const open = openChapters.includes(chapterName);
     const pageKeys = getPageKeys(pages, formData);
