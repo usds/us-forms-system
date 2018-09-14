@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import { ReviewChapters } from '../../../src/js/review/ReviewChapters';
+import { ReviewChapters, mapStateToProps } from '../../../src/js/review/ReviewChapters';
 
 describe('Schemaform review: ReviewChapters', () => {
   it('should handle editing', () => {
@@ -104,5 +104,44 @@ describe('Schemaform review: ReviewChapters', () => {
     expect(openReviewChapter.calledWith('chapter1')).to.be.true;
     instance.handleToggleChapter({ name: 'chapter3', open: true, pageKeys: 0 });
     expect(closeReviewChapter.calledWith('chapter3', 0)).to.be.true;
+  });
+
+  it('should pass index to depends for pagePerItem pages', () => {
+    const formData = {
+      testArray: [{}]
+    };
+
+    const dependsStub = sinon.stub();
+    dependsStub.withArgs(formData, 0).returns(true);
+
+    mapStateToProps({
+      form: {
+        pages: {},
+        submission: {},
+        reviewPageView: {
+          openChapters: [],
+          viewedPages: new Set()
+        },
+        data: formData
+      }
+    }, {
+      formConfig: {
+        chapters: {
+          test: {
+            pages: {
+              testPage: {
+                path: '/testing/:index',
+                pagePerItem: true,
+                arrayPath: 'testArray',
+                depends: dependsStub
+              }
+            }
+          }
+        }
+      },
+      pageList: [{}]
+    });
+
+    expect(dependsStub.calledWith(formData, 0));
   });
 });

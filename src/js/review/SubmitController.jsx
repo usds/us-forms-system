@@ -9,8 +9,7 @@ import { PreSubmitSection } from '../components/PreSubmitSection';
 import { isValidForm } from '../validation';
 import {
   createPageListByChapter,
-  expandArrayPages,
-  getActivePages,
+  getActiveExpandedPages,
   recordEvent
 } from '../helpers';
 import {
@@ -37,8 +36,7 @@ class SubmitController extends React.Component {
       router
     } = this.props;
 
-    const eligiblePageList = getActivePages(pageList, form.data);
-    const expandedPageList = expandArrayPages(eligiblePageList, this.props.form.data);
+    const expandedPageList = getActiveExpandedPages(pageList, form.data);
 
     router.push(expandedPageList[expandedPageList.length - 2].path);
   }
