@@ -286,18 +286,6 @@ export function isInProgress(pathName) {
   );
 }
 
-/*
- * Normal transform for schemaform data
- */
-export function transformForSubmit(formConfig, form, replacer = stringifyFormReplacer) {
-  const activePages = getActivePages(createFormPageList(formConfig), form.data);
-  const inactivePages = getInactivePages(createFormPageList(formConfig), form.data);
-  const withoutInactivePages = filterInactivePageData(inactivePages, activePages, form);
-  const withoutViewFields = filterViewFields(withoutInactivePages);
-
-  return JSON.stringify(withoutViewFields, replacer) || '{}';
-}
-
 function isHiddenField(schema) {
   return !!schema['ui:collapsed'] || !!schema['ui:hidden'];
 }
@@ -591,5 +579,18 @@ export function omitRequired(schema) {
   });
 
   return newSchema;
+}
+
+/*
+ * Normal transform for schemaform data
+ */
+export function transformForSubmit(formConfig, form, replacer = stringifyFormReplacer) {
+  const expandedPages = expandArrayPages(createFormPageList(formConfig), form.data);
+  const activePages = getActivePages(expandedPages, form.data);
+  const inactivePages = getInactivePages(expandedPages, form.data);
+  const withoutInactivePages = filterInactivePageData(inactivePages, activePages, form);
+  const withoutViewFields = filterViewFields(withoutInactivePages);
+
+  return JSON.stringify(withoutViewFields, replacer) || '{}';
 }
 
