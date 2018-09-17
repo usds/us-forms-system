@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import ProgressButton from '../components/ProgressButton';
 import { timeFromNow } from '../utilities/date';
 
@@ -62,7 +61,7 @@ export default function SubmitButtons(props) {
       <div className="usa-alert usa-alert-error schemaform-failure-alert">
         <div className="usa-alert-body">
           <p className="schemaform-warning-header"><strong>We’ve run into a problem</strong></p>
-          <p>We’re sorry. Your submission didn’t go through because we received too many requests from you. Please wait {timeFromNow(moment.unix(submission.extra))} and submit your request again.</p>
+          <p>We’re sorry. Your submission didn’t go through because we received too many requests from you. Please wait {timeFromNow(new Date(submission.extra * 1000))} and submit your request again.</p>
         </div>
       </div>
     );
