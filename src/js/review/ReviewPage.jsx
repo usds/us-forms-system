@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Scroll from 'react-scroll';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 
 import { focusElement } from '../utilities/ui';
 import ReviewChapters from '../review/ReviewChapters';
@@ -72,6 +71,6 @@ ReviewPage.propTypes = {
   }).isRequired
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReviewPage));
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewPage);
 
 export { ReviewPage };

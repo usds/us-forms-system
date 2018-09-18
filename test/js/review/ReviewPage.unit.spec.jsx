@@ -55,7 +55,7 @@ describe('Schemaform review: ReviewPage', () => {
         location={location}/>
     );
 
-    expect(tree.find('withRouter(Connect(ReviewChapters))')).to.have.length(1);
+    expect(tree.find('Connect(ReviewChapters)')).to.have.length(1);
     expect(tree.find('withRouter(Connect(SubmitController))')).to.have.length(1);
   });
 });
