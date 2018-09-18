@@ -49,31 +49,33 @@ class FormPage extends React.Component {
       newData = _.set([this.props.route.pageConfig.arrayPath, this.props.params.index], formData, this.props.form.data);
     }
     this.props.setData(newData);
+    console.log(newData);
+    this.props.onPageChange(newData);
   }
 
-  onSubmit = ({ formData }) => {
-    const { form, params, route, location } = this.props;
+  // onSubmit = ({ formData }) => {
+  //   const { form, params, route, location } = this.props;
 
-    // This makes sure defaulted data on a page with no changes is saved
-    // Probably safe to do this for regular pages, too, but it hasn’t been necessary
-    if (route.pageConfig.showPagePerItem) {
-      const newData = _.set([route.pageConfig.arrayPath, params.index], formData, form.data);
-      this.props.setData(newData);
-    }
+  //   // This makes sure defaulted data on a page with no changes is saved
+  //   // Probably safe to do this for regular pages, too, but it hasn’t been necessary
+  //   if (route.pageConfig.showPagePerItem) {
+  //     const newData = _.set([route.pageConfig.arrayPath, params.index], formData, form.data);
+  //     this.props.setData(newData);
+  //   }
 
-    const path = getNextPagePath(route.pageList, form.data, location.pathname);
+  //   const path = getNextPagePath(route.pageList, form.data, location.pathname);
 
-    // this.props.router.push(path);
-    this.props.route.goToRoute(path);
-  }
+  //   // this.props.router.push(path);
+  //   // this.props.route.goToRoute(path);
+  // }
 
-  goBack = () => {
-    const { form, route: { pageList }, location } = this.props;
-    const path = getPreviousPagePath(pageList, form.data, location.pathname);
+  // goBack = () => {
+  //   const { form, route: { pageList }, location } = this.props;
+  //   const path = getPreviousPagePath(pageList, form.data, location.pathname);
 
-    // this.props.router.push(path);
-    this.props.route.goToRoute(path);
-  }
+  //   // this.props.router.push(path);
+  //   // this.props.route.goToRoute(path);
+  // }
 
   render() {
     const {
@@ -106,38 +108,17 @@ class FormPage extends React.Component {
     const isFirstRoutePage = route.pageList[0].path === this.props.location.pathname;
 
     return (
-      <div className={pageClasses}>
-        <SchemaForm
-          name={route.pageConfig.pageKey}
-          title={route.pageConfig.title}
-          data={data}
-          schema={schema}
-          uiSchema={uiSchema}
-          pagePerItemIndex={params ? params.index : undefined}
-          formContext={formContext}
-          uploadFile={this.props.uploadFile}
-          onChange={this.onChange}
-          onSubmit={this.onSubmit}>
-          <div className="row form-progress-buttons schemaform-buttons">
-            <div className="small-6 medium-5 columns">
-              { !isFirstRoutePage &&
-                <ProgressButton
-                  onButtonClick={this.goBack}
-                  buttonText="Back"
-                  buttonClass="usa-button-secondary"
-                  beforeText="«"/> }
-            </div>
-            <div className="small-6 medium-5 end columns">
-              <ProgressButton
-                submitButton
-                buttonText="Continue"
-                buttonClass="usa-button-primary"
-                afterText="»"/>
-            </div>
-          </div>
-          {contentAfterButtons}
-        </SchemaForm>
-      </div>
+      <SchemaForm
+        name={route.pageConfig.pageKey}
+        title={route.pageConfig.title}
+        data={data}
+        schema={schema}
+        uiSchema={uiSchema}
+        pagePerItemIndex={params ? params.index : undefined}
+        formContext={formContext}
+        uploadFile={this.props.uploadFile}
+        onChange={this.onChange}
+        onSubmit={this.props.onSubmit}/>
     );
   }
 }
@@ -173,3 +154,36 @@ FormPage.propTypes = {
 export default connect(mapStateToProps, mapDispatchToProps)(FormPage);
 
 export { FormPage };
+
+// <div className={pageClasses}>
+//         <SchemaForm
+//           name={route.pageConfig.pageKey}
+//           title={route.pageConfig.title}
+//           data={data}
+//           schema={schema}
+//           uiSchema={uiSchema}
+//           pagePerItemIndex={params ? params.index : undefined}
+//           formContext={formContext}
+//           uploadFile={this.props.uploadFile}
+//           onChange={this.onChange}
+//           onSubmit={this.onSubmit}>
+//           <div className="row form-progress-buttons schemaform-buttons">
+//             <div className="small-6 medium-5 columns">
+//               { !isFirstRoutePage &&
+//                 <ProgressButton
+//                   onButtonClick={this.goBack}
+//                   buttonText="Back"
+//                   buttonClass="usa-button-secondary"
+//                   beforeText="«"/> }
+//             </div>
+//             <div className="small-6 medium-5 end columns">
+//               <ProgressButton
+//                 submitButton
+//                 buttonText="Continue"
+//                 buttonClass="usa-button-primary"
+//                 afterText="»"/>
+//             </div>
+//           </div>
+//           {contentAfterButtons}
+//         </SchemaForm>
+//       </div>

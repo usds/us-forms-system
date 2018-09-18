@@ -21,7 +21,8 @@ class ProgressButton extends React.Component {
         disabled={this.props.disabled}
         className={`${this.props.buttonClass} ${this.props.disabled ? 'usa-button-disabled' : null}`}
         id={`${this.id}-continueButton`}
-        onClick={this.props.onButtonClick}>{beforeText}{this.props.buttonText}{afterText}
+        onClick={this.props.onButtonClick}>
+        {beforeText}{this.props.buttonText}{afterText}
       </button>
     );
   }
