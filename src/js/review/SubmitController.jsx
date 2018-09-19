@@ -8,8 +8,7 @@ import { PreSubmitSection } from '../components/PreSubmitSection';
 import { isValidForm } from '../validation';
 import {
   createPageListByChapter,
-  expandArrayPages,
-  getActivePages
+  getActiveExpandedPages
 } from '../helpers';
 import {
   setPreSubmit,
@@ -45,8 +44,7 @@ class SubmitController extends React.Component {
       router
     } = this.props;
 
-    const eligiblePageList = getActivePages(pageList, form.data);
-    const expandedPageList = expandArrayPages(eligiblePageList, this.props.form.data);
+    const expandedPageList = getActiveExpandedPages(pageList, form.data);
 
     // TODO: Fix this bug that assumes there is a confirmation page.
     // Actually, it assumes the app also doesn't add routes at the end!

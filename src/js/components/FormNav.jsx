@@ -7,8 +7,7 @@ import SegmentedProgressBar from './SegmentedProgressBar';
 import {
   createFormPageList,
   createPageList,
-  expandArrayPages,
-  getActivePages
+  getActiveExpandedPages
 } from '../helpers';
 
 export default class FormNav extends React.Component {
@@ -24,10 +23,7 @@ export default class FormNav extends React.Component {
     const formPages = createFormPageList(formConfig);
     const pageList = createPageList(formConfig, formPages);
 
-    // These lines are also in src/applications/common/schemaform/routing.js#getEligiblePages
-    // TODO: Pull this logic out to be used in routing.js only
-    const expandedPageList = expandArrayPages(pageList, formData);
-    const eligiblePageList = getActivePages(expandedPageList, formData);
+    const eligiblePageList = getActiveExpandedPages(pageList, formData);
 
     const chapters = _.uniq(eligiblePageList
       .map(p => p.chapterKey)
