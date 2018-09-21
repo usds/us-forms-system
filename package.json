@@ -52,6 +52,7 @@
     "enzyme-adapter-react-15": "^1.0.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-chai-expect": "^1.1.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-no-unsafe-innerhtml": "^1.0.14",
@@ -83,8 +84,8 @@
     "uswds": "^1.6.3"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
+    "classnames": "^2.2.5",
     "date-fns": "^1.29.0",
     "downshift": "^1.22.5",
     "fast-levenshtein": "^2.0.6",

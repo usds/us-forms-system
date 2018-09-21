@@ -15,7 +15,8 @@
     '__BUILDTYPE__': true
   },
   "plugins": [
-    "jsx-a11y"
+    "jsx-a11y",
+    "chai-expect"
   ],
   'rules': {
     // Override airbnb style.
@@ -34,6 +35,10 @@
     'no-plusplus': 0,
     'no-underscore-dangle': 0,
     'import/no-extraneous-dependencies': 0,
+
+    // Plugins
+    "chai-expect/missing-assertion": 2,
+    "chai-expect/terminating-properties": 2,
 
     // Disabled rules with rationale.
     'react/no-multi-comp': 0,      // Leave organization to code reviewer discretion.

@@ -102,10 +102,10 @@ describe('Schemaform <SchemaForm>', () => {
       );
     });
     it('change', () => {
-      const newData = {};
-      tree.subTree('Form').props.onChange(newData);
+      const newData = { a: 1 };
+      tree.subTree('Form').props.onChange({ formData: newData });
 
-      expect(onChange.calledWith(newData));
+      expect(onChange.calledWith(newData)).to.be.true;
     });
     it('error', () => {
       tree.getMountedInstance().onError();
