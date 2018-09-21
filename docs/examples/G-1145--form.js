@@ -2,7 +2,48 @@ import PhoneNumberWidget from 'us-forms-system/lib/js/widgets/PhoneNumberWidget'
 import PhoneNumberReviewWidget from 'us-forms-system/lib/js/review/PhoneNumberWidget';
 
 import Introduction from '../components/Introduction.jsx';
-import { schema as fullName, uiSchema as fullNameUI } from '../definitions/fullName';
+
+const fullNameConfig = {
+  schema: () => {
+    return {
+      type: 'object',
+      properties: {
+        first: {
+          type: 'string',
+          pattern: '^.*\\S.*',
+          minLength: 1,
+          maxLength: 30
+        },
+        middle: {
+          type: 'string'
+        },
+        last: {
+          type: 'string',
+          pattern: '^.*\\S.*',
+          minLength: 2,
+          maxLength: 30
+        },
+      },
+      required: [
+        'first',
+        'last'
+      ]
+    }
+  },
+  uiSchema: () => {
+    return {
+      first: {
+        'ui:title': 'Applicant/petitioner full first name'
+      },
+      last: {
+        'ui:title': 'Applicant/petitioner full last name'
+      },
+      middle: {
+        'ui:title': 'Applicant/petitioner full middle name'
+      }
+    }
+  }
+}
 
 const formConfig = {
   title: 'Form',
@@ -13,7 +54,7 @@ const formConfig = {
   transformForSubmit: '',
   submitUrl: '',
   defaultDefinitions: {
-    fullName
+    fullNameConfig
   },
   chapters: {
     firstSection: {
@@ -23,12 +64,12 @@ const formConfig = {
           path: 'first-section/first-page',
           title: 'First Page',
           uiSchema: {
-            fullName: fullNameUI
+            fullName: fullNameConfig.uiSchema()
           },
           schema: {
             type: 'object',
             properties: {
-              fullName
+              fullName: fullNameConfig.schema()
             }
           }
         },
