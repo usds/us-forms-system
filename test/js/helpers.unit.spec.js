@@ -783,6 +783,7 @@ describe('Schemaform helpers:', () => {
         // Perhaps this should not be in this test...Seems pretty brittle.
         //  Still, I'd like a way to make sure we get all the right errors and
         //  would prefer to not write 6 different tests.
+        // eslint-disable-next-line max-len
         expect(err.message).to.equal('Errors found in schema: Missing type in root.field1 schema. Missing object properties in root.field2 schema. Missing type in root.field3.nestedField schema. Missing items schema in root.field4. Missing object properties in root.field5.additionalItems schema. Missing type in root.field6.items.0 schema. Missing type in root.field7.items schema. root.field8 should contain additionalItems when items is an array. root.field9 should not contain additionalItems when items is an object.');
       }
       expect(isValid).to.equal(undefined);

@@ -51,7 +51,7 @@ describe('Schemaform review: <SubmitButtons>', () => {
     );
 
     expect(tree.everySubTree('.usa-alert-error')).not.to.be.empty;
-    expect(tree.everySubTree('a').length).to.equal(2);
+    expect(tree.everySubTree('button').length).to.equal(2);
   });
   it('should render validation error', () => {
     const submission = {
