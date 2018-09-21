@@ -67,7 +67,7 @@
       }],
 
     // TODO: evaluate and potentially turn these rules back on
-    'jsx-a11y/no-onchange': 0, // TODO: (shakes fist at DateWidget.jsx)
+    'jsx-a11y/no-onchange': 0, // possibly bad advice? https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/398
     'import/extensions': 0,
     'import/first': 0,
     'react/require-default-props': 0,
