@@ -257,6 +257,33 @@ describe('Schemaform review: SubmitController', () => {
     expect(tree.find('.presubmit-notice').text()).to.equal('NOTICE');
     expect(submitForm.called).to.be.true;
   });
+  it('should change the preSubmit value when the checkbox is clicked', () => {
+    const formConfig = createFormConfig({
+      preSubmitInfo: {
+        required: true,
+        field: 'yep',
+        label: 'Count me in!'
+      }
+    });
+    const pagesByChapter = createPagesByChapter();
+    const form = createForm();
+    const pageList = createPageList();
+    const setPreSubmit = sinon.spy();
+
+    const tree = mount(
+      <SubmitController
+        submitForm={f => f}
+        setPreSubmit={setPreSubmit}
+        formConfig={formConfig}
+        form={form}
+        pagesByChapter={pagesByChapter}
+        pageList={pageList}
+        route={{ formConfig, pageList }}/>
+    );
+
+    tree.find('[type="checkbox"]').simulate('change', { target: { checked: true } });
+    expect(setPreSubmit.calledWith('yep', true)).to.be.true;
+  });
   it('should go back', () => {
     const formConfig = createFormConfig();
     const pageList = createPageList();

@@ -105,7 +105,7 @@ class SubmitController extends React.Component {
       <div>
         <PreSubmitSection
           preSubmitInfo={preSubmit}
-          onChange={(event) => this.props.setPreSubmit(preSubmit.field, event.target.value)}
+          onChange={value => this.props.setPreSubmit(preSubmit.field, value)}
           checked={form.data[preSubmit.field]}
           showError={showPreSubmitError}/> }
         <SubmitButtons
