@@ -1,6 +1,9 @@
 {
   // All rules should be disabled or they should produce errors. No warnings.
-  'extends': 'airbnb',
+  "extends": [
+    'airbnb',
+    "plugin:jsx-a11y/recommended"
+  ],
   'parser': 'babel-eslint',
   'env': {
     'browser': true,
@@ -11,6 +14,9 @@
   'globals': {
     '__BUILDTYPE__': true
   },
+  "plugins": [
+    "jsx-a11y"
+  ],
   'rules': {
     // Override airbnb style.
     'arrow-body-style': 0,  // Leave bracing to code reviewer discretion.
@@ -23,18 +29,18 @@
     'prefer-rest-params': 2,
     'quote-props': [2, 'as-needed', { 'keywords': true }],
     'space-unary-ops': 2,
-    'max-len': [0],  // No agreed upon max length and react lines get > 100 chars easily.
+    'max-len': [2, 250],  // TODO: make smaller
     'arrow-parens': 0, // We don't have an agreed upon pattern here
-    'no-underscore-dangle': 0, // We have build flags that use this
+    'no-plusplus': 0,
+    'no-underscore-dangle': 0,
+    'import/no-extraneous-dependencies': 0,
 
     // Disabled rules with rationale.
     'react/no-multi-comp': 0,      // Leave organization to code reviewer discretion.
     'react/prefer-stateless-function': 0, // Leave statelessness to code reviewer discretion.
-
     'react/jsx-closing-bracket-location': [2, 'after-props'],
     'react/jsx-equals-spacing': 2,
     'react/jsx-key': 2,
-    'react/jsx-no-bind': [0, {'ignoreRefs': true}],  // TODO: Enable after fixing.
     'react/jsx-pascal-case': 2,
     'react/sort-prop-types': [0, {'callbacksLast': true, 'requiredFirst': true}],  // TODO(awong): Too hard to turn on.
     'react/jsx-sort-props': [0, {'callbacksLast': true, 'shorthandFirst': true}],  // TODO(awong): Too hard to turn on.
@@ -42,10 +48,8 @@
     'react/no-danger': 2,
     'react/no-deprecated': 2,
     'react/no-direct-mutation-state': 2,
-    'react/no-string-refs': 0,       // TODO(awong): Enable.
     'react/prop-types': 0,           // TODO(awong): Enable.
     'react/jsx-tag-spacing': [2, { 'beforeSelfClosing': 'never' }],
-    'import/no-extraneous-dependencies': 0,
 
     // this is the airbnb default, minus for..of
     'no-restricted-syntax': [2, 'error',
@@ -61,16 +65,11 @@
         selector: 'WithStatement',
         message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
       }],
-    'no-plusplus': 0,
-    'react/jsx-indent-props': 0,
 
     // TODO: evaluate and potentially turn these rules back on
+    'jsx-a11y/no-onchange': 0, // possibly bad advice? https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/398
     'import/extensions': 0,
-    'react/jsx-filename-extension': 0,
     'import/first': 0,
-    'react/jsx-curly-spacing': 0, // on before
-    'react/jsx-no-target-blank': 0,
-    'react/no-unescaped-entities': 0,
     'react/require-default-props': 0,
     'block-spacing': 0,
     'class-methods-use-this': 0,
@@ -85,15 +84,13 @@
     'no-multi-spaces': 0,
     'no-undef-init': 0,
     'padded-blocks': 0,
-    'jsx-a11y/no-static-element-interactions': 0,
     'import/prefer-default-export': 0,
     'global-require': 0,
     'no-lonely-if': 0,
     'lines-around-directive': 0,
-    'jsx-a11y/href-no-hash': 0,
   },
   'overrides': [{
-    'files': ["**/*.spec.jsx", "**/*.spec.js", "src/platform/testing/**/*.js", "src/platform/testing/**/*.jsx"],
+    'files': ["**/*.spec.jsx", "**/*.spec.js"],
     'rules': {
       'react/no-find-dom-node': 0,
       'no-unused-expressions': 0
