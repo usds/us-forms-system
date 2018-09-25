@@ -1,5 +1,4 @@
-
-import currentOrPastDate from 'us-forms-system/lib/js/definitions/currentOrPastDate';
+import currentOrPastDateUI from 'us-forms-system/lib/js/definitions/currentOrPastDate';
 
 const formConfig = {
   title: 'US Passport Renewal Application',
@@ -151,7 +150,7 @@ const formConfig = {
                 pattern: 'Please enter a social security number in the form 000-00-0000'
               }
             },
-            dob: currentOrPastDate('Date of birth')
+            dob: currentOrPastDateUI('Date of birth')
           },
           schema: {
             type: 'object',
