@@ -1,4 +1,4 @@
-import { currentOrPastDateConfig } from 'us-forms-system/lib/js/definitions/currentOrPastDate';
+import currentOrPastDateUI from 'us-forms-system/lib/js/definitions/currentOrPastDate';
 
 const fullNameSchema = (title) => {
   return {
@@ -111,7 +111,7 @@ const formConfig = {
             }
           },
           uiSchema: {
-            dateOfBirth: currentOrPastDateConfig.uiSchema('Date of birth'),
+            dateOfBirth: currentOrPastDateUI('Date of birth'),
             usedOtherNames: {
               "ui:widget": 'yesNo',
               "ui:options": {
@@ -131,7 +131,7 @@ const formConfig = {
                 expandUnder: 'previouslyFiledForSSN'
               },
               previousSSN: SSNErrorMessage(),
-              previousBirthDate: currentOrPastDateConfig.uiSchema('Date of birth (if different than entered above)')
+              previousBirthDate: currentOrPastDateUI('Date of birth (if different than entered above)')
             },
             'view:placeOfBirth': {
             }

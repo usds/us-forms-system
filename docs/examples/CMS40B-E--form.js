@@ -1,23 +1,14 @@
-import Introduction from '../components/Introduction.jsx';
-
 const formConfig = {
   title: 'Application for enrollment in Medicare Part B (medical insurance)',
   subTitle: 'CMS40B-E',
   formId: '',
   urlPrefix: '/',
   submitUrl: '',
-  introduction: Introduction,
   confirmation: '',
   defaultDefinitions: {},
-  preSubmitInfo: {
-    notice: 'I hope you did not lie!',
-    required: true,
-    label: 'I swear this information is correct to the best of my knowledge.',
-    field: 'signed',
-    error: 'You must check the box to submit this form and apply for Medicare Part B'
-  },
   chapters: {
     CP1: {
+      title: 'Medicare enrollment information',
       pages: {
         PG1: {
           path: 'verification',
