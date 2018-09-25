@@ -21,10 +21,10 @@ To use one of the example files with the starter app, rename it to `form.js` and
 
 ### G-1145: USCIS E-Notification of Application/Petition Acceptance
 * [Original PDF form](https://www.uscis.gov/system/files_force/files/form/g-1145.pdf)
-* [form.js file](./G-1145--file.js)
+* [form.js file](./G-1145--form.js)
 * [codesandbox.io form using the starter app]()
 
 ### 4506-T: Request for Transcript of Tax Return
 * [Original PDF form](https://www.irs.gov/pub/irs-pdf/f4506t.pdf)
-* [form.js file](./4506-T--file.js)
+* [form.js file](./4506-T--form.js)
 * [codesandbox.io form using the starter app]()

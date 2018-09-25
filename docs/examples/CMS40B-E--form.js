@@ -3,6 +3,7 @@ const formConfig = {
   subTitle: 'CMS40B-E',
   formId: '',
   urlPrefix: '/',
+  trackingPrefix: 'form-',
   submitUrl: '',
   confirmation: '',
   defaultDefinitions: {},

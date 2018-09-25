@@ -44,6 +44,7 @@ const formConfig = {
   subTitle: 'SS-5',
   formId: '',
   urlPrefix: '/',
+  trackingPrefix: 'form-',
   submitUrl: '',
   confirmation: '',
   defaultDefinitions: {},

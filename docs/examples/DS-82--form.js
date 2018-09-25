@@ -5,6 +5,7 @@ const formConfig = {
   subTitle: 'DS-82',
   formId: '',
   urlPrefix: '/',
+  trackingPrefix: 'form-',
   submitUrl: '',
   confirmation: '',
   defaultDefinitions: {},
