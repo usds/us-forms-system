@@ -103,22 +103,20 @@ describe('Schemaform <FormPage>', () => {
     });
     it('change', () => {
       const newData = {};
-      const autoSave = sinon.spy();
       const instance = tree.getMountedInstance();
-      instance.debouncedAutoSave = autoSave;
       instance.onChange(newData);
 
-      expect(setData.calledWith('testPage', newData));
+      expect(setData.calledWith(newData)).to.be.true;
     });
     it('submit', () => {
       tree.getMountedInstance().onSubmit({});
 
-      expect(router.push.calledWith('next-page'));
+      expect(router.push.calledWith('/next-page')).to.be.true;
     });
     it('back', () => {
       tree.getMountedInstance().goBack();
 
-      expect(router.push.calledWith('previous-page'));
+      expect(router.push.calledWith('/first-page')).to.be.true;
     });
   });
   it('should go back to the beginning if current page isn\'t found', () => {
@@ -136,7 +134,7 @@ describe('Schemaform <FormPage>', () => {
 
     tree.getMountedInstance().goBack();
 
-    expect(router.push.calledWith('first-page'));
+    expect(router.push.calledWith('/first-page')).to.be.true;
   });
   it('should not show a Back button on the first page', () => {
     const tree = SkinDeep.shallowRender(
