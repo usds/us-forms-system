@@ -365,3 +365,10 @@ export function validateAutosuggestOption(errors, formData) {
     errors.addError('Please select an option from the suggestions');
   }
 }
+
+export function validateCurrency(errors, currencyAmount) {
+  // Source: https://stackoverflow.com/a/16242575
+  if (!/(?=.*?\d)^\$?(([1-9]\d{0,2}(,\d{3})*)|\d+)?(\.\d{1,2})?$/.test(currencyAmount)) {
+    errors.addError('Please enter a valid dollar amount');
+  }
+}

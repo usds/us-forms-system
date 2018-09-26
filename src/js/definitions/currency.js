@@ -1,5 +1,6 @@
 import CurrencyWidget from '../widgets/CurrencyWidget';
 import CurrencyReviewWidget from '../review/CurrencyWidget';
+import { validateCurrency } from '../validation';
 
 function schema() {
   return {
@@ -7,7 +8,7 @@ function schema() {
   };
 }
 
-function uiSchema(title) {
+function uiSchema(title = 'Dollar amount') {
   return {
     'ui:widget': CurrencyWidget,
     'ui:reviewWidget': CurrencyReviewWidget,
@@ -15,6 +16,9 @@ function uiSchema(title) {
     'ui:options': {
       classNames: 'schemaform-currency-input'
     },
+    'ui:validations': [
+      validateCurrency
+    ],
     'ui:errorMessages': {
       type: 'Please enter a valid dollar amount'
     }
