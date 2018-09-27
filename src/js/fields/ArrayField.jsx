@@ -217,7 +217,7 @@ export default class ArrayField extends React.Component {
           {DescriptionField && <DescriptionField options={uiSchema['ui:options']}/>}
           {!textDescription && !DescriptionField && description}
         </div>}
-        <div className="va-growable">
+        <div className="usfs-growable">
           <Element name={`topOfTable_${idSchema.$id}`}/>
           {items.map((item, index) => {
             // This is largely copied from the default ArrayField
@@ -230,10 +230,10 @@ export default class ArrayField extends React.Component {
 
             if (isReviewMode ? isEditing : isLast || isEditing) {
               return (
-                <div key={index} className={notLastOrMultipleRows ? 'va-growable-background' : null}>
+                <div key={index} className={notLastOrMultipleRows ? 'usfs-growable-background' : null}>
                   <Element name={`table_${itemIdPrefix}`}/>
                   <div className="row small-collapse">
-                    <div className="small-12 columns va-growable-expanded">
+                    <div className="small-12 columns usfs-growable-expanded">
                       {isLast && items.length > 1 && uiSchema['ui:options'].itemName
                         ? <h5>New {uiSchema['ui:options'].itemName}</h5>
                         : null}
@@ -266,7 +266,7 @@ export default class ArrayField extends React.Component {
               );
             }
             return (
-              <div key={index} className="va-growable-background">
+              <div key={index} className="usfs-growable-background">
                 <div className="row small-collapse">
                   <div className="small-9 columns">
                     <ViewField
@@ -284,7 +284,7 @@ export default class ArrayField extends React.Component {
             type="button"
             className={classNames(
               'usa-button-secondary',
-              'va-growable-add-btn',
+              'usfs-growable-add-btn',
               {
                 'usa-button-disabled': !this.props.formData
               }

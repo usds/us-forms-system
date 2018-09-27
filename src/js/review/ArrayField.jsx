@@ -190,7 +190,7 @@ class ArrayField extends React.Component {
               <button type="button" className="edit-btn primary-outline" onClick={() => this.handleAdd()}>Add Another</button>
             }
           </div>}
-        <div className="va-growable va-growable-review">
+        <div className="usfs-growable usfs-growable-review">
           <Element name={`topOfTable_${fieldName}${itemCountLocked ? '_locked' : ''}`}/>
           {items.map((item, index) => {
             const isLast = items.length === (index + 1);
@@ -201,10 +201,10 @@ class ArrayField extends React.Component {
 
             if (isEditing) {
               return (
-                <div key={index} className="va-growable-background">
+                <div key={index} className="usfs-growable-background">
                   <Element name={`table_${fieldName}_${index}`}/>
                   <div className="row small-collapse schemaform-array-row" id={`table_${fieldName}_${index}`}>
-                    <div className="small-12 columns va-growable-expanded">
+                    <div className="small-12 columns usfs-growable-expanded">
                       {isLast && uiOptions.itemName && items.length > 1
                         ? <h5>New {uiOptions.itemName}</h5>
                         : null}
@@ -235,7 +235,7 @@ class ArrayField extends React.Component {
               );
             }
             return (
-              <div key={index} className="va-growable-background">
+              <div key={index} className="usfs-growable-background">
                 <div className="row small-collapse">
                   <SchemaForm
                     reviewMode

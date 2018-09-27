@@ -1,12 +1,12 @@
 // Style for schemaform
 
-.va-growable-background {
+.usfs-growable-background {
   padding: 1em;
   margin-bottom: 1em;
   background-color: $color-gray-lightest;
 }
 
-.progress-box .va-growable button {
+.progress-box .usfs-growable button {
   width: auto;
   margin-right: 0;
   @media screen and (max-width: 340px) {
@@ -58,7 +58,7 @@ fieldset {
   }
 }
 
-.va-nav-breadcrumbs-list, legend, .nav-header > h4, .nav-header, .usa-input-error, .input-error-date, .usa-alert {
+.usfs-nav-breadcrumbs-list, legend, .nav-header > h4, .nav-header, .usa-input-error, .input-error-date, .usa-alert {
   &:focus {
     outline: none;
   }
@@ -105,7 +105,7 @@ form.rjsf {
   max-width: 100%;
 }
 
-.va-growable-review {
+.usfs-growable-review {
   margin-top: 16px;
 }
 
@@ -367,7 +367,7 @@ legend.schemaform-label.schemaform-file-label {
   margin-bottom: 1.5em;
 }
 
-.va-growable-background:focus {
+.usfs-growable-background:focus {
   outline: none;
 }
 
@@ -425,7 +425,7 @@ legend.schemaform-label.schemaform-file-label {
     padding: 1em 0.8em;
     background-color: $color-gold-lightest;
   }
-  > .va-growable-review {
+  > .usfs-growable-review {
     padding: 0 1em;
   }
 }
