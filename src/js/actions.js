@@ -1,4 +1,3 @@
-import _ from './utilities/data';
 import { transformForSubmit } from './helpers';
 import { timeFromNow } from './utilities/date';
 
