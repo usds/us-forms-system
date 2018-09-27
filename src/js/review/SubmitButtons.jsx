@@ -94,14 +94,6 @@ export default function SubmitButtons(props) {
       );
     }
 
-    if (process.env.NODE_ENV !== 'production') {
-      submitButton = (
-        <div className="small-6 usa-width-one-half medium-6 columns">
-          <button onClick={onSubmit}>Submit again</button>
-        </div>
-      );
-    }
-
     return (
       <div>
         <div className="row">
