@@ -45,8 +45,8 @@ export default function SubmitButtons(props) {
     submitMessage = (
       <div className="usa-alert usa-alert-error schemaform-failure-alert">
         <div className="usa-alert-body">
-          <p className="schemaform-warning-header"><strong>We’re sorry, there was an error connecting to Vets.gov.</strong></p>
-          <p>Please check your Internet connection and try again. If the problem persists, please contact the Vets.gov Help Desk.</p>
+          <p className="schemaform-warning-header"><strong>We’re sorry, there was an error connecting to the server.</strong></p>
+          <p>Please check your Internet connection and try again.</p>
         </div>
       </div>
     );
@@ -104,7 +104,7 @@ export default function SubmitButtons(props) {
         <div className="row form-progress-buttons schemaform-back-buttons">
           <div className="small-6 usa-width-one-half medium-6 columns">
             <a href="/">
-              <button className="usa-button-primary">Go Back to Vets.gov</button>
+              <button className="usa-button-primary">Go back to the home page</button>
             </a>
           </div>
           {submitButton}
