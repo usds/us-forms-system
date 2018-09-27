@@ -241,7 +241,7 @@ describe('Schemaform <FileField>', () => {
         requiredSchema={requiredSchema}/>
     );
 
-    expect(tree.find('.va-growable-background').text()).to.contain('Bad error');
+    expect(tree.find('.usfs-growable-background').text()).to.contain('Bad error');
   });
 
   it('should not render upload button if over max items', () => {
@@ -308,7 +308,7 @@ describe('Schemaform <FileField>', () => {
 
     expect(formDOM.querySelectorAll('li')).not.to.be.empty;
 
-    formDOM.click('.va-growable-background button');
+    formDOM.click('.usfs-growable-background button');
 
     expect(formDOM.querySelectorAll('li')).to.be.empty;
   });

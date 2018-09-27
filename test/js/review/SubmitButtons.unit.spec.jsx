@@ -41,18 +41,6 @@ describe('Schemaform review: <SubmitButtons>', () => {
     expect(tree.everySubTree('ProgressButton')[1].props.buttonText).to.equal('Submitted');
     expect(tree.everySubTree('ProgressButton')[1].props.disabled).to.be.true;
   });
-  it('should render error in dev mode', () => {
-    const submission = {
-      status: 'error'
-    };
-    const tree = SkinDeep.shallowRender(
-      <SubmitButtons
-        submission={submission}/>
-    );
-
-    expect(tree.everySubTree('.usa-alert-error')).not.to.be.empty;
-    expect(tree.everySubTree('button').length).to.equal(2);
-  });
   it('should render validation error', () => {
     const submission = {
       status: 'validationError'

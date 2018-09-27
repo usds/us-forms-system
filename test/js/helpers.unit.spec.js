@@ -425,28 +425,6 @@ describe('Schemaform helpers:', () => {
         anotherField: 'testing3'
       });
     });
-    it('should remove empty addresses', () => {
-      const formConfig = {
-        chapters: {
-          chapter1: {
-            pages: {
-              page1: {}
-            }
-          }
-        }
-      };
-      const formData = {
-        data: {
-          address: {
-            country: 'testing'
-          }
-        }
-      };
-
-      const output = JSON.parse(transformForSubmit(formConfig, formData));
-
-      expect(output.address).to.be.undefined;
-    });
     it('should remove empty objects', () => {
       const formConfig = {
         chapters: {
@@ -503,30 +481,6 @@ describe('Schemaform helpers:', () => {
       expect(output.someField.subField.length).to.equal(1);
       expect(output.arrayField.length).to.equal(1);
       expect(output.emptyArray).to.be.undefined;
-    });
-    it('should convert autosuggest field to id', () => {
-      const formConfig = {
-        chapters: {
-          chapter1: {
-            pages: {
-              page1: {}
-            }
-          }
-        }
-      };
-      const formData = {
-        data: {
-          someField2: {
-            widget: 'autosuggest',
-            id: '1',
-            label: 'test'
-          }
-        }
-      };
-
-      const output = JSON.parse(transformForSubmit(formConfig, formData));
-
-      expect(output.someField2).to.equal('1');
     });
     it('should not remove inactive pagePerItem pages if some of the pages are active', () => {
       const formConfig = {
