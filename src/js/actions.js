@@ -76,7 +76,7 @@ export function setViewedPages(pageKeys) {
   };
 }
 
-function submitToUrl(body, submitUrl, recordEvent) {
+export function submitToUrl(body, submitUrl, recordEvent) {
   return new Promise((resolve, reject) => {
     const req = new XMLHttpRequest();
     req.open('POST', submitUrl);
@@ -91,10 +91,10 @@ function submitToUrl(body, submitUrl, recordEvent) {
       } else {
         let error;
         if (req.status === 429) {
-          error = new Error(`vets_throttled_error: ${req.statusText}`);
+          error = new Error(`throttled_error: ${req.statusText}`);
           error.extra = parseInt(req.getResponseHeader('x-ratelimit-reset'), 10);
         } else {
-          error = new Error(`vets_server_error: ${req.statusText}`);
+          error = new Error(`server_error: ${req.statusText}`);
         }
         error.statusText = req.statusText;
         reject(error);
@@ -102,30 +102,24 @@ function submitToUrl(body, submitUrl, recordEvent) {
     });
 
     req.addEventListener('error', () => {
-      const error = new Error('vets_client_error: Network request failed');
+      const error = new Error('client_error: Network request failed');
       error.statusText = req.statusText;
       reject(error);
     });
 
     req.addEventListener('abort', () => {
-      const error = new Error('vets_client_error: Request aborted');
+      const error = new Error('client_error: Request aborted');
       error.statusText = req.statusText;
       reject(error);
     });
 
     req.addEventListener('timeout', () => {
-      const error = new Error('vets_client_error: Request timed out');
+      const error = new Error('client_error: Request timed out');
       error.statusText = req.statusText;
       reject(error);
     });
 
-    req.setRequestHeader('X-Key-Inflection', 'camel');
     req.setRequestHeader('Content-Type', 'application/json');
-
-    const userToken = _.get('sessionStorage.userToken', window);
-    if (userToken) {
-      req.setRequestHeader('Authorization', `Token token=${userToken}`);
-    }
 
     req.send(body);
   });
@@ -148,7 +142,9 @@ export function submitForm(formConfig, form) {
         ? formConfig.transformForSubmit(formConfig, form)
         : transformForSubmit(formConfig, form);
 
-      promise = submitToUrl(body, formConfig.submitUrl, recordEvent);
+      promise = formConfig.submitToUrl
+        ? formConfig.submitToUrl(body, formConfig.submitUrl, recordEvent)
+        : submitToUrl(body, formConfig.submitUrl, recordEvent);
     }
 
     return promise
@@ -158,9 +154,9 @@ export function submitForm(formConfig, form) {
         const error = errorReceived instanceof Error ? errorReceived : new Error(errorReceived);
         const errorMessage = String(error.message);
         let errorType = 'clientError';
-        if (errorMessage.startsWith('vets_throttled_error')) {
+        if (errorMessage.startsWith('throttled_error')) {
           errorType = 'throttledError';
-        } else if (errorMessage.startsWith('vets_server_error')) {
+        } else if (errorMessage.startsWith('server_error')) {
           errorType = 'serverError';
         }
         recordEvent({ event: 'form-submit-error', error, errorType });
@@ -229,8 +225,6 @@ export function uploadFile(file, uiOptions, onProgress, onChange, onError) {
           name: file.name,
           errorMessage
         });
-        // Commenting until this is removed by a PR for #211
-        //      Raven.captureMessage(`vets_upload_error: ${req.statusText}`);
         onError();
       }
     });
@@ -241,12 +235,6 @@ export function uploadFile(file, uiOptions, onProgress, onChange, onError) {
         name: file.name,
         errorMessage
       });
-      // Commenting until this is removed by a PR for #211
-      //      Raven.captureMessage(`vets_upload_error: ${errorMessage}`, {
-      //        extra: {
-      //          statusText: req.statusText
-      //        }
-      //      });
       onError();
     });
 
