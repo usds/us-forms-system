@@ -28,8 +28,28 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-      - run: npm publish
+      - run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc;
+          npm publish
+
+  artifacts:
+    <<: *common
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - add_ssh_keys:
+          fingerprints:
+            - "57:4b:f6:31:3f:dc:80:fd:ee:b4:e4:ba:0f:98:20:22"
+      - run: |
+          cd ~/repo
+          git config user.email "USFS-bot@usds.gov"
+          git config user.name "USFS Bot"
+          echo -e "\nHost github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+          grep -v lib/ .gitignore >.gitignore-new
+          mv .gitignore-new .gitignore
+          git add lib/
+          git commit -m "CircleCI $CIRCLE_BRANCH -- add built files in lib/"
+          git push --force git@github.com:dmethvin-gov/usfs-builds.git $CIRCLE_BRANCH
 
 workflows:
   version: 2
@@ -42,3 +62,6 @@ workflows:
           filters:
             branches:
               only: production
+      - artifacts:
+          requires:
+            - build
