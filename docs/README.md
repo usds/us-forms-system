@@ -13,6 +13,7 @@
   - [Available widgets](building-a-form/available-widgets.md)
   - [Common definitions](building-a-form/common-definitions.md)
   - [Common patterns for building forms](building-a-form/common-patterns-for-building-forms.md)
+  - [Submitting data to a server](submitting-data-to-a-server.md)
 - [Customizing the library](customizing-the-library/README.md)
   - [About the React component hierarchy](customizing-the-library/about-the-react-component-hierarchy.md)
   - [Creating custom fields and widgets](customizing-the-library/creating-custom-fields-and-widgets.md)

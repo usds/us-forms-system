@@ -141,9 +141,7 @@ export function submitForm(formConfig, form) {
         ? formConfig.transformForSubmit(formConfig, form)
         : transformForSubmit(formConfig, form);
 
-      promise = formConfig.submitToUrl
-        ? formConfig.submitToUrl(body, formConfig.submitUrl, recordEvent)
-        : submitToUrl(body, formConfig.submitUrl, recordEvent);
+      promise = submitToUrl(body, formConfig.submitUrl, recordEvent);
     }
 
     return promise
