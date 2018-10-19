@@ -11,7 +11,7 @@
 ## Checklist:
 <!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
 <!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
-- [ ] I've reviewed the [guidelines for contributing to this repository](../CONTRIBUTING.md#how-to-contribute-to-us-forms-system).
+- [ ] I've reviewed the [guidelines for contributing to this repository](../../CONTRIBUTING.md#how-to-contribute-to-us-forms-system).
 - [ ] I've checked style and lint with `npm run lint`.
 - [ ] I built the production version with `npm run build`.
 - [ ] I added tests to verify a bug fix or new functionality.
