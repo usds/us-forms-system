@@ -201,6 +201,48 @@ describe('Schemaform validations', () => {
         schema.items[0].properties.field,
         undefined)).to.be.true;
     });
+    it('should pass full form data to array fields', () => {
+      const errors = {};
+      const validator = sinon.spy();
+      const schema = {
+        type: 'array',
+        items: [{
+          properties: {
+            field: {
+              b: 1
+            }
+          }
+        }]
+      };
+      const uiSchema = {
+        items: {
+          field: {
+            'ui:validations': [
+              validator
+            ]
+          }
+        }
+      };
+      const fullFormData = {
+        arrayField: [
+          {
+            field: { a: 1 }
+          }
+        ]
+      };
+
+      uiSchemaValidate(errors, uiSchema, schema, fullFormData.arrayField, undefined, undefined, fullFormData);
+
+      expect(validator.calledWith(
+        errors[0].field,
+        fullFormData.arrayField[0].field,
+        fullFormData.arrayField,
+        schema.items[0].properties.field,
+        undefined,
+        0,
+        fullFormData
+      )).to.be.true;
+    });
     it('should skip validation when array is undefined', () => {
       const errors = {};
       const validator = sinon.spy();
