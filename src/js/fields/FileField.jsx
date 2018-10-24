@@ -117,7 +117,7 @@ export default class FileField extends React.Component {
             {files.map((file, index) => {
               const errors = _.get([index, '__errors'], errorSchema) || [];
               const hasErrors = errors.length > 0;
-              const itemClasses = classNames('va-growable-background', {
+              const itemClasses = classNames('usfs-growable-background', {
                 'schemaform-file-error usa-input-error': hasErrors && !file.uploading
               });
               const itemSchema = schema.items[index];
@@ -136,7 +136,7 @@ export default class FileField extends React.Component {
                     <div className="schemaform-file-uploading">
                       <span>{file.name}</span><br/>
                       <ProgressBar percent={this.state.progress}/>
-                      <button type="button" className="va-button-link" onClick={() => {
+                      <button type="button" className="usfs-button-link" onClick={() => {
                         this.cancelUpload(index);
                       }}>
                         Cancel
@@ -179,7 +179,7 @@ export default class FileField extends React.Component {
                   </div>}
                   {!file.uploading && hasErrors && <span className="usa-input-error-message">{errors[0]}</span>}
                   {!file.uploading && <div>
-                    <button type="button" className="va-button-link" onClick={() => {
+                    <button type="button" className="usfs-button-link" onClick={() => {
                       this.removeFile(index);
                     }}>
                       Delete file

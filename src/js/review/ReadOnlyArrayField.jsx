@@ -40,7 +40,7 @@ class ReadOnlyArrayField extends React.Component {
             const itemIdSchema = toIdSchema(itemSchema, itemIdPrefix, definitions);
 
             return (
-              <div key={index} className="va-growable-background">
+              <div key={index} className="usfs-growable-background">
                 <div className="row small-collapse">
                   <div className="small-12 columns">
                     <h5 className="schemaform-array-readonly-header">{uiOptions.itemName}</h5>

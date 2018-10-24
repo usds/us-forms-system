@@ -93,7 +93,7 @@ describe('Schemaform <ArrayField>', () => {
     );
 
     expect(tree.everySubTree('SchemaField').length).to.equal(1);
-    expect(tree.everySubTree('.va-growable-background').length).to.equal(2);
+    expect(tree.everySubTree('.usfs-growable-background').length).to.equal(2);
   });
   describe('should handle', () => {
     let tree;

@@ -242,22 +242,12 @@ export function filterInactivePageData(inactivePages, activePages, form) {
 }
 
 export function stringifyFormReplacer(key, value) {
-  // an object with country is an address
-  if (value && typeof value.country !== 'undefined' &&
-    (!value.street || !value.city || (!value.postalCode && !value.zipcode))) {
-    return undefined;
-  }
 
   // clean up empty objects, which we have no reason to send
   if (typeof value === 'object') {
     const fields = Object.keys(value);
     if (fields.length === 0 || fields.every(field => value[field] === undefined)) {
       return undefined;
-    }
-
-    // autosuggest widgets save value and label info, but we should just return the value
-    if (value.widget === 'autosuggest') {
-      return value.id;
     }
 
     // Exclude file data
@@ -593,4 +583,3 @@ export function transformForSubmit(formConfig, form, replacer = stringifyFormRep
 
   return JSON.stringify(withoutViewFields, replacer) || '{}';
 }
-

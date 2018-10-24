@@ -22,7 +22,7 @@ function uiSchema(title = 'Phone') {
       pattern: 'Phone numbers must be 10 digits'
     },
     'ui:options': {
-      widgetClassNames: 'home-phone va-input-medium-large',
+      widgetClassNames: 'home-phone usfs-input-medium-large',
       inputType: 'tel'
     }
   };
