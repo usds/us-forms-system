@@ -92,10 +92,10 @@ For array fields, you must specify an `items` object that contains the fields fo
 ```js
 {
   'ui:title': 'My form',
-  toursOfDuty: {
+  listofFields: {
     items: {
-      branchName: {
-        'ui:title': 'Branch'
+      fieldName: {
+        'ui:title': 'Field 1'
       }
     }
   }
