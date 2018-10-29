@@ -20,7 +20,7 @@
     "lint:md-full": "git ls-files '*.md' | xargs -I FILE npx markdown-link-check -q FILE",
     "lint:js": "eslint --quiet --ext .js --ext .jsx .",
     "lint:sass": "sass-lint -c test/config/sass-lint.yaml --verbose",
-    "test": "BABEL_ENV=test mocha --require test/config/unit-test-setup.js --require test/config/enzyme-setup.jsx --compilers js:babel-core/register './test/**/*.spec.js?(x)' "
+    "test": "BABEL_ENV=test mocha --require babel-core/register --require test/config/unit-test-setup.js --require test/config/enzyme-setup.jsx './test/**/*.spec.js?(x)' "
   },
   "repository": {
     "type": "git",
