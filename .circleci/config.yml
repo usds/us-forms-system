@@ -18,8 +18,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: npm run lint
-      - run: npm test
+      - run: npm run ci
       - persist_to_workspace:
           root: ~/repo
           paths: .

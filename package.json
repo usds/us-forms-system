@@ -8,16 +8,19 @@
     "test": "test"
   },
   "scripts": {
-    "build": "rm -rf lib/{js,css} && npx babel src/js --source-maps --out-dir lib/js && npm run compile-sass && npm run autoprefix",
-    "compile-sass": "node-sass --source-map lib/css/ --source-map-embed false --include-path src/scss/styles.scss src/scss/styles.scss -o lib/css/",
     "autoprefix": "npx postcss lib/css/styles.css --use autoprefixer -map -d lib/css/",
+    "build": "npm run clean -s && npm run lint && npm run compile-js && npm run compile-sass && npm run autoprefix && npm run copy-uswds -s",
+    "ci": "npm run build && npm run test",
+    "clean": "rm -rf lib/",
+    "compile-js": "npx babel -q src/js --source-maps --out-dir lib/js",
+    "compile-sass": "node-sass -q --source-map lib/css/ --source-map-embed false --include-path src/scss/styles.scss src/scss/styles.scss -o lib/css/",
+    "copy-uswds": "cp -R node_modules/uswds/dist/fonts lib/ && cp -R node_modules/uswds/dist/img lib/",
     "lint": "npm run lint:js && npm run lint:sass && npm run lint:md",
-    "lint:js": "eslint --quiet --ext .js --ext .jsx .",
-    "lint:sass": "sass-lint -c test/config/sass-lint.yaml --verbose",
     "lint:md": "git diff-tree --no-commit-id --name-only -r HEAD -- '*.md' | xargs -I FILE npx markdown-link-check FILE",
     "lint:md-full": "git ls-files '*.md' | xargs -I FILE npx markdown-link-check -q FILE",
-    "test": "BABEL_ENV=test mocha --require test/config/unit-test-setup.js --require test/config/enzyme-setup.jsx --compilers js:babel-core/register './test/**/*.spec.js?(x)' ",
-    "webpack": "webpack"
+    "lint:js": "eslint --quiet --ext .js --ext .jsx .",
+    "lint:sass": "sass-lint -c test/config/sass-lint.yaml --verbose",
+    "test": "BABEL_ENV=test mocha --require test/config/unit-test-setup.js --require test/config/enzyme-setup.jsx --compilers js:babel-core/register './test/**/*.spec.js?(x)' "
   },
   "repository": {
     "type": "git",
