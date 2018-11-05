@@ -5,7 +5,7 @@ import sinon from 'sinon';
 
 import TextWidget from '../../../src/js/widgets/TextWidget';
 
-describe.only('Schemaform <TextWidget>', () => {
+describe('Schemaform <TextWidget>', () => {
   it('should render', () => {
     const onChange = sinon.spy();
     const tree = SkinDeep.shallowRender(
