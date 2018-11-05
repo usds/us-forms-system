@@ -5,7 +5,7 @@ import sinon from 'sinon';
 
 import TextWidget from '../../../src/js/widgets/TextWidget';
 
-describe('Schemaform <TextWidget>', () => {
+describe.only('Schemaform <TextWidget>', () => {
   it('should render', () => {
     const onChange = sinon.spy();
     const tree = SkinDeep.shallowRender(
@@ -83,5 +83,55 @@ describe('Schemaform <TextWidget>', () => {
     );
     tree.subTree('input').props.onBlur();
     expect(onBlur.calledWith('1')).to.be.true;
+  });
+  it('should accept a string widgetClassNames prop', () => {
+    const tree = SkinDeep.shallowRender(
+      <TextWidget
+        id="1"
+        value="testing"
+        schema={{ type: 'string' }}
+        required
+        disabled={false}
+        options={{
+          widgetClassNames: 'first-class second-class'
+        }}/>
+    );
+    expect(SkinDeep.hasClass(tree, 'first-class')).to.be.true;
+    expect(SkinDeep.hasClass(tree, 'second-class')).to.be.true;
+  });
+  it('should accept an array widgetClassNames prop', () => {
+    const tree = SkinDeep.shallowRender(
+      <TextWidget
+        id="1"
+        value="testing"
+        schema={{ type: 'string' }}
+        required
+        disabled={false}
+        options={{
+          widgetClassNames: ['first-class', 'second-class']
+        }}/>
+    );
+    expect(SkinDeep.hasClass(tree, 'first-class')).to.be.true;
+    expect(SkinDeep.hasClass(tree, 'second-class')).to.be.true;
+  });
+  it('should accept an object widgetClassNames prop', () => {
+    const tree = SkinDeep.shallowRender(
+      <TextWidget
+        id="1"
+        value="testing"
+        schema={{ type: 'string' }}
+        required
+        disabled={false}
+        options={{
+          widgetClassNames: {
+            'first-class': true,
+            'second-class': true,
+            'third-class': false
+          }
+        }}/>
+    );
+    expect(SkinDeep.hasClass(tree, 'first-class')).to.be.true;
+    expect(SkinDeep.hasClass(tree, 'second-class')).to.be.true;
+    expect(SkinDeep.hasClass(tree, 'third-class')).to.be.false;
   });
 });
