@@ -184,10 +184,14 @@ The us-forms-system code includes additional `uiSchema` functionality not found 
       'value': <p>Some text</p>
     },
 
-    // A string of class names that are added to the widget for the current field.
+    // A list of class names that are added to the widget for the current field.
     // `widgetClassNames` is similar to the default `classNames` property, but it puts the
     // class names on the input/select/etc element itself, rather than a surrounding `div`.
-    widgetClassNames: '',
+    // `widgetClassNames` accepts anything that the classnames library accepts.
+    // See https://github.com/JedWatson/classnames#usage for more details.
+    widgetClassNames: 'first-class second-class',
+    widgetClassNames: ['first-class', 'second-class'],
+    widgetClassNames: { 'first-class': true, 'second-class': false },
 
     // For array fields, this component is shown when the item in the array is rendered as
     // read-only on a page that is not a review page.
