@@ -8,7 +8,6 @@ export default function TextWidget(props) {
   if (!inputType) {
     inputType = numberTypes.has(props.schema.type) ? 'number' : props.type;
   }
-  const widgetClasses = classnames(props.options.widgetClassNames);
   return (
     <input type={inputType}
       id={props.id}
@@ -16,7 +15,7 @@ export default function TextWidget(props) {
       disabled={props.disabled}
       maxLength={props.schema.maxLength}
       autoComplete={props.options.autocomplete || false}
-      className={widgetClasses}
+      className={classnames(props.options.widgetClassNames)}
       value={typeof props.value === 'undefined' ? '' : props.value}
       onBlur={() => props.onBlur(props.id)}
       onChange={(event) => props.onChange(event.target.value ? event.target.value : undefined)}/>
