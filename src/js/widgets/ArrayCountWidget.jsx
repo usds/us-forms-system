@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 export default class ArrayCountWidget extends React.Component {
   constructor(props) {
@@ -69,7 +70,7 @@ export default class ArrayCountWidget extends React.Component {
         name={props.id}
         disabled={props.disabled}
         autoComplete={props.options.autocomplete || false}
-        className={props.options.widgetClassNames}
+        className={classnames(props.options.widgetClassNames)}
         value={typeof this.state.userCount === 'undefined' ? '' : this.state.userCount}
         onBlur={() => props.onBlur(props.id)}
         onChange={this.updateArrayLength}/>
