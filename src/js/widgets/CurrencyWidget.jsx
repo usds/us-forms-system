@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 export default class CurrencyWidget extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ export default class CurrencyWidget extends React.Component {
         name={id}
         disabled={disabled}
         autoComplete={options.autocomplete || false}
-        className={options.widgetClassNames}
+        className={classnames(this.props.options.widgetClassNames)}
         value={typeof value === 'undefined' ? '' : value}
         onBlur={this.onBlur}
         onChange={this.handleChange}/>

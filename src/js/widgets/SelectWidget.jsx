@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import { asNumber } from '@department-of-veterans-affairs/react-jsonschema-form/lib/utils';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
@@ -34,7 +35,7 @@ function SelectWidget({
       id={id}
       name={id}
       multiple={multiple}
-      className={options.widgetClassNames}
+      className={classnames(options.widgetClassNames)}
       value={value || ''}
       required={required}
       disabled={disabled}
