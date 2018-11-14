@@ -132,10 +132,11 @@ export function createRoutes(formConfig) {
       path: 'confirmation',
       component: formConfig.confirmation
     },
-    {
-      path: '*',
-      onEnter: (nextState, replace) => replace(formConfig.urlPrefix || '/')
-    }
+    // {
+    //   path: '*',
+    //   onEnter: (nextState, replace) => replace(formConfig.urlPrefix || '/'),
+    //   component: formConfig.introduction
+    // }
   ]);
 }
 

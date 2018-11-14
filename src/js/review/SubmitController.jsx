@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import SubmitButtons from './SubmitButtons';
 import { PreSubmitSection } from '../components/PreSubmitSection';
@@ -23,7 +23,7 @@ class SubmitController extends React.Component {
     const previousStatus = this.props.form.submission.status;
     if (nextStatus !== previousStatus && nextStatus === 'applicationSubmitted') {
       const newRoute = `${nextProps.formConfig.urlPrefix}confirmation`;
-      this.props.router.push(newRoute);
+      this.props.history.push(newRoute);
     }
   }
 
@@ -41,7 +41,7 @@ class SubmitController extends React.Component {
     const {
       form,
       pageList,
-      router
+      history
     } = this.props;
 
     const expandedPageList = getActiveExpandedPages(pageList, form.data);
@@ -49,7 +49,7 @@ class SubmitController extends React.Component {
     // TODO: Fix this bug that assumes there is a confirmation page.
     // Actually, it assumes the app also doesn't add routes at the end!
     // A component at this level should not need to know these things!
-    router.push(expandedPageList[expandedPageList.length - 2].path);
+    history.push(expandedPageList[expandedPageList.length - 2].path);
   }
 
   handleSubmit = () => {

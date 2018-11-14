@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Scroll from 'react-scroll';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import { focusElement } from '../utilities/ui';
 import ReviewChapters from '../review/ReviewChapters';

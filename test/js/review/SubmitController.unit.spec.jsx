@@ -97,14 +97,14 @@ describe('Schemaform review: SubmitController', () => {
     const formConfig = createFormConfig();
     const form = createForm();
     const pageList = createPageList();
-    const router = { push: sinon.spy() };
+    const history = { push: sinon.spy() };
 
     const tree = shallow(
       <SubmitController
         form={form}
         formConfig={formConfig}
         route={{ formConfig, pageList }}
-        router={router}/>
+        history={history}/>
     );
 
     tree.setProps({
@@ -117,7 +117,7 @@ describe('Schemaform review: SubmitController', () => {
     });
 
     // BUG: this assumes there is always a confirmation page with this route
-    expect(router.push.calledWith('/confirmation')).to.be.true;
+    expect(history.push.calledWith('/confirmation')).to.be.true;
   });
   it('should not submit when privacy agreement not accepted', () => {
     const form = createForm();
@@ -263,7 +263,7 @@ describe('Schemaform review: SubmitController', () => {
     const form = createForm({
       data: { privacyAgreementAccepted: true }
     });
-    const router = { push: sinon.spy() };
+    const history = { push: sinon.spy() };
     const submission = {
       hasAttemptedSubmit: false
     };
@@ -273,7 +273,7 @@ describe('Schemaform review: SubmitController', () => {
         form={form}
         formConfig={formConfig}
         pageList={pageList}
-        router={router}
+        history={history}
         submission={submission}/>
     ).instance();
 
@@ -281,6 +281,6 @@ describe('Schemaform review: SubmitController', () => {
 
     // BUG: The code is making a bunch of bogus assumptions about routes
     // and pages since it always adds review and confirmation routes.
-    expect(router.push.calledWith('page-2')).to.be.true;
+    expect(history.push.calledWith('page-2')).to.be.true;
   });
 });

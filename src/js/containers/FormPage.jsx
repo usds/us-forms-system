@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import Scroll from 'react-scroll';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
@@ -63,14 +63,14 @@ class FormPage extends React.Component {
 
     const path = getNextPagePath(route.pageList, form.data, location.pathname);
 
-    this.props.router.push(path);
+    this.props.history.push(path);
   }
 
   goBack = () => {
     const { form, route: { pageList }, location } = this.props;
     const path = getPreviousPagePath(pageList, form.data, location.pathname);
 
-    this.props.router.push(path);
+    this.props.history.push(path);
   }
 
   render() {

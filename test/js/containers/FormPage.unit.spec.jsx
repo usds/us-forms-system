@@ -82,18 +82,18 @@ describe('Schemaform <FormPage>', () => {
   describe('should handle', () => {
     let tree;
     let setData;
-    let router;
+    let history;
     let onSubmit;
     beforeEach(() => {
       setData = sinon.spy();
       onSubmit = sinon.spy();
-      router = {
+      history = {
         push: sinon.spy()
       };
 
       tree = SkinDeep.shallowRender(
         <FormPage
-          router={router}
+          history={history}
           setData={setData}
           form={makeForm()}
           onSubmit={onSubmit}
@@ -111,22 +111,22 @@ describe('Schemaform <FormPage>', () => {
     it('submit', () => {
       tree.getMountedInstance().onSubmit({});
 
-      expect(router.push.calledWith('/next-page')).to.be.true;
+      expect(history.push.calledWith('/next-page')).to.be.true;
     });
     it('back', () => {
       tree.getMountedInstance().goBack();
 
-      expect(router.push.calledWith('/first-page')).to.be.true;
+      expect(history.push.calledWith('/first-page')).to.be.true;
     });
   });
   it('should go back to the beginning if current page isn\'t found', () => {
-    const router = {
+    const history = {
       push: sinon.spy()
     };
 
     const tree = SkinDeep.shallowRender(
       <FormPage
-        router={router}
+        history={history}
         form={makeForm()}
         route={makeRoute()}
         location={{ pathname: '/missing-page' }}/>
@@ -134,7 +134,7 @@ describe('Schemaform <FormPage>', () => {
 
     tree.getMountedInstance().goBack();
 
-    expect(router.push.calledWith('/first-page')).to.be.true;
+    expect(history.push.calledWith('/first-page')).to.be.true;
   });
   it('should not show a Back button on the first page', () => {
     const tree = SkinDeep.shallowRender(
@@ -202,14 +202,14 @@ describe('Schemaform <FormPage>', () => {
         arrayPath: 'arrayProp'
       }
     });
-    const router = {
+    const history = {
       push: sinon.spy()
     };
 
     const tree = SkinDeep.shallowRender(
       <FormPage
         setData={setData}
-        router={router}
+        history={history}
         form={makeArrayForm()}
         route={route}
         location={{ pathname: '/testing/0' }}
