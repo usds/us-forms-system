@@ -117,11 +117,19 @@ class ObjectField extends React.Component {
       if (!formContext.hideTitle && typeof title === 'function') {
         title = title(formData, formContext);
       }
+      const editLabel = _.get('ui:options.reviewEditButtonAriaLabel', uiSchema) || `Edit ${title}`;
+
       return (
         <div>
           {!formContext.hideHeaderRow && <div className="form-review-panel-page-header-row">
             <h5 className="form-review-panel-page-header">{!formContext.hideTitle ? title : null}</h5>
-            <button type="button" className="edit-btn primary-outline" onClick={() => formContext.onEdit()}>Edit</button>
+            <button
+              type="button"
+              className="edit-btn primary-outline"
+              aria-label={editLabel}
+              onClick={() => formContext.onEdit()}>
+              Edit
+            </button>
           </div>}
           <dl className="review">
             {renderedProperties}
