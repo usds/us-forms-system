@@ -414,6 +414,8 @@ These properties are nested under `uiSchema: { `ui:options`: {} }`:
 - `hideOnReview`: Hides the field on the review page; takes a `boolean`
 - `hideOnReviewIfFalse`: Hides the field on the review page when the field value is `false`; takes a `boolean`
 - `keepInPageOnReview`: By default, array fields that are displayed on a single page in a form, such as information for multiple dependents, are displayed in a separate section on the review page. To keep the information in a single section on a review page, set this property.
+- `ariaLabelForEditButtonOnReview`: By default, the Edit button for pages on the review page will have an `aria-label` value of
+"Edit ${pageTitle}". This value lets you set that attribute to a different value in cases where the default is confusing when read aloud by a screenreader.
 
 For the code implementation, see the [`review` folder](../../src/js/review).
 

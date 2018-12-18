@@ -259,4 +259,58 @@ describe('Schemaform review: ObjectField', () => {
 
     expect(tree.everySubTree('SchemaField').length).to.equal(2);
   });
+  it('should render aria-label on edit button using page title', () => {
+    const onChange = sinon.spy();
+    const onBlur = sinon.spy();
+    const schema = {
+      properties: {
+        test: {
+          type: 'string'
+        }
+      }
+    };
+    const tree = SkinDeep.shallowRender(
+      <ObjectField
+        uiSchema={{}}
+        schema={schema}
+        formContext={{ pageTitle: 'Page Title' }}
+        requiredSchema={{}}
+        idSchema={{ $id: 'root' }}
+        formData={{}}
+        onChange={onChange}
+        onBlur={onBlur}/>
+    );
+
+    expect(tree.subTree('.form-review-panel-page-header-row').subTree('.edit-btn').props['aria-label'])
+      .to.equal('Edit Page Title');
+  });
+  it('should render aria-label on edit button using value from config', () => {
+    const onChange = sinon.spy();
+    const onBlur = sinon.spy();
+    const schema = {
+      properties: {
+        test: {
+          type: 'string'
+        }
+      }
+    };
+    const tree = SkinDeep.shallowRender(
+      <ObjectField
+        uiSchema={{
+          'ui:options': {
+            ariaLabelForEditButtonOnReview: 'Custom label'
+          }
+        }}
+        schema={schema}
+        formContext={{ pageTitle: 'Blah' }}
+        requiredSchema={{}}
+        idSchema={{ $id: 'root' }}
+        formData={{}}
+        onChange={onChange}
+        onBlur={onBlur}/>
+    );
+
+    expect(tree.subTree('.form-review-panel-page-header-row').subTree('.edit-btn').props['aria-label'])
+      .to.equal('Custom label');
+  });
 });
