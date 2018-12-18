@@ -14,7 +14,7 @@ export default function TextWidget(props) {
       name={props.id}
       disabled={props.disabled}
       maxLength={props.schema.maxLength}
-      autoComplete={props.options.autocomplete || false}
+      autoComplete={props.options && props.options.autocomplete || null}
       className={classnames(props.options.widgetClassNames)}
       value={typeof props.value === 'undefined' ? '' : props.value}
       onBlur={() => props.onBlur(props.id)}

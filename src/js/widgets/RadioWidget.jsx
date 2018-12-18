@@ -25,7 +25,7 @@ export default function RadioWidget({
         const radioButton = (
           <div className="form-radio-buttons" key={option.value}>
             <input type="radio"
-              autoComplete="false"
+              autoComplete={options.autocomplete || null}
               checked={checked}
               id={`${id}_${i}`}
               name={`${id}`}
