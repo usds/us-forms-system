@@ -71,7 +71,6 @@ export default class ArrayCountWidget extends React.Component {
         id={props.id}
         name={props.id}
         disabled={props.disabled}
-        autoComplete={props.options && props.options.autocomplete || null}
         className={classnames(props.options.widgetClassNames)}
         value={typeof this.state.userCount === 'undefined' ? '' : this.state.userCount}
         onBlur={() => props.onBlur(props.id)}
