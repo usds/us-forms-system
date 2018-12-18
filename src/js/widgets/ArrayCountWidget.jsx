@@ -63,7 +63,9 @@ export default class ArrayCountWidget extends React.Component {
     }
 
     return (
-      <input type="number"
+      <input
+        autoComplete={props.optons && props.options.autocomplete || null}
+        type="number"
         step="1"
         min="1"
         id={props.id}

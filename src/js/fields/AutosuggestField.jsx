@@ -164,7 +164,7 @@ export default class AutosuggestField extends React.Component {
   }
 
   render() {
-    const { idSchema, formContext, formData, uiSchema, schema } = this.props;
+    const { idSchema, formContext, formData, uiSchema, schema, options = {} } = this.props;
     const id = idSchema.$id;
 
     if (formContext.reviewMode) {
@@ -212,7 +212,9 @@ export default class AutosuggestField extends React.Component {
               className: 'autosuggest-input',
               onBlur: isOpen ? undefined : this.handleBlur,
               onKeyDown: this.handleKeyDown
-            })}/>
+            })}
+            autoComplete={options.autocomplete || null}
+            />
             {isOpen && (
               <div className="autosuggest-list" role="listbox">
                 {this.state.suggestions

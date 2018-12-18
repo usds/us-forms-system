@@ -43,7 +43,9 @@ export default class CurrencyWidget extends React.Component {
     const value = this.state.value;
 
     return (
-      <input type="text"
+      <input
+        autoComplete={options.autocomplete || null}
+        type="text"
         id={id}
         name={id}
         disabled={disabled}

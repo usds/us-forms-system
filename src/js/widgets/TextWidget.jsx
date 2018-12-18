@@ -9,7 +9,9 @@ export default function TextWidget(props) {
     inputType = numberTypes.has(props.schema.type) ? 'number' : props.type;
   }
   return (
-    <input type={inputType}
+    <input
+      autoComplete={props.options && props.options.autocomplete || null}
+      type={inputType}
       id={props.id}
       name={props.id}
       disabled={props.disabled}
