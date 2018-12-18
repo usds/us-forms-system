@@ -208,13 +208,13 @@ export default class AutosuggestField extends React.Component {
           <div className="autosuggest-container">
             <input
               {...getInputProps({
+                autoComplete: options.autocomplete || null,
                 id,
                 name: id,
                 className: 'autosuggest-input',
                 onBlur: isOpen ? undefined : this.handleBlur,
                 onKeyDown: this.handleKeyDown
-              })}
-              autoComplete={options.autocomplete || null}/>
+              })}/>
             {isOpen && (
               <div className="autosuggest-list" role="listbox">
                 {this.state.suggestions
