@@ -298,7 +298,7 @@ describe('Schemaform review: ObjectField', () => {
       <ObjectField
         uiSchema={{
           'ui:options': {
-            reviewEditButtonAriaLabel: 'Custom label'
+            ariaLabelForEditButtonOnReview: 'Custom label'
           }
         }}
         schema={schema}

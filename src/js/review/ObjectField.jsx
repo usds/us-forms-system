@@ -117,7 +117,7 @@ class ObjectField extends React.Component {
       if (!formContext.hideTitle && typeof title === 'function') {
         title = title(formData, formContext);
       }
-      const editLabel = _.get('ui:options.reviewEditButtonAriaLabel', uiSchema) || `Edit ${title}`;
+      const editLabel = _.get('ui:options.ariaLabelForEditButtonOnReview', uiSchema) || `Edit ${title}`;
 
       return (
         <div>
