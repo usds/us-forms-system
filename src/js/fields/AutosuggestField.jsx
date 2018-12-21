@@ -164,8 +164,7 @@ export default class AutosuggestField extends React.Component {
   }
 
   render() {
-    const { idSchema, formContext, formData, uiSchema, schema, } = this.props;
-    const uiOptions = uiSchema['ui:options'];
+    const { idSchema, formContext, formData, uiSchema, schema } = this.props;
     const id = idSchema.$id;
 
     if (formContext.reviewMode) {
