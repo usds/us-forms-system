@@ -95,7 +95,7 @@ export default class FileField extends React.Component {
       formData,
       schema,
       formContext,
-      onBlur,
+      onBlur
     } = this.props;
 
     const uiOptions = uiSchema['ui:options'];

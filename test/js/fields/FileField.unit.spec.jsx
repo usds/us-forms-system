@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
 import ReactTestUtils from 'react-dom/test-utils';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import { DefinitionTester, getFormDOM } from '../../config/schemaform-utils.jsx';
 
@@ -26,12 +26,13 @@ describe('Schemaform <FileField>', () => {
       }]
     };
     const uiSchema = fileConfig.uiSchema('Files');
+    uiSchema['ui:options'].autoComplete = 'date';
     const registry = {
       fields: {
         SchemaField: f => f
       }
     };
-    const tree = shallow(
+    const tree = mount(
       <FileField
         registry={registry}
         schema={schema}
@@ -43,6 +44,7 @@ describe('Schemaform <FileField>', () => {
     );
 
     expect(tree.find('label').first().text()).to.contain('Upload');
+    expect(tree.find('input').getDOMNode().getAttribute('autocomplete')).to.equal('date');
   });
   it('should render files', () => {
     const idSchema = {
