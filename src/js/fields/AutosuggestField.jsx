@@ -164,7 +164,8 @@ export default class AutosuggestField extends React.Component {
   }
 
   render() {
-    const { idSchema, formContext, formData, uiSchema, schema, options = {} } = this.props;
+    const { idSchema, formContext, formData, uiSchema, schema, } = this.props;
+    const uiOptions = uiSchema['ui:options'];
     const id = idSchema.$id;
 
     if (formContext.reviewMode) {
@@ -208,7 +209,7 @@ export default class AutosuggestField extends React.Component {
           <div className="autosuggest-container">
             <input
               {...getInputProps({
-                autoComplete: options.autocomplete || null,
+                autoComplete: uiOptions.autoComplete,
                 id,
                 name: id,
                 className: 'autosuggest-input',
