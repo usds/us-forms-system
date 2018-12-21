@@ -91,8 +91,7 @@ ErrorableCheckbox.propTypes = {
   /**
    * If the checkbox is required or not
    */
-  required: PropTypes.bool,
-  uiSchema: PropTypes.object
+  required: PropTypes.bool
 };
 
 export default ErrorableCheckbox;
