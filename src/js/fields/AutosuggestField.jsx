@@ -209,7 +209,7 @@ export default class AutosuggestField extends React.Component {
           <div className="autosuggest-container">
             <input
               {...getInputProps({
-                autoComplete: uiOptions.autoComplete,
+                autoComplete: 'off',
                 id,
                 name: id,
                 className: 'autosuggest-input',
