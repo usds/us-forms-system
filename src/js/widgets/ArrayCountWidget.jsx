@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 export default class ArrayCountWidget extends React.Component {
@@ -64,7 +65,7 @@ export default class ArrayCountWidget extends React.Component {
 
     return (
       <input
-        autoComplete={props.optons && props.options.autocomplete || null}
+        autoComplete={props.options.autoComplete}
         type="number"
         step="1"
         min="1"
@@ -78,3 +79,19 @@ export default class ArrayCountWidget extends React.Component {
     );
   }
 }
+
+ArrayCountWidget.propTypes = {
+  /**
+   * ui:options from uiSchema
+   */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autoComplete: PropTypes.string
+  }),
+};
+
+ArrayCountWidget.defaultProps = {
+  options: {}
+};

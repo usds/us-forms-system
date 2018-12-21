@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 export default class CurrencyWidget extends React.Component {
@@ -44,7 +45,7 @@ export default class CurrencyWidget extends React.Component {
 
     return (
       <input
-        autoComplete={options.autocomplete || null}
+        autoComplete={options.autocomplete}
         type="text"
         id={id}
         name={id}
@@ -56,3 +57,19 @@ export default class CurrencyWidget extends React.Component {
     );
   }
 }
+
+CurrencyWidget.propTypes = {
+  /**
+   * ui:options from uiSchema
+   */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autoComplete: PropTypes.string
+  }),
+};
+
+CurrencyWidget.defaultProps = {
+  options: {}
+};

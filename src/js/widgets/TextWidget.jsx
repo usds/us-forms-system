@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const numberTypes = new Set(['number', 'integer']);
@@ -10,7 +11,7 @@ export default function TextWidget(props) {
   }
   return (
     <input
-      autoComplete={props.options && props.options.autocomplete || null}
+      autoComplete={props.options.autoComplete}
       type={inputType}
       id={props.id}
       name={props.id}
@@ -22,7 +23,20 @@ export default function TextWidget(props) {
       onChange={(event) => props.onChange(event.target.value ? event.target.value : undefined)}/>
   );
 }
+TextWidget.propTypes = {
+  /**
+   * ui:options from uiSchema
+   */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autoComplete: PropTypes.string
+  }),
+};
+
 
 TextWidget.defaultProps = {
+  options: {},
   type: 'text'
 };

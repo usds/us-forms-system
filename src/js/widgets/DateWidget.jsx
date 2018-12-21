@@ -104,7 +104,7 @@ export default class DateWidget extends React.Component {
         <div className="usa-datefield usa-form-group usa-form-group-year">
           <label className="input-date-label" htmlFor={`${id}Year`}>Year</label>
           <input type="number"
-            autoComplete={options.autocomplete || null}
+            autoComplete={options.autocomplete}
             name={`${id}Year`}
             id={`${id}Year`}
             max="3000"
@@ -123,5 +123,18 @@ DateWidget.propTypes = {
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
+  /**
+   * ui:options from uiSchema
+  */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autoComplete: PropTypes.string
+  }),
   value: PropTypes.string
+};
+
+DateWidget.defaultProps = {
+  options: {}
 };
