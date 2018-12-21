@@ -17,7 +17,6 @@ export default function CheckboxWidget({
     <div className={widgetClasses}>
       <input
         type="checkbox"
-        autoComplete={options.autocomplete || null}
         id={id}
         name={id}
         checked={typeof value === 'undefined' ? false : value}

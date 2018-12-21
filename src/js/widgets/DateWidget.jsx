@@ -82,8 +82,6 @@ export default class DateWidget extends React.Component {
         <div className="form-datefield-month">
           <label className="input-date-label" htmlFor={`${id}Month`}>Month</label>
           <select
-
-            autoComplete={options.autocomplete || null}
             name={`${id}Month`}
             id={`${id}Month`}
             value={month}
@@ -95,7 +93,6 @@ export default class DateWidget extends React.Component {
         {!monthYear && <div className="form-datefield-day">
           <label className="input-date-label" htmlFor={`${id}Day`}>Day</label>
           <select
-            autoComplete={options.autocomplete || null}
             name={`${id}Day`}
             id={`${id}Day`}
             value={day}

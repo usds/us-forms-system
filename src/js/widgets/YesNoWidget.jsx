@@ -13,7 +13,6 @@ export default function YesNoWidget({
   return (
     <div className="form-radio-buttons">
       <input type="radio"
-        autoComplete={options.autocomplete || null}
         checked={value === yesValue}
         id={`${id}Yes`}
         name={`${id}`}
@@ -24,7 +23,6 @@ export default function YesNoWidget({
         {labels.Y || 'Yes'}
       </label>
       <input type="radio"
-        autoComplete={options.autocomplete || null}
         checked={value === noValue}
         id={`${id}No`}
         name={`${id}`}
