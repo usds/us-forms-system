@@ -17,7 +17,6 @@ class ErrorableCheckbox extends React.Component {
   }
 
   render() {
-    const { autoComplete } = this.props.uiSchema['ui:options'];
     // TODO: extract error logic into a utility function
     // Calculate error state.
     let errorSpan = '';
@@ -47,7 +46,6 @@ class ErrorableCheckbox extends React.Component {
     return (
       <div className={className}>
         <input
-          autoComplete={autoComplete}
           aria-describedby={errorSpanId}
           checked={this.props.checked}
           id={this.inputId}
@@ -95,10 +93,6 @@ ErrorableCheckbox.propTypes = {
    */
   required: PropTypes.bool,
   uiSchema: PropTypes.object
-};
-
-ErrorableCheckbox.defaultProps = {
-  uiSchema: {}
 };
 
 export default ErrorableCheckbox;
