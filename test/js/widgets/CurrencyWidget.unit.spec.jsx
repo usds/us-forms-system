@@ -2,6 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import SkinDeep from 'skin-deep';
 import sinon from 'sinon';
+import { mount } from 'enzyme';
 
 import CurrencyWidget from '../../../src/js/widgets/CurrencyWidget';
 
@@ -14,6 +15,16 @@ describe('Schemaform <CurrencyWidget>', () => {
     );
     const input = tree.subTree('input');
     expect(input.props.value).to.equal('178.00');
+  });
+  it('should render autocomplete attribute', () => {
+    const tree = mount(
+      <CurrencyWidget
+        options={{
+          autoComplete: 'date'
+        }}
+        value={178}/>
+    );
+    expect(tree.find('input').getDOMNode().getAttribute('autocomplete')).to.equal('date');
   });
   it('should call onChange with parsed number when 0 filled', () => {
     const onChange = sinon.spy();

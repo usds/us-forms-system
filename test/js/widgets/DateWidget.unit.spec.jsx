@@ -2,6 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import SkinDeep from 'skin-deep';
 import sinon from 'sinon';
+import { mount } from 'enzyme';
 
 import DateWidget from '../../../src/js/widgets/DateWidget';
 
@@ -18,6 +19,16 @@ describe('Schemaform: DateWidget', () => {
 
     expect(tree.everySubTree('select').length).to.equal(2);
     expect(tree.everySubTree('input').length).to.equal(1);
+  });
+  it('should render autocomplete attribute', () => {
+    const tree = mount(
+      <DateWidget
+        options={{
+          autoComplete: 'date'
+        }}
+        value={178}/>
+    );
+    expect(tree.find('input').getDOMNode().getAttribute('autocomplete')).to.equal('date');
   });
   it('should render initial date', () => {
     const onChange = sinon.spy();
