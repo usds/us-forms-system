@@ -34,8 +34,7 @@ describe('Schemaform <TextWidget>', () => {
         onChange={onChange}
         options={{
           autoComplete: 'date'
-        }}
-        value={178}/>
+        }}/>
     );
     expect(tree.find('input').getDOMNode().getAttribute('autocomplete')).to.equal('date');
   });

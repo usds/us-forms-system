@@ -35,7 +35,6 @@ TextWidget.propTypes = {
   }),
 };
 
-
 TextWidget.defaultProps = {
   options: {},
   type: 'text'
