@@ -2,7 +2,6 @@ import React from 'react';
 import { expect } from 'chai';
 import SkinDeep from 'skin-deep';
 import sinon from 'sinon';
-import { mount } from 'enzyme';
 
 import ArrayCountWidget from '../../../src/js/widgets/ArrayCountWidget';
 
