@@ -39,24 +39,6 @@ describe('Schemaform <ArrayCountWidget>', () => {
     );
     expect(tree.subTree('input').props.value).to.equal(3);
   });
-  it('should render an autocomplete attribute', () => {
-    const onChange = sinon.spy();
-    const tree = mount(
-      <ArrayCountWidget
-        id="1"
-        value={[{}, {}]}
-        schema={{ type: 'array' }}
-        required
-        disabled={false}
-        formContext={{}}
-        onChange={onChange}
-        options={{
-          countOffset: -1,
-          autoComplete: 'date'
-        }}/>
-    );
-    expect(tree.find('input').getDOMNode().getAttribute('autocomplete')).to.equal('date');
-  });
   it('should render 0 if array is empty', () => {
     const onChange = sinon.spy();
     const tree = SkinDeep.shallowRender(
