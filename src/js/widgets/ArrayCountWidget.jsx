@@ -65,7 +65,7 @@ export default class ArrayCountWidget extends React.Component {
 
     return (
       <input
-        autoComplete={props.options.autoComplete}
+        autoComplete={props.options.autocomplete}
         type="number"
         step="1"
         min="1"
@@ -88,7 +88,7 @@ ArrayCountWidget.propTypes = {
     /*
     * input's autocomplete attribute value
     */
-    autoComplete: PropTypes.string
+    autocomplete: PropTypes.string
   }),
 };
 

@@ -206,7 +206,6 @@ export default class FileField extends React.Component {
               {buttonText}
             </label>
             <input
-              autoComplete={uiOptions.autoComplete}
               type="file"
               accept={uiOptions.fileTypes.map(item => `.${item}`).join(',')}
               style={{ display: 'none' }}
@@ -222,9 +221,7 @@ export default class FileField extends React.Component {
 
 FileField.propTypes = {
   schema: PropTypes.object.isRequired,
-  uiSchema: PropTypes.shape({
-    'ui:options': PropTypes.object.isRequired,
-  }),
+  uiSchema: PropTypes.object,
   errorSchema: PropTypes.object,
   requiredSchema: PropTypes.object,
   idSchema: PropTypes.object,

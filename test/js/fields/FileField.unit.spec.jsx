@@ -26,7 +26,6 @@ describe('Schemaform <FileField>', () => {
       }]
     };
     const uiSchema = fileConfig.uiSchema('Files');
-    uiSchema['ui:options'].autoComplete = 'date';
     const registry = {
       fields: {
         SchemaField: f => f
@@ -44,7 +43,6 @@ describe('Schemaform <FileField>', () => {
     );
 
     expect(tree.find('label').first().text()).to.contain('Upload');
-    expect(tree.find('input').getDOMNode().getAttribute('autocomplete')).to.equal('date');
   });
   it('should render files', () => {
     const idSchema = {

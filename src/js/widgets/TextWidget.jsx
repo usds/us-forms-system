@@ -11,7 +11,7 @@ export default function TextWidget(props) {
   }
   return (
     <input
-      autoComplete={props.options.autoComplete}
+      autoComplete={props.options.autocomplete}
       type={inputType}
       id={props.id}
       name={props.id}
@@ -31,7 +31,7 @@ TextWidget.propTypes = {
     /*
     * input's autocomplete attribute value
     */
-    autoComplete: PropTypes.string
+    autocomplete: PropTypes.string
   }),
 };
 

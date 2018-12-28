@@ -45,7 +45,7 @@ export default class CurrencyWidget extends React.Component {
 
     return (
       <input
-        autoComplete={options.autoComplete}
+        autoComplete={options.autocomplete}
         type="text"
         id={id}
         name={id}
@@ -66,7 +66,7 @@ CurrencyWidget.propTypes = {
     /*
     * input's autocomplete attribute value
     */
-    autoComplete: PropTypes.string
+    autocomplete: PropTypes.string
   }),
 };
 
