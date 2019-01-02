@@ -49,7 +49,7 @@ export default class CurrencyWidget extends React.Component {
         id={id}
         name={id}
         disabled={disabled}
-        className={this.props.options.widgetClassNames}
+        className={options.widgetClassNames}
         value={typeof value === 'undefined' ? '' : value}
         onBlur={this.onBlur}
         onChange={this.handleChange}/>
