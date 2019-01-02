@@ -89,10 +89,57 @@ describe('Schemaform <ArrayField>', () => {
         formData={formData}
         formContext={formContext}
         onChange={f => f}
-        requiredSchema={requiredSchema}/>
+        requiredSchema={requiredSchema}
+        errorSchema={[]}/>
     );
 
     expect(tree.everySubTree('SchemaField').length).to.equal(1);
+    expect(tree.everySubTree('.va-growable-background').length).to.equal(2);
+  });
+  it('should render invalid items', () => {
+    const idSchema = {
+      $id: 'field'
+    };
+    const schema = {
+      type: 'array',
+      items: [],
+      additionalItems: {
+        type: 'object',
+        properties: {
+          field: {
+            type: 'string'
+          }
+        }
+      }
+    };
+    const uiSchema = {
+      'ui:title': 'List of things',
+      'ui:options': {
+        viewField: f => f
+      }
+    };
+    const formData = [
+      { field: true },
+      {}
+    ];
+    const errorSchema = [
+      { field: { __errors: ['Invalid type'] } }
+    ];
+    const tree = SkinDeep.shallowRender(
+      <ArrayField
+        schema={schema}
+        uiSchema={uiSchema}
+        idSchema={idSchema}
+        registry={registry}
+        formData={formData}
+        formContext={formContext}
+        onChange={f => f}
+        requiredSchema={requiredSchema}
+        errorSchema={errorSchema}/>
+    );
+
+    // First SchemaField is the invalid item, second is normally in edit mode
+    expect(tree.everySubTree('SchemaField').length).to.equal(2);
     expect(tree.everySubTree('.va-growable-background').length).to.equal(2);
   });
   describe('should handle', () => {
