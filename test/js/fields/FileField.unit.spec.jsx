@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
 import ReactTestUtils from 'react-dom/test-utils';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import { DefinitionTester, getFormDOM } from '../../config/schemaform-utils.jsx';
 
@@ -31,7 +31,7 @@ describe('Schemaform <FileField>', () => {
         SchemaField: f => f
       }
     };
-    const tree = mount(
+    const tree = shallow(
       <FileField
         registry={registry}
         schema={schema}
