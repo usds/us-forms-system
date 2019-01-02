@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const numberTypes = new Set(['number', 'integer']);
@@ -9,19 +10,32 @@ export default function TextWidget(props) {
     inputType = numberTypes.has(props.schema.type) ? 'number' : props.type;
   }
   return (
-    <input type={inputType}
+    <input
+      autoComplete={props.options.autocomplete}
+      type={inputType}
       id={props.id}
       name={props.id}
       disabled={props.disabled}
       maxLength={props.schema.maxLength}
-      autoComplete={props.options.autocomplete || false}
       className={classnames(props.options.widgetClassNames)}
       value={typeof props.value === 'undefined' ? '' : props.value}
       onBlur={() => props.onBlur(props.id)}
       onChange={(event) => props.onChange(event.target.value ? event.target.value : undefined)}/>
   );
 }
+TextWidget.propTypes = {
+  /**
+   * ui:options from uiSchema
+   */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autocomplete: PropTypes.string
+  }),
+};
 
 TextWidget.defaultProps = {
+  options: {},
   type: 'text'
 };

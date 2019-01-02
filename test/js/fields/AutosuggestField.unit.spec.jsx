@@ -42,6 +42,7 @@ describe('<AutosuggestField>', () => {
     expect(input.props().id).to.equal('id');
     expect(input.props().name).to.equal('id');
     expect(input.props().value).to.equal('label');
+    expect(input.getDOMNode().getAttribute('autocomplete')).to.equal('off');
   });
 
 

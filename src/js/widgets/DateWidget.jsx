@@ -82,7 +82,6 @@ export default class DateWidget extends React.Component {
         <div className="form-datefield-month">
           <label className="input-date-label" htmlFor={`${id}Month`}>Month</label>
           <select
-            autoComplete="false"
             name={`${id}Month`}
             id={`${id}Month`}
             value={month}
@@ -94,7 +93,6 @@ export default class DateWidget extends React.Component {
         {!monthYear && <div className="form-datefield-day">
           <label className="input-date-label" htmlFor={`${id}Day`}>Day</label>
           <select
-            autoComplete="false"
             name={`${id}Day`}
             id={`${id}Day`}
             value={day}
@@ -106,7 +104,7 @@ export default class DateWidget extends React.Component {
         <div className="usa-datefield usa-form-group usa-form-group-year">
           <label className="input-date-label" htmlFor={`${id}Year`}>Year</label>
           <input type="number"
-            autoComplete="false"
+            autoComplete={options.autocomplete}
             name={`${id}Year`}
             id={`${id}Year`}
             max="3000"
@@ -125,5 +123,18 @@ DateWidget.propTypes = {
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
+  /**
+   * ui:options from uiSchema
+  */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autocomplete: PropTypes.string
+  }),
   value: PropTypes.string
+};
+
+DateWidget.defaultProps = {
+  options: {}
 };
