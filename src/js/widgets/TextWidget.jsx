@@ -1,11 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
-||||||| parent of 9230e98... 316 configurable autocomplete attribute (#324)
-import classnames from 'classnames';
-=======
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
->>>>>>> 9230e98... 316 configurable autocomplete attribute (#324)
 
 const numberTypes = new Set(['number', 'integer']);
 
