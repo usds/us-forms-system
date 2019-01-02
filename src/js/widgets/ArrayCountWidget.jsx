@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 export default class ArrayCountWidget extends React.Component {
   constructor(props) {
@@ -62,17 +64,34 @@ export default class ArrayCountWidget extends React.Component {
     }
 
     return (
-      <input type="number"
+      <input
+        autoComplete={props.options.autocomplete}
+        type="number"
         step="1"
         min="1"
         id={props.id}
         name={props.id}
         disabled={props.disabled}
-        autoComplete={props.options.autocomplete || false}
-        className={props.options.widgetClassNames}
+        className={classnames(props.options.widgetClassNames)}
         value={typeof this.state.userCount === 'undefined' ? '' : this.state.userCount}
         onBlur={() => props.onBlur(props.id)}
         onChange={this.updateArrayLength}/>
     );
   }
 }
+
+ArrayCountWidget.propTypes = {
+  /**
+   * ui:options from uiSchema
+   */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autocomplete: PropTypes.string
+  }),
+};
+
+ArrayCountWidget.defaultProps = {
+  options: {}
+};

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 export default class CurrencyWidget extends React.Component {
   constructor(props) {
@@ -42,15 +44,32 @@ export default class CurrencyWidget extends React.Component {
     const value = this.state.value;
 
     return (
-      <input type="text"
+      <input
+        autoComplete={options.autocomplete}
+        type="text"
         id={id}
         name={id}
         disabled={disabled}
-        autoComplete={options.autocomplete || false}
-        className={options.widgetClassNames}
+        className={classnames(this.props.options.widgetClassNames)}
         value={typeof value === 'undefined' ? '' : value}
         onBlur={this.onBlur}
         onChange={this.handleChange}/>
     );
   }
 }
+
+CurrencyWidget.propTypes = {
+  /**
+   * ui:options from uiSchema
+   */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autocomplete: PropTypes.string
+  }),
+};
+
+CurrencyWidget.defaultProps = {
+  options: {}
+};

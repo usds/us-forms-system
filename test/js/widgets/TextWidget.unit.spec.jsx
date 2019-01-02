@@ -2,6 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import SkinDeep from 'skin-deep';
 import sinon from 'sinon';
+import { mount } from 'enzyme';
 
 import TextWidget from '../../../src/js/widgets/TextWidget';
 
@@ -20,6 +21,22 @@ describe('Schemaform <TextWidget>', () => {
     );
     expect(tree.subTree('input').props.value).to.equal('testing');
     expect(tree.subTree('input').props.type).to.equal('text');
+  });
+  it('should render autocomplete attribute', () => {
+    const onChange = sinon.spy();
+    const tree = mount(
+      <TextWidget
+        id="1"
+        value="testing"
+        schema={{ type: 'string' }}
+        required
+        disabled={false}
+        onChange={onChange}
+        options={{
+          autocomplete: 'date'
+        }}/>
+    );
+    expect(tree.find('input').getDOMNode().getAttribute('autocomplete')).to.equal('date');
   });
   it('should render empty string when undefined', () => {
     const onChange = sinon.spy();

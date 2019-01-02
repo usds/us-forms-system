@@ -33,7 +33,7 @@ describe('Schemaform <ArrayCountWidget>', () => {
         formContext={{}}
         onChange={onChange}
         options={{
-          countOffset: -1
+          countOffset: -1,
         }}/>
     );
     expect(tree.subTree('input').props.value).to.equal(3);

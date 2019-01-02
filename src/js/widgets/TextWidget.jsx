@@ -1,4 +1,11 @@
 import React from 'react';
+<<<<<<< HEAD
+||||||| parent of 9230e98... 316 configurable autocomplete attribute (#324)
+import classnames from 'classnames';
+=======
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+>>>>>>> 9230e98... 316 configurable autocomplete attribute (#324)
 
 const numberTypes = new Set(['number', 'integer']);
 
@@ -8,19 +15,32 @@ export default function TextWidget(props) {
     inputType = numberTypes.has(props.schema.type) ? 'number' : props.type;
   }
   return (
-    <input type={inputType}
+    <input
+      autoComplete={props.options.autocomplete}
+      type={inputType}
       id={props.id}
       name={props.id}
       disabled={props.disabled}
       maxLength={props.schema.maxLength}
-      autoComplete={props.options.autocomplete || false}
-      className={props.options.widgetClassNames}
+      className={classnames(props.options.widgetClassNames)}
       value={typeof props.value === 'undefined' ? '' : props.value}
       onBlur={() => props.onBlur(props.id)}
       onChange={(event) => props.onChange(event.target.value ? event.target.value : undefined)}/>
   );
 }
+TextWidget.propTypes = {
+  /**
+   * ui:options from uiSchema
+   */
+  options: PropTypes.shape({
+    /*
+    * input's autocomplete attribute value
+    */
+    autocomplete: PropTypes.string
+  }),
+};
 
 TextWidget.defaultProps = {
+  options: {},
   type: 'text'
 };
