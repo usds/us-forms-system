@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
 const numberTypes = new Set(['number', 'integer']);
 
@@ -17,7 +16,7 @@ export default function TextWidget(props) {
       name={props.id}
       disabled={props.disabled}
       maxLength={props.schema.maxLength}
-      className={classnames(props.options.widgetClassNames)}
+      className={props.options.widgetClassNames}
       value={typeof props.value === 'undefined' ? '' : props.value}
       onBlur={() => props.onBlur(props.id)}
       onChange={(event) => props.onChange(event.target.value ? event.target.value : undefined)}/>

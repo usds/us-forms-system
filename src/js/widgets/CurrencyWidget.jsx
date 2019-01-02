@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
 export default class CurrencyWidget extends React.Component {
   constructor(props) {
@@ -50,7 +49,7 @@ export default class CurrencyWidget extends React.Component {
         id={id}
         name={id}
         disabled={disabled}
-        className={classnames(this.props.options.widgetClassNames)}
+        className={this.props.options.widgetClassNames}
         value={typeof value === 'undefined' ? '' : value}
         onBlur={this.onBlur}
         onChange={this.handleChange}/>
