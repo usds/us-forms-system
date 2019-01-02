@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
 export default class ArrayCountWidget extends React.Component {
   constructor(props) {
@@ -72,7 +71,7 @@ export default class ArrayCountWidget extends React.Component {
         id={props.id}
         name={props.id}
         disabled={props.disabled}
-        className={classnames(props.options.widgetClassNames)}
+        className={props.options.widgetClassNames}
         value={typeof this.state.userCount === 'undefined' ? '' : this.state.userCount}
         onBlur={() => props.onBlur(props.id)}
         onChange={this.updateArrayLength}/>
