@@ -15,7 +15,8 @@ export default function CheckboxWidget({
   const widgetClasses = classNames('form-checkbox', options.widgetClassNames);
   return (
     <div className={widgetClasses}>
-      <input type="checkbox"
+      <input
+        type="checkbox"
         id={id}
         name={id}
         checked={typeof value === 'undefined' ? false : value}
