@@ -79,9 +79,9 @@
     "vets-json-schema": "git+https://github.com/department-of-veterans-affairs/vets-json-schema.git"
   },
   "peerDependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.6.2",
-    "uswds": "^1.6.3"
+    "react": "^15.5.4||^16.7.0",
+    "react-dom": "^15.6.2||^16.7.0",
+    "uswds": "^1.4.2"
   },
   "dependencies": {
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",
