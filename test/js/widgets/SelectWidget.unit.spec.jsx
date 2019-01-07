@@ -20,7 +20,7 @@ describe('Schemaform <SelectWidget>', () => {
         id="testing"
         onChange={onChange}
         options={{ enumOptions }}/>
-    );
+    ).dive(['SelectWidget']);
 
     expect(tree.everySubTree('option').length).to.equal(2);
   });
@@ -41,7 +41,7 @@ describe('Schemaform <SelectWidget>', () => {
         id="testing"
         onChange={onChange}
         options={{ enumOptions, labels }}/>
-    );
+    ).dive(['SelectWidget']);
 
     expect(tree.everySubTree('option')[1].text()).to.equal('Other');
   });
@@ -59,7 +59,7 @@ describe('Schemaform <SelectWidget>', () => {
         id="testing"
         onChange={onChange}
         options={{ enumOptions }}/>
-    );
+    ).dive(['SelectWidget']);
 
     tree.subTree('select').props.onChange({
       target: {
@@ -88,7 +88,7 @@ describe('Schemaform <SelectWidget>', () => {
         id="testing"
         onChange={onChange}
         options={{ enumOptions }}/>
-    );
+    ).dive(['SelectWidget']);
 
     tree.subTree('select').props.onChange({
       target: {
@@ -111,7 +111,7 @@ describe('Schemaform <SelectWidget>', () => {
         id="testing"
         onChange={onChange}
         options={{ enumOptions }}/>
-    );
+    ).dive(['SelectWidget']);
 
     tree.subTree('select').props.onChange({
       target: {
@@ -134,7 +134,7 @@ describe('Schemaform <SelectWidget>', () => {
         id="testing"
         onBlur={onBlur}
         options={{ enumOptions }}/>
-    );
+    ).dive(['SelectWidget']);
 
     tree.subTree('select').props.onBlur({
       target: {
@@ -159,7 +159,7 @@ describe('Schemaform <SelectWidget>', () => {
         id="testing"
         onChange={onChange}
         options={{ enumOptions }}/>
-    );
+    ).dive(['SelectWidget']);
 
     expect(tree.everySubTree('option').length).to.equal(1);
   });
