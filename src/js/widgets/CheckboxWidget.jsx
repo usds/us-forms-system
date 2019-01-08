@@ -11,7 +11,7 @@ export default function CheckboxWidget({
   onChange,
   options
 }) {
-  const requiredSpan = required ? <span className="form-required-span">*</span> : null;
+  const requiredSpan = required ? <span className="form-required-span">(*Required)</span> : null;
   const widgetClasses = classNames('form-checkbox', options.widgetClassNames);
   return (
     <div className={widgetClasses}>
