@@ -187,7 +187,9 @@ class ArrayField extends React.Component {
             <h5 className="form-review-panel-page-header">{title}</h5>
             {itemsNeeded && <span className="schemaform-review-array-warning-icon"/>}
             {!itemCountLocked &&
-              <button type="button" className="edit-btn primary-outline" onClick={() => this.handleAdd()}>{`Add Another ${title}`}</button>
+              <button type="button" className="edit-btn primary-outline" onClick={() => this.handleAdd()}>
+                {uiOptions.itemName ? `Add Another ${uiOptions.itemName}` : 'Add Another'}
+              </button>
             }
           </div>}
         <div className="va-growable va-growable-review">
