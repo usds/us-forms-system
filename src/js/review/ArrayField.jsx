@@ -186,9 +186,6 @@ class ArrayField extends React.Component {
           <div className="form-review-panel-page-header-row">
             <h5 className="form-review-panel-page-header">{title}</h5>
             {itemsNeeded && <span className="schemaform-review-array-warning-icon"/>}
-            {!itemCountLocked &&
-              <button type="button" className="edit-btn primary-outline" onClick={() => this.handleAdd()}>Add Another</button>
-            }
           </div>}
         <div className="va-growable va-growable-review">
           <Element name={`topOfTable_${fieldName}${itemCountLocked ? '_locked' : ''}`}/>
@@ -259,6 +256,11 @@ class ArrayField extends React.Component {
                 {_.get('ui:errorMessages.minItems', uiSchema) || 'You need to add at least one item.'}
               </div>
             </div>}
+          {title && !itemCountLocked &&
+            <div className="form-review-panel-page-header-row">
+              <button type="button" className="edit-btn add-btn primary-outline" onClick={() => this.handleAdd()}>Add Another</button>
+            </div>
+          }
         </div>
       </div>
     );
