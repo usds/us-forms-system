@@ -122,10 +122,10 @@ export default class FileField extends React.Component {
               });
               const itemSchema = schema.items[index];
               const attachmentIdSchema = {
-                $id: `${idSchema.$id}_${index}_atachmentId`
+                $id: `${idSchema.$id}_${index}_attachmentId`
               };
               const attachmentNameSchema = {
-                $id: `${idSchema.$id}_${index}_atachmentName`
+                $id: `${idSchema.$id}_${index}_attachmentName`
               };
               const attachmentIdErrors = _.get([index, 'attachmentId'], errorSchema);
               const attachmentNameErrors = _.get([index, 'name'], errorSchema);
