@@ -129,7 +129,8 @@ const formConfig = {
             },
             'view:previouslyFiled': {
               'ui:options': {
-                expandUnder: 'previouslyFiledForSSN'
+                expandUnder: 'previouslyFiledForSSN',
+                expandUnderCondition: 'Yes'
               },
               previousSSN: SSNErrorMessage(),
               previousBirthDate: currentOrPastDateUI('Date of birth (if different than entered above)')
