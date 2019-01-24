@@ -258,7 +258,9 @@ class ArrayField extends React.Component {
             </div>}
           {title && !itemCountLocked &&
             <div className="form-review-panel-page-header-row">
-              <button type="button" className="edit-btn add-btn primary-outline" onClick={() => this.handleAdd()}>Add Another</button>
+              <button type="button" className="edit-btn primary-outline" onClick={() => this.handleAdd()}>
+                {uiOptions.itemName ? `Add Another ${uiOptions.itemName}` : 'Add Another'}
+              </button>
             </div>
           }
         </div>
