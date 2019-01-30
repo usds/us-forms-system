@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash/fp';
+import classNames from 'classnames';
 import Scroll from 'react-scroll';
 
 import {
@@ -160,6 +161,7 @@ class ArrayField extends React.Component {
     const {
       schema,
       uiSchema,
+      formData = [],
       path,
       pageTitle,
       formContext
@@ -179,6 +181,7 @@ class ArrayField extends React.Component {
     //  arrayData is passed (mysteriously)
     const items = itemCountLocked ? (this.props.arrayData || []) : this.state.items;
     const itemsNeeded = (schema.minItems || 0) > 0 && items.length === 0;
+    const addAnotherDisabled = items.length >= (schema.maxItems || Infinity);
 
     return (
       <div className={itemsNeeded ? 'schemaform-review-array-warning' : null}>
@@ -187,7 +190,17 @@ class ArrayField extends React.Component {
             <h5 className="form-review-panel-page-header">{title}</h5>
             {itemsNeeded && <span className="schemaform-review-array-warning-icon"/>}
             {!itemCountLocked &&
-              <button type="button" className="edit-btn primary-outline" onClick={() => this.handleAdd()}>
+              <button type="button"
+                disabled={addAnotherDisabled}
+                className={classNames(
+                  'edit-btn',
+                  'primary-outline',
+                  {
+                    'edit-btn-disabled': addAnotherDisabled
+                  }
+                )
+                }
+                onClick={() => this.handleAdd()}>
                 {uiOptions.itemName ? `Add Another ${uiOptions.itemName}` : 'Add Another'}
               </button>
             }
