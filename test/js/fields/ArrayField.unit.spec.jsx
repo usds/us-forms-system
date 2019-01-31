@@ -154,6 +154,7 @@ describe('Schemaform <ArrayField>', () => {
       const schema = {
         type: 'array',
         items: [],
+        maxItems: 2,
         additionalItems: {
           type: 'object',
           properties: {
@@ -224,6 +225,9 @@ describe('Schemaform <ArrayField>', () => {
 
       expect(onChange.firstCall.args[0].length).to.equal(3);
       expect(tree.getMountedInstance().state.editing[2]).to.be.false;
+    });
+    it('enforces max items', () => {
+      expect(tree.everySubTree('button').pop().props.disabled).to.be.true;
     });
     it('add when invalid', () => {
       formContext.setTouched.resetHistory();

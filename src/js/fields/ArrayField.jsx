@@ -202,6 +202,7 @@ export default class ArrayField extends React.Component {
     const items = (formData && formData.length)
       ? formData
       : [getDefaultFormState(schema, undefined, registry.definitions)];
+    const addAnotherDisabled = items.length >= (schema.maxItems || Infinity);
 
     const containerClassNames = classNames({
       'schemaform-field-container': true,
@@ -289,10 +290,10 @@ export default class ArrayField extends React.Component {
               'usa-button-secondary',
               'va-growable-add-btn',
               {
-                'usa-button-disabled': !this.props.formData
+                'usa-button-disabled': !this.props.formData || addAnotherDisabled
               }
             )}
-            disabled={!this.props.formData}
+            disabled={!this.props.formData || addAnotherDisabled}
             onClick={this.handleAdd}>
             Add Another {uiOptions.itemName}
           </button>
