@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash/fp';
-import classNames from 'classnames';
 import Scroll from 'react-scroll';
 
 import {
@@ -191,14 +190,7 @@ class ArrayField extends React.Component {
             {!itemCountLocked &&
               <button type="button"
                 disabled={addAnotherDisabled}
-                className={classNames(
-                  'edit-btn',
-                  'primary-outline',
-                  {
-                    'edit-btn-disabled': addAnotherDisabled
-                  }
-                )
-                }
+                className={'edit-btn primary-outline'}
                 onClick={() => this.handleAdd()}>
                 {uiOptions.itemName ? `Add Another ${uiOptions.itemName}` : 'Add Another'}
               </button>
