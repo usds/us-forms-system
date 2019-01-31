@@ -161,7 +161,6 @@ class ArrayField extends React.Component {
     const {
       schema,
       uiSchema,
-      formData = [],
       path,
       pageTitle,
       formContext
