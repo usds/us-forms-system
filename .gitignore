@@ -1,7 +1,6 @@
 # Directories to ignore
 node_modules/
 .babelcache/
-lib/
 
 # Files to ignore
 ._*
