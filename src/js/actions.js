@@ -1,6 +1,5 @@
 import Raven from 'raven-js';
 import moment from 'moment';
-import _ from './utilities/data';
 import { transformForSubmit, recordEvent } from './helpers';
 import { timeFromNow } from './utilities/date';
 
