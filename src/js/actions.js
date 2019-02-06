@@ -124,11 +124,7 @@ function submitToUrl(body, submitUrl, trackingPrefix) {
 
     req.setRequestHeader('X-Key-Inflection', 'camel');
     req.setRequestHeader('Content-Type', 'application/json');
-
-    const userToken = _.get('sessionStorage.userToken', window);
-    if (userToken) {
-      req.setRequestHeader('Authorization', `Token token=${userToken}`);
-    }
+    req.withCredentials = true;
 
     req.send(body);
   });

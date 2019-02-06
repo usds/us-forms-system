@@ -129,31 +129,6 @@ describe('Schemaform actions:', () => {
 
       return promise;
     });
-    it('should submit with auth header', () => {
-      const formConfig = {
-        chapters: {}
-      };
-      const form = {
-        pages: {
-          testing: {},
-        },
-        data: {
-          test: 1
-        }
-      };
-      window.sessionStorage = { userToken: 'testing' };
-      const thunk = submitForm(formConfig, form);
-      const dispatch = sinon.spy();
-      const response = { data: {} };
-
-      const promise = thunk(dispatch).then(() => {
-        expect(requests[0].requestHeaders.Authorization).to.equal('Token token=testing');
-      });
-
-      requests[0].respond(200, null, JSON.stringify(response));
-
-      return promise;
-    });
     it('should set submission error', () => {
       const formConfig = {
         chapters: {}
