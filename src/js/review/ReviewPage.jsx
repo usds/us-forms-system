@@ -33,6 +33,9 @@ class ReviewPage extends React.Component {
 
     return (
       <div>
+        <div className="schemaform-block-header">
+          <legend className="schemaform-block-title">Review your answers before submitting</legend>
+        </div>
         <ReviewChapters
           formConfig={formConfig}
           pageList={pageList}/>

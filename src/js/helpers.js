@@ -106,6 +106,7 @@ export function createRoutes(formConfig) {
         path: page.path,
         component: page.component || FormPage,
         pageConfig: page,
+        hideNavArrows: formConfig.hideNavArrows,
         pageList,
         urlPrefix: formConfig.urlPrefix
       };

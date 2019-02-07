@@ -15,7 +15,7 @@ export default function SubmitButtons(props) {
     submitButton = (
       <ProgressButton
         onButtonClick={onSubmit}
-        buttonText="Submit Application"
+        buttonText="Submit"
         buttonClass="usa-button-primary"/>
     );
   } else if (submission.status === 'submitPending') {
@@ -39,7 +39,7 @@ export default function SubmitButtons(props) {
     submitButton = (
       <ProgressButton
         onButtonClick={onSubmit}
-        buttonText="Submit Application"
+        buttonText="Submit"
         buttonClass="usa-button-primary"/>
     );
     submitMessage = (
@@ -54,7 +54,7 @@ export default function SubmitButtons(props) {
     submitButton = (
       <ProgressButton
         onButtonClick={onSubmit}
-        buttonText="Submit Application"
+        buttonText="Submit"
         buttonClass="usa-button-primary"/>
     );
     submitMessage = (
@@ -69,7 +69,7 @@ export default function SubmitButtons(props) {
     submitButton = (
       <ProgressButton
         onButtonClick={onSubmit}
-        buttonText="Submit Application"
+        buttonText="Submit"
         buttonClass="usa-button-primary"/>
     );
     submitMessage = (
@@ -120,7 +120,7 @@ export default function SubmitButtons(props) {
             onButtonClick={onBack}
             buttonText="Back"
             buttonClass="usa-button-secondary"
-            beforeText="«"/>
+            beforeText=""/>
         </div>
         <div className="small-6 medium-5 columns">
           {submitButton}

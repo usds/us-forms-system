@@ -461,7 +461,9 @@ export function createInitialState(formConfig) {
       metadata: {}
     },
     reviewPageView: {
-      openChapters: [],
+      openChapters: formConfig.openAllChaptersOnReview ?
+        Object.keys(formConfig.chapters) :
+        [],
       viewedPages: new Set()
     }
   };
