@@ -67,8 +67,8 @@ class SubmitController extends React.Component {
       return;
     }
 
-    // Validation errors in this situation are not visible, so we’d
-    // like to know if they’re common
+    // Validation errors in this situation are not visible, so we‚Äôd
+    // like to know if they‚Äôre common
     const { isValid, errors } = isValidForm(form, pagesByChapter);
     if (!isValid) {
       const recordEvent = formConfig.recordEvent ?

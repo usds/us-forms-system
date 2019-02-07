@@ -82,6 +82,8 @@ class FormPage extends React.Component {
       formContext
     } = this.props;
 
+    const { hideNavArrows } = route;
+
     let {
       schema,
       uiSchema
@@ -123,14 +125,14 @@ class FormPage extends React.Component {
                   onButtonClick={this.goBack}
                   buttonText="Back"
                   buttonClass="usa-button-secondary"
-                  beforeText="«"/> }
+                  beforeText={hideNavArrows ? '' : '«'}/> }
             </div>
             <div className="small-6 medium-5 end columns">
               <ProgressButton
                 submitButton
                 buttonText="Continue"
                 buttonClass="usa-button-primary"
-                afterText="»"/>
+                afterText={hideNavArrows ? '' : '»'}/>
             </div>
           </div>
           {contentAfterButtons}
