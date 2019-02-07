@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 
 import SubmitButtons from './SubmitButtons';
 import { PreSubmitSection } from '../components/PreSubmitSection';
-// import { isValidForm } from '../validation';
+import { isValidForm } from '../validation';
 import {
   createPageListByChapter,
   getActiveExpandedPages
