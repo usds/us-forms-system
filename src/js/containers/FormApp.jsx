@@ -14,6 +14,7 @@ const Element = Scroll.Element;
  */
 class FormApp extends React.Component {
   componentWillMount() {
+    this.nonFormPages = this.props.formConfig.additionalRoutes || [];
     setGlobalScroll();
 
     if (window.History) {
@@ -24,13 +25,15 @@ class FormApp extends React.Component {
   render() {
     const { currentLocation, formConfig, children, formData } = this.props;
     const trimmedPathname = currentLocation.pathname.replace(/\/$/, '');
+    const lastPathComponent = currentLocation.pathname.split('/').pop();
     const isIntroductionPage = trimmedPathname.endsWith('introduction');
+    const isNonFormPage = this.nonFormPages.includes(lastPathComponent);
     const Footer = formConfig.footerContent;
 
     let formTitle;
     let formNav;
     let renderedChildren = children;
-    if (!isIntroductionPage) {
+    if (!isIntroductionPage && !isNonFormPage) {
       // Show title only if we're not on the intro page and if there is a title
       // specified in the form config
       if (formConfig.title) {
@@ -40,7 +43,7 @@ class FormApp extends React.Component {
 
     // Show nav only if we're not on the intro, form-saved, error, or confirmation page
     // Also add form classes only if on an actual form page
-    if (isInProgress(trimmedPathname)) {
+    if (isInProgress(trimmedPathname) && !isNonFormPage) {
       formNav = <FormNav formData={formData} formConfig={formConfig} currentPath={trimmedPathname}/>;
 
       renderedChildren = (
