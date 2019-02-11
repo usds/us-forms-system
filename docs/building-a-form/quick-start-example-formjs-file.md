@@ -15,6 +15,15 @@ Use this example `form.js` file to build a basic form. For more information abou
   // The confirmation page component that will render after the user successfully submits the form.
   confirmation: ConfirmationComponent,
 
+  // An optional array of Route config objects for additional pages/routes that will not have the standard form page title and navigation applied to them
+  additionalRoutes: [
+    {
+      path: 'id-form',
+      component: IDPage,
+      key: 'id-form',
+    },
+  ],
+
   // The prefix for Google Analytics events that are sent for different form actions.
   trackingPrefix: '',
 
