@@ -217,6 +217,7 @@ describe('Schemaform review <ArrayField>', () => {
     beforeEach(() => {
       const schema = {
         type: 'array',
+        maxItems: 2,
         items: [{
           type: 'object',
           properties: {
@@ -279,6 +280,13 @@ describe('Schemaform review <ArrayField>', () => {
       tree.getMountedInstance().handleAdd();
 
       expect(tree.everySubTree('SchemaForm').length).to.equal(2);
+    });
+    it('enforces max items', () => {
+      expect(tree.subTree('button').props.disabled).to.be.false;
+
+      tree.getMountedInstance().handleAdd();
+
+      expect(tree.subTree('button').props.disabled).to.be.true;
     });
     it('remove', () => {
       expect(tree.everySubTree('SchemaForm').length).to.equal(1);
