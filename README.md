@@ -2,7 +2,9 @@
 
 The US Forms System is an open source library and set of guiding principles for building complex web-based forms using [React](https://reactjs.org), the [JSON Schema standard](http://json-schema.org/), and the [US Web Design System](https://designsystem.digital.gov/).
 
-***THIS IS A WORK IN PROGRESS.***
+### This project is not being actively maintained.
+
+**Based on the experience and interviews with prospective users, we're considering a redesign that incorporates the feedback we have gained from building this library. If you're interested in helping us design and build the next USFS please [open an issue](https://github.com/usds/us-forms-system/issues)!**
 
 ### About this project
 
