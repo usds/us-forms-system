@@ -109,6 +109,10 @@ class ArrayField extends React.Component {
     });
   }
 
+  handleNewItemTitleMounted = element => {
+    element.focus();
+  }
+
   /*
    * Clicking Remove when editing an item
    */
@@ -203,8 +207,9 @@ class ArrayField extends React.Component {
                   <Element name={`table_${fieldName}_${index}`}/>
                   <div className="row small-collapse schemaform-array-row" id={`table_${fieldName}_${index}`}>
                     <div className="small-12 columns va-growable-expanded">
-                      {isLast && uiOptions.itemName && items.length > 1
-                        ? <h5>New {uiOptions.itemName}</h5>
+                      {isLast
+                        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                        ? <h5 tabIndex="0" ref={this.handleNewItemTitleMounted}>New {uiOptions.itemName || 'Item'}</h5>
                         : null}
                       <SchemaForm
                         data={item}
