@@ -5495,6 +5495,7 @@ label + div input[type="week"], label + div textarea, label + div select {
   margin-bottom: 3rem; }
   .schemaform-title > h1 {
     margin-bottom: 0;
+    margin-top: 0;
     padding-right: 10px; }
   .schemaform-title > .schemaform-subtitle {
     font-size: 2rem; }
