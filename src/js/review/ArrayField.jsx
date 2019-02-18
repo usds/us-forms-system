@@ -110,7 +110,9 @@ class ArrayField extends React.Component {
   }
 
   handleNewItemTitleMounted = element => {
-    element.focus();
+    if (element) {
+      element.focus();
+    }
   }
 
   /*
