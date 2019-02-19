@@ -109,6 +109,12 @@ class ArrayField extends React.Component {
     });
   }
 
+  handleNewItemTitleMounted = element => {
+    if (element) {
+      element.focus();
+    }
+  }
+
   /*
    * Clicking Remove when editing an item
    */
@@ -187,14 +193,6 @@ class ArrayField extends React.Component {
           <div className="form-review-panel-page-header-row">
             <h5 className="form-review-panel-page-header">{title}</h5>
             {itemsNeeded && <span className="schemaform-review-array-warning-icon"/>}
-            {!itemCountLocked &&
-              <button type="button"
-                disabled={addAnotherDisabled}
-                className="edit-btn primary-outline"
-                onClick={() => this.handleAdd()}>
-                {uiOptions.itemName ? `Add Another ${uiOptions.itemName}` : 'Add Another'}
-              </button>
-            }
           </div>}
         <div className="va-growable va-growable-review">
           <Element name={`topOfTable_${fieldName}${itemCountLocked ? '_locked' : ''}`}/>
@@ -211,8 +209,9 @@ class ArrayField extends React.Component {
                   <Element name={`table_${fieldName}_${index}`}/>
                   <div className="row small-collapse schemaform-array-row" id={`table_${fieldName}_${index}`}>
                     <div className="small-12 columns va-growable-expanded">
-                      {isLast && uiOptions.itemName && items.length > 1
-                        ? <h5>New {uiOptions.itemName}</h5>
+                      {isLast
+                        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                        ? <h5 tabIndex="0" ref={this.handleNewItemTitleMounted}>New {uiOptions.itemName || 'Item'}</h5>
                         : null}
                       <SchemaForm
                         data={item}
@@ -265,6 +264,14 @@ class ArrayField extends React.Component {
                 {_.get('ui:errorMessages.minItems', uiSchema) || 'You need to add at least one item.'}
               </div>
             </div>}
+          {title && !itemCountLocked &&
+            <button type="button"
+              disabled={addAnotherDisabled}
+              className="edit-btn primary-outline"
+              onClick={() => this.handleAdd()}>
+              {uiOptions.itemName ? `Add Another ${uiOptions.itemName}` : 'Add Another'}
+            </button>
+          }
         </div>
       </div>
     );

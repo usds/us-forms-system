@@ -149,7 +149,7 @@ describe('Schemaform review <ArrayField>', () => {
     tree.getMountedInstance().handleAdd();
 
     expect(tree.everySubTree('h5')[1].text()).to.equal('New Item name');
-    expect(tree.everySubTree('button')[0].text()).to.equal('Add Another Item name');
+    expect(tree.everySubTree('button')[2].text()).to.equal('Add Another Item name');
   });
   it('should render array warning', () => {
     // If it's a BasicArrayField with a set minItems, make sure it doesn't break
@@ -282,11 +282,11 @@ describe('Schemaform review <ArrayField>', () => {
       expect(tree.everySubTree('SchemaForm').length).to.equal(2);
     });
     it('enforces max items', () => {
-      expect(tree.subTree('button').props.disabled).to.be.false;
+      expect(tree.subTree('.edit-btn').props.disabled).to.be.false;
 
       tree.getMountedInstance().handleAdd();
 
-      expect(tree.subTree('button').props.disabled).to.be.true;
+      expect(tree.subTree('.edit-btn').props.disabled).to.be.true;
     });
     it('remove', () => {
       expect(tree.everySubTree('SchemaForm').length).to.equal(1);
