@@ -44,7 +44,7 @@ class FormApp extends React.Component {
       formNav = <FormNav formData={formData} formConfig={formConfig} currentPath={trimmedPathname}/>;
 
       renderedChildren = (
-        <div className="progress-box progress-box-schemaform">
+        <div className="progress-box progress-box-schemaform centered-form-schemaforms">
           {children}
         </div>
       );
@@ -63,7 +63,7 @@ class FormApp extends React.Component {
       <div>
         <div className="row">
           {formTitle}
-          <div className="usa-width-two-thirds medium-8 columns">
+          <div className="usa-width-two-thirds medium-8 columns centered-form-two-thirds">
             <Element name="topScrollElement"/>
 
             {formNav}
