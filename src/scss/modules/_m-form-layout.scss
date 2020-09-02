@@ -27,7 +27,7 @@ body .row {
 // back button on the left and a submit on the right.
 form {
   [type="submit"] {
-    @include media($medium-screen) {
+    @include at-media("tablet") {
       padding-left: 2rem;
       padding-right: 2rem;
       width: 100%;

@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/usds/us-forms-system#readme",
   "devDependencies": {
-    "autoprefixer": "^8.6.5",
+    "autoprefixer": "^9.8.6",
     "axe-core": "^2.4.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.24.1",
@@ -68,13 +68,13 @@
     "isomorphic-fetch": "http://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz",
     "jsdom": "^13.2.0",
     "jsonschema": "^1.1.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "lodash-deep": "^2.0.0",
-    "markdown-link-check": "^3.7.2",
+    "markdown-link-check": "^3.8.1",
     "mocha": "^5.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "null-loader": "^0.1.1",
-    "postcss-cli": "^5.0.1",
+    "postcss-cli": "^7.1.2",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-test-renderer": "^15.5.4",
@@ -82,12 +82,12 @@
     "sass-lint": "^1.13.1",
     "sinon": "^6.3.5",
     "skin-deep": "^1.0.0",
-    "uswds": "^1.6.9"
+    "uswds": "^2.8.1"
   },
   "peerDependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.6.2",
-    "uswds": "^1.6.3"
+    "uswds": "^2.8.1"
   },
   "dependencies": {
     "@department-of-veterans-affairs/react-jsonschema-form": "^1.0.0",

@@ -12,10 +12,12 @@
   margin: 2rem 0rem;
   padding: 2rem 3rem;
   line-height: 2.2rem;
-  background-color: $color-inset-bg;
+  background-color: color($theme-color-usfs-inset-bg);
+
   &.secondary {
-    background-color: $color-gray-light-alt;
+    background-color: color($theme-color-usfs-gray-light-alt);
   }
+
   &.expandable {
     .form-expanding-group,
     .form-expanding-group-open {
@@ -35,6 +37,7 @@
 ul.claim-list{
   list-style: none;
   padding-left: 0;
+
   li {
     margin-bottom: 1rem;
   }
@@ -48,6 +51,7 @@ ul.claim-list{
   .form-expanding-group-plus::after {
     display: none;
   }
+
   .form-expanding-group {
     margin-left: 0px;
   }

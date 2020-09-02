@@ -3,15 +3,15 @@
   width: 100%;
   height: 1em;
   border-radius: 1em;
-  border: 2px solid $color-primary;
+  border: 2px solid color($theme-color-primary);
   margin: 1em 0;
 }
 
 .progress-bar-inner {
-  background-color: $color-primary;
   display: block;
   content: "&nbsp;";
   height: 100%;
+  background-color: color($theme-color-primary);
 }
 
 .progress-bar-segmented {
@@ -25,13 +25,16 @@
   flex: 1;
   margin-left: 2px;
   margin-right: 2px;
-  background-color: $color-gray-lighter;
+  background-color: color($theme-color-base-lighter);
+
   &-complete {
-    background-color: $color-primary;
+    background-color: color($theme-color-primary);
   }
+
   &:first-child {
     margin-left: 0;
   }
+
   &:last-child {
     margin-right: 0;
   }
