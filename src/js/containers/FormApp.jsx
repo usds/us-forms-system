@@ -61,8 +61,8 @@ class FormApp extends React.Component {
 
     return (
       <div>
-        <div className="row">
-          <div className="usa-width-two-thirds medium-8 columns">
+        <div className="grid-row">
+          <div className="grid-col-8">
             <Element name="topScrollElement"/>
             {formTitle}
             {formNav}

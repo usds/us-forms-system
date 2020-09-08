@@ -11,25 +11,27 @@ export default function YesNoWidget({
   const yesValue = !yesNoReverse;
   const noValue = !yesValue;
   return (
-    <div className="form-radio-buttons">
+    <div className="usa-radio">
       <input type="radio"
         checked={value === yesValue}
+        className="usa-radio__input"
         id={`${id}Yes`}
         name={`${id}`}
         value="Y"
         disabled={disabled}
         onChange={_ => onChange(yesValue)}/>
-      <label htmlFor={`${id}Yes`}>
+      <label className="usa-radio__label" htmlFor={`${id}Yes`}>
         {labels.Y || 'Yes'}
       </label>
       <input type="radio"
         checked={value === noValue}
+        className="usa-radio__input"
         id={`${id}No`}
         name={`${id}`}
         value="N"
         disabled={disabled}
         onChange={_ => onChange(noValue)}/>
-      <label htmlFor={`${id}No`}>
+      <label className="usa-radio__label" htmlFor={`${id}No`}>
         {labels.N || 'No'}
       </label>
     </div>

@@ -187,7 +187,7 @@ class ArrayField extends React.Component {
             <h5 className="form-review-panel-page-header">{title}</h5>
             {itemsNeeded && <span className="schemaform-review-array-warning-icon"/>}
             {!itemCountLocked &&
-              <button type="button" className="edit-btn primary-outline" onClick={() => this.handleAdd()}>Add Another</button>
+              <button type="button" className="usa-button usa-button--outline edit-btn" onClick={() => this.handleAdd()}>Add Another</button>
             }
           </div>}
         <div className="usfs-growable usfs-growable-review">
@@ -203,8 +203,8 @@ class ArrayField extends React.Component {
               return (
                 <div key={index} className="usfs-growable-background">
                   <Element name={`table_${fieldName}_${index}`}/>
-                  <div className="row small-collapse schemaform-array-row" id={`table_${fieldName}_${index}`}>
-                    <div className="small-12 columns usfs-growable-expanded">
+                  <div className="grid-row small-collapse schemaform-array-row" id={`table_${fieldName}_${index}`}>
+                    <div className="grid-col-fill usfs-growable-expanded">
                       {isLast && uiOptions.itemName && items.length > 1
                         ? <h5>New {uiOptions.itemName}</h5>
                         : null}
@@ -220,11 +220,11 @@ class ArrayField extends React.Component {
                         onChange={(data) => this.handleSetData(index, data)}
                         onEdit={() => this.handleEdit(index, !isEditing)}
                         onSubmit={() => this.handleSave(index)}>
-                        <div className="row small-collapse">
-                          <div className="small-6 left columns">
+                        <div className="grid-row small-collapse">
+                          <div className="grid-col-6">
                             <button className="float-left">Update</button>
                           </div>
-                          <div className="small-6 right columns">
+                          <div className="grid-col-6">
                             {showReviewButton && <button type="button" className="usa-button-secondary float-right" onClick={() => this.handleRemove(index)}>Remove</button>}
                           </div>
                         </div>
@@ -236,7 +236,7 @@ class ArrayField extends React.Component {
             }
             return (
               <div key={index} className="usfs-growable-background">
-                <div className="row small-collapse">
+                <div className="grid-row small-collapse">
                   <SchemaForm
                     reviewMode
                     data={item}
@@ -254,8 +254,8 @@ class ArrayField extends React.Component {
             );
           })}
           {itemsNeeded &&
-            <div className="usa-alert usa-alert-warning usa-alert-no-color usa-alert-mini">
-              <div className="usa-alert-body">
+            <div className="usa-alert usa-alert--warning usa-alert--slim">
+              <div className="usa-alert__body">
                 {_.get('ui:errorMessages.minItems', uiSchema) || 'You need to add at least one item.'}
               </div>
             </div>}

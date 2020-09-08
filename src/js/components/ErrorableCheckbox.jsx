@@ -24,7 +24,7 @@ class ErrorableCheckbox extends React.Component {
     if (this.props.errorMessage) {
       errorSpanId = `${this.inputId}-error-message`;
       errorSpan = (
-        <span className="usa-input-error-message" role="alert" id={errorSpanId}>
+        <span className="usa-error-message" role="alert" id={errorSpanId}>
           <span className="sr-only">Error</span> {this.props.errorMessage}
         </span>
       );
@@ -36,8 +36,8 @@ class ErrorableCheckbox extends React.Component {
       requiredSpan = <span className="form-required-span">*</span>;
     }
 
-    let className = `form-checkbox${
-      this.props.errorMessage ? ' usa-input-error' : ''
+    let className = `usa-checkbox${
+      this.props.errorMessage ? ' usa-input--error' : ''
     }`;
     if (!_.isUndefined(this.props.className)) {
       className = `${className} ${this.props.className}`;
@@ -51,10 +51,11 @@ class ErrorableCheckbox extends React.Component {
           id={this.inputId}
           name={this.props.name}
           type="checkbox"
+          className="usa-checkbox__input"
           onChange={this.handleChange}/>
         <label
           className={
-            this.props.errorMessage ? 'usa-input-error-label' : undefined
+            this.props.errorMessage ? 'usa-checkbox__label usa-label--error' : 'usa-checkbox__label'
           }
           name={`${this.props.name}-label`}
           htmlFor={this.inputId}>

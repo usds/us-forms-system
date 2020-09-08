@@ -42,26 +42,26 @@ export default function FieldTemplate(props) {
   let errorSpan;
   let errorClass;
   if (hasErrors) {
-    errorClass = isDateField ? 'input-error-date' : 'usa-input-error';
+    errorClass = isDateField ? 'input-error-date' : 'usa-input--error';
     errorSpanId = `${id}-error-message`;
     errorSpan = (
-      <span className="usa-input-error-message" role="alert" id={errorSpanId}>
+      <span className="usa-error-message" role="alert" id={errorSpanId}>
         <span className="sr-only">Error</span> {rawErrors[0]}
       </span>
     );
   }
 
   const containerClassNames = classNames(
-    'schemaform-field-template',
+    'usa-fieldset schemaform-field-template',
     _.get(['ui:options', 'classNames'], uiSchema)
   );
   const labelClassNames = classNames({
-    'usa-input-error-label': hasErrors && !isDateField,
+    'usa-label--error': hasErrors && !isDateField,
     'schemaform-label': true
   });
 
   const inputWrapperClassNames = classNames('schemaform-widget-wrapper', {
-    'usa-input-error form-error-date': isDateField && hasErrors
+    'usa-input--error form-error-date': isDateField && hasErrors
   });
 
   const noWrapperContent = !showFieldLabel &&

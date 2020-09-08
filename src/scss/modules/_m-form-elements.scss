@@ -1,9 +1,5 @@
-button.form-button-green {
-  background: color($theme-color-usfs-green);
-}
-
-button.form-button-disabled {
-  pointer-events: none;
+.usa-button.usfs-button--green {
+  background-color: color($theme-color-usfs-green);
 }
 
 .form-alert-body {
@@ -118,7 +114,7 @@ button.form-button-disabled {
 
 // Overriding the accordion button styles that are too broad
 .form-review-panel {
-  button:not(.usa-button-unstyled) {
+  button:not(.usa-button--unstyled) {
     background-image: none;
     background-color: color($theme-color-primary);
     padding: 1rem 2rem;
