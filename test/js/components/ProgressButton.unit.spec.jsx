@@ -12,7 +12,7 @@ chai.use(chaiAsPromised);
 describe('<ProgressButton>', () => {
   it('should render with button text', () => {
     const tree = shallow(<ProgressButton
-      buttonText="Button text" buttonClass="usa-button-primary"
+      buttonText="Button text" buttonClass="usa-button--primary"
       disabled={false}/>);
     expect(tree.text()).to.equal('Button text');
     expect(tree).to.have.length.of(1);
@@ -24,7 +24,7 @@ describe('<ProgressButton>', () => {
     const updatePromise = new Promise((resolve, _reject) => {
       progressButton = ReactTestUtils.renderIntoDocument(<ProgressButton
         buttonText="Button text"
-        buttonClass="usa-button-primary"
+        buttonClass="usa-button--primary"
         disabled={false}
         onButtonClick={() => { resolve(true); }}/>);
     });
@@ -37,13 +37,13 @@ describe('<ProgressButton>', () => {
 
   it('should pass aXe check when enabled', () => {
     return axeCheck(<ProgressButton
-      buttonText="Button text" buttonClass="usa-button-primary"
+      buttonText="Button text" buttonClass="usa-button--primary"
       disabled={false}/>);
   });
 
   it('should pass aXe check when disabled', () => {
     return axeCheck(<ProgressButton
-      buttonText="Button text" buttonClass="usa-button-primary"
+      buttonText="Button text" buttonClass="usa-button--primary"
       disabled/>);
   });
 });

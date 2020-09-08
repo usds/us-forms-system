@@ -39,7 +39,7 @@ describe('Schemaform definition currency', () => {
       preventDefault: f => f
     });
 
-    expect(find('.usa-input-error-message').textContent).to.equal(`Error ${currencyUISchema['ui:errorMessages'].type}`);
+    expect(find('.usa-error-message').textContent).to.equal(`Error ${currencyUISchema['ui:errorMessages'].type}`);
   });
   it('should render currency title', () => {
     const form = ReactTestUtils.renderIntoDocument(

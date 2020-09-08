@@ -136,7 +136,7 @@ describe('Schemaform review: SubmitController', () => {
     );
 
     // SubmitButtons .usa-button-primary is the submit button
-    tree.find('.usa-button-primary').simulate('click');
+    tree.find('.usa-button--primary').simulate('click');
 
     expect(submitForm.called).to.be.false;
     expect(setSubmission.calledWith('hasAttemptedSubmit')).to.be.true;
@@ -179,7 +179,7 @@ describe('Schemaform review: SubmitController', () => {
         route={{ formConfig, pageList }}/>
     );
 
-    tree.find('.usa-button-primary').simulate('click');
+    tree.find('.usa-button--primary').simulate('click');
 
     expect(submitForm.called).to.be.false;
     expect(setSubmission.calledWith('hasAttemptedSubmit')).to.be.true;
@@ -203,7 +203,7 @@ describe('Schemaform review: SubmitController', () => {
         route={{ formConfig, pageList }}/>
     );
 
-    tree.find('.usa-button-primary').simulate('click');
+    tree.find('.usa-button--primary').simulate('click');
 
     expect(submitForm.called).to.be.true;
   });
@@ -226,7 +226,7 @@ describe('Schemaform review: SubmitController', () => {
         route={{ formConfig, pageList }}/>
     );
 
-    tree.find('.usa-button-primary').simulate('click');
+    tree.find('.usa-button--primary').simulate('click');
 
     expect(submitForm.called).to.be.true;
   });
@@ -252,7 +252,7 @@ describe('Schemaform review: SubmitController', () => {
         route={{ formConfig, pageList }}/>
     );
 
-    tree.find('.usa-button-primary').simulate('click');
+    tree.find('.usa-button--primary').simulate('click');
 
     expect(tree.find('.presubmit-notice').text()).to.equal('NOTICE');
     expect(submitForm.called).to.be.true;

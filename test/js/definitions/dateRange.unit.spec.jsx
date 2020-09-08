@@ -53,7 +53,7 @@ describe('Schemaform definition dateRange', () => {
       preventDefault: f => f
     });
 
-    expect(find('.usa-input-error-message').textContent).to.equal(`Error ${dateRangeUISchema['ui:errorMessages'].pattern}`);
+    expect(find('.usa-error-message').textContent).to.equal(`Error ${dateRangeUISchema['ui:errorMessages'].pattern}`);
   });
   it('should allow a single-date range', () => {
     const dateRangeUISchema = dateRangeConfig.uiSchema();
@@ -73,7 +73,7 @@ describe('Schemaform definition dateRange', () => {
       preventDefault: f => f
     });
 
-    expect(find('.usa-input-error-message')).to.be.null;
+    expect(find('.usa-error-message')).to.be.null;
   });
   it('should render dateRange title and messages', () => {
     const form = ReactTestUtils.renderIntoDocument(

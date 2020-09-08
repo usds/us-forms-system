@@ -18,7 +18,7 @@ describe('Schemaform definition year', () => {
     const formDOM = findDOMNode(form);
     expect(formDOM.querySelector('input').type).to.equal('number');
     expect(formDOM.querySelector('label').textContent).to.equal('Year of Birth');
-    expect(formDOM.querySelector('.usa-input-error-message')).to.equal(null);
+    expect(formDOM.querySelector('.usa-error-message')).to.equal(null);
   });
   it('should give errors on invalid years', () => {
     const form = ReactTestUtils.renderIntoDocument(
@@ -28,7 +28,7 @@ describe('Schemaform definition year', () => {
     );
 
     const formDOM = findDOMNode(form);
-    const errorMsg = () => formDOM.querySelector('.usa-input-error-message');
+    const errorMsg = () => formDOM.querySelector('.usa-error-message');
     const setYear = y => {
       ReactTestUtils.Simulate.change(formDOM.querySelector('input'), { target: { value: y } });
       ReactTestUtils.findRenderedComponentWithType(form, Form).onSubmit({
