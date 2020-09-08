@@ -1,9 +1,5 @@
-button.form-button-green {
-  background: $color-green;
-}
-
-button.form-button-disabled {
-  pointer-events: none;
+.usa-button.usfs-button--green {
+  background-color: color($theme-color-usfs-green);
 }
 
 .form-alert-body {
@@ -18,7 +14,7 @@ button.form-button-disabled {
   margin-top: 0;
 }
 
-@include media($medium-large-screen) {
+@include at-media("tablet") {
   .form-select-medium {
     max-width: 12rem;
   }
@@ -29,7 +25,7 @@ button.form-button-disabled {
 }
 
 .form-expanding-group-active-radio.form-expanding-group-inner-enter,
-  .form-expanding-group-active-radio.form-expanding-group-inner-leave-active {
+.form-expanding-group-active-radio.form-expanding-group-inner-leave-active {
   margin-top: -16px;
 }
 
@@ -79,7 +75,7 @@ button.form-button-disabled {
 
 .form-expanding-group-open {
   padding-left: calc(2rem - 7px);
-  border-left: 7px solid $color-primary-alt-light;
+  border-left: 7px solid color($theme-color-usfs-accent-cool-light);
 
   // Avoid nested expanding group borders
   .form-expanding-group-open {
@@ -118,55 +114,65 @@ button.form-button-disabled {
 
 // Overriding the accordion button styles that are too broad
 .form-review-panel {
-  button:not(.usa-button-unstyled) {
+  button:not(.usa-button--unstyled) {
     background-image: none;
-    background-color: $color-primary;
+    background-color: color($theme-color-primary);
     padding: 1rem 2rem;
-    color: $color-white;
+    color: color($theme-color-usfs-white);
     width: auto;
+
     &:hover {
-      color: $color-white;
-      background-color: $color-primary-darker;
+      color: color($theme-color-usfs-white);
+      background-color: color($theme-color-primary-dark);
     }
+
     &:active {
-      background-color: $color-primary-darkest;
+      background-color: color($theme-color-primary-darker);
     }
+
     &:focus {
       outline: initial;
     }
   }
+
   button.usa-button-secondary {
-    color: $color-primary;
-    background-color: $color-white;
+    color: color($theme-color-primary);
+    background-color: color($theme-color-usfs-white);
+
     &:hover {
-      background-color: $color-white;
-      color: $color-primary-darker;
+      color: color($theme-color-primary-dark);
+      background-color: color($theme-color-usfs-white);
     }
     &:active {
-      background-color: $color-white;
-      color: $color-primary-darkest;
+      color: color($theme-color-primary-darker);
+      background-color: color($theme-color-usfs-white);
     }
   }
+
   .edit-btn {
-    background-color: $color-primary;
-    color: $color-white;
+    color: color($theme-color-usfs-white);
+    background-color: color($theme-color-primary);
+
     &:hover {
-      background-color: $color-primary-darker;
-      color: $color-white;
+      color: color($theme-color-usfs-white);
+      background-color: color($theme-color-primary-darker);
     }
   }
+
   .edit-btn {
     &.primary-outline {
       background-color: transparent;
-      border: 2px solid $color-primary;
-      color: $color-primary;
+      border: 2px solid color($theme-color-primary);
+      color: color($theme-color-primary);
+
       &:hover {
         background-color: transparent;
-        border: 2px solid $color-primary-darker;
-        color: $color-primary-darker;
+        border: 2px solid color($theme-color-primary-dark);
+        color: color($theme-color-primary-dark);
       }
     }
   }
+
   .accordion-header > button {
     min-height: 7rem;
     padding: 2.5rem 6.5rem 2.5rem 3rem;
@@ -174,22 +180,28 @@ button.form-button-disabled {
     line-height: 1.5;
     font-weight: bold;
   }
+
   .section-label {
     padding-bottom: 1rem;
   }
+
   legend.hide-for-small-only {
     display: none !important;
   }
+
   table.review {
     margin: 1em 0;
+
     td {
       padding-left: 0;
       padding-right: 0;
     }
+
     td:first-child {
       padding-right: 1em;
     }
   }
+
   .usa-accordion-content {
     padding: 1em;
   }

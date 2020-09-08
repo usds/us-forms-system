@@ -16,7 +16,7 @@ export default function SubmitButtons(props) {
       <ProgressButton
         onButtonClick={onSubmit}
         buttonText="Submit Application"
-        buttonClass="usa-button-primary"/>
+        buttonClass="usa-button usa-button--primary"/>
     );
   } else if (submission.status === 'submitPending') {
     submitButton = (
@@ -24,7 +24,7 @@ export default function SubmitButtons(props) {
         onButtonClick={onSubmit}
         buttonText="Sending..."
         disabled
-        buttonClass="usa-button-disabled"/>
+        buttonClass="usa-button"/>
     );
   } else if (submission.status === 'applicationSubmitted') {
     submitButton = (
@@ -32,7 +32,7 @@ export default function SubmitButtons(props) {
         onButtonClick={onSubmit}
         buttonText="Submitted"
         disabled
-        buttonClass="form-button-green"
+        buttonClass="usa-button usa-button--base usfs-button--green"
         beforeText="&#10003;"/>
     );
   } else if (submission.status === 'clientError') {
@@ -40,13 +40,15 @@ export default function SubmitButtons(props) {
       <ProgressButton
         onButtonClick={onSubmit}
         buttonText="Submit Application"
-        buttonClass="usa-button-primary"/>
+        buttonClass="usa-button usa-button--primary"/>
     );
     submitMessage = (
-      <div className="usa-alert usa-alert-error schemaform-failure-alert">
-        <div className="usa-alert-body">
-          <p className="schemaform-warning-header"><strong>We’re sorry, there was an error connecting to the server.</strong></p>
-          <p>Please check your Internet connection and try again.</p>
+      <div className="usa-alert usa-alert--error schemaform-failure-alert">
+        <div className="usa-alert__body">
+          <h3 className="usa-alert__heading">
+            We’re sorry, there was an error connecting to the server.
+          </h3>
+          <p className="usa-alert__text">Please check your Internet connection and try again.</p>
         </div>
       </div>
     );
@@ -55,13 +57,13 @@ export default function SubmitButtons(props) {
       <ProgressButton
         onButtonClick={onSubmit}
         buttonText="Submit Application"
-        buttonClass="usa-button-primary"/>
+        buttonClass="usa-button usa-button--primary"/>
     );
     submitMessage = (
-      <div className="usa-alert usa-alert-error schemaform-failure-alert">
-        <div className="usa-alert-body">
-          <p className="schemaform-warning-header"><strong>We’ve run into a problem</strong></p>
-          <p>We’re sorry. Your submission didn’t go through because we received too many requests from you. Please wait {timeFromNow(new Date(submission.extra * 1000))} and submit your request again.</p>
+      <div className="usa-alert usa-alert--error schemaform-failure-alert">
+        <div className="usa-alert__body">
+          <h3 className="usa-alert__heading">We’ve run into a problem</h3>
+          <p className="usa-alert__text">We’re sorry. Your submission didn’t go through because we received too many requests from you. Please wait {timeFromNow(new Date(submission.extra * 1000))} and submit your request again.</p>
         </div>
       </div>
     );
@@ -70,13 +72,15 @@ export default function SubmitButtons(props) {
       <ProgressButton
         onButtonClick={onSubmit}
         buttonText="Submit Application"
-        buttonClass="usa-button-primary"/>
+        buttonClass="usa-button usa-button--primary"/>
     );
     submitMessage = (
-      <div className="usa-alert usa-alert-error schemaform-failure-alert">
-        <div className="usa-alert-body">
-          <p className="schemaform-warning-header"><strong>We’re sorry. Some information in your application is missing or not valid.</strong></p>
-          <p>Please check each section of your application to make sure you’ve filled out all the information that is required.</p>
+      <div className="usa-alert usa-alert--error schemaform-failure-alert">
+        <div className="usa-alert__body">
+          <h3 className="usa-alert__heading">
+            We’re sorry. Some information in your application is missing or not valid.
+          </h3>
+          <p className="usa-alert__text">Please check each section of your application to make sure you’ve filled out all the information that is required.</p>
         </div>
       </div>
     );
@@ -85,10 +89,12 @@ export default function SubmitButtons(props) {
       submitMessage = renderErrorMessage();
     } else {
       submitMessage = (
-        <div className="usa-alert usa-alert-error schemaform-failure-alert">
-          <div className="usa-alert-body">
-            <p className="schemaform-warning-header"><strong>We’re sorry, the application didn’t go through.</strong></p>
-            <p>You’ll have to start over. We suggest you wait 1 day while we fix this problem.</p>
+        <div className="usa-alert usa-alert--error schemaform-failure-alert">
+          <div className="usa-alert__body">
+            <h3 className="usa-alert__heading">
+              We’re sorry, the application didn’t go through.
+            </h3>
+            <p className="usa-alert__text">You’ll have to start over. We suggest you wait 1 day while we fix this problem.</p>
           </div>
         </div>
       );
@@ -96,15 +102,15 @@ export default function SubmitButtons(props) {
 
     return (
       <div>
-        <div className="row">
-          <div className="small-12 medium-12 columns">
+        <div className="grid-row">
+          <div className="grid-col-fill">
             {submitMessage}
           </div>
         </div>
-        <div className="row form-progress-buttons schemaform-back-buttons">
-          <div className="small-6 usa-width-one-half medium-6 columns">
+        <div className="grid-row form-progress-buttons schemaform-back-buttons">
+          <div className="grid-col-6">
             <a href="/">
-              <button className="usa-button-primary">Go back to the home page</button>
+              <button className="usa-button usa-button--primary">Go back to the home page</button>
             </a>
           </div>
           {submitButton}
@@ -114,23 +120,23 @@ export default function SubmitButtons(props) {
   }
   return (
     <div>
-      <div className="row form-progress-buttons">
-        <div className="small-6 medium-5 columns">
+      <div className="grid-row grid-gap form-progress-buttons">
+        <div className="grid-col-6">
           <ProgressButton
             onButtonClick={onBack}
             buttonText="Back"
-            buttonClass="usa-button-secondary"
+            buttonClass="usa-button usa-button--secondary"
             beforeText="«"/>
         </div>
-        <div className="small-6 medium-5 columns">
+        <div className="grid-col-5">
           {submitButton}
         </div>
-        <div className="small-1 medium-1 end columns">
+        <div className="grid-col-1">
           <div className="hidden">&nbsp;</div>
         </div>
       </div>
-      <div className="row">
-        <div className="columns">
+      <div className="grid-row grid-gap">
+        <div className="grid-col-auto">
           {submitMessage}
         </div>
       </div>

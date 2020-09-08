@@ -78,33 +78,36 @@ export default class DateWidget extends React.Component {
       daysForSelectedMonth = days[month];
     }
     return (
-      <div className="usa-date-of-birth row">
-        <div className="form-datefield-month">
-          <label className="input-date-label" htmlFor={`${id}Month`}>Month</label>
+      <div className="usa-memorable-date">
+        <div className="usa-form-group usa-form-group--month">
+          <label className="usa-label" htmlFor={`${id}Month`}>Month</label>
           <select
             name={`${id}Month`}
             id={`${id}Month`}
             value={month}
+            className="usa-select"
             onChange={(event) => this.handleChange('month', event.target.value)}>
             <option value=""/>
             {months.map(mnth => <option key={mnth.value} value={mnth.value}>{mnth.label}</option>)}
           </select>
         </div>
-        {!monthYear && <div className="form-datefield-day">
-          <label className="input-date-label" htmlFor={`${id}Day`}>Day</label>
+        {!monthYear && <div className="usa-form-group usa-form-group--day">
+          <label className="usa-label" htmlFor={`${id}Day`}>Day</label>
           <select
             name={`${id}Day`}
             id={`${id}Day`}
             value={day}
+            className="usa-select"
             onChange={(event) => this.handleChange('day', event.target.value)}>
             <option value=""/>
             {daysForSelectedMonth && daysForSelectedMonth.map(dayOpt => <option key={dayOpt} value={dayOpt}>{dayOpt}</option>)}
           </select>
         </div>}
-        <div className="usa-datefield usa-form-group usa-form-group-year">
-          <label className="input-date-label" htmlFor={`${id}Year`}>Year</label>
+        <div className="usa-form-group usa-form-group--year">
+          <label className="usa-label" htmlFor={`${id}Year`}>Year</label>
           <input type="number"
             autoComplete={options.autocomplete}
+            className="usa-input usa-input--inline"
             name={`${id}Year`}
             id={`${id}Year`}
             max="3000"

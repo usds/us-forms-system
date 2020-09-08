@@ -1,38 +1,43 @@
-@import "node_modules/uswds/src/stylesheets/lib/bourbon";
-@import "node_modules/uswds/src/stylesheets/lib/neat";
-@import "node_modules/uswds/src/stylesheets/lib/normalize"; // Currently 3.0.3
+// @import "node_modules/uswds/src/stylesheets/lib/normalize"; // Currently 3.0.3
 
 @import "node_modules/foundation-sites/scss/foundation/components/grid";
 @import "node_modules/foundation-sites/scss/foundation/components/block-grid";
 @import "node_modules/foundation-sites/scss/foundation/components/visibility";
 
-@import "node_modules/uswds/src/stylesheets/core/variables";
+@import "uswds-theme-general";
+@import "uswds-theme-typography";
+@import "uswds-theme-spacing";
+@import "uswds-theme-color";
+@import "uswds-theme-utilities";
 
-// A VA partial. Here so that we can override the
-// USWDS breakpoint and grid variables from above before
-// the grid, alerts, etc are loaded.
-@import "base/b-variables";
-@import "base/b-breakpoints";
+// Individual include
+@import "node_modules/uswds/src/stylesheets/packages/required";
+@import "node_modules/uswds/src/stylesheets/packages/global";
+@import "node_modules/uswds/src/stylesheets/base/accessibility";
 
-@import "node_modules/uswds/src/stylesheets/core/fonts";
-@import "node_modules/uswds/src/stylesheets/core/grid";
-@import "node_modules/uswds/src/stylesheets/core/utilities";
-@import "node_modules/uswds/src/stylesheets/core/base";
+// Individual components from uswds
+@import "node_modules/uswds/src/stylesheets/packages/form-controls";
+@import "node_modules/uswds/src/stylesheets/packages/form-templates";
+@import "node_modules/uswds/src/stylesheets/packages/layout-grid";
+@import "node_modules/uswds/src/stylesheets/packages/typography";
+@import "node_modules/uswds/src/stylesheets/packages/usa-accordion";
+@import "node_modules/uswds/src/stylesheets/packages/usa-alert";
+@import "node_modules/uswds/src/stylesheets/packages/usa-banner";
+@import "node_modules/uswds/src/stylesheets/packages/usa-breadcrumb";
+@import "node_modules/uswds/src/stylesheets/packages/usa-button";
+@import "node_modules/uswds/src/stylesheets/packages/usa-checklist";
+@import "node_modules/uswds/src/stylesheets/packages/usa-footer";
+@import "node_modules/uswds/src/stylesheets/packages/usa-header";
+@import "node_modules/uswds/src/stylesheets/packages/usa-nav-container";
+@import "node_modules/uswds/src/stylesheets/packages/usa-nav";
+@import "node_modules/uswds/src/stylesheets/packages/usa-navbar";
+@import "node_modules/uswds/src/stylesheets/packages/usa-sidenav";
+@import "node_modules/uswds/src/stylesheets/packages/usa-skipnav";
 
-// ---- U.S. WEB DESIGN STANDARDS ELEMENTS/COMPONENTS --- //
-@import "node_modules/uswds/src/stylesheets/elements/buttons";
-@import "node_modules/uswds/src/stylesheets/elements/inputs";
-@import "node_modules/uswds/src/stylesheets/elements/labels";
-@import "node_modules/uswds/src/stylesheets/elements/table";
-@import "node_modules/uswds/src/stylesheets/elements/typography";
-@import "node_modules/uswds/src/stylesheets/components/accordions";
-@import "node_modules/uswds/src/stylesheets/components/alerts";
-@import "node_modules/uswds/src/stylesheets/components/banner";
-@import "node_modules/uswds/src/stylesheets/components/footer";
-@import "node_modules/uswds/src/stylesheets/components/forms";
-@import "node_modules/uswds/src/stylesheets/components/header";
-@import "node_modules/uswds/src/stylesheets/components/navigation";
-@import "node_modules/uswds/src/stylesheets/components/sidenav";
+@import "node_modules/uswds/src/stylesheets/packages/uswds-utilities";
+
+// Import theme custom styles
+@import "uswds-theme-custom-styles";
 
 @import "modules/m-form-layout";
 @import "modules/m-form-confirmation";

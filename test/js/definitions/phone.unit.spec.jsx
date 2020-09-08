@@ -53,6 +53,6 @@ describe('Schemaform definition phone', () => {
       preventDefault: f => f
     });
 
-    expect(formDOM.querySelector('.usa-input-error-message')).to.not.be.null;
+    expect(formDOM.querySelector('.usa-error-message')).to.not.be.null;
   });
 });

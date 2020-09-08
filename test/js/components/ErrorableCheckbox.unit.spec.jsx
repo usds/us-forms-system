@@ -39,15 +39,15 @@ describe('<ErrorableCheckbox/>', () => {
     );
 
     // No error classes.
-    expect(tree.children('.usa-input-error')).to.have.lengthOf(0);
-    expect(tree.children('.usa-input-error-label')).to.have.lengthOf(0);
-    expect(tree.children('.usa-input-error-message')).to.have.lengthOf(0);
+    expect(tree.children('.usa-input--error')).to.have.lengthOf(0);
+    expect(tree.children('.usa-label--error')).to.have.lengthOf(0);
+    expect(tree.children('.usa-error-message')).to.have.lengthOf(0);
 
     // Ensure no unnecessary class names on label w/o error..
     const labels = tree.children('label');
     expect(labels).to.have.lengthOf(1);
     expect(labels.prop('className')).to.be.equal(
-      undefined,
+      'usa-checkbox__label',
       'Unnecessary class names on label without error'
     );
 
@@ -69,12 +69,12 @@ describe('<ErrorableCheckbox/>', () => {
     );
 
     // Ensure all error classes set.
-    expect(tree.find('.usa-input-error')).to.have.lengthOf(1);
+    expect(tree.find('.usa-input--error')).to.have.lengthOf(1);
 
-    const labels = tree.find('.usa-input-error-label');
+    const labels = tree.find('.usa-label--error');
     expect(labels).to.have.lengthOf(1);
 
-    const errorMessages = tree.find('.usa-input-error-message');
+    const errorMessages = tree.find('.usa-error-message');
     expect(errorMessages).to.have.lengthOf(1);
     expect(errorMessages.text()).to.equal('Error error message');
 

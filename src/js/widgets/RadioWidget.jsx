@@ -23,15 +23,16 @@ export default function RadioWidget({
       enumOptions.map((option, i) => {
         const checked = option.value === value;
         const radioButton = (
-          <div className="form-radio-buttons" key={option.value}>
+          <div className="usa-radio" key={option.value}>
             <input type="radio"
               checked={checked}
+              className="usa-radio__input"
               id={`${id}_${i}`}
               name={`${id}`}
               value={option.value}
               disabled={disabled}
               onChange={_ => onChange(option.value)}/>
-            <label htmlFor={`${id}_${i}`}>
+            <label className="usa-radio__label" htmlFor={`${id}_${i}`}>
               {labels[option.value] || option.label}
             </label>
           </div>

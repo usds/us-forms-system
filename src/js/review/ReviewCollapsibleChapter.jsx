@@ -91,7 +91,7 @@ export default class ReviewCollapsibleChapter extends React.Component {
 
     if (this.props.open) {
       pageContent = (
-        <div className="usa-accordion-content schemaform-chapter-accordion-content" aria-hidden="false">
+        <div>
           {ChapterDescription &&
             <ChapterDescription
               viewedPages={viewedPages}
@@ -156,7 +156,7 @@ export default class ReviewCollapsibleChapter extends React.Component {
                     {!editing ? <div/> : <ProgressButton
                       submitButton
                       buttonText="Update Page"
-                      buttonClass="usa-button-primary"/>}
+                      buttonClass="usa-button usa-button--primary"/>}
                   </SchemaForm>}
                 {arrayFields.map(arrayField => (
                   <div key={arrayField.path} className="form-review-array">
@@ -181,30 +181,26 @@ export default class ReviewCollapsibleChapter extends React.Component {
       );
     }
 
-    const classes = classNames('usa-accordion-bordered', 'form-review-panel', {
+    const classes = classNames('usa-accordion usa-accordion--bordered', 'form-review-panel', {
       'schemaform-review-chapter-warning': showUnviewedPageWarning
     });
 
     return (
       <div id={`${this.id}-collapsiblePanel`} className={classes}>
         <Element name={`chapter${this.props.chapterKey}ScrollElement`}/>
-        <ul className="usa-unstyled-list">
-          <li>
-            <div className="accordion-header clearfix schemaform-chapter-accordion-header">
-              <button
-                className="usa-button-unstyled"
-                aria-expanded={this.props.open ? 'true' : 'false'}
-                aria-controls={`collapsible-${this.id}`}
-                onClick={this.props.toggleButtonClicked}>
-                {chapterTitle}
-              </button>
-              {showUnviewedPageWarning && <span className="schemaform-review-chapter-warning-icon"/>}
-            </div>
-            <div id={`collapsible-${this.id}`}>
-              {pageContent}
-            </div>
-          </li>
-        </ul>
+        <div className="usa-accordion__heading clearfix schemaform-chapter-accordion-header">
+          <button
+            className="usa-accordion__button"
+            aria-expanded={this.props.open ? 'true' : 'false'}
+            aria-controls={`collapsible-${this.id}`}
+            onClick={this.props.toggleButtonClicked}>
+            {chapterTitle}
+          </button>
+          {showUnviewedPageWarning && <span className="schemaform-review-chapter-warning-icon"/>}
+        </div>
+        <div id={`collapsible-${this.id}`} className="usa-accordion__content schemaform-chapter-accordion-content" aria-hidden="false">
+          {pageContent}
+        </div>
       </div>
     );
   }

@@ -29,7 +29,7 @@ describe('Schemaform <FieldTemplate>', () => {
 
     expect(tree.subTree('label').text()).to.equal('Title');
     expect(tree.everySubTree('.field-child')).not.to.be.empty;
-    expect(tree.everySubTree('.usa-input-error-message')).to.be.empty;
+    expect(tree.everySubTree('.usa-error-message')).to.be.empty;
   });
   it('should render object', () => {
     const schema = {
@@ -100,8 +100,8 @@ describe('Schemaform <FieldTemplate>', () => {
       </FieldTemplate>
     );
 
-    expect(tree.subTree('.usa-input-error-message').text()).to.equal('Error Some error');
-    expect(tree.everySubTree('.usa-input-error')).not.to.be.empty;
+    expect(tree.subTree('.usa-error-message').text()).to.equal('Error Some error');
+    expect(tree.everySubTree('.usa-input--error')).not.to.be.empty;
   });
   it('should render error when submitted', () => {
     const schema = {
@@ -126,8 +126,8 @@ describe('Schemaform <FieldTemplate>', () => {
       </FieldTemplate>
     );
 
-    expect(tree.subTree('.usa-input-error-message').text()).to.equal('Error Some error');
-    expect(tree.everySubTree('.usa-input-error')).not.to.be.empty;
+    expect(tree.subTree('.usa-error-message').text()).to.equal('Error Some error');
+    expect(tree.everySubTree('.usa-input--error')).not.to.be.empty;
   });
   it('should render description', () => {
     const schema = {

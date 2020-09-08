@@ -17,7 +17,7 @@ describe('Schemaform definition ssn', () => {
     const formDOM = findDOMNode(form);
     const node = ReactTestUtils.scryRenderedDOMComponentsWithTag(form, 'input')[0];
 
-    expect(Array.from(formDOM.querySelectorAll('.usa-input-error-message'))).to.be.empty;
+    expect(Array.from(formDOM.querySelectorAll('.usa-error-message'))).to.be.empty;
 
     ReactTestUtils.Simulate.change(node, {
       target: {
@@ -26,7 +26,7 @@ describe('Schemaform definition ssn', () => {
     });
     ReactTestUtils.Simulate.blur(node);
 
-    expect(formDOM.querySelector('.usa-input-error-message').textContent)
+    expect(formDOM.querySelector('.usa-error-message').textContent)
       .to.equal(`Error ${ssnConfig.uiSchema()['ui:errorMessages'].pattern}`);
   });
   it('should render formatted ssn for review', () => {

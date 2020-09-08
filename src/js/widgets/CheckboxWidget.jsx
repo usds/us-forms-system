@@ -12,18 +12,19 @@ export default function CheckboxWidget({
   options
 }) {
   const requiredSpan = required ? <span className="form-required-span">*</span> : null;
-  const widgetClasses = classNames('form-checkbox', options.widgetClassNames);
+  const widgetClasses = classNames('usa-checkbox', options.widgetClassNames);
   return (
     <div className={widgetClasses}>
       <input
         type="checkbox"
+        className="usa-checkbox__input"
         id={id}
         name={id}
         checked={typeof value === 'undefined' ? false : value}
         required={required}
         disabled={disabled}
         onChange={(event) => onChange(event.target.checked)}/>
-      <label className="schemaform-label" htmlFor={id}>
+      <label className="usa-checkbox__label schemaform-label" htmlFor={id}>
         {options.title || label}{requiredSpan}
       </label>
     </div>

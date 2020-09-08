@@ -73,7 +73,7 @@ rules:
     - 2
     -
       exclude:
-        - media
+        - at-media
   nesting-depth: # TODO - Change this back to 1 later.
     - 0
     - max-depth: 3
