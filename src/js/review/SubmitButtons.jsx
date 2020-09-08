@@ -72,7 +72,7 @@ export default function SubmitButtons(props) {
       <ProgressButton
         onButtonClick={onSubmit}
         buttonText="Submit Application"
-        buttonClass="usa-button-primary"/>
+        buttonClass="usa-button usa-button--primary"/>
     );
     submitMessage = (
       <div className="usa-alert usa-alert--error schemaform-failure-alert">

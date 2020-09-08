@@ -156,7 +156,7 @@ export default class ReviewCollapsibleChapter extends React.Component {
                     {!editing ? <div/> : <ProgressButton
                       submitButton
                       buttonText="Update Page"
-                      buttonClass="usa-button-primary"/>}
+                      buttonClass="usa-button usa-button--primary"/>}
                   </SchemaForm>}
                 {arrayFields.map(arrayField => (
                   <div key={arrayField.path} className="form-review-array">

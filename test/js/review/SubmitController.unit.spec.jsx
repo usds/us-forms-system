@@ -135,7 +135,7 @@ describe('Schemaform review: SubmitController', () => {
         pagesByChapter={pagesByChapter}/>
     );
 
-    // SubmitButtons .usa-button-primary is the submit button
+    // SubmitButtons .usa-button--primary is the submit button
     tree.find('.usa-button--primary').simulate('click');
 
     expect(submitForm.called).to.be.false;
