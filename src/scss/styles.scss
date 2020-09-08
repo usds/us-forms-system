@@ -4,11 +4,11 @@
 @import "node_modules/foundation-sites/scss/foundation/components/block-grid";
 @import "node_modules/foundation-sites/scss/foundation/components/visibility";
 
-@import "_uswds-theme-general";
-@import "_uswds-theme-typography";
-@import "_uswds-theme-spacing";
-@import "_uswds-theme-color";
-@import "_uswds-theme-utilities";
+@import "uswds-theme-general";
+@import "uswds-theme-typography";
+@import "uswds-theme-spacing";
+@import "uswds-theme-color";
+@import "uswds-theme-utilities";
 
 // Individual include
 @import "node_modules/uswds/src/stylesheets/packages/required";
@@ -37,7 +37,7 @@
 @import "node_modules/uswds/src/stylesheets/packages/uswds-utilities";
 
 // Import theme custom styles
-@import "_uswds-theme-custom-styles";
+@import "uswds-theme-custom-styles";
 
 @import "modules/m-form-layout";
 @import "modules/m-form-confirmation";

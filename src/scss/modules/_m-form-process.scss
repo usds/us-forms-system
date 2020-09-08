@@ -17,7 +17,7 @@
         background: color($theme-color-usfs-green);
         content: "\2713\fe0e";
 
-        @include at-media('mobile') {
+        @include at-media("mobile") {
           content: "\2714\fe0e";
         }
       }
@@ -130,7 +130,7 @@
     flex-direction: column;
     align-items: flex-start;
 
-    @include at-media('mobile') {
+    @include at-media("mobile") {
       flex-direction: inherit;
       align-items: inherit;
     }

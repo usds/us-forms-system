@@ -60,12 +60,12 @@ fieldset {
   }
 }
 
-.usfs-nav-breadcrumbs-list, 
-legend, 
-.nav-header > h4, 
-.nav-header, 
-.usa-input-error, 
-.input-error-date, 
+.usfs-nav-breadcrumbs-list,
+legend,
+.nav-header > h4,
+.nav-header,
+.usa-input-error,
+.input-error-date,
 .usa-alert {
   &:focus {
     outline: none;
@@ -97,7 +97,7 @@ dl.review {
       margin-bottom: 0;
     }
 
-    @include at-media('mobile') {
+    @include at-media("mobile") {
       flex-direction: row;
 
       > dd {
@@ -243,7 +243,7 @@ label {
 }
 
 .schemaform-block-title {
-  @include u-font-family('serif')
+  @include u-font-family("serif");
   font-size: 1.8rem;
 }
 
@@ -327,7 +327,7 @@ fieldset.schemaform-field-template {
 .help-footer-box {
   padding: 2em 0;
 
-  @include at-media('tablet') {
+  @include at-media("tablet") {
     padding-top: 0.6em;
   }
 }
@@ -463,7 +463,6 @@ legend.schemaform-label.schemaform-file-label {
 }
 
 .schemaform-review-array-warning-icon {
-  background-image: url("~uswds/dist/img/alerts/warning.png");
   background-image: url("~uswds/dist/img/alerts/warning.svg");
   width: 2em;
   height: 1.4em;
@@ -482,7 +481,6 @@ legend.schemaform-label.schemaform-file-label {
       display: block;
       content: " ";
       order: 2;
-      background-image: url("~uswds/dist/img/alerts/warning.png");
       background-image: url("~uswds/dist/img/alerts/warning.svg");
       width: 2em;
       height: 1.3em;
@@ -519,7 +517,6 @@ legend.schemaform-label.schemaform-file-label {
       top: 2.8rem;
       right: 4rem;
       margin-right: 1em;
-      background-image: url("~uswds/dist/img/alerts/warning.png");
       background-image: url("~uswds/dist/img/alerts/warning.svg");
       background-size: 1.8em;
     }
@@ -631,7 +628,7 @@ legend.schemaform-label.schemaform-file-label {
   overflow: auto;
   z-index: 1;
 
-  @include at-media('mobile') {
+  @include at-media("mobile") {
     font-size: inherit;
   }
 }
@@ -662,11 +659,11 @@ legend.schemaform-label.schemaform-file-label {
 }
 
 .schemaform-confirmation-section-header {
-  @include u-font-size('body', $theme-h3-font-size);
+  @include u-font-size("body", $theme-h3-font-size);
 }
 
 .schemaform-confirmation-claim-header {
-  @include u-font-size('body', $theme-h4-font-size);
+  @include u-font-size("body", $theme-h4-font-size);
   margin-top: 1em;
 }
 
