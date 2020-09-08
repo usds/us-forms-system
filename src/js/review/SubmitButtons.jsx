@@ -120,8 +120,8 @@ export default function SubmitButtons(props) {
   }
   return (
     <div>
-      <div className="grid-row form-progress-buttons">
-        <div className="grid-col-6 tablet:grid-col-5">
+      <div className="grid-row grid-gap form-progress-buttons">
+        <div className="grid-col-6">
           <ProgressButton
             onButtonClick={onBack}
             buttonText="Back"
@@ -135,7 +135,7 @@ export default function SubmitButtons(props) {
           <div className="hidden">&nbsp;</div>
         </div>
       </div>
-      <div className="grid-row">
+      <div className="grid-row grid-gap">
         <div className="grid-col-auto">
           {submitMessage}
         </div>

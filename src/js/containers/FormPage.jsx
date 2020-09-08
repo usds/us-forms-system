@@ -108,6 +108,7 @@ class FormPage extends React.Component {
         <SchemaForm
           name={route.pageConfig.pageKey}
           title={route.pageConfig.title}
+          className="usa-form"
           data={data}
           schema={schema}
           uiSchema={uiSchema}
@@ -116,16 +117,16 @@ class FormPage extends React.Component {
           uploadFile={this.props.uploadFile}
           onChange={this.onChange}
           onSubmit={this.onSubmit}>
-          <div className="grid-row form-progress-buttons schemaform-buttons">
-            <div className="grid-col-6 tablet:grid-col-5">
+          <div className="grid-row grid-gap form-progress-buttons schemaform-buttons">
+            <div className="grid-col-6">
               { !isFirstRoutePage &&
                 <ProgressButton
                   onButtonClick={this.goBack}
                   buttonText="Back"
-                  buttonClass="usa-button usa-button--secondary"
+                  buttonClass="usa-button usa-button--outline"
                   beforeText="«"/> }
             </div>
-            <div className="grid-col-6 tablet:grid-col-5">
+            <div className="grid-col-6">
               <ProgressButton
                 submitButton
                 buttonText="Continue"

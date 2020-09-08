@@ -61,16 +61,18 @@ class FormApp extends React.Component {
 
     return (
       <div>
-        <div className="grid-row">
-          <div className="grid-col-8">
-            <Element name="topScrollElement"/>
-            {formTitle}
-            {formNav}
-            {renderedChildren}
+        <div className="grid-container">
+          <div className="grid-row grid-gap">
+            <div className="grid-col-8">
+              <Element name="topScrollElement"/>
+              {formTitle}
+              {formNav}
+              {renderedChildren}
+            </div>
           </div>
+          {footer}
+          <span className="js-test-location hidden" data-location={trimmedPathname} hidden></span>
         </div>
-        {footer}
-        <span className="js-test-location hidden" data-location={trimmedPathname} hidden></span>
       </div>
     );
   }
