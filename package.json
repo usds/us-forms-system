@@ -72,7 +72,7 @@
     "lodash-deep": "^2.0.0",
     "markdown-link-check": "^3.7.2",
     "mocha": "^5.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "null-loader": "^0.1.1",
     "postcss-cli": "^5.0.1",
     "react": "^15.6.2",
