@@ -66,7 +66,7 @@
     "eslint-stats": "^1.0.1",
     "foundation-sites": "^5.5.3",
     "isomorphic-fetch": "http://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz",
-    "jsdom": "^13.2.0",
+    "jsdom": "^16.5.0",
     "jsonschema": "^1.1.1",
     "lodash": "^4.17.15",
     "lodash-deep": "^2.0.0",
